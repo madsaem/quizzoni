@@ -1,0 +1,154 @@
+{
+  "title": "Infections et inflammation",
+  "short": "Infections",
+  "subtitle": "Inflammation, micro-organismes, sepsis",
+  "ue": "UE 2.5",
+  "badge": "S3",
+  "shelf": "S3",
+  "color": "c5",
+  "description": "De la réaction inflammatoire au sepsis : reconnaître, prélever, surveiller.",
+  "tags": [
+    "inflammation",
+    "infection",
+    "CRP",
+    "sepsis",
+    "hémoculture",
+    "vaccin",
+    "antibiotique"
+  ],
+  "questions": [
+    {
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels sont les signes cardinaux de l'inflammation ?",
+      "options": [
+        "Rougeur",
+        "Chaleur",
+        "Douleur",
+        "Œdème (tuméfaction)",
+        "Cyanose"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Rougeur, chaleur, douleur et tuméfaction (les 4 signes de Celse), auxquels on ajoute souvent l'impotence fonctionnelle. Ils s'expliquent par la vasodilatation et l'augmentation de la perméabilité des capillaires."
+    },
+    {
+      "level": 2,
+      "type": "order",
+      "prompt": "Remets dans l'ordre les étapes de la réaction inflammatoire aiguë.",
+      "items": [
+        "Vasodilatation locale",
+        "Augmentation de la perméabilité des capillaires (œdème)",
+        "Passage des leucocytes vers le tissu (diapédèse)",
+        "Phagocytose des agents pathogènes",
+        "Réparation des tissus (cicatrisation)"
+      ],
+      "explain": "Phase vasculaire (vasodilatation, œdème), puis phase cellulaire (diapédèse, phagocytose), puis phase de résolution et de réparation."
+    },
+    {
+      "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque micro-organisme à sa catégorie.",
+      "left": "Micro-organisme",
+      "right": "Catégorie",
+      "pairs": [
+        [
+          "*Staphylococcus aureus*",
+          "Bactérie"
+        ],
+        [
+          "*Candida albicans*",
+          "Champignon (levure)"
+        ],
+        [
+          "Virus de la grippe",
+          "Virus"
+        ],
+        [
+          "*Plasmodium* (paludisme)",
+          "Parasite"
+        ]
+      ],
+      "explain": "Ça compte pour le traitement : les antibiotiques n'agissent que sur les bactéries. Pour les autres, on utilise des antifongiques, des antiviraux ou des antiparasitaires."
+    },
+    {
+      "level": 1,
+      "type": "choice",
+      "prompt": "Les antibiotiques sont efficaces contre :",
+      "options": [
+        "Les bactéries",
+        "Les virus",
+        "Les bactéries et les virus",
+        "Tous les micro-organismes"
+      ],
+      "answer": 0,
+      "explain": "Inutiles contre une infection virale (rhume, grippe), ils favorisent alors l'apparition de bactéries résistantes."
+    },
+    {
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "La CRP est un marqueur d'inflammation non spécifique : elle augmente quelle que soit la cause de l'inflammation.",
+      "answer": true,
+      "explain": "Vrai. La CRP monte en quelques heures (pic vers 48 h). Elle aide à suivre l'évolution d'une infection sous traitement, mais n'en indique pas la cause."
+    },
+    {
+      "level": 2,
+      "type": "choice",
+      "prompt": "Une CRP normale est en général :",
+      "options": [
+        "Inférieure à 5 mg/L",
+        "Inférieure à 50 mg/L",
+        "Entre 50 et 100 mg/L",
+        "Supérieure à 100 mg/L"
+      ],
+      "answer": 0,
+      "shuffle": false,
+      "explain": "Le seuil varie un peu selon les laboratoires (de 5 à 10 mg/L)."
+    },
+    {
+      "level": 1,
+      "type": "slider",
+      "prompt": "À partir de quelle température parle-t-on de fièvre chez l'adulte au repos ?",
+      "min": 36,
+      "max": 41,
+      "step": 0.1,
+      "answer": 38,
+      "tolerance": 0.1,
+      "unit": "°C",
+      "explain": "Fièvre : température centrale à 38 °C ou plus, au repos et à distance d'un effort."
+    },
+    {
+      "level": 2,
+      "type": "text",
+      "prompt": "Dysfonction d'organe menaçant la vie, causée par une réponse inappropriée de l'organisme à une infection : c'est le…",
+      "answers": [
+        "sepsis"
+      ],
+      "explain": "Le sepsis est une urgence : chaque heure de retard d'antibiothérapie aggrave le pronostic. On parle de choc septique quand l'hypotension persiste malgré le remplissage et nécessite des vasopresseurs, avec des lactates au-dessus de 2 mmol/L."
+    },
+    {
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quand prélever des hémocultures ?",
+      "options": [
+        "Avant toute antibiothérapie, idéalement lors d'un pic de fièvre ou de frissons",
+        "Juste après la première dose d'antibiotique",
+        "Uniquement le matin, à jeun",
+        "Seulement si la température dépasse 40 °C"
+      ],
+      "answer": 0,
+      "explain": "Les frissons et le pic fébrile correspondent souvent au passage des bactéries dans le sang. Prélevées après l'antibiotique, les hémocultures risquent d'être faussement négatives. Une asepsie rigoureuse évite de les contaminer."
+    },
+    {
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Un vaccin apporte une immunité active, alors qu'un sérum (immunoglobulines) apporte une immunité passive.",
+      "answer": true,
+      "explain": "Vrai. Le vaccin fait fabriquer ses propres anticorps : protection durable, mais pas immédiate. Le sérum apporte des anticorps tout faits : protection immédiate, mais temporaire."
+    }
+  ]
+}

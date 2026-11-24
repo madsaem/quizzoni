@@ -1,0 +1,1439 @@
+{
+  "title": "Pharmacologie",
+  "short": "Pharmaco S3",
+  "subtitle": "Toutes les familles du semestre 3",
+  "ue": "UE 2.11",
+  "badge": "S3",
+  "shelf": "S3",
+  "color": "c3",
+  "description": "Anticoagulants, antibiotiques, cardio, respiratoire, digestif, anti-inflammatoires, urologie, vaccins : les médicaments du semestre 3, leurs effets indésirables et leur surveillance. Choisis tes catégories et ta difficulté.",
+  "tags": ["médicaments", "antidote", "anticoagulant", "AVK", "héparine", "AOD", "antibiotique", "AINS", "corticoïde", "IEC", "bêtabloquant", "asthme", "BPCO", "IPP", "vaccin", "urologie"],
+  "categories": [
+    { "id": "bases", "title": "Bases et antalgie" },
+    { "id": "anticoag", "title": "Anticoagulants" },
+    { "id": "infectio", "title": "Anti-infectieux" },
+    { "id": "cardio", "title": "Cardiovasculaire" },
+    { "id": "respi", "title": "Asthme et BPCO" },
+    { "id": "digestif", "title": "Digestif" },
+    { "id": "ains", "title": "Anti-inflammatoires" },
+    { "id": "uro", "title": "Urologie" },
+    { "id": "vaccins", "title": "Vaccins" }
+  ],
+  "questions": [
+    {
+      "cat": "bases", "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque médicament à son antidote.",
+      "left": "Médicament",
+      "right": "Antidote",
+      "pairs": [
+        ["AVK", "Vitamine K"],
+        ["Héparine non fractionnée", "Sulfate de protamine"],
+        ["Morphine", "Naloxone"],
+        ["Benzodiazépines", "Flumazénil"],
+        ["Paracétamol (surdosage)", "N-acétylcystéine"]
+      ],
+      "explain": "Ce sont les antidotes que l'on prépare en urgence. La naloxone et le flumazénil agissent vite mais peu longtemps : les signes peuvent réapparaître, il faut continuer à surveiller."
+    },
+    {
+      "cat": "bases", "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque médicament à sa classe.",
+      "left": "Médicament",
+      "right": "Classe",
+      "pairs": [
+        ["Furosémide", "Diurétique de l'anse"],
+        ["Bisoprolol", "Bêtabloquant"],
+        ["Ramipril", "IEC (inhibiteur de l'enzyme de conversion)"],
+        ["Oméprazole", "IPP (inhibiteur de la pompe à protons)"],
+        ["Amoxicilline", "Antibiotique de la famille des pénicillines"]
+      ],
+      "explain": "Les suffixes aident beaucoup : -olol pour les bêtabloquants, -pril pour les IEC, -prazole pour les IPP, -cilline pour les pénicillines."
+    },
+    {
+      "cat": "bases", "level": 2,
+      "type": "choice",
+      "prompt": "Patient sous morphine : que surveilles-tu en priorité ?",
+      "options": ["La fréquence respiratoire", "Le niveau de sédation", "Le transit (constipation)", "La glycémie capillaire"],
+      "answer": [0, 1, 2],
+      "explain": "Le risque grave est la dépression respiratoire, souvent précédée d'une somnolence : on surveille la fréquence respiratoire et la sédation (avec une échelle), ainsi que la douleur, le transit, les nausées et la diurèse (rétention urinaire). Antidote : naloxone."
+    },
+    {
+      "cat": "bases", "level": 1,
+      "type": "choice",
+      "prompt": "Paliers de l'OMS : la morphine appartient au…",
+      "options": ["Palier 1", "Palier 2", "Palier 3", "Ce n'est pas un antalgique"],
+      "answer": 2,
+      "shuffle": false,
+      "explain": "Palier 1 : non opioïdes (paracétamol, AINS). Palier 2 : opioïdes faibles (tramadol, codéine). Palier 3 : opioïdes forts (morphine, oxycodone, fentanyl)."
+    },
+    {
+      "cat": "bases", "level": 2,
+      "type": "order",
+      "prompt": "Classe ces voies d'administration, de l'action la plus rapide à la plus lente (en général).",
+      "items": ["Intraveineuse (IV)", "Intramusculaire (IM)", "Sous-cutanée (SC)", "Per os (voie orale)"],
+      "explain": "L'IV agit immédiatement, sans phase d'absorption. Le muscle, très vascularisé, absorbe plus vite que le tissu sous-cutané. La voie orale est la plus lente (digestion, passage par le foie)."
+    },
+    {
+      "cat": "bases", "level": 1,
+      "type": "choice",
+      "prompt": "Règle des 5 B : quel élément n'en fait **pas** partie ?",
+      "options": ["Le bon prix", "Le bon patient", "La bonne dose", "Le bon moment"],
+      "answer": 0,
+      "explain": "Les 5 B : le bon patient, le bon médicament, la bonne dose, la bonne voie, le bon moment."
+    },
+
+    {
+      "cat": "anticoag", "level": 1,
+      "type": "order",
+      "prompt": "Remets dans l'ordre les 3 temps de l'hémostase.",
+      "items": [
+        "Hémostase primaire : les plaquettes forment un clou",
+        "Coagulation : la fibrine consolide le caillot",
+        "Fibrinolyse : le caillot est dissous"
+      ],
+      "explain": "Chaque famille de médicaments agit sur un temps : antiagrégants sur les plaquettes, anticoagulants sur la coagulation, thrombolytiques sur le caillot déjà formé."
+    },
+    {
+      "cat": "anticoag", "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque famille d'antithrombotiques à sa cible.",
+      "left": "Famille",
+      "right": "Cible",
+      "pairs": [
+        ["Antiagrégants plaquettaires", "Les plaquettes"],
+        ["Anticoagulants", "Les facteurs de la coagulation"],
+        ["Thrombolytiques", "La fibrine du caillot déjà formé"]
+      ],
+      "explain": "Ces trois familles forment les antithrombotiques. Au sens strict, un antiagrégant n'est pas un anticoagulant."
+    },
+    {
+      "cat": "anticoag", "level": 1,
+      "type": "choice",
+      "prompt": "Les antiagrégants plaquettaires servent surtout à prévenir…",
+      "options": [
+        "Les thromboses artérielles (infarctus, AVC, angor)",
+        "Les thromboses veineuses (phlébite)",
+        "Les hémorragies digestives",
+        "Les crises d'asthme"
+      ],
+      "answer": 0,
+      "explain": "Antiagrégants : réseau artériel. Anticoagulants : surtout les veines et le cœur (phlébite, embolie pulmonaire, fibrillation atriale)."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "match",
+      "prompt": "Antiagrégants et héparines : associe la DCI au nom commercial.",
+      "left": "DCI",
+      "right": "Nom commercial",
+      "pairs": [
+        ["Acide acétylsalicylique", "Kardégic"],
+        ["Clopidogrel", "Plavix"],
+        ["Ticagrelor", "Brilique"],
+        ["Énoxaparine", "Lovenox"],
+        ["Fondaparinux", "Arixtra"]
+      ],
+      "explain": "La DCI (dénomination commune internationale) est le vrai nom de la molécule ; c'est elle qui figure sur les prescriptions."
+    },
+    {
+      "cat": "anticoag", "level": 3,
+      "type": "choice",
+      "prompt": "Un patient sous clopidogrel (Plavix) a besoin d'un IPP. Lequel privilégier ?",
+      "options": ["Pantoprazole", "Oméprazole", "Ésoméprazole", "Peu importe, il n'y a pas d'interaction"],
+      "answer": 0,
+      "explain": "L'oméprazole et l'ésoméprazole diminuent l'efficacité du clopidogrel (ils gênent son activation par le foie). On préfère le pantoprazole."
+    },
+    {
+      "cat": "anticoag", "level": 3,
+      "type": "choice",
+      "prompt": "Ticagrelor (Brilique) : quels effets indésirables surveiller ?",
+      "options": ["Saignements", "Dyspnée", "Bradycardie", "Hypertension artérielle"],
+      "answer": [0, 1, 2],
+      "explain": "La dyspnée est un effet indésirable typique du ticagrelor. On surveille aussi la NFS, la créatinine et l'acide urique."
+    },
+    {
+      "cat": "anticoag", "level": 1,
+      "type": "truefalse",
+      "prompt": "Le nom des héparines se termine souvent par « parine ».",
+      "answer": true,
+      "explain": "Vrai : énoxaparine, tinzaparine, Calciparine… Le fondaparinux (Arixtra) est un apparenté aux héparines."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "choice",
+      "prompt": "L'héparine non fractionnée (HNF) agit sur :",
+      "options": [
+        "Les facteurs Xa et IIa",
+        "Surtout le facteur Xa",
+        "Uniquement les plaquettes",
+        "La synthèse des facteurs II, VII, IX et X par le foie"
+      ],
+      "answer": 0,
+      "explain": "Avec sa longue chaîne, l'HNF inhibe (via l'antithrombine) le Xa et le IIa. Les HBPM, à chaîne courte, agissent surtout sur le Xa. Les AVK bloquent la synthèse des facteurs II, VII, IX et X."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "choice",
+      "prompt": "Quel examen surveille l'efficacité d'une héparine non fractionnée ?",
+      "options": ["Le TCA (ou l'activité anti-Xa)", "L'INR", "La CRP", "La glycémie"],
+      "answer": 0,
+      "explain": "L'HNF se surveille par le TCA, ou l'activité anti-Xa selon les services. L'INR, lui, sert pour les AVK. Dans tous les cas : plaquettes et saignements."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "choice",
+      "prompt": "L'héparine sodique s'administre habituellement…",
+      "options": ["En IV continue, au pousse-seringue", "En sous-cutané", "Per os", "En intramusculaire"],
+      "answer": 0,
+      "explain": "La Calciparine (héparine calcique) et les HBPM s'injectent en sous-cutané. Jamais d'intramusculaire chez un patient anticoagulé : risque d'hématome."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "truefalse",
+      "prompt": "Sous HBPM (énoxaparine), il faut surveiller la fonction rénale.",
+      "answer": true,
+      "explain": "Vrai. Les HBPM s'éliminent par le rein : en cas d'insuffisance rénale elles s'accumulent et le risque hémorragique augmente. On surveille aussi les plaquettes, les saignements et, si besoin, l'activité anti-Xa."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "truefalse",
+      "prompt": "Sous héparine, on surveille les plaquettes pour dépister une thrombopénie induite (TIH).",
+      "answer": true,
+      "explain": "Vrai. La TIH est rare mais grave, car elle provoque paradoxalement des thromboses. La surveillance des plaquettes est systématique sous HNF, et réservée à certaines situations sous HBPM (après une chirurgie ou un traumatisme, par exemple)."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "choice",
+      "prompt": "Les AVK diminuent la synthèse des facteurs de coagulation…",
+      "options": ["II, VII, IX et X", "Xa et IIa", "VIII et IX", "Uniquement le facteur Xa"],
+      "answer": 0,
+      "explain": "Ce sont les facteurs dits vitamine K-dépendants, fabriqués par le foie. D'où l'antidote : la vitamine K."
+    },
+    {
+      "cat": "anticoag", "level": 1,
+      "type": "text",
+      "prompt": "Quel examen biologique sert à adapter la dose d'un traitement par AVK ?",
+      "answers": ["INR", "TP-INR", "International Normalized Ratio"],
+      "match": "exact",
+      "explain": "L'INR, calculé à partir du temps de Quick (TP). Au début, contrôle rapproché ; une fois l'équilibre trouvé, environ une fois par mois."
+    },
+    {
+      "cat": "anticoag", "level": 1,
+      "type": "range",
+      "prompt": "INR cible dans la majorité des traitements par AVK",
+      "min": 0.5,
+      "max": 5,
+      "step": 0.1,
+      "answer": [2, 3],
+      "tolerance": 0.2,
+      "explain": "Entre 2 et 3 dans la plupart des cas (plus haut pour certaines valves mécaniques). Au-dessus : risque hémorragique. En dessous : risque de thrombose."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "match",
+      "prompt": "AVK : associe la DCI au nom commercial.",
+      "left": "DCI",
+      "right": "Nom commercial",
+      "pairs": [
+        ["Warfarine", "Coumadine"],
+        ["Acénocoumarol", "Sintrom / Minisintrom"],
+        ["Fluindione", "Préviscan"]
+      ],
+      "explain": "Effets communs : hémorragie et nombreuses interactions médicamenteuses. La fluindione peut aussi donner des atteintes immuno-allergiques (rein, foie)."
+    },
+    {
+      "cat": "anticoag", "level": 3,
+      "type": "choice",
+      "prompt": "Relais Préviscan → Calciparine avant une biopsie : pourquoi ne pas injecter de Calciparine dès le lendemain de l'arrêt du Préviscan ?",
+      "options": [
+        "Le Préviscan agit encore pendant 48 à 72 h",
+        "La Calciparine met 72 h à agir",
+        "Il faut d'abord un bilan hépatique",
+        "La Calciparine est contre-indiquée après un AVK"
+      ],
+      "answer": 0,
+      "explain": "Le patient est encore anticoagulé par le Préviscan. On contrôle l'INR (à J3 dans l'exemple du cours) avant la première injection de Calciparine, qui agit en 1 h environ pendant 8 à 10 h."
+    },
+    {
+      "cat": "anticoag", "level": 3,
+      "type": "choice",
+      "prompt": "Relais Préviscan → Calciparine : à quoi sert l'INR prélevé juste avant la première injection de Calciparine ?",
+      "options": [
+        "Vérifier l'activité restante du Préviscan",
+        "Adapter la dose de Calciparine au poids",
+        "Dépister une thrombopénie",
+        "Vérifier la fonction rénale"
+      ],
+      "answer": 0,
+      "explain": "Selon l'INR, le médecin fixe l'heure et la dose de la 1re injection (dose complète si l'INR est proche de 1). Ensuite, le TCA sert à équilibrer la Calciparine."
+    },
+    {
+      "cat": "anticoag", "level": 1,
+      "type": "truefalse",
+      "prompt": "Apixaban (Eliquis) et rivaroxaban (Xarelto) sont des anti-Xa : le « xa » de leur nom le rappelle.",
+      "answer": true,
+      "explain": "Vrai. Astuce : -xaban = anti-Xa ; -gatran (dabigatran) = anti-IIa, c'est-à-dire antithrombine."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "choice",
+      "prompt": "Sur quel facteur agit le dabigatran (Pradaxa) ?",
+      "options": ["Le facteur IIa (thrombine)", "Le facteur Xa", "Les plaquettes", "Les facteurs II, VII, IX et X"],
+      "answer": 0,
+      "explain": "Le dabigatran est un antithrombine direct (anti-IIa). Apixaban et rivaroxaban sont des anti-Xa."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "truefalse",
+      "prompt": "On peut ouvrir une gélule de dabigatran (Pradaxa) pour faciliter la prise.",
+      "answer": false,
+      "explain": "Faux. La gélule s'avale entière : ouverte, elle augmente fortement l'absorption du produit et donc le risque hémorragique."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "choice",
+      "prompt": "Quel examen est indispensable pour surveiller un patient sous dabigatran ?",
+      "options": ["La clairance de la créatinine", "L'INR", "Le TCA seul", "La glycémie"],
+      "answer": 0,
+      "explain": "Le dabigatran s'élimine surtout par le rein : la clairance conditionne la dose. L'INR ne sert pas à surveiller les AOD."
+    },
+    {
+      "cat": "anticoag", "level": 1,
+      "type": "choice",
+      "prompt": "L'altéplase (Actilyse) est un…",
+      "options": ["Thrombolytique", "Antiagrégant plaquettaire", "AVK", "Antidote des héparines"],
+      "answer": 0,
+      "explain": "Il dissout la fibrine du caillot déjà formé (AVC ischémique, embolie pulmonaire grave). Risque principal : l'hémorragie, notamment intracrânienne, d'où des critères d'éligibilité stricts."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque anticoagulant à son antidote.",
+      "left": "Anticoagulant",
+      "right": "Antidote",
+      "pairs": [
+        ["Héparines", "Protamine"],
+        ["AVK", "Vitamine K (± concentré de complexe prothrombique)"],
+        ["Apixaban, rivaroxaban", "Ondexxya (andexanet alfa)"],
+        ["Dabigatran", "Praxbind (idarucizumab)"]
+      ],
+      "explain": "La protamine neutralise complètement l'HNF, et seulement en partie les HBPM. Le concentré de complexe prothrombique (CCP) est réservé aux hémorragies graves sous AVK."
+    },
+    {
+      "cat": "anticoag", "level": 3,
+      "type": "text",
+      "prompt": "Quel est l'antidote du dabigatran (Pradaxa) ?",
+      "answers": ["Praxbind", "idarucizumab"],
+      "explain": "Praxbind (idarucizumab), 5 g en IV. Pour les anti-Xa (apixaban, rivaroxaban) : Ondexxya."
+    },
+    {
+      "cat": "anticoag", "level": 3,
+      "type": "number",
+      "prompt": "Saignement grave sous dabigatran : quelle dose de Praxbind injecte-t-on en IV ?",
+      "answer": 5,
+      "unit": "g",
+      "explain": "5 g d'idarucizumab en IV, qui neutralisent le dabigatran en quelques minutes."
+    },
+    {
+      "cat": "anticoag", "level": 2,
+      "type": "choice",
+      "prompt": "Hémorragie grave sous AVK : que fait-on ?",
+      "options": [
+        "Vitamine K + concentré de complexe prothrombique (CCP)",
+        "Protamine",
+        "Praxbind",
+        "On attend que l'INR redescende"
+      ],
+      "answer": 0,
+      "explain": "Hors hémorragie grave, la conduite dépend de l'INR et du contexte (saut de prise, vitamine K…)."
+    },
+    {
+      "cat": "anticoag", "level": 3,
+      "type": "truefalse",
+      "prompt": "Les thrombolytiques ont un antidote simple, comme la protamine pour les héparines.",
+      "answer": false,
+      "explain": "Faux. Pas d'antidote simple : arrêt de la perfusion, hémostase, transfusion selon la situation. D'où une surveillance très rapprochée (pression artérielle, saignements, état neurologique)."
+    },
+
+    {
+      "cat": "infectio", "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque traitement à sa cible.",
+      "left": "Traitement",
+      "right": "Cible",
+      "pairs": [["Antibiotique", "Bactéries"], ["Antiviral", "Virus"], ["Antifongique", "Champignons"]],
+      "explain": "Un antibiotique ne soigne pas une infection virale : il ne fait que favoriser les résistances."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "choice",
+      "prompt": "Pourquoi faire les prélèvements avant de débuter un antibiotique ?",
+      "options": [
+        "Pour éviter une culture faussement négative",
+        "Pour pouvoir réaliser un antibiogramme",
+        "Pour ne pas isoler seulement les bactéries les plus résistantes",
+        "Parce que l'antibiotique fausse la glycémie"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Un antibiotique déjà commencé fait baisser artificiellement la quantité de bactéries : la culture peut revenir négative et l'antibiogramme devient impossible."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "truefalse",
+      "prompt": "En cas de purpura fulminans, de méningite grave ou de choc septique, on ne retarde pas l'antibiotique pour attendre les prélèvements.",
+      "answer": true,
+      "explain": "Vrai. On prélève si possible (hémocultures) mais sans retarder l'antibiotique : chaque heure compte."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "choice",
+      "prompt": "Antibiothérapie probabiliste : de quoi s'agit-il ?",
+      "options": [
+        "Un antibiotique à large spectre débuté avant d'avoir identifié la bactérie",
+        "Un antibiotique choisi d'après l'antibiogramme",
+        "Un antibiotique donné en prévention avant une chirurgie",
+        "Un traitement d'essai à petite dose"
+      ],
+      "answer": 0,
+      "explain": "On le réévalue à 48-72 h pour passer au spectre le plus étroit possible selon l'antibiogramme : c'est la désescalade. Une antibiothérapie doit être la plus courte possible."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "choice",
+      "prompt": "Les bêta-lactamines tuent la bactérie en…",
+      "options": [
+        "Empêchant la fabrication de sa paroi",
+        "Bloquant la synthèse de ses protéines",
+        "Détruisant son ADN",
+        "Bloquant sa respiration"
+      ],
+      "answer": 0,
+      "explain": "Elles se fixent sur les PLP (protéines liant les pénicillines) et empêchent la synthèse du peptidoglycane : la paroi est fragilisée et la bactérie éclate (lyse)."
+    },
+    {
+      "cat": "infectio", "level": 3,
+      "type": "order",
+      "prompt": "Mécanisme des bêta-lactamines : remets les étapes dans l'ordre.",
+      "items": [
+        "Fixation sur les PLP",
+        "Arrêt de la synthèse du peptidoglycane",
+        "Paroi bactérienne fragilisée",
+        "Lyse de la bactérie"
+      ],
+      "explain": "PLP = protéines liant les pénicillines. Sans peptidoglycane, la paroi ne tient plus."
+    },
+    {
+      "cat": "infectio", "level": 3,
+      "type": "match",
+      "prompt": "Associe chaque notion à sa définition.",
+      "left": "Notion",
+      "right": "Définition",
+      "pairs": [
+        ["CMI (concentration minimale inhibitrice)", "Plus petite concentration qui empêche la bactérie de se multiplier"],
+        ["Antibiotique temps-dépendant", "Efficace selon la durée passée au-dessus de la CMI"],
+        ["Antibiotique concentration-dépendant", "Efficace selon le pic de concentration atteint"]
+      ],
+      "explain": "Bêta-lactamines : temps-dépendantes, d'où des administrations répétées ou continues. Aminosides : concentration-dépendants, en général une injection par jour."
+    },
+    {
+      "cat": "infectio", "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque famille d'antibiotiques à son repère dans le nom.",
+      "left": "Famille",
+      "right": "Repère",
+      "pairs": [
+        ["Pénicillines", "-cilline"],
+        ["Céphalosporines", "cef- ou céf- (au début)"],
+        ["Fluoroquinolones", "-oxacine"],
+        ["Tétracyclines", "-cycline"]
+      ],
+      "explain": "Amoxicilline, ceftriaxone, ciprofloxacine, doxycycline."
+    },
+    {
+      "cat": "infectio", "level": 1,
+      "type": "choice",
+      "prompt": "L'Augmentin associe :",
+      "options": ["Amoxicilline + acide clavulanique", "Amoxicilline + tazobactam", "Pipéracilline + tazobactam", "Ceftriaxone + lidocaïne"],
+      "answer": 0,
+      "explain": "L'acide clavulanique protège l'amoxicilline des bêta-lactamases produites par certaines bactéries."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "choice",
+      "prompt": "Quel est l'effet indésirable le plus fréquent de l'Augmentin ?",
+      "options": ["La diarrhée", "La toux sèche", "La bradycardie", "L'hypoglycémie"],
+      "answer": 0,
+      "explain": "Plus rarement : nausées, candidose, hépatite cholestatique. Surveillance : tolérance digestive, foie, rein. Pour l'amoxicilline seule : allergie, rash."
+    },
+    {
+      "cat": "infectio", "level": 1,
+      "type": "choice",
+      "prompt": "La ceftriaxone (Rocéphine) est…",
+      "options": ["Une céphalosporine de 3e génération (C3G)", "Une pénicilline A", "Une fluoroquinolone", "Un aminoside"],
+      "answer": 0,
+      "explain": "Très utilisée (pyélonéphrite, pneumonie, méningite, sepsis) : action rapide et bonne diffusion dans le système nerveux central. Effets : allergie, diarrhée, boue biliaire."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "truefalse",
+      "prompt": "La ceftriaxone préparée avec le solvant pour IM peut être injectée en IV.",
+      "answer": false,
+      "explain": "Faux. Le solvant IM contient de la lidocaïne : jamais en IV. L'inverse (préparation IV injectée en IM) est possible."
+    },
+    {
+      "cat": "infectio", "level": 3,
+      "type": "choice",
+      "prompt": "Pipéracilline + tazobactam (Tazocilline) : quelle bactérie n'est **pas** couverte ?",
+      "options": ["Le SARM (staphylocoque doré résistant à la méticilline)", "*Pseudomonas aeruginosa*", "Les bactéries anaérobies", "Les bacilles à Gram négatif"],
+      "answer": 0,
+      "explain": "Antibiotique hospitalier à large spectre, pour les infections sévères à Gram négatif, à *Pseudomonas* et à anaérobies. Il ne couvre ni le SARM ni toutes les BLSE. Surveillance : rein, NFS, kaliémie, foie."
+    },
+    {
+      "cat": "infectio", "level": 3,
+      "type": "choice",
+      "prompt": "Quels sont des mécanismes de résistance des bactéries aux bêta-lactamines ?",
+      "options": [
+        "Production de bêta-lactamases",
+        "Modification des PLP",
+        "Diminution de la perméabilité de la paroi",
+        "Pompes d'efflux",
+        "Hausse de la température corporelle"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Les bêta-lactamases sont des enzymes qui détruisent l'antibiotique : c'est le cas des BLSE (bêta-lactamases à spectre étendu)."
+    },
+    {
+      "cat": "infectio", "level": 3,
+      "type": "choice",
+      "prompt": "Les bêta-lactamines sont inefficaces sur :",
+      "options": [
+        "Les virus",
+        "*Mycoplasma* (bactérie sans paroi)",
+        "*Chlamydia* et *Legionella* (bactéries intracellulaires)",
+        "Le streptocoque de l'angine"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Sans paroi ou cachées dans les cellules, ces bactéries « atypiques » échappent aux bêta-lactamines : on utilise alors par exemple un macrolide. L'angine à streptocoque, elle, se traite par amoxicilline."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "choice",
+      "prompt": "Aminosides (gentamicine, amikacine) : quels effets indésirables graves ?",
+      "options": ["Néphrotoxicité", "Ototoxicité", "Allongement du QT", "Tendinopathie"],
+      "answer": [0, 1],
+      "explain": "On surveille la créatinine et, si le traitement se prolonge, l'audition. Les aminosides sont actifs sur les bacilles à Gram négatif et leur activité est concentration-dépendante."
+    },
+    {
+      "cat": "infectio", "level": 3,
+      "type": "truefalse",
+      "prompt": "L'ototoxicité des aminosides est en général réversible à l'arrêt du traitement.",
+      "answer": false,
+      "explain": "Faux : la néphrotoxicité est en général réversible, l'ototoxicité souvent irréversible."
+    },
+    {
+      "cat": "infectio", "level": 1,
+      "type": "text",
+      "prompt": "Ciprofloxacine, lévofloxacine, ofloxacine : quelle terminaison commune ?",
+      "answers": ["oxacine", "floxacine"],
+      "match": "exact",
+      "explain": "-oxacine : ce sont des fluoroquinolones."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "choice",
+      "prompt": "Fluoroquinolones : quels effets indésirables sont typiques ?",
+      "options": ["Tendinopathie, jusqu'à la rupture", "Allongement de l'espace QT", "Photosensibilisation", "Toux sèche"],
+      "answer": [0, 1, 2],
+      "explain": "Aussi : dysglycémie, neuropathie, troubles neuropsychiques. Pas d'exposition au soleil ; contre-indiquées après une tendinopathie sous fluoroquinolone. On les réserve aux cas où d'autres antibiotiques ne conviennent pas."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "truefalse",
+      "prompt": "On peut prendre une fluoroquinolone en même temps qu'un pansement gastrique (Gaviscon, Rennie…).",
+      "answer": false,
+      "explain": "Faux. L'aluminium, le magnésium ou le calcium bloquent l'absorption de l'antibiotique : il faut espacer les prises d'au moins 2 heures."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "choice",
+      "prompt": "Quel examen surveiller sous azithromycine (Zithromax) ?",
+      "options": ["L'ECG (allongement du QT)", "La glycémie capillaire", "La spirométrie", "Le champ visuel"],
+      "answer": 0,
+      "explain": "Macrolide : troubles digestifs, allongement du QT, interactions médicamenteuses. Prudence avec les autres médicaments qui allongent le QT, comme les fluoroquinolones."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "choice",
+      "prompt": "Métronidazole (Flagyl) : quel conseil donner au patient ?",
+      "options": ["Ne pas boire d'alcool (effet antabuse)", "Ne prendre que des laitages", "Prendre le comprimé allongé", "Arrêter dès que la fièvre baisse"],
+      "answer": 0,
+      "explain": "Avec l'alcool : flush, nausées, palpitations. Autres effets : goût métallique, candidose buccale, troubles neurologiques. Il renforce l'effet des AVK : surveiller l'INR."
+    },
+    {
+      "cat": "infectio", "level": 3,
+      "type": "choice",
+      "prompt": "Doxycycline : quels conseils de prise ?",
+      "options": [
+        "Avaler avec un grand verre d'eau et ne pas s'allonger juste après",
+        "Éviter l'exposition au soleil",
+        "Espacer la prise du calcium, du fer et des antiacides",
+        "La prendre au coucher, juste avant de s'allonger"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Risques : œsophagite, photosensibilisation, chélation par les cations (perte d'efficacité). Contre-indiquée avant 8 ans (coloration des dents) et chez la femme enceinte à partir du 2e trimestre."
+    },
+    {
+      "cat": "infectio", "level": 1,
+      "type": "choice",
+      "prompt": "L'oseltamivir (Tamiflu) traite…",
+      "options": ["La grippe", "La tuberculose", "Le VIH", "L'herpès"],
+      "answer": 0,
+      "explain": "C'est un antiviral, à débuter le plus tôt possible. Surveillance : fonction rénale (clairance), tolérance digestive."
+    },
+    {
+      "cat": "infectio", "level": 2,
+      "type": "choice",
+      "prompt": "Quels médicaments composent le traitement classique de la tuberculose ?",
+      "options": ["Rifampicine", "Isoniazide", "Pyrazinamide", "Éthambutol", "Amoxicilline"],
+      "answer": [0, 1, 2, 3],
+      "explain": "Quadrithérapie 2 mois, puis rifampicine + isoniazide 4 mois : 6 mois au total. Surveillance du foie (transaminases), de la NFS, de l'uricémie (pyrazinamide) et de la vision (éthambutol). La rifampicine colore les urines en orange."
+    },
+    {
+      "cat": "infectio", "level": 1,
+      "type": "truefalse",
+      "prompt": "Un traitement contre le VIH (ex. Biktarvy) peut être arrêté dès que la charge virale est indétectable.",
+      "answer": false,
+      "explain": "Faux. On ne l'interrompt jamais sans avis médical : le virus redeviendrait détectable et des résistances pourraient apparaître. Surveillance : charge virale, créatinine, interactions."
+    },
+
+    {
+      "cat": "uro", "level": 2,
+      "type": "choice",
+      "prompt": "Cystite simple : comment prendre la fosfomycine-trométamol (Monuril) ?",
+      "options": [
+        "Un sachet en dose unique, à distance des repas (2 à 3 h)",
+        "Un sachet par jour pendant 7 jours, au milieu du repas",
+        "En IV pendant 3 jours",
+        "Un sachet matin et soir pendant 5 jours"
+      ],
+      "answer": 0,
+      "explain": "En cas d'allergie ou de résistance : pivmécillinam (Selexid), une bêta-lactamine à prendre pendant le repas."
+    },
+    {
+      "cat": "uro", "level": 2,
+      "type": "truefalse",
+      "prompt": "La fosfomycine-trométamol (Monuril) est un traitement adapté à la pyélonéphrite.",
+      "answer": false,
+      "explain": "Faux. Elle est réservée à la cystite ; la pyélonéphrite demande un autre antibiotique et un traitement plus long."
+    },
+    {
+      "cat": "uro", "level": 1,
+      "type": "text",
+      "prompt": "Tamsulosine, alfuzosine, silodosine : quelle terminaison commune ?",
+      "answers": ["osine"],
+      "match": "exact",
+      "explain": "-osine : ce sont des alpha-bloquants, utilisés dans l'adénome de la prostate. Ils agissent rapidement."
+    },
+    {
+      "cat": "uro", "level": 2,
+      "type": "choice",
+      "prompt": "Alpha-bloquant (tamsulosine) chez une personne âgée : quel risque surveiller ?",
+      "options": ["L'hypotension orthostatique et les chutes", "L'hyperglycémie", "L'hypokaliémie", "La thrombopénie"],
+      "answer": 0,
+      "explain": "Autres effets : éjaculation rétrograde, syndrome de l'iris flasque (à signaler avant une chirurgie de la cataracte). Surdosage : hypotension, on allonge le patient."
+    },
+    {
+      "cat": "uro", "level": 2,
+      "type": "match",
+      "prompt": "Adénome de la prostate : associe chaque famille à sa caractéristique.",
+      "left": "Famille",
+      "right": "Caractéristique",
+      "pairs": [
+        ["Alpha-bloquants (-osine)", "Soulagent la gêne urinaire en quelques jours"],
+        ["Inhibiteurs de la 5-alpha-réductase (-astéride)", "Agissent en plusieurs mois, réduisent le volume de la prostate"]
+      ],
+      "explain": "Finastéride et dutastéride sont des traitements de 2e intention. Surveillance annuelle : toucher rectal et dosage du PSA."
+    },
+    {
+      "cat": "uro", "level": 2,
+      "type": "choice",
+      "prompt": "Finastéride, dutastéride : quels effets indésirables ?",
+      "options": ["Baisse de la libido", "Dysfonction érectile", "Gynécomastie", "Toux sèche"],
+      "answer": [0, 1, 2],
+      "explain": "Ils diminuent environ de moitié le taux de PSA : à savoir pour interpréter le dosage."
+    },
+    {
+      "cat": "uro", "level": 2,
+      "type": "choice",
+      "prompt": "Oxybutynine (Ditropan) pour une vessie hyperactive : quel examen simple surveiller ?",
+      "options": ["Le résidu post-mictionnel", "L'INR", "La kaliémie", "La SpO~2~"],
+      "answer": 0,
+      "explain": "Antimuscarinique : sécheresse buccale, constipation, rétention urinaire, mydriase, confusion chez le sujet âgé. Contre-indiqué en cas de glaucome à angle fermé, de myasthénie ou d'occlusion intestinale."
+    },
+    {
+      "cat": "uro", "level": 1,
+      "type": "choice",
+      "prompt": "Quelle association est formellement contre-indiquée avec le sildénafil (Viagra) ?",
+      "options": ["Les dérivés nitrés (trinitrine)", "Le paracétamol", "Les IPP", "Les laxatifs osmotiques"],
+      "answer": 0,
+      "explain": "Risque d'hypotension sévère. Autres effets du sildénafil : céphalées, flush, troubles visuels, priapisme."
+    },
+    {
+      "cat": "uro", "level": 2,
+      "type": "number",
+      "prompt": "Au-delà de combien d'heures une érection prolongée (priapisme) est-elle une urgence urologique ?",
+      "answer": 4,
+      "unit": "h",
+      "explain": "Une érection douloureuse de plus de 4 heures est une urgence : risque de lésions définitives."
+    },
+    {
+      "cat": "uro", "level": 2,
+      "type": "choice",
+      "prompt": "Colique néphrétique : quel traitement de la douleur en première intention ?",
+      "options": ["Un AINS, en l'absence de contre-indication", "Un antibiotique", "Un laxatif", "Un antiémétique seul"],
+      "answer": 0,
+      "explain": "Objectifs : soulager la douleur, permettre l'évacuation du calcul, prévenir les récidives."
+    },
+    {
+      "cat": "uro", "level": 1,
+      "type": "truefalse",
+      "prompt": "Une colique néphrétique avec de la fièvre est une urgence.",
+      "answer": true,
+      "explain": "Vrai : infection en amont d'un calcul qui bloque l'urine. Il faut drainer les urines en urgence."
+    },
+
+    {
+      "cat": "respi", "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont des signes de gravité d'une crise d'asthme ?",
+      "options": [
+        "Difficulté à parler",
+        "Agitation ou épuisement",
+        "Cyanose, silence auscultatoire",
+        "Débit expiratoire de pointe très bas",
+        "Toux sèche isolée"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Cinquième signe à connaître : une mauvaise réponse au traitement de secours."
+    },
+    {
+      "cat": "respi", "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque maladie à sa définition.",
+      "left": "Maladie",
+      "right": "Définition",
+      "pairs": [
+        ["Asthme", "Inflammation des bronches, obstruction réversible"],
+        ["BPCO", "Obstruction persistante des débits expiratoires"]
+      ],
+      "explain": "L'asthme évolue par crises, avec des périodes normales. La BPCO s'aggrave avec le temps, souvent à cause du tabac."
+    },
+    {
+      "cat": "respi", "level": 1,
+      "type": "truefalse",
+      "prompt": "Dans la BPCO, l'arrêt du tabac est la première mesure du traitement.",
+      "answer": true,
+      "explain": "Vrai. S'y ajoutent les bronchodilatateurs (bêta-2 agonistes, anticholinergiques), parfois des corticoïdes inhalés, et le traitement des surinfections."
+    },
+    {
+      "cat": "respi", "level": 1,
+      "type": "choice",
+      "prompt": "Le salbutamol (Ventoline) est…",
+      "options": ["Un bêta-2 agoniste d'action brève", "Un corticoïde inhalé", "Un anticholinergique d'action longue", "Un antileucotriène"],
+      "answer": 0,
+      "explain": "C'est le traitement de la crise : il dilate les bronches en quelques minutes. Effets : tachycardie, tremblements."
+    },
+    {
+      "cat": "respi", "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque bronchodilatateur à sa famille.",
+      "left": "Médicament",
+      "right": "Famille",
+      "pairs": [
+        ["Salbutamol (Ventoline)", "Bêta-2 agoniste d'action brève"],
+        ["Formotérol (Foradil)", "Bêta-2 agoniste d'action longue (LABA)"],
+        ["Ipratropium (Atrovent)", "Anticholinergique d'action brève"],
+        ["Tiotropium (Spiriva)", "Anticholinergique d'action longue (LAMA)"]
+      ],
+      "explain": "La terbutaline (Bricanyl) est aussi un bêta-2 agoniste d'action brève, même si son nom ne finit pas en -ol."
+    },
+    {
+      "cat": "respi", "level": 2,
+      "type": "choice",
+      "prompt": "Bêta-2 agonistes : quels effets indésirables ?",
+      "options": ["Tachycardie", "Tremblements", "Hypokaliémie (à forte dose)", "Bradycardie"],
+      "answer": [0, 1, 2],
+      "explain": "Surveillance : fréquence cardiaque, kaliémie, glycémie. Les LABA peuvent aussi allonger le QT."
+    },
+    {
+      "cat": "respi", "level": 1,
+      "type": "choice",
+      "prompt": "Après l'inhalation d'un corticoïde, quel conseil donner ?",
+      "options": ["Se rincer la bouche", "Retenir sa respiration 1 minute", "Boire un verre de lait", "S'allonger 30 minutes"],
+      "answer": 0,
+      "explain": "Le rinçage limite la candidose buccale et la dysphonie (voix enrouée), effets typiques des corticoïdes inhalés (budésonide, béclométasone, fluticasone)."
+    },
+    {
+      "cat": "respi", "level": 3,
+      "type": "match",
+      "prompt": "Associe chaque spray à sa composition.",
+      "left": "Spécialité",
+      "right": "Composition",
+      "pairs": [
+        ["Symbicort", "Budésonide + formotérol"],
+        ["Seretide", "Fluticasone + salmétérol"],
+        ["Innovair", "Béclométasone + formotérol"],
+        ["Trimbow", "Béclométasone + formotérol + glycopyrronium"]
+      ],
+      "explain": "Un corticoïde (-one, -sone) associé à un LABA (-ol), et pour Trimbow un anticholinergique en plus. Effets : ceux de chaque famille (candidose, tachycardie, tremblements, hypokaliémie)."
+    },
+    {
+      "cat": "respi", "level": 2,
+      "type": "choice",
+      "prompt": "Ipratropium, tiotropium (anticholinergiques) : quels effets indésirables ?",
+      "options": ["Sécheresse de la bouche", "Rétention urinaire", "Constipation", "Hypoglycémie"],
+      "answer": [0, 1, 2],
+      "explain": "Surveillance : bonne technique d'inhalation, rétention urinaire (surtout chez l'homme âgé)."
+    },
+    {
+      "cat": "respi", "level": 2,
+      "type": "choice",
+      "prompt": "Prednisolone per os chez un asthmatique diabétique : que surveilles-tu en priorité ?",
+      "options": ["La glycémie", "L'INR", "La fonction thyroïdienne", "L'audition"],
+      "answer": 0,
+      "explain": "Les corticoïdes oraux font monter la glycémie. On surveille aussi la pression artérielle, l'humeur, les signes d'infection et l'évolution respiratoire."
+    },
+    {
+      "cat": "respi", "level": 2,
+      "type": "choice",
+      "prompt": "Le montélukast (Singulair) appartient à la famille des…",
+      "options": ["Antileucotriènes", "Bêta-2 agonistes", "Corticoïdes", "Anticorps monoclonaux"],
+      "answer": 0,
+      "explain": "Il se prend par voie orale. Effets : céphalées, syndrome pseudo-grippal, hausse des transaminases."
+    },
+    {
+      "cat": "respi", "level": 3,
+      "type": "choice",
+      "prompt": "L'omalizumab (Xolair) est…",
+      "options": [
+        "Un anticorps monoclonal injectable, pour l'asthme allergique sévère",
+        "Un bêta-2 agoniste en spray",
+        "Un corticoïde oral",
+        "Un antibiotique"
+      ],
+      "answer": 0,
+      "explain": "Il neutralise les IgE. Réactions au point d'injection, et rarement une anaphylaxie : surveillance après l'injection."
+    },
+    {
+      "cat": "respi", "level": 3,
+      "type": "truefalse",
+      "prompt": "La théophylline a une marge thérapeutique étroite.",
+      "answer": true,
+      "explain": "Vrai : le surdosage arrive vite (nausées, tachyarythmie, convulsions). Surveillance de l'ECG et des interactions."
+    },
+
+    {
+      "cat": "cardio", "level": 1,
+      "type": "choice",
+      "prompt": "Quelles familles font partie des grandes familles de médicaments cardiovasculaires ?",
+      "options": ["Diurétiques", "IEC et ARA II", "Bêtabloquants", "Inhibiteurs calciques", "Dérivés nitrés", "Antiémétiques"],
+      "answer": [0, 1, 2, 3, 4],
+      "explain": "Les antiémétiques (contre les vomissements) sont des médicaments digestifs."
+    },
+    {
+      "cat": "cardio", "level": 1,
+      "type": "choice",
+      "prompt": "Le furosémide (Lasilix) se prend de préférence…",
+      "options": ["Le matin", "Le soir au coucher", "En pleine nuit", "Uniquement au dîner"],
+      "answer": 0,
+      "explain": "Pour éviter de se lever la nuit pour uriner."
+    },
+    {
+      "cat": "cardio", "level": 1,
+      "type": "choice",
+      "prompt": "Un patient sous furosémide est exposé en priorité à :",
+      "options": ["Une hypokaliémie", "Une hyperkaliémie", "Une hyperglycémie", "Une thrombopénie"],
+      "answer": 0,
+      "explain": "Le furosémide fait perdre du potassium en même temps que l'eau et le sodium. Autres effets : déshydratation, hypotension, hyponatrémie, ototoxicité à forte dose."
+    },
+    {
+      "cat": "cardio", "level": 2,
+      "type": "choice",
+      "prompt": "Patient sous furosémide : que surveilles-tu ?",
+      "options": ["Le poids", "La diurèse", "La pression artérielle", "L'ionogramme et la créatinine", "La température"],
+      "answer": [0, 1, 2, 3],
+      "explain": "Indications : œdèmes d'origine cardiaque, rénale ou hépatique, décompensation cardiaque, OAP."
+    },
+    {
+      "cat": "cardio", "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque diurétique à son effet sur le potassium.",
+      "left": "Diurétique",
+      "right": "Effet",
+      "pairs": [
+        ["Furosémide (Lasilix)", "Hypokaliémiant, diurétique de l'anse"],
+        ["Hydrochlorothiazide (Esidrex)", "Hypokaliémiant, thiazidique"],
+        ["Spironolactone (Aldactone)", "Hyperkaliémiant (épargne le potassium)"]
+      ],
+      "explain": "L'indapamide (Fludex) est apparenté aux thiazidiques : lui aussi fait baisser le potassium."
+    },
+    {
+      "cat": "cardio", "level": 3,
+      "type": "choice",
+      "prompt": "Thiazidiques (hydrochlorothiazide, indapamide) : quels effets indésirables ?",
+      "options": ["Hypokaliémie", "Hyponatrémie", "Hyperuricémie (crise de goutte)", "Photosensibilité", "Hyperkaliémie"],
+      "answer": [0, 1, 2, 3],
+      "explain": "Indication principale : l'hypertension artérielle. Surveillance : ionogramme, créatinine, uricémie, pression artérielle."
+    },
+    {
+      "cat": "cardio", "level": 2,
+      "type": "choice",
+      "prompt": "Spironolactone (Aldactone) : quel est l'effet indésirable le plus important ?",
+      "options": ["L'hyperkaliémie", "L'hypokaliémie", "La toux sèche", "La tachycardie"],
+      "answer": 0,
+      "explain": "Aussi : insuffisance rénale, gynécomastie. Kaliémie et créatinine avant le traitement, à 1 semaine, après chaque changement de dose, puis régulièrement."
+    },
+    {
+      "cat": "cardio", "level": 1,
+      "type": "text",
+      "prompt": "Ramipril, périndopril, énalapril : quelle terminaison commune ?",
+      "answers": ["pril"],
+      "match": "exact",
+      "explain": "-pril : ce sont des IEC (inhibiteurs de l'enzyme de conversion)."
+    },
+    {
+      "cat": "cardio", "level": 1,
+      "type": "choice",
+      "prompt": "Quel effet indésirable d'un IEC (ramipril) fait parfois passer à un ARA II ?",
+      "options": ["Une toux sèche", "Une diarrhée", "Une bradycardie", "Une hypoglycémie"],
+      "answer": 0,
+      "explain": "Les ARA II (-sartan, ex. candésartan) ne donnent pas cette toux. Surveillance commune : pression artérielle, kaliémie (risque d'hyperkaliémie), créatinine."
+    },
+    {
+      "cat": "cardio", "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque terminaison à sa famille.",
+      "left": "Terminaison",
+      "right": "Famille",
+      "pairs": [
+        ["-pril", "IEC"],
+        ["-sartan", "ARA II"],
+        ["-olol", "Bêtabloquants"],
+        ["-dipine", "Inhibiteurs calciques vasodilatateurs"]
+      ],
+      "explain": "Ramipril, candésartan, bisoprolol, amlodipine."
+    },
+    {
+      "cat": "cardio", "level": 2,
+      "type": "choice",
+      "prompt": "Bêtabloquant (bisoprolol) : quels effets indésirables ?",
+      "options": ["Bradycardie", "Bloc auriculo-ventriculaire", "Bronchospasme", "Tachycardie"],
+      "answer": [0, 1, 2],
+      "explain": "Aussi : hypotension, fatigue, cauchemars, troubles de l'érection, extrémités froides. Surveillance : fréquence cardiaque, pression artérielle, ECG."
+    },
+    {
+      "cat": "cardio", "level": 1,
+      "type": "truefalse",
+      "prompt": "On peut arrêter brutalement un bêtabloquant sans risque.",
+      "answer": false,
+      "explain": "Faux. Risque d'effet rebond (tachycardie, angor, voire infarctus) : l'arrêt est toujours progressif."
+    },
+    {
+      "cat": "cardio", "level": 2,
+      "type": "choice",
+      "prompt": "Pourquoi le propranolol (Avlocardyl) est-il contre-indiqué chez l'asthmatique ?",
+      "options": [
+        "Il bloque les récepteurs bêta-2 des bronches : risque de bronchospasme",
+        "Il provoque une toux sèche",
+        "Il fait monter la kaliémie",
+        "Il provoque une hypoglycémie sévère"
+      ],
+      "answer": 0,
+      "explain": "Le propranolol est non sélectif (bêta-1 et bêta-2). Les bêtabloquants cardiosélectifs (bêta-1), comme le bisoprolol, sont moins à risque."
+    },
+    {
+      "cat": "cardio", "level": 3,
+      "type": "truefalse",
+      "prompt": "Les bêtabloquants peuvent masquer certains signes d'hypoglycémie, comme les palpitations.",
+      "answer": true,
+      "explain": "Vrai. Chez le patient diabétique, la tachycardie et les tremblements peuvent manquer : surveiller la glycémie."
+    },
+    {
+      "cat": "cardio", "level": 2,
+      "type": "choice",
+      "prompt": "Amlodipine (Amlor) : quel effet indésirable est fréquent ?",
+      "options": ["Des œdèmes des chevilles", "Une toux sèche", "Une bradycardie", "Une hyperkaliémie"],
+      "answer": 0,
+      "explain": "Inhibiteur calcique vasodilatateur (-dipine) : œdèmes, céphalées, flush, palpitations. Indications : HTA, angor."
+    },
+    {
+      "cat": "cardio", "level": 3,
+      "type": "choice",
+      "prompt": "Pourquoi être prudent en associant un bêtabloquant au vérapamil ou au diltiazem ?",
+      "options": [
+        "Tous ralentissent le cœur : risque de bradycardie et de bloc",
+        "Tous provoquent une toux",
+        "Tous font baisser la glycémie",
+        "Tous sont hyperkaliémiants"
+      ],
+      "answer": 0,
+      "explain": "Vérapamil (Isoptine) et diltiazem (Tildiem) agissent sur la fréquence et la conduction cardiaques. Surveillance : fréquence cardiaque, pression artérielle, ECG."
+    },
+    {
+      "cat": "cardio", "level": 1,
+      "type": "choice",
+      "prompt": "Les dérivés nitrés (trinitrine) servent surtout à soulager…",
+      "options": ["La crise d'angor", "La crise d'asthme", "La colique néphrétique", "La migraine"],
+      "answer": 0,
+      "explain": "Par vasodilatation. Trinitrine en spray sublingual (Natispray) pour la crise, en patch (Trinipatch) en prévention."
+    },
+    {
+      "cat": "cardio", "level": 2,
+      "type": "choice",
+      "prompt": "Trinitrine : quels effets indésirables ?",
+      "options": ["Céphalées", "Hypotension", "Hyperkaliémie", "Constipation"],
+      "answer": [0, 1],
+      "explain": "Plus rarement : méthémoglobinémie, à évoquer devant une cyanose. Jamais d'association avec le sildénafil (Viagra) et sa famille."
+    },
+    {
+      "cat": "cardio", "level": 3,
+      "type": "choice",
+      "prompt": "Pourquoi retire-t-on le patch de trinitrine une partie de la journée ?",
+      "options": [
+        "Pour éviter que l'organisme s'y habitue",
+        "Pour éviter une brûlure de la peau",
+        "Parce qu'il n'agit que la nuit",
+        "Pour faire baisser la kaliémie"
+      ],
+      "answer": 0,
+      "explain": "C'est la fenêtre sans nitrés, prévue par la prescription : elle évite la tolérance (perte d'efficacité)."
+    },
+
+    {
+      "cat": "digestif", "level": 1,
+      "type": "text",
+      "prompt": "Oméprazole, ésoméprazole, pantoprazole : quelle terminaison commune ?",
+      "answers": ["prazole"],
+      "match": "exact",
+      "explain": "-prazole : ce sont des IPP (inhibiteurs de la pompe à protons)."
+    },
+    {
+      "cat": "digestif", "level": 3,
+      "type": "choice",
+      "prompt": "IPP au long cours : quels effets indésirables ?",
+      "options": ["Hypomagnésémie", "Carence en vitamine B12", "Infections, notamment digestives", "Hyperkaliémie"],
+      "answer": [0, 1, 2],
+      "explain": "Surveillance : magnésium, vitamine B12, interactions, signes infectieux. Réévaluer régulièrement l'intérêt du traitement."
+    },
+    {
+      "cat": "digestif", "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque traitement du reflux à sa famille.",
+      "left": "Médicament",
+      "right": "Famille",
+      "pairs": [
+        ["Oméprazole (Mopral)", "IPP"],
+        ["Famotidine", "Anti-H2"],
+        ["Gaviscon", "Alginate"],
+        ["Rennie", "Antiacide"]
+      ],
+      "explain": "Les IPP sont les plus puissants pour réduire l'acidité. Alginates et antiacides soulagent rapidement les symptômes."
+    },
+    {
+      "cat": "digestif", "level": 2,
+      "type": "choice",
+      "prompt": "Gaviscon (alginate) : quel conseil donner ?",
+      "options": [
+        "Espacer d'environ 2 h la prise des autres médicaments",
+        "Le prendre avec tous les autres comprimés",
+        "Le prendre seulement à jeun le matin",
+        "Ne pas boire d'eau pendant 24 h"
+      ],
+      "answer": 0,
+      "explain": "Il forme une couche qui gêne l'absorption des autres médicaments. Il contient du sodium : attention en cas de régime sans sel."
+    },
+    {
+      "cat": "digestif", "level": 2,
+      "type": "match",
+      "prompt": "Antispasmodiques : associe chaque médicament à son usage.",
+      "left": "Médicament",
+      "right": "Usage",
+      "pairs": [
+        ["Phloroglucinol (Spasfon)", "Per os, en première intention"],
+        ["Butylscopolamine (Scoburen)", "Injectable, si douleur intense ou vomissements"]
+      ],
+      "explain": "Trimébutine (Débridat) : autre antispasmodique per os. Surveillance : symptômes et réévaluation de la douleur."
+    },
+    {
+      "cat": "digestif", "level": 3,
+      "type": "choice",
+      "prompt": "Butylscopolamine (Scoburen) : quels effets indésirables ?",
+      "options": ["Rétention urinaire", "Tachycardie", "Constipation", "Diarrhée profuse"],
+      "answer": [0, 1, 2],
+      "explain": "Effets anticholinergiques : aussi confusion, crise de glaucome. Surveillance : fréquence cardiaque, diurèse, transit, cognition."
+    },
+    {
+      "cat": "digestif", "level": 2,
+      "type": "choice",
+      "prompt": "Dompéridone (Motilium) et ondansétron (Zophren) ont un risque commun. Lequel ?",
+      "options": ["L'allongement de l'espace QT", "L'hyperglycémie", "La thrombopénie", "La toux sèche"],
+      "answer": 0,
+      "explain": "D'où l'ECG, la kaliémie et la magnésémie. L'ondansétron donne aussi souvent une constipation."
+    },
+    {
+      "cat": "digestif", "level": 3,
+      "type": "truefalse",
+      "prompt": "L'ondansétron (Zophren) est contre-indiqué avec l'apomorphine.",
+      "answer": true,
+      "explain": "Vrai : risque d'hypotension sévère et de perte de connaissance. L'apomorphine (Apokinon) est utilisée en pompe dans la maladie de Parkinson."
+    },
+    {
+      "cat": "digestif", "level": 2,
+      "type": "choice",
+      "prompt": "Métopimazine (Vogalène), doxylamine : que surveiller ?",
+      "options": ["La vigilance et la pression artérielle", "La glycémie", "L'INR", "La kaliémie seule"],
+      "answer": 0,
+      "explain": "Ces antiémétiques donnent somnolence, hypotension et effets anticholinergiques."
+    },
+    {
+      "cat": "digestif", "level": 2,
+      "type": "choice",
+      "prompt": "Quels signes digestifs sont des signaux d'alerte ?",
+      "options": [
+        "Hématémèse ou méléna",
+        "Déshydratation, oligurie",
+        "Douleur brutale et intense",
+        "Amaigrissement, dysphagie",
+        "Léger ballonnement après un repas"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Aussi : vomissements persistants ou d'origine neurologique, et arrêt des matières et des gaz (occlusion)."
+    },
+    {
+      "cat": "digestif", "level": 1,
+      "type": "choice",
+      "prompt": "Quel signe évoque une occlusion intestinale ?",
+      "options": ["L'arrêt des matières et des gaz", "Des selles liquides fréquentes", "Une faim importante", "Un hoquet isolé"],
+      "answer": 0,
+      "explain": "Souvent avec des vomissements et un ventre distendu : c'est une urgence."
+    },
+    {
+      "cat": "digestif", "level": 1,
+      "type": "choice",
+      "prompt": "Diarrhée aiguë : quelle est la priorité ?",
+      "options": ["Réhydrater (solutés de réhydratation orale)", "Donner un ralentisseur du transit", "Mettre à jeun strict", "Donner un laxatif"],
+      "answer": 0,
+      "explain": "Objectif : réhydrater et traiter sans masquer un signe de gravité. SRO en petites prises répétées ; surveiller les entrées et sorties, la diurèse, le poids, la conscience."
+    },
+    {
+      "cat": "digestif", "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque antidiarrhéique à son mode d'action.",
+      "left": "Médicament",
+      "right": "Action",
+      "pairs": [
+        ["Lopéramide (Imodium)", "Ralentit le transit"],
+        ["Racécadotril (Tiorfan)", "Antisécrétoire : réduit les pertes d'eau"],
+        ["Diosmectite (Smecta)", "Pansement qui protège la muqueuse"]
+      ],
+      "explain": "Aucun ne remplace les solutés de réhydratation orale."
+    },
+    {
+      "cat": "digestif", "level": 2,
+      "type": "truefalse",
+      "prompt": "Le lopéramide (Imodium) est à éviter en cas de diarrhée avec du sang ou de la fièvre.",
+      "answer": true,
+      "explain": "Vrai : ralentir le transit retiendrait le germe. On l'arrête aussi si le ventre se distend."
+    },
+    {
+      "cat": "digestif", "level": 2,
+      "type": "choice",
+      "prompt": "Smecta (diosmectite) : quel conseil donner ?",
+      "options": [
+        "L'espacer des autres médicaments",
+        "Le prendre avec les autres médicaments pour les protéger",
+        "L'utiliser à la place des solutés de réhydratation",
+        "Le prendre une seule fois par semaine"
+      ],
+      "answer": 0,
+      "explain": "Comme tout pansement intestinal, il gêne l'absorption des autres médicaments. Effet indésirable : constipation."
+    },
+    {
+      "cat": "digestif", "level": 2,
+      "type": "choice",
+      "prompt": "Lactulose (Duphalac) : que dire au patient ?",
+      "options": [
+        "L'effet n'est pas immédiat (souvent 1 à 2 jours)",
+        "Il agit en 10 minutes",
+        "Il faut limiter les boissons",
+        "Il se prend une fois par semaine"
+      ],
+      "answer": 0,
+      "explain": "Laxatif osmotique : bien s'hydrater. Ballonnements et flatulences fréquents au début. Le macrogol (Forlax, Movicol) est l'autre laxatif osmotique courant."
+    },
+    {
+      "cat": "digestif", "level": 1,
+      "type": "choice",
+      "prompt": "Microlax s'administre…",
+      "options": ["Par voie rectale", "Per os", "En sous-cutané", "En IV"],
+      "answer": 0,
+      "explain": "Éviter les utilisations répétées sans réévaluation, et penser à rechercher un fécalome."
+    },
+
+    {
+      "cat": "ains", "level": 1,
+      "type": "truefalse",
+      "prompt": "Les AINS sont contre-indiqués en cas d'ulcère gastroduodénal évolutif.",
+      "answer": true,
+      "explain": "Vrai. Les AINS fragilisent la muqueuse gastrique (risque d'ulcère et d'hémorragie digestive). Ils sont aussi contre-indiqués en cas d'insuffisance rénale sévère et à partir du 6e mois de grossesse."
+    },
+    {
+      "cat": "ains", "level": 2,
+      "type": "choice",
+      "prompt": "Avant de donner un AINS, que faut-il vérifier ?",
+      "options": [
+        "Un traitement anticoagulant ou antiagrégant",
+        "Un ulcère ou un saignement digestif",
+        "La fonction rénale, une insuffisance cardiaque, une déshydratation",
+        "Une grossesse (à partir du 6e mois)",
+        "La couleur des yeux"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Et une automédication par un autre AINS (ibuprofène acheté en pharmacie…) : deux AINS en même temps, c'est un surdosage."
+    },
+    {
+      "cat": "ains", "level": 2,
+      "type": "choice",
+      "prompt": "Comment agissent les AINS ?",
+      "options": [
+        "Ils inhibent les cyclo-oxygénases (COX), donc la production de prostaglandines",
+        "Ils bloquent les récepteurs de la morphine",
+        "Ils freinent la sécrétion de cortisol",
+        "Ils détruisent les bactéries"
+      ],
+      "answer": 0,
+      "explain": "D'où leurs effets antalgique, antipyrétique et anti-inflammatoire, mais aussi leurs effets sur l'estomac et le rein."
+    },
+    {
+      "cat": "ains", "level": 2,
+      "type": "match",
+      "prompt": "AINS : associe chaque organe au risque.",
+      "left": "Organe",
+      "right": "Risque",
+      "pairs": [
+        ["Estomac", "Ulcère, saignement"],
+        ["Rein", "Insuffisance rénale aiguë"],
+        ["Cœur et vaisseaux", "Rétention d'eau, risque de thrombose"],
+        ["Bronches et peau", "Hypersensibilité"]
+      ],
+      "explain": "Un AINS a toujours un coût : durée la plus courte possible, à la dose la plus faible efficace."
+    },
+    {
+      "cat": "ains", "level": 1,
+      "type": "match",
+      "prompt": "Anti-inflammatoires : associe la DCI au nom commercial.",
+      "left": "DCI",
+      "right": "Nom commercial",
+      "pairs": [
+        ["Ibuprofène", "Advil / Nurofen"],
+        ["Diclofénac", "Voltarène"],
+        ["Kétoprofène", "Profenid"],
+        ["Prednisolone", "Solupred"],
+        ["Méthylprednisolone", "Solu-Médrol"]
+      ],
+      "explain": "Les trois premiers sont des AINS, les deux derniers des corticoïdes."
+    },
+    {
+      "cat": "ains", "level": 2,
+      "type": "truefalse",
+      "prompt": "Le kétoprofène en gel peut provoquer une réaction en cas d'exposition au soleil.",
+      "answer": true,
+      "explain": "Vrai : c'est une photosensibilisation. Ne pas exposer au soleil la zone traitée, pendant le traitement et les 2 semaines qui suivent."
+    },
+    {
+      "cat": "ains", "level": 3,
+      "type": "choice",
+      "prompt": "Quel signe peut révéler un surdosage en aspirine ?",
+      "options": ["Des acouphènes (bourdonnements d'oreille)", "Une hypersalivation", "Une bradycardie", "Une hypertension"],
+      "answer": 0,
+      "explain": "Le surdosage peut aussi entraîner une acidose. Effets à surveiller : saignement, ulcère, bronchospasme."
+    },
+    {
+      "cat": "ains", "level": 1,
+      "type": "truefalse",
+      "prompt": "On ne doit jamais arrêter brutalement une corticothérapie prolongée.",
+      "answer": true,
+      "explain": "Vrai : risque d'insuffisance surrénalienne aiguë. La décroissance se fait progressivement, selon la prescription."
+    },
+    {
+      "cat": "ains", "level": 1,
+      "type": "choice",
+      "prompt": "Pourquoi les corticoïdes oraux se prennent-ils le matin ?",
+      "options": [
+        "Pour suivre le rythme naturel du cortisol et limiter l'insomnie et l'excitation",
+        "Parce qu'ils sont mieux absorbés à jeun",
+        "Pour éviter la toux",
+        "Pour limiter les saignements"
+      ],
+      "answer": 0,
+      "explain": "Le corps produit naturellement son cortisol le matin. Pris le soir, les corticoïdes peuvent empêcher de dormir."
+    },
+    {
+      "cat": "ains", "level": 2,
+      "type": "choice",
+      "prompt": "Corticothérapie : quels effets indésirables ?",
+      "options": ["Hyperglycémie", "Hypertension, rétention d'eau", "Infections favorisées ou masquées", "Ostéoporose", "Hypoglycémie"],
+      "answer": [0, 1, 2, 3],
+      "explain": "Aussi : troubles de l'humeur et du sommeil, fonte musculaire, freinage de l'axe corticotrope. Dose, durée et terrain déterminent le risque."
+    },
+    {
+      "cat": "ains", "level": 2,
+      "type": "choice",
+      "prompt": "Corticoïde au long cours : que surveilles-tu ?",
+      "options": ["La glycémie", "La pression artérielle", "Le poids (œdèmes)", "Les signes d'infection", "L'audition"],
+      "answer": [0, 1, 2, 3],
+      "explain": "Pour les fortes doses en IV (Solu-Médrol), on surveille aussi l'ECG."
+    },
+    {
+      "cat": "ains", "level": 3,
+      "type": "choice",
+      "prompt": "Le Penthrox, utilisé en urgence par les secours, est…",
+      "options": ["Un antalgique inhalé", "Un antidote des opioïdes", "Un anti-inflammatoire injectable", "Un bronchodilatateur"],
+      "answer": 0,
+      "explain": "Du méthoxyflurane, inhalé avec un petit inhalateur, pour les douleurs traumatiques modérées à sévères."
+    },
+
+    {
+      "cat": "vaccins", "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque type d'immunité à son exemple.",
+      "left": "Immunité",
+      "right": "Exemple",
+      "pairs": [
+        ["Active", "Vaccin : l'organisme fabrique ses propres anticorps"],
+        ["Passive", "Sérum : des anticorps tout prêts sont apportés"]
+      ],
+      "explain": "Active : lente à s'installer mais durable, avec une mémoire. Passive : immédiate mais courte."
+    },
+    {
+      "cat": "vaccins", "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont les trois types de vaccins vus en cours ?",
+      "options": ["Vivant atténué", "Inactivé", "À ARN messager", "Antibiotique atténué"],
+      "answer": [0, 1, 2],
+      "explain": "Vivant atténué : réponse forte. Inactivé : le germe ne se multiplie pas. ARNm : les cellules reçoivent les instructions pour fabriquer l'antigène."
+    },
+    {
+      "cat": "vaccins", "level": 2,
+      "type": "choice",
+      "prompt": "Chez qui un vaccin vivant atténué est-il en général contre-indiqué ?",
+      "options": [
+        "Une personne immunodéprimée ou une femme enceinte",
+        "Un adulte en bonne santé",
+        "Un soignant",
+        "Un enfant de 12 mois en bonne santé"
+      ],
+      "answer": 0,
+      "explain": "Vaccins vivants : ROR, BCG, varicelle, fièvre jaune… Autre contre-indication de tout vaccin : une allergie grave lors d'une dose précédente."
+    },
+    {
+      "cat": "vaccins", "level": 3,
+      "type": "truefalse",
+      "prompt": "Un traitement antibiotique en cours contre-indique, à lui seul, la plupart des vaccins.",
+      "answer": false,
+      "explain": "Faux. En cas de fièvre élevée ou de maladie aiguë, on reporte la vaccination. Mais prendre un antibiotique n'empêche pas, en général, de se faire vacciner."
+    },
+    {
+      "cat": "vaccins", "level": 2,
+      "type": "match",
+      "prompt": "Après une vaccination, associe le signe à la conduite à tenir.",
+      "left": "Signe",
+      "right": "Conduite",
+      "pairs": [
+        ["Douleur au point d'injection, fièvre modérée", "Effet attendu : conseils et surveillance"],
+        ["Urticaire généralisée, gêne respiratoire, malaise", "Urgence : adrénaline en IM"]
+      ],
+      "explain": "Fatigue, douleur, fièvre modérée sont des effets attendus. Urticaire généralisée, gêne respiratoire ou collapsus font craindre une anaphylaxie."
+    },
+    {
+      "cat": "vaccins", "level": 2,
+      "type": "choice",
+      "prompt": "Réaction anaphylactique après un vaccin : quel traitement, par quelle voie ?",
+      "options": ["Adrénaline en intramusculaire", "Adrénaline en sous-cutané", "Corticoïde per os", "Antihistaminique en crème"],
+      "answer": 0,
+      "explain": "Stylo auto-injecteur (Anapen, Jext) ou ampoule à 1 mg/mL. Puis appel du SAMU, oxygène, voie veineuse, surveillance de la pression artérielle, de la SpO2 et de l'ECG."
+    },
+    {
+      "cat": "vaccins", "level": 1,
+      "type": "range",
+      "prompt": "À quelle température conserve-t-on les vaccins au réfrigérateur ?",
+      "min": -10,
+      "max": 20,
+      "step": 1,
+      "answer": [2, 8],
+      "tolerance": 1,
+      "unit": "°C",
+      "explain": "Entre +2 et +8 °C. La chaîne du froid protège l'efficacité : stockage surveillé, respect des délais après reconstitution, conduite à tenir en cas d'écart."
+    },
+    {
+      "cat": "vaccins", "level": 3,
+      "type": "choice",
+      "prompt": "Traçabilité d'une vaccination : que faut-il noter ?",
+      "options": ["Le numéro de lot", "La date", "Le site et la voie d'injection", "La couleur de l'aiguille"],
+      "answer": [0, 1, 2],
+      "explain": "Ces informations permettent de retrouver les personnes vaccinées si un lot pose problème."
+    },
+    {
+      "cat": "vaccins", "level": 2,
+      "type": "choice",
+      "prompt": "Rappels diphtérie, tétanos, polio chez l'adulte :",
+      "options": [
+        "À 25, 45 et 65 ans, puis tous les 10 ans",
+        "Tous les 5 ans",
+        "Une seule fois, à 18 ans",
+        "Tous les ans"
+      ],
+      "answer": 0,
+      "explain": "Le rappel de 25 ans comprend aussi la coqueluche."
+    },
+    {
+      "cat": "vaccins", "level": 2,
+      "type": "choice",
+      "prompt": "ROR (rougeole, oreillons, rubéole) : quand ont lieu les 2 doses ?",
+      "options": [
+        "À 12 mois, puis entre 16 et 18 mois",
+        "À 2 et 4 mois",
+        "À 6 ans et à 11 ans",
+        "À la naissance et à 1 mois"
+      ],
+      "answer": 0,
+      "explain": "C'est un vaccin vivant atténué (Priorix)."
+    },
+    {
+      "cat": "vaccins", "level": 2,
+      "type": "choice",
+      "prompt": "Vaccination contre les papillomavirus (HPV) : à quel âge est-elle recommandée ?",
+      "options": [
+        "Entre 11 et 14 ans, pour les filles et les garçons",
+        "À 2 mois",
+        "Seulement après 25 ans",
+        "Seulement pour les filles de 18 ans"
+      ],
+      "answer": 0,
+      "explain": "2 doses espacées de 5 à 13 mois (Gardasil 9), avec un rattrapage possible jusqu'à 19 ans."
+    },
+    {
+      "cat": "vaccins", "level": 3,
+      "type": "choice",
+      "prompt": "Calendrier 2026 : quels vaccins sont recommandés chez la personne âgée ?",
+      "options": [
+        "La grippe, tous les ans dès 65 ans",
+        "Le zona (Shingrix), dès 65 ans",
+        "Le VRS, dès 75 ans",
+        "Le BCG"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Le Covid-19 est aussi rappelé chaque année dès 65 ans. Le BCG n'est plus obligatoire ; il reste recommandé chez certains nourrissons à risque."
+    }
+  ]
+}

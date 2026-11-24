@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr" data-theme="officine">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Quizzoni : révisions IFSI 2e année</title>
+  <meta name="description" content="Quiz de révision pour les étudiants infirmiers de 2e année : calculs de doses, pharmacologie, hygiène, urgences, valeurs normales.">
+  <meta name="theme-color" content="#E9EFF6">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/play.css">
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <header class="topbar">
+    <a class="logo" href="#/" aria-label="Quizzoni, accueil">
+      <span class="cross3d" aria-hidden="true">
+        <span class="cross3d__spin">
+          <span class="cross3d__layer" style="--i:0"></span>
+          <span class="cross3d__layer" style="--i:1"></span>
+          <span class="cross3d__layer" style="--i:2"></span>
+          <span class="cross3d__layer" style="--i:3"></span>
+          <span class="cross3d__layer" style="--i:4"></span>
+          <span class="cross3d__layer" style="--i:5"></span>
+          <span class="cross3d__layer" style="--i:6"></span>
+        </span>
+      </span>
+      Quizzoni
+    </a>
+    <div class="topbar__actions">
+      <button type="button" class="key key--ghost key--sm key--icon" id="sound-toggle" aria-label="Couper le son"></button>
+      <button type="button" class="key key--ghost key--sm" id="settings-open">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" d="M3 6.5h10M19 6.5h2M3 17.5h2M11 17.5h10"/><rect x="13" y="3.5" width="6" height="6" fill="currentColor"/><rect x="5" y="14.5" width="6" height="6" fill="currentColor"/></svg>
+        Réglages
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <noscript><p class="wrap" style="padding-block:3rem">Quizzoni a besoin de JavaScript pour fonctionner.</p></noscript>
+  </main>
+
+  <canvas id="fx-canvas" aria-hidden="true"></canvas>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

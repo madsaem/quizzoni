@@ -1,0 +1,16 @@
+{
+  "shelves": [
+    { "id": "S3", "title": "Semestre 3" },
+    { "id": "S4", "title": "Semestre 4" },
+    { "id": "fond", "title": "Fondamentaux", "note": "Valeurs normales et anatomie : à connaître toute l'année." }
+  ],
+  "quizzes": [
+    "pharmacologie",
+    "infections",
+    "calculs-de-doses",
+    "hygiene-risques",
+    "soins-urgence",
+    "valeurs-normales",
+    "coeur-circulation"
+  ]
+}

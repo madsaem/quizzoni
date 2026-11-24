@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Polices (servies en local, pas de dépendance externe)
+   ========================================================================== */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../assets/fonts/bricolage-latin.woff2") format("woff2");
+  font-weight: 200 800; font-stretch: 75% 100%; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../assets/fonts/bricolage-latin-ext.woff2") format("woff2");
+  font-weight: 200 800; font-stretch: 75% 100%; font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("../assets/fonts/atkinson-latin.woff2") format("woff2");
+  font-weight: 200 800; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("../assets/fonts/atkinson-latin-ext.woff2") format("woff2");
+  font-weight: 200 800; font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ==========================================================================
+   Thèmes
+   Chaque thème redéfinit les mêmes variables. Pour en ajouter un :
+   1. copier un bloc [data-theme="..."] ci-dessous et changer les couleurs ;
+   2. l'ajouter dans js/themes.js (nom affiché + pack de sons).
+   ========================================================================== */
+:root {
+  --font-display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Échelle typographique (rapport 1,25) */
+  --t-xs: 0.8rem;
+  --t-sm: 0.9rem;
+  --t-md: 1rem;
+  --t-lg: 1.25rem;
+  --t-xl: 1.563rem;
+  --t-2xl: 1.953rem;
+  --t-3xl: 2.441rem;
+  --t-4xl: 3.052rem;
+
+  --cut: 10px;          /* taille des coins coupés */
+  --edge-h: 6px;        /* épaisseur du relief des touches */
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+}
+
+/* --- Officine (par défaut) : blanc pharmacie, bleu nuit, couleurs franches --- */
+:root,
+[data-theme="officine"] {
+  color-scheme: light;
+  --bg: #E9EFF6;
+  --bg-grid: #DAE3EE;
+  --surface: #FFFFFF;
+  --surface-2: #F3F6FA;
+  --ink: #15214A;
+  --ink-2: #48557A;
+  --ink-3: #7E8AAB;
+  --line: #C9D3E2;
+  --edge: rgba(10, 18, 48, .28);
+  --gloss: rgba(255, 255, 255, .35);
+  --focus: #FFB800;
+
+  --brand: #12A150;      /* croix de pharmacie */
+  --brand-2: #0B7A3B;
+  --brand-ink: #FFFFFF;
+
+  --c1: #EE3D5F; --c1-ink: #FFFFFF;   /* framboise / cœur */
+  --c2: #1E6FD9; --c2-ink: #FFFFFF;   /* bleu / goutte */
+  --c3: #F7B500; --c3-ink: #15214A;   /* jaune / gélule */
+  --c4: #0E9460; --c4-ink: #FFFFFF;   /* vert / croix */
+  --c5: #7B4DE0; --c5-ink: #FFFFFF;   /* violet / étoile */
+  --c6: #F26B1D; --c6-ink: #FFFFFF;   /* orange / hexagone */
+
+  --good: #0FA968;
+  --bad: #E5384F;
+  --mid: #F09A14;
+
+  --stage: #0C4C55;
+  --stage-2: #083840;
+  --stage-grid: rgba(255, 255, 255, .055);
+  --stage-ink: #FFFFFF;
+  --trace: #73F0C8;
+  --plank: #D4DDE9;
+  --plank-edge: #15214A;
+}
+
+/* --- Garde de nuit : sombre, tracé vert façon scope --- */
+[data-theme="nuit"] {
+  color-scheme: dark;
+  --bg: #0C1230;
+  --bg-grid: #141C44;
+  --surface: #18214F;
+  --surface-2: #1F2A60;
+  --ink: #ECF1FF;
+  --ink-2: #AEB9DE;
+  --ink-3: #7684B3;
+  --line: #2C3872;
+  --edge: rgba(0, 0, 0, .38);
+  --gloss: rgba(255, 255, 255, .18);
+  --focus: #FFD34D;
+
+  --brand: #22D37A;
+  --brand-2: #14A35B;
+  --brand-ink: #06102B;
+
+  --c1: #FF4F72; --c1-ink: #FFFFFF;
+  --c2: #3B86FF; --c2-ink: #FFFFFF;
+  --c3: #FFC83D; --c3-ink: #0C1230;
+  --c4: #18B874; --c4-ink: #06102B;
+  --c5: #9C74FF; --c5-ink: #FFFFFF;
+  --c6: #FF8A3D; --c6-ink: #0C1230;
+
+  --good: #22D37A;
+  --bad: #FF4F72;
+  --mid: #FFB23D;
+
+  --stage: #050A1C;
+  --stage-2: #0A1130;
+  --stage-grid: rgba(57, 255, 159, .06);
+  --stage-ink: #ECF1FF;
+  --trace: #39FF9F;
+  --plank: #222D63;
+  --plank-edge: #050A1C;
+}
+
+/* --- Cap Corse : mer, maquis, soleil de fin de journée --- */
+[data-theme="corse"] {
+  color-scheme: light;
+  --bg: #E4F1F0;
+  --bg-grid: #CFE4E2;
+  --surface: #FFFDF8;
+  --surface-2: #F4F1E6;
+  --ink: #0B3550;
+  --ink-2: #3D6178;
+  --ink-3: #7B97A8;
+  --line: #C3D8DA;
+  --edge: rgba(6, 34, 52, .28);
+  --gloss: rgba(255, 255, 255, .35);
+  --focus: #F2B544;
+
+  --brand: #E2633A;
+  --brand-2: #B4461F;
+  --brand-ink: #FFFFFF;
+
+  --c1: #E2553B; --c1-ink: #FFFFFF;   /* coucher de soleil */
+  --c2: #0A74B5; --c2-ink: #FFFFFF;   /* mer */
+  --c3: #F2B544; --c3-ink: #0B3550;   /* citron */
+  --c4: #4C8A2C; --c4-ink: #FFFFFF;   /* maquis */
+  --c5: #8B5BB8; --c5-ink: #FFFFFF;   /* bruyère */
+  --c6: #C9822B; --c6-ink: #FFFFFF;   /* granit ocre */
+
+  --good: #3E9B2E;
+  --bad: #D9413A;
+  --mid: #E89B1E;
+
+  --stage: #0A5A86;
+  --stage-2: #07476B;
+  --stage-grid: rgba(255, 255, 255, .07);
+  --stage-ink: #FFFFFF;
+  --trace: #FFE08A;
+  --plank: #E3D3B4;
+  --plank-edge: #0B3550;
+}

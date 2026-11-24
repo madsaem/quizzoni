@@ -1,0 +1,190 @@
+{
+  "title": "Valeurs normales",
+  "short": "Normes",
+  "subtitle": "Constantes et bilan sanguin",
+  "ue": "Transversal",
+  "badge": "",
+  "shelf": "fond",
+  "color": "c5",
+  "description": "Place les bornes sur le curseur : constantes vitales et valeurs biologiques à connaître pour repérer une anomalie. Les seuils peuvent varier légèrement selon les laboratoires.",
+  "tags": [
+    "constantes",
+    "biologie",
+    "kaliémie",
+    "natrémie",
+    "glycémie",
+    "SpO2",
+    "plaquettes",
+    "INR",
+    "normes"
+  ],
+  "questions": [
+    {
+      "level": 1,
+      "type": "range",
+      "prompt": "Kaliémie normale",
+      "min": 2,
+      "max": 7,
+      "step": 0.1,
+      "answer": [
+        3.5,
+        5.0
+      ],
+      "tolerance": 0.2,
+      "unit": "mmol/L",
+      "explain": "En dessous, hypokaliémie ; au-dessus, hyperkaliémie. Dans les deux cas le risque principal est cardiaque (troubles du rythme) : ECG et surveillance rapprochée."
+    },
+    {
+      "level": 1,
+      "type": "range",
+      "prompt": "Natrémie normale",
+      "min": 120,
+      "max": 160,
+      "step": 1,
+      "answer": [
+        135,
+        145
+      ],
+      "tolerance": 2,
+      "unit": "mmol/L",
+      "explain": "Une hyponatrémie (sous 135) peut donner confusion, nausées, voire convulsions si elle est profonde. Une hypernatrémie (au-dessus de 145) traduit souvent une déshydratation."
+    },
+    {
+      "level": 2,
+      "type": "range",
+      "prompt": "Glycémie à jeun normale",
+      "min": 0.4,
+      "max": 2,
+      "step": 0.01,
+      "answer": [
+        0.7,
+        1.1
+      ],
+      "tolerance": 0.05,
+      "unit": "g/L",
+      "explain": "Soit environ 3,9 à 6,1 mmol/L. Diabète si la glycémie à jeun atteint 1,26 g/L ou plus à deux reprises. Chez le patient diabétique, on parle d'hypoglycémie sous 0,70 g/L."
+    },
+    {
+      "level": 1,
+      "type": "range",
+      "prompt": "Fréquence cardiaque de l'adulte au repos",
+      "min": 30,
+      "max": 160,
+      "step": 1,
+      "answer": [
+        60,
+        100
+      ],
+      "tolerance": 5,
+      "unit": "bpm",
+      "explain": "Bradycardie sous 60, tachycardie au-dessus de 100 battements par minute, au repos."
+    },
+    {
+      "level": 2,
+      "type": "range",
+      "prompt": "Fréquence respiratoire de l'adulte au repos",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "answer": [
+        12,
+        20
+      ],
+      "tolerance": 2,
+      "unit": "/min",
+      "explain": "Une fréquence respiratoire au-dessus de 20 (polypnée) est un signe d'alerte précoce, souvent oublié dans la surveillance."
+    },
+    {
+      "level": 1,
+      "type": "slider",
+      "prompt": "SpO~2~ normale chez l'adulte sain : au moins…",
+      "min": 80,
+      "max": 100,
+      "step": 1,
+      "answer": 95,
+      "tolerance": 1,
+      "unit": "%",
+      "explain": "Une SpO2 de 95 % ou plus est normale chez l'adulte sain. Chez un patient insuffisant respiratoire chronique, la cible prescrite est souvent plus basse."
+    },
+    {
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "Chez un patient BPCO à risque d'hypercapnie, la cible de SpO~2~ est souvent de 88 à 92 %.",
+      "answer": true,
+      "explain": "Vrai. Une oxygénation trop généreuse peut aggraver l'hypercapnie chez ces patients. La cible est fixée par le médecin."
+    },
+    {
+      "level": 2,
+      "type": "range",
+      "prompt": "Hémoglobine normale chez la femme adulte",
+      "min": 8,
+      "max": 20,
+      "step": 0.5,
+      "answer": [
+        12,
+        16
+      ],
+      "tolerance": 0.5,
+      "unit": "g/dL",
+      "explain": "Chez l'homme : environ 13 à 17 g/dL. En dessous, on parle d'anémie."
+    },
+    {
+      "level": 2,
+      "type": "range",
+      "prompt": "Plaquettes",
+      "min": 0,
+      "max": 600,
+      "step": 10,
+      "answer": [
+        150,
+        400
+      ],
+      "tolerance": 20,
+      "unit": "G/L",
+      "explain": "150 à 400 G/L, soit 150 000 à 400 000 par mm³. En dessous de 150 G/L, on parle de thrombopénie ; le risque hémorragique devient important sous 50 G/L."
+    },
+    {
+      "level": 2,
+      "type": "range",
+      "prompt": "Leucocytes (globules blancs)",
+      "min": 0,
+      "max": 20,
+      "step": 0.5,
+      "answer": [
+        4,
+        10
+      ],
+      "tolerance": 0.5,
+      "unit": "G/L",
+      "explain": "4 à 10 G/L, soit 4 000 à 10 000 par mm³. Hyperleucocytose au-dessus, leucopénie en dessous."
+    },
+    {
+      "level": 1,
+      "type": "range",
+      "prompt": "Température corporelle normale",
+      "min": 34,
+      "max": 42,
+      "step": 0.1,
+      "answer": [
+        36.5,
+        37.5
+      ],
+      "tolerance": 0.3,
+      "unit": "°C",
+      "explain": "Fièvre à partir de 38 °C au repos ; hypothermie sous 35 °C."
+    },
+    {
+      "level": 2,
+      "type": "choice",
+      "prompt": "INR cible habituel chez un patient sous AVK pour une fibrillation atriale :",
+      "options": [
+        "Entre 2 et 3",
+        "Entre 1 et 1,5",
+        "Entre 3 et 4,5",
+        "Inférieur à 1"
+      ],
+      "answer": 0,
+      "explain": "Sans traitement, l'INR est proche de 1. Sous AVK la cible est en général de 2 à 3 (2,5 à 3,5 pour certaines valves mécaniques). Au-dessus de la cible, le risque hémorragique augmente."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="268" viewBox="0 0 680 240" role="img" aria-label="Tracé d'électrocardiogramme : deux battements cardiaques">
+  <defs>
+    <pattern id="small" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M8 0H0V8" fill="none" stroke="#F6C6CF" stroke-width=".8"/>
+    </pattern>
+    <pattern id="big" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="url(#small)"/>
+      <path d="M40 0H0V40" fill="none" stroke="#EC97A8" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+  <rect width="680" height="240" fill="#FFF7F8"/>
+  <rect width="680" height="240" fill="url(#big)"/>
+  <text x="12" y="26" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#15214A">DII</text>
+  <path fill="none" stroke="#15214A" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"
+    d="M0 150 H50 Q75 110 100 150 H130 L138 162 L150 40 L162 172 L170 150 H210 Q245 95 280 150 H340
+       Q365 110 390 150 H420 L428 162 L440 40 L452 172 L460 150 H500 Q535 95 570 150 H680"/>
+</svg>

@@ -1,0 +1,148 @@
+{
+  "title": "Hygiène et risques",
+  "short": "Hygiène",
+  "subtitle": "AES, précautions, déchets",
+  "ue": "UE 4.5",
+  "badge": "S4",
+  "shelf": "S4",
+  "color": "c4",
+  "description": "Précautions standard et complémentaires, conduite à tenir après un AES, tri des déchets : la base de la sécurité des soins.",
+  "tags": [
+    "hygiène",
+    "AES",
+    "précautions",
+    "DASRI",
+    "friction",
+    "nosocomiale",
+    "gestion des risques"
+  ],
+  "questions": [
+    {
+      "level": 2,
+      "type": "order",
+      "prompt": "Piqûre avec une aiguille souillée (AES) : remets les premiers gestes dans l'ordre.",
+      "items": [
+        "Ne pas faire saigner la plaie",
+        "Nettoyer à l'eau et au savon, puis rincer",
+        "Désinfecter au moins 5 minutes (Dakin ou alcool à 70°)",
+        "Contacter rapidement le médecin référent ou les urgences",
+        "Déclarer l'accident du travail"
+      ],
+      "explain": "Le contact médical doit être rapide : un éventuel traitement post-exposition est d'autant plus efficace qu'il est débuté tôt, idéalement dans les 4 heures. Note aussi les informations utiles sur le patient source."
+    },
+    {
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque infection aux précautions complémentaires adaptées.",
+      "left": "Infection",
+      "right": "Précautions",
+      "pairs": [
+        [
+          "Tuberculose pulmonaire",
+          "Air : masque FFP2"
+        ],
+        [
+          "Grippe saisonnière",
+          "Gouttelettes : masque chirurgical"
+        ],
+        [
+          "SARM sur une plaie",
+          "Contact : hygiène des mains renforcée, tablier"
+        ]
+      ],
+      "explain": "Air : fines particules qui restent en suspension (tuberculose, rougeole, varicelle), FFP2 pour le soignant et porte fermée. Gouttelettes : grosses particules projetées à courte distance, masque chirurgical. Contact : transmission par les mains et l'environnement."
+    },
+    {
+      "level": 3,
+      "type": "choice",
+      "prompt": "Infection à *Clostridioides difficile* : quelle hygiène des mains ?",
+      "options": [
+        "Lavage au savon doux, séchage, puis friction hydro-alcoolique",
+        "Friction hydro-alcoolique seule",
+        "Port de gants, sans hygiène des mains",
+        "Rinçage à l'eau seule"
+      ],
+      "answer": 0,
+      "explain": "Les spores résistent à l'alcool : on les élimine mécaniquement par le lavage, puis on réalise une friction. L'environnement est désinfecté avec un produit sporicide, comme l'eau de Javel."
+    },
+    {
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Une friction hydro-alcoolique dure au moins 30 secondes, jusqu'à ce que les mains soient sèches.",
+      "answer": true,
+      "explain": "Vrai. Il faut une quantité suffisante de produit et frictionner toutes les zones, ongles et poignets compris, jusqu'au séchage complet."
+    },
+    {
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "On peut garder son alliance pendant les soins si l'on fait des frictions hydro-alcooliques.",
+      "answer": false,
+      "explain": "Faux. Aucun bijou aux mains ni aux poignets, alliance comprise : ils empêchent une désinfection efficace et abritent des germes. Avant-bras dégagés, ongles courts, sans vernis ni faux ongles."
+    },
+    {
+      "level": 1,
+      "type": "choice",
+      "prompt": "Après une injection, l'aiguille se jette…",
+      "options": [
+        "Directement dans le collecteur à objets piquants, sans la recapuchonner",
+        "Recapuchonnée, dans le sac jaune DASRI",
+        "Dans le sac jaune DASRI, sans la recapuchonner",
+        "Recapuchonnée, dans la poubelle ménagère"
+      ],
+      "answer": 0,
+      "explain": "Le recapuchonnage est une cause majeure d'AES évitables. Le collecteur se place à portée de main et ne se remplit pas au-delà du trait."
+    },
+    {
+      "level": 1,
+      "type": "choice",
+      "prompt": "Les déchets d'activités de soins à risques infectieux (DASRI) vont dans des emballages de quelle couleur ?",
+      "options": [
+        "Jaune",
+        "Noir",
+        "Bleu",
+        "Vert"
+      ],
+      "answer": 0,
+      "explain": "Jaune pour les DASRI, noir pour les déchets assimilés aux ordures ménagères (DAOM)."
+    },
+    {
+      "level": 2,
+      "type": "text",
+      "prompt": "Une infection absente à l'admission, qui apparaît au moins 48 h après le début de l'hospitalisation, est dite…",
+      "answers": [
+        "nosocomiale",
+        "infection nosocomiale"
+      ],
+      "explain": "On parle plus largement d'infection associée aux soins (IAS). Le délai de 48 h sert à écarter une infection déjà en incubation à l'arrivée ; il est plus long pour une infection du site opératoire (30 jours, davantage en cas de prothèse)."
+    },
+    {
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qu'est-ce qui fait partie des précautions standard ?",
+      "options": [
+        "L'hygiène des mains",
+        "Le port de gants en cas de risque de contact avec du sang ou un liquide biologique",
+        "La gestion des excreta",
+        "L'isolement systématique en chambre seule"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Les précautions standard s'appliquent à tous les patients, tout le temps : hygiène des mains, équipements de protection selon le risque, hygiène respiratoire, prévention des AES, gestion des excreta et de l'environnement. L'isolement relève des précautions complémentaires."
+    },
+    {
+      "level": 2,
+      "type": "slider",
+      "prompt": "Après un AES, combien de minutes au minimum doit durer la désinfection de la plaie ?",
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "answer": 5,
+      "tolerance": 0,
+      "unit": "min",
+      "explain": "Au moins 5 minutes de contact avec l'antiseptique (Dakin, eau de Javel diluée ou, à défaut, alcool à 70°)."
+    }
+  ]
+}
