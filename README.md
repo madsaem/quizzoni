@@ -5,6 +5,8 @@ Quiz courts, 10 types de questions, 3 thèmes avec leurs propres sons, progressi
 
 Aucune installation, aucun framework : HTML, CSS et JavaScript.
 
+**En ligne : https://madsaem.github.io/quizzoni/**
+
 ## Lancer le site en local
 
 Le site doit passer par un petit serveur local (un double-clic sur `index.html` ne suffit pas).
@@ -13,12 +15,21 @@ Le site doit passer par un petit serveur local (un double-clic sur `index.html` 
   La première fois, si macOS bloque : clic droit sur le fichier, puis « Ouvrir ».
 - **Windows** : double-clic sur `start.bat` (utilise PowerShell, déjà présent sur Windows).
 
-## Mettre le site en ligne (gratuit)
+## Le site en ligne
 
-Le dossier se publie tel quel, sans étape de construction :
+Le site est hébergé gratuitement par GitHub Pages, depuis le dépôt https://github.com/madsaem/quizzoni (branche `main`).
 
-- **GitHub Pages** : pousser le dossier dans un dépôt, puis Settings › Pages › Deploy from branch.
-- **Netlify** : glisser-déposer le dossier sur https://app.netlify.com/drop.
+Pour mettre en ligne une modification (nouvelles questions, correction…) :
+
+```
+git add -A
+git commit -m "Ce qui a changé"
+git push
+```
+
+GitHub reconstruit le site tout seul : la nouvelle version est en ligne 1 à 2 minutes après. Si elle n'apparaît pas, recharger la page sans le cache (Cmd + Maj + R sur Mac, Ctrl + F5 sur Windows).
+
+La progression des étudiants est enregistrée dans leur navigateur : une mise à jour du site ne l'efface pas.
 
 ## Organisation
 
