@@ -127,14 +127,44 @@ export function renderIntro(root, id) {
       type: 'button',
       class: 'seg__opt',
       role: 'radio',
-      onClick: () => { count = n; sound.play('click'); refresh(); },
+      onClick: () => { count = n; customInput.value = ''; sound.play('click'); refresh(); },
     }, n ? String(n) : 'Toutes');
     b._n = n;
     return b;
   });
+
+  // nombre libre : l'étudiant tape la quantité voulue
+  const customInput = h('input', {
+    type: 'number',
+    class: 'seg__input',
+    min: 1,
+    step: 1,
+    inputmode: 'numeric',
+    placeholder: '…',
+    'aria-label': 'Nombre de questions au choix',
+    onInput: () => {
+      const v = parseInt(customInput.value, 10);
+      if (Number.isFinite(v) && v >= 1) { count = v; refresh(); }
+    },
+    onChange: () => {
+      const v = parseInt(customInput.value, 10);
+      const max = pool().length;
+      if (!Number.isFinite(v) || v < 1) { customInput.value = isCustom() ? String(count) : ''; return; }
+      // au-delà du stock, c'est « Toutes »
+      if (v >= max) { count = 0; customInput.value = ''; }
+      sound.play('click');
+      refresh();
+    },
+    onKeydown: (e) => { if (e.key === 'Enter') { e.preventDefault(); customInput.blur(); } },
+  });
+  const customOpt = h('label', { class: 'seg__opt seg__custom', role: 'radio' },
+    h('span', {}, 'Autre'), customInput);
+  customOpt.addEventListener('click', (e) => { if (e.target !== customInput) customInput.focus(); });
+  const isCustom = () => count > 0 && !COUNTS.includes(count);
+
   const countBlock = h('section', { class: 'notice__block' },
     h('h2', {}, 'Nombre de questions'),
-    h('div', { class: 'seg', role: 'radiogroup', 'aria-label': 'Nombre de questions' }, countOpts));
+    h('div', { class: 'seg seg--count', role: 'radiogroup', 'aria-label': 'Nombre de questions' }, countOpts, customOpt));
 
   /* ---------------------------------------------------------------- Mode */
   const modes = h('div', { class: 'modes', role: 'radiogroup', 'aria-label': 'Mode de jeu' },
@@ -176,7 +206,11 @@ export function renderIntro(root, id) {
       b.disabled = b._n > 0 && b._n >= p.length;
       if (b._n === 0) b.textContent = `Toutes (${p.length})`;
     });
-    if (count && count >= p.length) countOpts.forEach((b) => b.setAttribute('aria-checked', String(b._n === 0)));
+    const tooMany = count > 0 && count >= p.length;
+    if (tooMany) countOpts.forEach((b) => b.setAttribute('aria-checked', String(b._n === 0)));
+    customOpt.setAttribute('aria-checked', String(isCustom() && !tooMany));
+    customInput.max = String(Math.max(1, p.length));
+    if (document.activeElement !== customInput) customInput.value = isCustom() && !tooMany ? String(count) : '';
 
     const n = effectiveCount(p);
     startBtn.disabled = n === 0;

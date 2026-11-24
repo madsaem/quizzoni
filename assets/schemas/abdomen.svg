@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="460" viewBox="0 0 400 460" role="img" aria-label="Abdomen vu de face, découpé en 9 régions, sans légende">
+  <defs>
+    <clipPath id="tronc">
+      <path d="M62 15 C58 90 66 170 78 230 C84 270 64 320 52 370 C46 400 60 440 95 458 L305 458 C340 440 354 400 348 370 C336 320 316 270 322 230 C334 170 342 90 338 15 Z"/>
+    </clipPath>
+  </defs>
+  <rect width="400" height="460" fill="#FFFFFF"/>
+  <path d="M62 15 C58 90 66 170 78 230 C84 270 64 320 52 370 C46 400 60 440 95 458 L305 458 C340 440 354 400 348 370 C336 320 316 270 322 230 C334 170 342 90 338 15 Z" fill="#F6D3C2"/>
+  <g clip-path="url(#tronc)" fill="none" stroke-linecap="round">
+    <!-- rebords costaux -->
+    <path d="M200 100 C176 138 122 176 70 204 M200 100 C224 138 278 176 330 204" stroke="#B9826B" stroke-width="3"/>
+    <path d="M200 70 V100" stroke="#B9826B" stroke-width="3"/>
+    <!-- plis inguinaux -->
+    <path d="M86 352 Q128 408 172 456 M314 352 Q272 408 228 456" stroke="#B9826B" stroke-width="2.5" opacity=".8"/>
+    <!-- découpage en 9 régions -->
+    <path d="M140 10 V460 M260 10 V460 M40 200 H360 M40 340 H360" stroke="#15214A" stroke-width="2.2" stroke-dasharray="8 6" opacity=".55"/>
+  </g>
+  <ellipse cx="200" cy="282" rx="6" ry="8" fill="#D9A891" stroke="#B9826B" stroke-width="1.5"/>
+  <path d="M62 15 C58 90 66 170 78 230 C84 270 64 320 52 370 C46 400 60 440 95 458 L305 458 C340 440 354 400 348 370 C336 320 316 270 322 230 C334 170 342 90 338 15 Z" fill="none" stroke="#15214A" stroke-width="3"/>
+</svg>

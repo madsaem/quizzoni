@@ -38,7 +38,7 @@ export default {
     return null;
   },
 
-  hint() { return 'Touche l\'image pour placer ta croix, puis valide'; },
+  hint() { return 'Touche l\'image pour placer ton repère, puis valide'; },
 
   mount(q, api) {
     let point = null; // { x, y } en %
@@ -49,7 +49,7 @@ export default {
       class: 'figure__inner',
       tabindex: '0',
       role: 'application',
-      'aria-label': `${q.alt || 'Image'}. Utilise les flèches pour déplacer la croix, puis Entrée pour valider.`,
+      'aria-label': `${q.alt || 'Image'}. Utilise les flèches pour déplacer le repère, puis Entrée pour valider.`,
     }, img, overlay, marker);
     const fig = h('figure', { class: 'figure hotspot' }, inner, q.caption ? h('figcaption', { class: 'figure__caption' }, q.caption) : null);
     let locked = false;
@@ -103,7 +103,7 @@ export default {
     const ids = answerIds(q);
     if (q.zones.some((z) => ids.includes(z.id) && inside(z, px, py, W, H))) return { score: 1 };
     const other = q.zones.find((z) => inside(z, px, py, W, H));
-    return { score: 0, note: other?.label ? `Ta croix est sur : ${other.label}.` : null };
+    return { score: 0, note: other?.label ? `Ton repère est sur : ${other.label}.` : null };
   },
 
   answerText(q) {

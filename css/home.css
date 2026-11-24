@@ -449,3 +449,22 @@
 .seg__count { font-weight: 400; opacity: .7; font-variant-numeric: tabular-nums; }
 .seg__count::before { content: "("; }
 .seg__count::after { content: ")"; }
+
+/* Nombre de questions au choix */
+.seg--count { grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr)); }
+.seg__custom { gap: .5rem; cursor: text; }
+.seg__input {
+  width: 3.6rem;
+  padding: .2rem .3rem;
+  border: 2px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font: 700 16px/1.2 var(--font-body); /* 16 px : évite le zoom automatique sur iPhone */
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.seg__input::-webkit-outer-spin-button,
+.seg__input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.seg__input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.seg__input::placeholder { color: currentColor; opacity: .5; }

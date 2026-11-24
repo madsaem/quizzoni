@@ -92,6 +92,10 @@ Deux champs servent aux réglages de partie :
 { "cat": "anticoag", "level": 3, "type": "text", "prompt": "Antidote du dabigatran ?", "answers": ["Praxbind", "idarucizumab"] }
 ```
 
+Deux champs facultatifs aident à faire évoluer une boîte :
+- `id` : identifiant fixe (ex. `28-avc-01`). Sans lui, la question est reconnue par son énoncé : la reformuler la ferait sortir de la liste « Mes erreurs » des étudiants. Avec un `id`, on peut la réécrire librement.
+- `src` : le document d'où vient la question (ex. `memo`), décrit dans la liste `sources` du quiz. Pratique pour repérer les recoupements quand un nouveau cours arrive.
+
 Une question doit se comprendre seule : les questions sont tirées au hasard, celle d'avant n'est donc pas forcément affichée.
 
 Mise en forme possible dans les textes : `**gras**`, `*italique*`, `O~2~` (indice), `m^2^` (exposant).
@@ -152,7 +156,7 @@ Les positions sont en **pourcentage** de l'image (0 à 100, depuis le coin haut 
 
 - `rect` : `x`, `y` = coin haut gauche, `w`, `h` = largeur et hauteur. `circle` : `x`, `y` = centre, `r` = rayon (en % de la largeur).
 - `answer` peut être une liste (`["qrs1", "qrs2"]`) quand plusieurs zones sont justes.
-- Les zones qui ne sont pas la réponse servent à dire à l'étudiant où il a cliqué (« Ta croix est sur : … »).
+- Les zones qui ne sont pas la réponse servent à dire à l'étudiant où il a cliqué (« Ton repère est sur : … »).
 
 ```json
 {

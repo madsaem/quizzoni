@@ -1,0 +1,2984 @@
+{
+  "title": "Processus obstructifs",
+  "short": "Obstructifs",
+  "subtitle": "AVC, IDM, EP, OAP, occlusion, coliques, BPCO, asthme",
+  "ue": "UE 2.8",
+  "badge": "S3",
+  "shelf": "S3",
+  "color": "c2",
+  "description": "Les pathologies obstructives : signes, gravité, examens, traitements et prise en soins infirmière. Choisis une pathologie ou mélange-les.",
+  "tags": [
+    "UE 2.8",
+    "obstructif",
+    "AVC",
+    "occlusion",
+    "sonde gastrique",
+    "colique hépatique",
+    "angiocholite",
+    "colique néphrétique",
+    "ECBU",
+    "infarctus",
+    "IDM",
+    "coronarographie",
+    "embolie pulmonaire",
+    "gazométrie",
+    "oxygène",
+    "OAP",
+    "BPCO",
+    "asthme",
+    "morphine titrée"
+  ],
+  "sources": [
+    {
+      "id": "memo",
+      "title": "Mémo UE 2.8, IFSI de Bastia, 2026"
+    }
+  ],
+  "time": {
+    "number": 90,
+    "match": 75,
+    "order": 60,
+    "label": 75
+  },
+  "categories": [
+    {
+      "id": "bases",
+      "title": "Bases et anatomie"
+    },
+    {
+      "id": "avc",
+      "title": "AVC"
+    },
+    {
+      "id": "occlusion",
+      "title": "Occlusion et sonde gastrique"
+    },
+    {
+      "id": "biliaire",
+      "title": "Coliques hépatiques"
+    },
+    {
+      "id": "nephretique",
+      "title": "Coliques néphrétiques"
+    },
+    {
+      "id": "idm",
+      "title": "Infarctus"
+    },
+    {
+      "id": "ep",
+      "title": "Embolie pulmonaire"
+    },
+    {
+      "id": "oap",
+      "title": "OAP"
+    },
+    {
+      "id": "bpco",
+      "title": "BPCO"
+    },
+    {
+      "id": "asthme",
+      "title": "Asthme"
+    }
+  ],
+  "questions": [
+    {
+      "id": "28-bases-01",
+      "src": "memo",
+      "cat": "bases",
+      "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque sigle à sa signification.",
+      "left": "Sigle",
+      "right": "Signification",
+      "pairs": [
+        [
+          "ASP",
+          "Abdomen sans préparation"
+        ],
+        [
+          "ECBU",
+          "Examen cytobactériologique des urines"
+        ],
+        [
+          "SNG",
+          "Sonde nasogastrique"
+        ],
+        [
+          "VNI",
+          "Ventilation non invasive"
+        ],
+        [
+          "OAP",
+          "Œdème aigu du poumon"
+        ]
+      ],
+      "explain": "Sigles à connaître pour lire un dossier de soins ou une prescription."
+    },
+    {
+      "id": "28-bases-02",
+      "src": "memo",
+      "cat": "bases",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Évaluation de la douleur : que signifie TILT ?",
+      "options": [
+        "Temps, Intensité, Localisation, Type",
+        "Température, Inspection, Localisation, Traitement",
+        "Tension, Irradiation, Latéralité, Toux",
+        "Temps, Irradiation, Lésion, Tolérance"
+      ],
+      "answer": 0,
+      "explain": "Temps (début, durée), Intensité (EN, EVA, Algoplus), Localisation (et irradiation), Type (brûlure, crampe, étau…)."
+    },
+    {
+      "id": "28-bases-03",
+      "src": "memo",
+      "cat": "bases",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Démarche trifocale : quelles sont les trois colonnes ?",
+      "options": [
+        "Signes et symptômes, risques et complications, réactions humaines",
+        "Diagnostic, traitement, surveillance",
+        "Antécédents, examens, ordonnance",
+        "Douleur, fièvre, ictère"
+      ],
+      "answer": 0,
+      "explain": "Le trifocal relie la pathologie (signes et symptômes) aux risques à prévenir et aux réactions de la personne."
+    },
+    {
+      "id": "28-bases-04",
+      "src": "memo",
+      "cat": "bases",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Dans le trifocal d'un AVC, lequel de ces éléments est un **risque**, et non un symptôme ?",
+      "options": [
+        "Le risque de fausse route",
+        "L'hémiplégie",
+        "La céphalée",
+        "Le trouble de la vision"
+      ],
+      "answer": 0,
+      "explain": "L'hémiplégie, la céphalée et les troubles visuels sont des signes présents. Le risque de fausse route est ce qu'il faut prévenir."
+    },
+    {
+      "id": "28-bases-05",
+      "src": "memo",
+      "cat": "bases",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Dans un trifocal, l'anxiété liée à l'hospitalisation se range dans…",
+      "options": [
+        "Les réactions humaines",
+        "Les signes et symptômes",
+        "Les risques et complications",
+        "Les traitements"
+      ],
+      "answer": 0,
+      "explain": "Réactions humaines physiques et psychologiques : anxiété, peur, perte de l'estime de soi, perturbation familiale…"
+    },
+    {
+      "id": "28-bases-06",
+      "src": "memo",
+      "cat": "bases",
+      "level": 2,
+      "type": "label",
+      "prompt": "Légende les régions de l'abdomen (patient vu de face).",
+      "image": "assets/schemas/abdomen.svg",
+      "alt": "Abdomen vu de face, découpé en 9 régions, avec six repères numérotés",
+      "pins": [
+        {
+          "x": 24.5,
+          "y": 26,
+          "answer": "Hypochondre droit"
+        },
+        {
+          "x": 50,
+          "y": 26,
+          "answer": "Épigastre"
+        },
+        {
+          "x": 75.5,
+          "y": 26,
+          "answer": "Hypochondre gauche"
+        },
+        {
+          "x": 50,
+          "y": 53,
+          "answer": "Région ombilicale"
+        },
+        {
+          "x": 24.5,
+          "y": 86,
+          "answer": "Fosse iliaque droite"
+        },
+        {
+          "x": 50,
+          "y": 87,
+          "answer": "Hypogastre"
+        }
+      ],
+      "distractors": [
+        "Flanc gauche",
+        "Fosse lombaire"
+      ],
+      "explain": "Sur un patient vu de face, sa droite est à ta gauche. Hypochondre droit : foie et vésicule. Épigastre : estomac. Fosse iliaque droite : appendice."
+    },
+    {
+      "id": "28-avc-01",
+      "src": "memo",
+      "cat": "avc",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Selon la HAS, un AVC correspond à…",
+      "options": [
+        "L'arrêt brutal de la circulation sanguine dans une partie du cerveau",
+        "Une infection des méninges",
+        "Une crise d'épilepsie prolongée",
+        "Une chute brutale de la glycémie"
+      ],
+      "answer": 0,
+      "explain": "Arrêt brutal de la circulation sanguine dans une partie du cerveau : chaque minute compte."
+    },
+    {
+      "id": "28-avc-02",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "slider",
+      "prompt": "Quelle part des AVC sont ischémiques ?",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "answer": 85,
+      "tolerance": 5,
+      "unit": "%",
+      "explain": "Environ 85 % d'AVC ischémiques (artère bouchée par un thrombus ou un embole) et 15 % d'AVC hémorragiques."
+    },
+    {
+      "id": "28-avc-03",
+      "src": "memo",
+      "cat": "avc",
+      "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque forme d'AVC à son mécanisme.",
+      "left": "Forme",
+      "right": "Mécanisme",
+      "pairs": [
+        [
+          "AVC ischémique",
+          "Artère cérébrale bouchée par un caillot"
+        ],
+        [
+          "AVC hémorragique",
+          "Rupture d'une artère cérébrale, saignement"
+        ],
+        [
+          "AIT (accident ischémique transitoire)",
+          "Signes qui disparaissent, le plus souvent en quelques minutes"
+        ]
+      ],
+      "explain": "L'AIT est un signal d'alarme : il se prend en charge en urgence, comme un AVC."
+    },
+    {
+      "id": "28-avc-04",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Un AIT dont les signes ont disparu ne nécessite pas de prise en charge urgente.",
+      "answer": false,
+      "explain": "Faux. Le risque d'AVC constitué est élevé dans les jours qui suivent un AIT : bilan en urgence."
+    },
+    {
+      "id": "28-avc-05",
+      "src": "memo",
+      "cat": "avc",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels sont des facteurs de risque d'AVC ?",
+      "options": [
+        "Hypertension artérielle",
+        "Fibrillation atriale",
+        "Tabac",
+        "Diabète",
+        "Groupe sanguin O"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : cholestérol, alcool, surpoids, pilule contraceptive, apnée du sommeil."
+    },
+    {
+      "id": "28-avc-06",
+      "src": "memo",
+      "cat": "avc",
+      "level": 1,
+      "type": "order",
+      "prompt": "Remets dans l'ordre les lettres du FAST.",
+      "items": [
+        "F (Face) : demander de sourire",
+        "A (Arm) : lever les deux bras",
+        "S (Speech) : répéter une phrase simple",
+        "T (Time) : appeler le 15 immédiatement"
+      ],
+      "explain": "Le FAST est destiné au grand public pour repérer un AVC et appeler vite les secours."
+    },
+    {
+      "id": "28-avc-07",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont les signes d'alerte d'un AVC (American Stroke Association) ?",
+      "options": [
+        "Faiblesse ou paralysie d'un côté du corps ou du visage",
+        "Baisse ou perte de la vision",
+        "Difficulté à parler ou à comprendre",
+        "Trouble de l'équilibre",
+        "Mal de tête brutal et inhabituel",
+        "Douleur au mollet en marchant"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explain": "Les 5 signes : atteinte d'un hémicorps ou d'une hémiface, trouble visuel, difficulté à parler, trouble de l'équilibre, céphalée brutale inhabituelle."
+    },
+    {
+      "id": "28-avc-08",
+      "src": "memo",
+      "cat": "avc",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Patient suspect d'AVC : quelle information l'IDE doit-elle absolument recueillir et noter ?",
+      "options": [
+        "L'heure d'apparition des symptômes",
+        "Le groupe sanguin",
+        "L'heure du dernier repas",
+        "La taille du patient"
+      ],
+      "answer": 0,
+      "explain": "Elle conditionne l'accès à la thrombolyse (en général dans les 4 h 30) ou à la thrombectomie. Si l'heure est inconnue, on retient le dernier moment où le patient a été vu sans symptôme."
+    },
+    {
+      "id": "28-avc-09",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Troubles neurologiques brutaux : quel examen simple fais-tu tout de suite au lit ?",
+      "options": [
+        "Une glycémie capillaire",
+        "Une gazométrie",
+        "Une bandelette urinaire",
+        "Un ECBU"
+      ],
+      "answer": 0,
+      "explain": "Une hypoglycémie peut imiter un AVC. Autres diagnostics à écarter : alcool, toxiques, déshydratation."
+    },
+    {
+      "id": "28-avc-10",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pourquoi faire un ECG devant un AVC ?",
+      "options": [
+        "Rechercher une fibrillation atriale",
+        "Mesurer la glycémie",
+        "Évaluer la conscience",
+        "Remplacer le scanner"
+      ],
+      "answer": 0,
+      "explain": "La fibrillation atriale favorise la formation de caillots dans le cœur, qui peuvent partir vers le cerveau."
+    },
+    {
+      "id": "28-avc-11",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "AVC : quel soluté pour la voie veineuse ?",
+      "options": [
+        "NaCl 0,9 %",
+        "Glucosé 5 %",
+        "Eau pour préparation injectable",
+        "Aucune perfusion n'est autorisée"
+      ],
+      "answer": 0,
+      "explain": "Pas de G5 % : une fois le glucose consommé, il se comporte comme de l'eau pure (hypotonique) et peut aggraver l'œdème cérébral."
+    },
+    {
+      "id": "28-avc-12",
+      "src": "memo",
+      "cat": "avc",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quel examen d'imagerie en urgence devant une suspicion d'AVC ?",
+      "options": [
+        "Scanner cérébral ou IRM",
+        "Radiographie du thorax",
+        "Échographie abdominale",
+        "Électroencéphalogramme"
+      ],
+      "answer": 0,
+      "explain": "Il distingue AVC ischémique et hémorragique : impossible de thrombolyser sans lui."
+    },
+    {
+      "id": "28-avc-13",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "text",
+      "prompt": "Quel autre nom porte l'artère cérébrale moyenne, la plus souvent touchée dans l'AVC ?",
+      "answers": [
+        "artère sylvienne",
+        "sylvienne"
+      ],
+      "explain": "Artère sylvienne = artère cérébrale moyenne. Elle fait partie du polygone de Willis."
+    },
+    {
+      "id": "28-avc-14",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels éléments signent un AVC grave ?",
+      "options": [
+        "Score NIHSS supérieur à 11",
+        "Score de Glasgow inférieur à 8",
+        "Coma aréactif",
+        "Pression artérielle à 150 mmHg"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Un score de Glasgow bas impose de protéger les voies aériennes (préparation de l'intubation)."
+    },
+    {
+      "id": "28-avc-15",
+      "src": "memo",
+      "cat": "avc",
+      "level": 3,
+      "type": "number",
+      "prompt": "Thrombolyse d'un AVC par altéplase (Actilyse) à 0,9 mg/kg. Patient de 60 kg : quelle dose totale ?",
+      "answer": 54,
+      "unit": "mg",
+      "explain": "0,9 × 60 = 54 mg (dose maximale : 90 mg). 10 % en bolus IV sur 1 min, puis 90 % au pousse-seringue sur 1 heure."
+    },
+    {
+      "id": "28-avc-16",
+      "src": "memo",
+      "cat": "avc",
+      "level": 3,
+      "type": "number",
+      "prompt": "Altéplase : dose totale de 54 mg, dont 10 % en bolus. Combien de mg en bolus ?",
+      "answer": 5.4,
+      "tolerance": 0.5,
+      "unit": "mg",
+      "answerText": "5,4 mg (arrondi à 5 mg)",
+      "explain": "54 × 0,1 = 5,4 mg, arrondi à 5 mg dans les tableaux de dose. Le reste (environ 49 mg) passe au pousse-seringue en 1 heure."
+    },
+    {
+      "id": "28-avc-17",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Thrombolyse : quelle installation et quelle surveillance ?",
+      "options": [
+        "Voie veineuse dédiée, de gros calibre",
+        "Monitorage complet et ECG",
+        "Noter l'heure de l'injection",
+        "Injection IM préalable d'un antalgique"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Principal risque : l'hémorragie, notamment intracérébrale. Surveillance neurologique rapprochée, pas d'injection IM."
+    },
+    {
+      "id": "28-avc-18",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Après la phase aiguë d'un AVC, quels risques prévenir en priorité ?",
+      "options": [
+        "Fausses routes",
+        "Complications de décubitus (escarres, phlébite)",
+        "Encombrement et surinfection bronchique",
+        "Douleur et raideur du côté hémiplégique",
+        "Hyperthyroïdie"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : chute, aggravation neurologique, saignement sous anticoagulant."
+    },
+    {
+      "id": "28-avc-19",
+      "src": "memo",
+      "cat": "avc",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Avant de faire manger un patient après un AVC, il faut s'assurer qu'il avale sans risque de fausse route.",
+      "answer": true,
+      "explain": "Vrai : test de déglutition selon le protocole, textures adaptées, patient bien assis."
+    },
+    {
+      "id": "28-avc-20",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Patient aphasique après un AVC : comment faciliter la communication ?",
+      "options": [
+        "Ardoise, pictogrammes, questions fermées",
+        "Parler plus fort",
+        "Éviter de lui parler pour ne pas le fatiguer",
+        "Ne communiquer qu'avec la famille"
+      ],
+      "answer": 0,
+      "explain": "Ardoise, pictogrammes, questions fermées, phrases courtes, laisser le temps de répondre."
+    },
+    {
+      "id": "28-avc-21",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Patient qui ne peut pas communiquer après un AVC : quelle échelle de douleur ?",
+      "options": [
+        "Algoplus",
+        "Échelle visuelle analogique (EVA)",
+        "Échelle numérique",
+        "Score de Glasgow"
+      ],
+      "answer": 0,
+      "explain": "Algoplus est une échelle d'hétéro-évaluation, faite par le soignant, adaptée aux patients non communicants."
+    },
+    {
+      "id": "28-avc-22",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Membre supérieur hémiplégique : que fais-tu ?",
+      "options": [
+        "Le surélever sur un coussin, en bonne position",
+        "Le laisser pendre hors du lit",
+        "L'attacher pour éviter les chutes",
+        "Le masser vigoureusement"
+      ],
+      "answer": 0,
+      "explain": "Le surélever limite l'œdème ; une bonne installation prévient la douleur d'épaule et les raideurs."
+    },
+    {
+      "id": "28-avc-23",
+      "src": "memo",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "À moyen terme après un AVC, quel est le rôle éducatif de l'IDE ?",
+      "options": [
+        "Agir sur les facteurs de risque pour éviter une récidive",
+        "Arrêter tous les traitements",
+        "Interdire toute activité",
+        "Remplacer la rééducation"
+      ],
+      "answer": 0,
+      "explain": "Programme d'éducation thérapeutique : tension, alimentation, arrêt du tabac, activité, observance du traitement."
+    },
+    {
+      "id": "28-occlusion-01",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 1,
+      "type": "choice",
+      "prompt": "L'occlusion intestinale est…",
+      "options": [
+        "Un blocage partiel ou complet de l'intestin grêle ou du côlon",
+        "Une inflammation de la vésicule biliaire",
+        "Une infection urinaire haute",
+        "Un ulcère de l'estomac"
+      ],
+      "answer": 0,
+      "explain": "Les aliments, les liquides et les gaz ne circulent plus. L'occlusion complète est une urgence (nécrose de l'intestin)."
+    },
+    {
+      "id": "28-occlusion-02",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Carré de Mondor : quels sont les quatre signes de l'occlusion ?",
+      "options": [
+        "Douleurs abdominales",
+        "Vomissements",
+        "Arrêt des matières et des gaz",
+        "Météorisme (ventre distendu)",
+        "Diarrhée profuse"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Douleur abdominale, vomissements (parfois fécaloïdes), arrêt des matières et des gaz, météorisme."
+    },
+    {
+      "id": "28-occlusion-03",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque type d'occlusion à un exemple.",
+      "left": "Type",
+      "right": "Exemple",
+      "pairs": [
+        [
+          "Mécanique par obstacle",
+          "Tumeur, fécalome, adhérences après chirurgie"
+        ],
+        [
+          "Mécanique par strangulation",
+          "Volvulus (torsion d'une anse)"
+        ],
+        [
+          "Fonctionnelle (iléus paralytique)",
+          "Arrêt du péristaltisme après une chirurgie abdominale"
+        ]
+      ],
+      "explain": "Mécanique : un obstacle ou une torsion. Fonctionnelle : l'intestin ne se contracte plus (stress péritonéal)."
+    },
+    {
+      "id": "28-occlusion-04",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Un volvulus intestinal est une urgence chirurgicale.",
+      "answer": true,
+      "explain": "Vrai : la torsion coupe la vascularisation, d'où une nécrose rapide et un risque de choc septique."
+    },
+    {
+      "id": "28-occlusion-05",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Quelles situations peuvent provoquer un iléus paralytique ?",
+      "options": [
+        "Chirurgie abdominale",
+        "Hypokaliémie",
+        "Morphiniques",
+        "Pancréatite",
+        "Hyperthyroïdie"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : appendicite, péritonite, fractures de côtes, traumatisme abdominal, colique néphrétique."
+    },
+    {
+      "id": "28-occlusion-06",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 3,
+      "type": "order",
+      "prompt": "Occlusion : remets dans l'ordre l'enchaînement des conséquences.",
+      "items": [
+        "Obstacle sur le tube digestif",
+        "Stase des liquides en amont",
+        "Distension, hausse de la pression",
+        "Création d'un 3e secteur",
+        "Hypovolémie, déshydratation",
+        "Souffrance de l'intestin, sepsis"
+      ],
+      "explain": "Le cercle vicieux de l'occlusion aboutit à la souffrance de l'intestin et au sepsis."
+    },
+    {
+      "id": "28-occlusion-07",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qu'est-ce que le « 3e secteur » dans une occlusion ?",
+      "options": [
+        "Du liquide piégé dans l'intestin, perdu pour la circulation",
+        "Le liquide à l'intérieur des cellules",
+        "Le sang circulant",
+        "Le liquide céphalorachidien"
+      ],
+      "answer": 0,
+      "explain": "Ce liquide séquestré n'est plus disponible : déshydratation et hypovolémie, alors que le volume total de liquide du corps est conservé."
+    },
+    {
+      "id": "28-occlusion-08",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont des signes de gravité d'une occlusion ?",
+      "options": [
+        "Vomissements fécaloïdes",
+        "Fièvre",
+        "Tachycardie, hypotension, pli cutané",
+        "Marbrures, oligurie",
+        "Ventre souple et indolore"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : altération de l'état général, défense abdominale, insuffisance rénale."
+    },
+    {
+      "id": "28-occlusion-09",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Sur un ASP, quel aspect évoque une occlusion ?",
+      "options": [
+        "Des niveaux hydro-aériques",
+        "Un pneumothorax",
+        "Un calcul dans la vésicule",
+        "Une fracture de côte"
+      ],
+      "answer": 0,
+      "explain": "Le scanner abdominal injecté est l'examen de référence ; l'échographie et la biologie (bilan préopératoire, infectieux) complètent."
+    },
+    {
+      "id": "28-occlusion-10",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Occlusion : à quoi sert la sonde nasogastrique ?",
+      "options": [
+        "Aspirer le contenu de l'estomac et décomprimer le tube digestif",
+        "Alimenter le patient",
+        "Mesurer la pression abdominale",
+        "Administrer des laxatifs"
+      ],
+      "answer": 0,
+      "explain": "Elle limite les vomissements et le risque de fausse route. On note la quantité et l'aspect du liquide recueilli."
+    },
+    {
+      "id": "28-occlusion-11",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "Les laxatifs sont contre-indiqués en cas d'occlusion mécanique.",
+      "answer": true,
+      "explain": "Vrai : ils aggraveraient la distension en amont de l'obstacle, avec un risque de perforation. Les lavements ne se discutent que dans certaines situations, comme un fécalome, sur prescription."
+    },
+    {
+      "id": "28-occlusion-12",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pourquoi éviter si possible les morphiniques dans l'occlusion ?",
+      "options": [
+        "Ils ralentissent encore le transit",
+        "Ils font monter la température",
+        "Ils provoquent une diarrhée",
+        "Ils sont inefficaces sur la douleur abdominale"
+      ],
+      "answer": 0,
+      "explain": "Ils ralentissent le transit. Les antispasmodiques et les autres antalgiques sont privilégiés quand c'est possible."
+    },
+    {
+      "id": "28-occlusion-13",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Après une chirurgie pour occlusion, que surveilles-tu ?",
+      "options": [
+        "La reprise du transit (gaz, selles)",
+        "La douleur",
+        "Le pansement, les drains, la stomie",
+        "Le liquide de la sonde nasogastrique",
+        "L'acuité visuelle"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Ainsi que la voie veineuse, l'hydratation et les signes infectieux."
+    },
+    {
+      "id": "28-occlusion-14",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Patient porteur d'une nouvelle stomie : avec qui l'IDE collabore-t-elle en priorité ?",
+      "options": [
+        "Le stomathérapeute (et le psychologue si besoin)",
+        "Le kinésithérapeute respiratoire",
+        "L'orthophoniste",
+        "Le manipulateur radio"
+      ],
+      "answer": 0,
+      "explain": "L'image du corps est bouleversée : relation d'aide, éducation à l'appareillage, conseils alimentaires."
+    },
+    {
+      "id": "28-occlusion-15",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 1,
+      "type": "choice",
+      "prompt": "La pose d'une sonde gastrique relève…",
+      "options": [
+        "De la prescription médicale ; sa surveillance relève du rôle propre",
+        "Du rôle propre infirmier",
+        "Uniquement du médecin",
+        "De l'aide-soignant"
+      ],
+      "answer": 0,
+      "explain": "Pose sur prescription médicale ; la surveillance et les soins de la sonde relèvent du rôle propre infirmier."
+    },
+    {
+      "id": "28-occlusion-16",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "match",
+      "prompt": "Sonde gastrique : associe chaque indication à son but.",
+      "left": "Indication",
+      "right": "But",
+      "pairs": [
+        [
+          "Thérapeutique",
+          "Drainer l'estomac ou faire un lavage"
+        ],
+        [
+          "Nutritionnelle",
+          "Alimentation entérale"
+        ],
+        [
+          "Diagnostique",
+          "Rechercher un saignement, faire un prélèvement"
+        ]
+      ],
+      "explain": "À chaque indication sa sonde : on choisit le modèle adapté."
+    },
+    {
+      "id": "28-occlusion-17",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pose de sonde gastrique : quels gestes facilitent le passage ?",
+      "options": [
+        "Patient demi-assis",
+        "Tête penchée en avant, menton vers le thorax",
+        "Demander au patient de déglutir au passage du larynx",
+        "Tête en hyperextension vers l'arrière"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Repère de longueur : nez, lobe de l'oreille, appendice xiphoïde. Fixer la sonde sans appui sur l'aile du nez."
+    },
+    {
+      "id": "28-occlusion-18",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Quelles sont des contre-indications à la pose d'une sonde gastrique par l'IDE ?",
+      "options": [
+        "Traumatisme crânio-facial",
+        "Chirurgie ORL de moins de 6 semaines",
+        "Ingestion d'un produit caustique",
+        "Varices œsophagiennes connues",
+        "Occlusion intestinale"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Et pendant la pose : douleur intense, résistance anormale ou saignement, on arrête immédiatement."
+    },
+    {
+      "id": "28-occlusion-19",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Pourquoi ne jamais poser de sonde par le nez après un traumatisme crânio-facial ?",
+      "options": [
+        "Risque de faire passer la sonde dans le crâne",
+        "Risque d'hypoglycémie",
+        "La sonde ne tiendrait pas",
+        "Risque d'allergie"
+      ],
+      "answer": 0,
+      "explain": "Une fracture de la base du crâne peut laisser passer la sonde dans la boîte crânienne."
+    },
+    {
+      "id": "28-occlusion-20",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Sonde gastrique en place : quelles surveillances quotidiennes ?",
+      "options": [
+        "Vérifier et tracer le repère à chaque prise de poste",
+        "Noter quantité et aspect du liquide recueilli",
+        "Changer la fixation toutes les 24 h",
+        "Soins de bouche et de narines",
+        "Changer la sonde chaque jour"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "La sonde ne se change pas tous les jours ; c'est la fixation qui se change toutes les 24 h."
+    },
+    {
+      "id": "28-occlusion-21",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont des risques liés à la sonde gastrique ?",
+      "options": [
+        "Fausse route respiratoire si elle est mal positionnée",
+        "Escarre de l'aile du nez",
+        "Saignement de nez",
+        "Obstruction de la sonde",
+        "Hyperthermie maligne"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "La fausse route respiratoire, si la sonde est dans les bronches, est le risque le plus grave."
+    },
+    {
+      "id": "28-occlusion-22",
+      "src": "memo",
+      "cat": "occlusion",
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "Le test au stéthoscope (injection d'air) suffit à confirmer la position d'une sonde avant de l'utiliser pour alimenter.",
+      "answer": false,
+      "explain": "Faux : ce test n'est pas fiable à lui seul. Avant une alimentation, la position se confirme selon le protocole du service, en général par une radiographie."
+    },
+    {
+      "id": "28-biliaire-01",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce qu'une colique hépatique ?",
+      "options": [
+        "Une douleur due à un calcul biliaire, sans fièvre ni ictère",
+        "Une infection du foie",
+        "Une inflammation du pancréas",
+        "Un calcul dans l'uretère"
+      ],
+      "answer": 0,
+      "explain": "Calcul dans la vésicule biliaire : douleur simple, sans fièvre ni ictère."
+    },
+    {
+      "id": "28-biliaire-02",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe la position du calcul à la maladie qu'il provoque.",
+      "left": "Calcul",
+      "right": "Maladie",
+      "pairs": [
+        [
+          "Dans la vésicule, sans complication",
+          "Colique hépatique"
+        ],
+        [
+          "Canal cystique obstrué",
+          "Cholécystite aiguë"
+        ],
+        [
+          "Cholédoque (voie biliaire principale)",
+          "Angiocholite"
+        ],
+        [
+          "Ampoule de Vater, canal de Wirsung",
+          "Pancréatite aiguë biliaire"
+        ]
+      ],
+      "explain": "Plus le calcul descend vers le cholédoque et le pancréas, plus c'est grave."
+    },
+    {
+      "id": "28-biliaire-03",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Triade de Charcot : quels sont les trois signes ?",
+      "options": [
+        "Douleur",
+        "Fièvre",
+        "Ictère",
+        "Diarrhée"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Douleur, fièvre, ictère = angiocholite, urgence vitale (infection de la bile bloquée, risque de choc septique)."
+    },
+    {
+      "id": "28-biliaire-04",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "text",
+      "prompt": "Douleur, fièvre puis ictère chez un patient qui a des calculs biliaires : quel diagnostic évoquer ?",
+      "answers": [
+        "angiocholite"
+      ],
+      "explain": "Angiocholite : calcul bloqué dans le cholédoque, bile infectée. C'est une urgence."
+    },
+    {
+      "id": "28-biliaire-05",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "hotspot",
+      "prompt": "Colique hépatique : clique sur la région où siège typiquement la douleur.",
+      "image": "assets/schemas/abdomen.svg",
+      "alt": "Abdomen vu de face, découpé en 9 régions, sans légende",
+      "caption": "Patient vu de face",
+      "zones": [
+        {
+          "id": "hd",
+          "label": "l'hypochondre droit",
+          "shape": "rect",
+          "x": 14.5,
+          "y": 5.4,
+          "w": 20.5,
+          "h": 38
+        },
+        {
+          "id": "epi",
+          "label": "l'épigastre",
+          "shape": "rect",
+          "x": 35,
+          "y": 5.4,
+          "w": 30,
+          "h": 38
+        },
+        {
+          "id": "hg",
+          "label": "l'hypochondre gauche",
+          "shape": "rect",
+          "x": 65,
+          "y": 5.4,
+          "w": 20.5,
+          "h": 38
+        },
+        {
+          "id": "fd",
+          "label": "le flanc droit",
+          "shape": "rect",
+          "x": 14.5,
+          "y": 43.5,
+          "w": 20.5,
+          "h": 30.4
+        },
+        {
+          "id": "omb",
+          "label": "la région ombilicale",
+          "shape": "rect",
+          "x": 35,
+          "y": 43.5,
+          "w": 30,
+          "h": 30.4
+        },
+        {
+          "id": "fg",
+          "label": "le flanc gauche",
+          "shape": "rect",
+          "x": 65,
+          "y": 43.5,
+          "w": 20.5,
+          "h": 30.4
+        },
+        {
+          "id": "fid",
+          "label": "la fosse iliaque droite",
+          "shape": "rect",
+          "x": 14.5,
+          "y": 73.9,
+          "w": 20.5,
+          "h": 25
+        },
+        {
+          "id": "hypo",
+          "label": "l'hypogastre",
+          "shape": "rect",
+          "x": 35,
+          "y": 73.9,
+          "w": 30,
+          "h": 25
+        },
+        {
+          "id": "fig",
+          "label": "la fosse iliaque gauche",
+          "shape": "rect",
+          "x": 65,
+          "y": 73.9,
+          "w": 20.5,
+          "h": 25
+        }
+      ],
+      "answer": "hd",
+      "explain": "Hypochondre droit, sous les côtes, là où se trouvent le foie et la vésicule. Patient vu de face : sa droite est à ta gauche."
+    },
+    {
+      "id": "28-biliaire-06",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qu'est-ce que le signe de Murphy ?",
+      "options": [
+        "La palpation de l'hypochondre droit bloque l'inspiration à cause de la douleur",
+        "Une douleur à la décompression de la fosse iliaque droite",
+        "Une coloration jaune des yeux",
+        "Une douleur qui irradie vers les organes génitaux"
+      ],
+      "answer": 0,
+      "explain": "Il évoque une cholécystite. La douleur à la décompression de la fosse iliaque droite, elle, évoque une appendicite."
+    },
+    {
+      "id": "28-biliaire-07",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels signes évoquent un blocage de la voie biliaire principale ?",
+      "options": [
+        "Ictère",
+        "Selles décolorées, blanchâtres",
+        "Urines foncées",
+        "Selles noires"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "La bile n'arrive plus dans l'intestin (selles décolorées) et passe dans le sang puis les urines (urines foncées). Des selles noires évoquent plutôt un saignement digestif."
+    },
+    {
+      "id": "28-biliaire-08",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quel examen d'imagerie en première intention devant une lithiase biliaire ?",
+      "options": [
+        "L'échographie abdominale",
+        "La radiographie du thorax",
+        "L'IRM cérébrale",
+        "L'ECG"
+      ],
+      "answer": 0,
+      "explain": "Avec un bilan sanguin : bilan hépatique, bilirubine, lipase (recherche de pancréatite)."
+    },
+    {
+      "id": "28-biliaire-09",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Colique hépatique en attente de chirurgie : que fais-tu sur prescription ?",
+      "options": [
+        "Laisser le patient à jeun",
+        "Bilan préopératoire avec bilan hépatique",
+        "Poser une voie veineuse",
+        "Administrer les antalgiques et antibiotiques prescrits",
+        "Proposer un repas riche en graisses"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Le traitement est la cholécystectomie, le plus souvent sous cœlioscopie."
+    },
+    {
+      "id": "28-biliaire-10",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Après une cholécystectomie sous cœlioscopie, le patient a mal à l'épaule. Pourquoi ?",
+      "options": [
+        "Le gaz insufflé dans l'abdomen irrite le diaphragme",
+        "Une luxation pendant l'installation",
+        "Une phlébite du bras",
+        "C'est toujours un infarctus"
+      ],
+      "answer": 0,
+      "explain": "Douleur projetée fréquente et transitoire. Toute douleur thoracique doit tout de même être évaluée."
+    },
+    {
+      "id": "28-biliaire-11",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels traitements utilise-t-on dans la colique hépatique ?",
+      "options": [
+        "Antalgiques, jusqu'à la morphine titrée",
+        "Antispasmodiques (Spasfon, Débridat)",
+        "Antiémétiques (Vogalène)",
+        "Antibiotiques en cas d'infection",
+        "Laxatifs stimulants"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Antibiotiques possibles : Tazocilline, Rocéphine, Ciflox, selon la prescription."
+    },
+    {
+      "id": "28-biliaire-12",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Ceftriaxone (Rocéphine) 1 g en perfusion : comment l'administrer ?",
+      "options": [
+        "Dans 100 mL de NaCl 0,9 %, sur 30 minutes",
+        "Pure, en IV directe en quelques secondes",
+        "Dans 1 L de G5 % sur 24 h",
+        "En IV avec le solvant pour IM"
+      ],
+      "answer": 0,
+      "explain": "Flacon reconstitué dans une poche de 100 mL de NaCl 0,9 % avec un set de transfert, à passer en 30 minutes."
+    },
+    {
+      "id": "28-biliaire-13",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "number",
+      "prompt": "Morphine titrée : ampoule de 10 mg/1 mL complétée à 10 mL avec du NaCl 0,9 %. Quelle concentration obtiens-tu ?",
+      "answer": 1,
+      "unit": "mg/mL",
+      "explain": "10 mg dans 10 mL = 1 mg/mL : 1 mL correspond à 1 mg, ce qui simplifie les bolus."
+    },
+    {
+      "id": "28-biliaire-14",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 1,
+      "type": "number",
+      "prompt": "Morphine diluée à 1 mg/mL. Patient de 75 kg : bolus de 3 mg. Quel volume injecter ?",
+      "answer": 3,
+      "unit": "mL",
+      "explain": "3 mL. Repères de titration : 2 mg si le patient pèse 60 kg ou moins, 3 mg au-dessus, selon la prescription."
+    },
+    {
+      "id": "28-biliaire-15",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "number",
+      "prompt": "Titration de morphine : toutes les combien de minutes réévalue-t-on la douleur avant un nouveau bolus ?",
+      "answer": 5,
+      "unit": "min",
+      "explain": "Toutes les 5 minutes, tant que l'EN reste au-dessus de 3, dans la limite prescrite. On informe le médecin si la douleur persiste."
+    },
+    {
+      "id": "28-biliaire-16",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Titration de morphine : quand faut-il arrêter ?",
+      "options": [
+        "Fréquence respiratoire inférieure à 10/min",
+        "SpO~2~ inférieure à 90 %",
+        "Somnolence excessive",
+        "Douleur encore à 6/10"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Surveillance : SpO2, fréquence respiratoire, score de sédation. Matériel de réanimation à proximité."
+    },
+    {
+      "id": "28-biliaire-17",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quel antidote prépares-tu avant une titration de morphine ?",
+      "options": [
+        "Naloxone (Narcan)",
+        "Flumazénil",
+        "Vitamine K",
+        "Protamine"
+      ],
+      "answer": 0,
+      "explain": "La naloxone (Narcan) antagonise les effets de la morphine, dont la dépression respiratoire."
+    },
+    {
+      "id": "28-biliaire-18",
+      "src": "memo",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "La morphine est un stupéfiant : son administration doit être tracée.",
+      "answer": true,
+      "explain": "Vrai : traçabilité obligatoire des stupéfiants. En urgence, on préfère la voie IV en titration aux voies IM ou SC."
+    },
+    {
+      "id": "28-nephretique-01",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 1,
+      "type": "choice",
+      "prompt": "La colique néphrétique est due le plus souvent à…",
+      "options": [
+        "Un calcul qui bloque les voies urinaires",
+        "Une infection de la vessie",
+        "Un calcul dans la vésicule biliaire",
+        "Une tumeur du rein"
+      ],
+      "answer": 0,
+      "explain": "Le calcul bloque l'écoulement de l'urine : la pression monte en amont, d'où la douleur."
+    },
+    {
+      "id": "28-nephretique-02",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 2,
+      "type": "choice",
+      "prompt": "De quoi sont faits la plupart des calculs rénaux ?",
+      "options": [
+        "D'oxalate de calcium",
+        "D'acide urique",
+        "De cystine",
+        "De cholestérol"
+      ],
+      "answer": 0,
+      "explain": "Plus rarement : acide urique ou cystine. Le calcul se forme par cristallisation de substances normalement dissoutes dans l'urine."
+    },
+    {
+      "id": "28-nephretique-03",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Colique néphrétique : quels signes cliniques ?",
+      "options": [
+        "Douleur lombaire d'un seul côté, brutale et violente",
+        "Irradiation vers l'aine et les organes génitaux",
+        "Agitation : aucune position ne soulage",
+        "Nausées, vomissements",
+        "Fièvre élevée constante"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Souvent sans fièvre. Aussi : brûlures urinaires (dysurie), envies fréquentes (pollakiurie)."
+    },
+    {
+      "id": "28-nephretique-04",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont les signes de gravité d'une colique néphrétique ?",
+      "options": [
+        "Fièvre au-dessus de 38 °C",
+        "Anurie",
+        "Hématurie microscopique",
+        "Douleur qui irradie vers l'aine"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "explain": "Fièvre : infection en amont de l'obstacle, il faut drainer les urines. Anurie : calcul sur un rein unique ou des deux côtés. L'hématurie, elle, est fréquente et attendue."
+    },
+    {
+      "id": "28-nephretique-05",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quel examen simple, du rôle propre, réalises-tu à l'arrivée ?",
+      "options": [
+        "Une bandelette urinaire",
+        "Un uroscanner",
+        "Une échographie",
+        "Une gazométrie"
+      ],
+      "answer": 0,
+      "explain": "La bandelette urinaire retrouve souvent une hématurie. C'est un acte du rôle propre (article R. 4311-5 du Code de la santé publique)."
+    },
+    {
+      "id": "28-nephretique-06",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Pourquoi filtrer toutes les urines du patient ?",
+      "options": [
+        "Récupérer le calcul pour l'analyser",
+        "Mesurer la glycémie",
+        "Éviter une infection",
+        "Diluer les urines"
+      ],
+      "answer": 0,
+      "explain": "On récupère le calcul s'il est éliminé, pour l'analyser et prévenir les récidives."
+    },
+    {
+      "id": "28-nephretique-07",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "En pleine crise de colique néphrétique, on fait boire abondamment le patient pour chasser le calcul.",
+      "answer": false,
+      "explain": "Faux : restriction hydrique en phase aiguë. Boire beaucoup augmente la pression dans les voies urinaires bloquées, donc la douleur."
+    },
+    {
+      "id": "28-nephretique-08",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Kétoprofène (Profenid) IV dans la colique néphrétique : comment l'administrer ?",
+      "options": [
+        "100 mg dans 100 mL de NaCl 0,9 %, en 20 minutes",
+        "100 mg en IV directe en 30 secondes",
+        "1 g en sous-cutané",
+        "Dans 500 mL de G5 % sur 24 h"
+      ],
+      "answer": 0,
+      "explain": "Flacon de 100 mg dilué dans 100 mL de NaCl 0,9 %, en perfusion IV lente de 20 minutes."
+    },
+    {
+      "id": "28-nephretique-09",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Kétoprofène : quelles contre-indications ?",
+      "options": [
+        "Ulcère gastroduodénal évolutif",
+        "Insuffisance rénale sévère",
+        "Grossesse après 24 semaines d'aménorrhée",
+        "Hémorragie en cours",
+        "Hypertension bien équilibrée"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : insuffisance hépatique sévère, maladie inflammatoire chronique de l'intestin, allergie."
+    },
+    {
+      "id": "28-nephretique-10",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quel examen d'imagerie confirme le mieux le calcul et l'obstacle ?",
+      "options": [
+        "L'uroscanner",
+        "La radiographie du thorax",
+        "L'IRM cérébrale",
+        "L'électroencéphalogramme"
+      ],
+      "answer": 0,
+      "explain": "L'ASP ne montre que les calculs radio-opaques ; l'échographie montre la dilatation des cavités du rein."
+    },
+    {
+      "id": "28-nephretique-11",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 2,
+      "type": "order",
+      "prompt": "ECBU : remets les étapes du prélèvement dans l'ordre.",
+      "items": [
+        "Hygiène des mains, gants",
+        "Toilette soigneuse du méat urinaire",
+        "Éliminer le premier jet",
+        "Recueillir le deuxième jet dans un flacon stérile",
+        "Refermer sans toucher l'intérieur, identifier le flacon",
+        "Acheminer au laboratoire avec la prescription"
+      ],
+      "explain": "De préférence sur les urines du matin, qui ont séjourné plusieurs heures dans la vessie."
+    },
+    {
+      "id": "28-nephretique-12",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pourquoi élimine-t-on le premier jet lors d'un ECBU ?",
+      "options": [
+        "Il contient les germes de l'urètre, qui fausseraient le résultat",
+        "Il est trop concentré",
+        "Il contient le calcul",
+        "Il est stérile"
+      ],
+      "answer": 0,
+      "explain": "Il contient les germes de l'urètre, qui contamineraient l'échantillon."
+    },
+    {
+      "id": "28-nephretique-13",
+      "src": "memo",
+      "cat": "nephretique",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Colique néphrétique : que surveilles-tu ?",
+      "options": [
+        "La douleur",
+        "La température",
+        "La diurèse",
+        "Les effets indésirables des AINS (douleur épigastrique)",
+        "Les réflexes ostéotendineux"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Et on rassure le patient et son entourage : la douleur est très impressionnante."
+    },
+    {
+      "id": "28-idm-01",
+      "src": "memo",
+      "cat": "idm",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Infarctus du myocarde : définition ?",
+      "options": [
+        "Destruction d'une partie du muscle cardiaque par obstruction d'une artère coronaire",
+        "Inflammation du péricarde",
+        "Caillot bloqué dans l'artère pulmonaire",
+        "Trouble du rythme des oreillettes"
+      ],
+      "answer": 0,
+      "explain": "Une artère coronaire est bouchée : la partie du muscle qu'elle irrigue manque d'oxygène et se détruit."
+    },
+    {
+      "id": "28-idm-02",
+      "src": "memo",
+      "cat": "idm",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels sont des facteurs de risque d'infarctus ?",
+      "options": [
+        "Tabac",
+        "Diabète",
+        "Hypertension artérielle",
+        "Cholestérol élevé",
+        "Sédentarité",
+        "Groupe sanguin A"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explain": "Aussi : âge et sexe masculin, antécédents familiaux, surpoids, stress, alcool."
+    },
+    {
+      "id": "28-idm-03",
+      "src": "memo",
+      "cat": "idm",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quelle douleur est typique d'un infarctus ?",
+      "options": [
+        "Rétrosternale, en étau, prolongée, irradiant vers le bras gauche et la mâchoire",
+        "Augmentée à l'inspiration, calmée en se penchant en avant",
+        "Lombaire, irradiant vers l'aine",
+        "Dans la fosse iliaque droite"
+      ],
+      "answer": 0,
+      "explain": "La douleur augmentée à l'inspiration et calmée penché en avant évoque plutôt une péricardite."
+    },
+    {
+      "id": "28-idm-04",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Chez le patient diabétique, un infarctus peut se manifester par une simple douleur à l'estomac.",
+      "answer": true,
+      "explain": "Vrai : les signes sont souvent atypiques (douleur épigastrique, malaise, essoufflement), parfois absents."
+    },
+    {
+      "id": "28-idm-05",
+      "src": "memo",
+      "cat": "idm",
+      "level": 1,
+      "type": "hotspot",
+      "prompt": "Clique sur l'épigastre.",
+      "image": "assets/schemas/abdomen.svg",
+      "alt": "Abdomen vu de face, découpé en 9 régions, sans légende",
+      "caption": "Patient vu de face",
+      "zones": [
+        {
+          "id": "hd",
+          "label": "l'hypochondre droit",
+          "shape": "rect",
+          "x": 14.5,
+          "y": 5.4,
+          "w": 20.5,
+          "h": 38
+        },
+        {
+          "id": "epi",
+          "label": "l'épigastre",
+          "shape": "rect",
+          "x": 35,
+          "y": 5.4,
+          "w": 30,
+          "h": 38
+        },
+        {
+          "id": "hg",
+          "label": "l'hypochondre gauche",
+          "shape": "rect",
+          "x": 65,
+          "y": 5.4,
+          "w": 20.5,
+          "h": 38
+        },
+        {
+          "id": "fd",
+          "label": "le flanc droit",
+          "shape": "rect",
+          "x": 14.5,
+          "y": 43.5,
+          "w": 20.5,
+          "h": 30.4
+        },
+        {
+          "id": "omb",
+          "label": "la région ombilicale",
+          "shape": "rect",
+          "x": 35,
+          "y": 43.5,
+          "w": 30,
+          "h": 30.4
+        },
+        {
+          "id": "fg",
+          "label": "le flanc gauche",
+          "shape": "rect",
+          "x": 65,
+          "y": 43.5,
+          "w": 20.5,
+          "h": 30.4
+        },
+        {
+          "id": "fid",
+          "label": "la fosse iliaque droite",
+          "shape": "rect",
+          "x": 14.5,
+          "y": 73.9,
+          "w": 20.5,
+          "h": 25
+        },
+        {
+          "id": "hypo",
+          "label": "l'hypogastre",
+          "shape": "rect",
+          "x": 35,
+          "y": 73.9,
+          "w": 30,
+          "h": 25
+        },
+        {
+          "id": "fig",
+          "label": "la fosse iliaque gauche",
+          "shape": "rect",
+          "x": 65,
+          "y": 73.9,
+          "w": 20.5,
+          "h": 25
+        }
+      ],
+      "answer": "epi",
+      "explain": "L'épigastre est au centre, juste sous le sternum. Une douleur épigastrique peut révéler un infarctus, surtout chez le diabétique."
+    },
+    {
+      "id": "28-idm-06",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Patient qui a une douleur thoracique : que montre ce tracé ?",
+      "media": {
+        "src": "assets/schemas/ecg-sus-st.svg",
+        "alt": "Tracé d'ECG de deux battements, segment ST surélevé"
+      },
+      "options": [
+        "Un sus-décalage du segment ST",
+        "Un tracé normal",
+        "Une fibrillation atriale",
+        "Un bloc auriculo-ventriculaire complet"
+      ],
+      "answer": 0,
+      "explain": "Sus-décalage du segment ST (SCA ST+) : l'artère est bouchée, il faut la rouvrir au plus vite (angioplastie, ou thrombolyse si le délai est trop long)."
+    },
+    {
+      "id": "28-idm-07",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "match",
+      "prompt": "Douleur thoracique : associe chaque diagnostic à écarter au geste simple qui l'oriente.",
+      "left": "Diagnostic",
+      "right": "Geste",
+      "pairs": [
+        [
+          "Péricardite",
+          "Prendre la température"
+        ],
+        [
+          "Embolie pulmonaire",
+          "SpO~2~ et fréquence respiratoire"
+        ],
+        [
+          "Dissection aortique",
+          "Pression artérielle aux deux bras"
+        ]
+      ],
+      "explain": "Ces diagnostics donnent des signes très proches de l'infarctus."
+    },
+    {
+      "id": "28-idm-08",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quel marqueur biologique signe la souffrance du muscle cardiaque ?",
+      "options": [
+        "La troponine",
+        "La CRP",
+        "Les D-dimères",
+        "La lipase"
+      ],
+      "answer": 0,
+      "explain": "La troponine est dosée à l'arrivée puis répétée pour suivre sa cinétique. Les CPK-MB sont aussi spécifiques du muscle cardiaque."
+    },
+    {
+      "id": "28-idm-09",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque marqueur biologique à ce qu'il oriente.",
+      "left": "Marqueur",
+      "right": "Oriente vers",
+      "pairs": [
+        [
+          "Troponine",
+          "Infarctus"
+        ],
+        [
+          "D-dimères",
+          "Embolie pulmonaire"
+        ],
+        [
+          "CRP",
+          "Inflammation, infection (péricardite)"
+        ],
+        [
+          "ProBNP",
+          "Insuffisance cardiaque"
+        ]
+      ],
+      "explain": "Le bilan aide à confirmer l'infarctus et à écarter les autres causes de douleur thoracique."
+    },
+    {
+      "id": "28-idm-10",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont des signes de gravité d'un infarctus ?",
+      "options": [
+        "Hypotension avec tachycardie (choc cardiogénique)",
+        "Perte de connaissance",
+        "Troubles du rythme",
+        "Douleur qui cède sous trinitrine"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Le choc cardiogénique associe hypotension et accélération du cœur : le cœur ne pompe plus assez."
+    },
+    {
+      "id": "28-idm-11",
+      "src": "memo",
+      "cat": "idm",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Infarctus aux urgences : pourquoi poser la voie veineuse au pli du coude **gauche** ?",
+      "options": [
+        "Pour laisser libre le poignet droit, souvent utilisé pour la coronarographie",
+        "Parce que le cœur est à gauche",
+        "Pour mesurer la tension à droite",
+        "Sans raison particulière"
+      ],
+      "answer": 0,
+      "explain": "On laisse libre le poignet droit, le plus souvent utilisé pour l'abord radial de la coronarographie. Cathéter de 18 G avec robinet 3 voies."
+    },
+    {
+      "id": "28-idm-12",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Avant une coronarographie, que vérifies-tu ?",
+      "options": [
+        "Patient à jeun",
+        "Allergies, notamment à l'iode",
+        "Consentement du patient",
+        "Retrait des bijoux et prothèses",
+        "Acuité visuelle"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : rasage des deux poignets (voire de l'accès fémoral), information du patient, soin relationnel (examen anxiogène)."
+    },
+    {
+      "id": "28-idm-13",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Après une coronarographie par voie radiale, à quoi sert le bracelet TR Band ?",
+      "options": [
+        "Comprimer l'artère radiale pour éviter le saignement",
+        "Mesurer la pression artérielle",
+        "Remplacer la perfusion",
+        "Surveiller la glycémie"
+      ],
+      "answer": 0,
+      "explain": "On le dégonfle progressivement selon le protocole. Surveiller : saignement, hématome, douleur, coloration et chaleur de la main."
+    },
+    {
+      "id": "28-idm-14",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Après une coronarographie par voie radiale, on prend la SpO~2~ aux deux mains.",
+      "answer": true,
+      "explain": "Vrai : une différence peut révéler une compression trop forte ou une complication de l'artère radiale."
+    },
+    {
+      "id": "28-idm-15",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Après une coronarographie, pourquoi hydrater le patient et surveiller sa diurèse ?",
+      "options": [
+        "Pour éliminer le produit de contraste",
+        "Pour faire baisser la troponine",
+        "Pour éviter une hypoglycémie",
+        "Pour préparer une prise de sang"
+      ],
+      "answer": 0,
+      "explain": "Le produit de contraste iodé s'élimine par le rein et peut l'abîmer."
+    },
+    {
+      "id": "28-idm-16",
+      "src": "memo",
+      "cat": "idm",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Après une angioplastie, quels risques surveilles-tu ?",
+      "options": [
+        "Récidive de douleur thoracique (resténose)",
+        "Troubles du rythme",
+        "Saignement ou hématome au point de ponction",
+        "Compression excessive de la main par le bracelet",
+        "Hyperthyroïdie"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : OAP, choc cardiogénique, arrêt cardio-respiratoire. ECG à l'arrivée en soins intensifs, puis selon le protocole."
+    },
+    {
+      "id": "28-idm-17",
+      "src": "memo",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels traitements utilise-t-on dans l'infarctus ?",
+      "options": [
+        "Antiagrégant plaquettaire (aspirine)",
+        "Anticoagulant (énoxaparine)",
+        "Antalgique (morphine titrée)",
+        "Dérivé nitré, si la tension le permet",
+        "Laxatif systématique"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Et des antiarythmiques en cas de trouble du rythme ; parfois une thrombolyse (Actilyse)."
+    },
+    {
+      "id": "28-idm-18",
+      "src": "memo",
+      "cat": "idm",
+      "level": 3,
+      "type": "number",
+      "prompt": "Aspirine injectable : flacon de 500 mg reconstitué dans 5 mL. Prescription : 250 mg en IVD. Quel volume injecter ?",
+      "answer": 2.5,
+      "unit": "mL",
+      "explain": "500 mg dans 5 mL = 100 mg/mL. Pour 250 mg : 2,5 mL."
+    },
+    {
+      "id": "28-idm-19",
+      "src": "memo",
+      "cat": "idm",
+      "level": 3,
+      "type": "number",
+      "prompt": "SCA ST+, patient de 80 kg, moins de 75 ans : énoxaparine 1 mg/kg en SC, solution à 100 mg/mL. Quel volume ?",
+      "answer": 0.8,
+      "unit": "mL",
+      "explain": "80 mg = 0,8 mL (soit 0,01 mL/kg). Avant 75 ans, on injecte aussi 30 mg en IV. Après 75 ans : 0,75 mg/kg en SC, sans bolus IV."
+    },
+    {
+      "id": "28-idm-20",
+      "src": "memo",
+      "cat": "idm",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Isosorbide dinitrate (Risordan) au pousse-seringue : quand faut-il l'arrêter ?",
+      "options": [
+        "Si la pression systolique descend sous 100 mmHg",
+        "Si la fréquence cardiaque dépasse 80/min",
+        "Si la SpO~2~ atteint 98 %",
+        "Au bout de 10 minutes, systématiquement"
+      ],
+      "answer": 0,
+      "explain": "Contre-indications : rétrécissement aortique serré, association avec le sildénafil et sa famille. Effets : céphalées, hypotension, tachycardie réflexe."
+    },
+    {
+      "id": "28-ep-01",
+      "src": "memo",
+      "cat": "ep",
+      "level": 1,
+      "type": "choice",
+      "prompt": "L'embolie pulmonaire, c'est…",
+      "options": [
+        "Un caillot, souvent venu des veines des jambes, bloqué dans une artère pulmonaire",
+        "Du liquide dans les alvéoles",
+        "Une inflammation des bronches",
+        "Une infection du poumon"
+      ],
+      "answer": 0,
+      "explain": "Le caillot se forme le plus souvent dans une veine des jambes (phlébite) puis migre vers les artères pulmonaires."
+    },
+    {
+      "id": "28-ep-02",
+      "src": "memo",
+      "cat": "ep",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels sont des facteurs de risque d'embolie pulmonaire ?",
+      "options": [
+        "Phlébite",
+        "Alitement ou immobilisation prolongés",
+        "Chirurgie récente",
+        "Pilule contraceptive, tabac",
+        "Cancer",
+        "Pratique régulière du vélo"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explain": "Aussi : troubles héréditaires de la coagulation, fibrillation atriale, chimiothérapie."
+    },
+    {
+      "id": "28-ep-03",
+      "src": "memo",
+      "cat": "ep",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels signes évoquent une embolie pulmonaire ?",
+      "options": [
+        "Douleur thoracique majorée à l'inspiration",
+        "Essoufflement brutal, angoisse",
+        "Tachycardie",
+        "Crachats teintés de sang",
+        "Bradycardie isolée"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : sueurs, fatigue, douleur dorsale, cyanose dans les formes aiguës."
+    },
+    {
+      "id": "28-ep-04",
+      "src": "memo",
+      "cat": "ep",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quel examen confirme une embolie pulmonaire ?",
+      "options": [
+        "L'angioscanner thoracique",
+        "La radiographie de l'abdomen",
+        "L'échographie de la vésicule",
+        "La bandelette urinaire"
+      ],
+      "answer": 0,
+      "explain": "L'angioscanner thoracique montre le caillot dans les artères pulmonaires."
+    },
+    {
+      "id": "28-ep-05",
+      "src": "memo",
+      "cat": "ep",
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "Des D-dimères normaux permettent d'écarter une embolie pulmonaire quand la probabilité clinique est faible.",
+      "answer": true,
+      "explain": "Vrai. Ils sont très sensibles mais peu spécifiques : élevés, ils ne prouvent rien (âge, chirurgie, cancer…) ; normaux, ils rassurent."
+    },
+    {
+      "id": "28-ep-06",
+      "src": "memo",
+      "cat": "ep",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont des signes de gravité d'une embolie pulmonaire ?",
+      "options": [
+        "Détresse respiratoire aiguë",
+        "Cyanose",
+        "Marbrures",
+        "Hypotension, malaise",
+        "Toux sèche isolée"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Risques : syncope, arrêt cardio-respiratoire. Scope et matériel d'urgence à proximité."
+    },
+    {
+      "id": "28-ep-07",
+      "src": "memo",
+      "cat": "ep",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Embolie pulmonaire : comment installer le patient ?",
+      "options": [
+        "Au lit strict, en position demi-assise",
+        "Debout pour mieux respirer",
+        "À plat ventre",
+        "Jambes surélevées, tête basse"
+      ],
+      "answer": 0,
+      "explain": "Lit strict, car risque de syncope ; demi-assis, pour soulager la respiration."
+    },
+    {
+      "id": "28-ep-08",
+      "src": "memo",
+      "cat": "ep",
+      "level": 3,
+      "type": "number",
+      "prompt": "Embolie pulmonaire, patient de 70 kg : bolus d'héparine de 80 UI/kg. Combien d'UI ?",
+      "answer": 5600,
+      "unit": "UI",
+      "explain": "80 × 70 = 5 600 UI. Puis entretien au pousse-seringue à 18 UI/kg/h."
+    },
+    {
+      "id": "28-ep-09",
+      "src": "memo",
+      "cat": "ep",
+      "level": 3,
+      "type": "number",
+      "prompt": "Héparine : flacon de 25 000 UI/5 mL complété à 50 mL. Quelle concentration obtiens-tu ?",
+      "answer": 500,
+      "unit": "UI/mL",
+      "explain": "25 000 UI dans 50 mL = 500 UI/mL."
+    },
+    {
+      "id": "28-ep-10",
+      "src": "memo",
+      "cat": "ep",
+      "level": 3,
+      "type": "number",
+      "prompt": "Héparine à 500 UI/mL. Prescription : 1 250 UI/h. Quel débit pour le pousse-seringue ?",
+      "answer": 2.5,
+      "unit": "mL/h",
+      "explain": "1 250 ÷ 500 = 2,5 mL/h."
+    },
+    {
+      "id": "28-ep-11",
+      "src": "memo",
+      "cat": "ep",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Patient sous héparine non fractionnée : que surveilles-tu ?",
+      "options": [
+        "Signes de saignement (hématurie, épistaxis, hématomes)",
+        "Activité anti-Xa ou héparinémie",
+        "Plaquettes",
+        "Glycémie toutes les heures"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Les plaquettes dépistent une thrombopénie induite par l'héparine (TIH)."
+    },
+    {
+      "id": "28-ep-12",
+      "src": "memo",
+      "cat": "ep",
+      "level": 1,
+      "type": "match",
+      "prompt": "Oxygénothérapie : associe chaque dispositif à son débit.",
+      "left": "Dispositif",
+      "right": "Débit",
+      "pairs": [
+        [
+          "Lunettes à oxygène",
+          "0,5 à 6 L/min"
+        ],
+        [
+          "Masque simple",
+          "4 à 8 L/min"
+        ],
+        [
+          "Masque à haute concentration",
+          "Plus de 8 L/min"
+        ]
+      ],
+      "explain": "Le masque à haute concentration a un réservoir qui concentre l'oxygène et une valve anti-retour."
+    },
+    {
+      "id": "28-ep-13",
+      "src": "memo",
+      "cat": "ep",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "On peut utiliser un masque à oxygène simple avec un débit de 2 L/min.",
+      "answer": false,
+      "explain": "Faux : jamais moins de 4 L/min au masque, sinon le patient respire à nouveau son propre CO~2~."
+    },
+    {
+      "id": "28-ep-14",
+      "src": "memo",
+      "cat": "ep",
+      "level": 2,
+      "type": "range",
+      "prompt": "pH artériel normal",
+      "min": 7.0,
+      "max": 7.8,
+      "step": 0.01,
+      "answer": [
+        7.35,
+        7.45
+      ],
+      "tolerance": 0.02,
+      "explain": "En dessous de 7,35 : acidose. Au-dessus de 7,45 : alcalose."
+    },
+    {
+      "id": "28-ep-15",
+      "src": "memo",
+      "cat": "ep",
+      "level": 2,
+      "type": "range",
+      "prompt": "PaCO~2~ artérielle normale",
+      "min": 20,
+      "max": 70,
+      "step": 1,
+      "answer": [
+        35,
+        45
+      ],
+      "tolerance": 2,
+      "unit": "mmHg",
+      "explain": "Au-dessus : hypercapnie (le CO2 n'est pas assez éliminé). En dessous : hypocapnie (hyperventilation)."
+    },
+    {
+      "id": "28-ep-16",
+      "src": "memo",
+      "cat": "ep",
+      "level": 3,
+      "type": "range",
+      "prompt": "Bicarbonates (HCO~3~^-^) artériels normaux",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "answer": [
+        22,
+        26
+      ],
+      "tolerance": 1,
+      "unit": "mmol/L",
+      "explain": "Les bicarbonates forment la réserve alcaline : ils renseignent sur la part métabolique d'un trouble acido-basique."
+    },
+    {
+      "id": "28-ep-17",
+      "src": "memo",
+      "cat": "ep",
+      "level": 3,
+      "type": "range",
+      "prompt": "PaO~2~ artérielle normale chez l'adulte",
+      "min": 40,
+      "max": 130,
+      "step": 1,
+      "answer": [
+        80,
+        100
+      ],
+      "tolerance": 10,
+      "unit": "mmHg",
+      "explain": "Environ 80 à 100 mmHg selon les références ; elle baisse un peu avec l'âge. SaO2 normale : 95 à 100 %."
+    },
+    {
+      "id": "28-ep-18",
+      "src": "memo",
+      "cat": "ep",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Que vérifie le test d'Allen avant une gazométrie radiale ?",
+      "options": [
+        "Que l'artère cubitale peut irriguer la main si l'artère radiale est lésée",
+        "Que le patient n'est pas allergique",
+        "Que l'artère radiale est assez grosse",
+        "Que la pression artérielle est normale"
+      ],
+      "answer": 0,
+      "explain": "Il vérifie la circulation collatérale par l'artère cubitale. Il est obligatoire et engage la responsabilité de l'IDE."
+    },
+    {
+      "id": "28-ep-19",
+      "src": "memo",
+      "cat": "ep",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Gazométrie d'une embolie pulmonaire : quel profil est le plus fréquent ?",
+      "options": [
+        "Hypoxémie avec hypocapnie",
+        "Hyperoxie avec hypercapnie",
+        "Des valeurs toujours normales",
+        "Une hypercapnie isolée"
+      ],
+      "answer": 0,
+      "explain": "La polypnée fait baisser la PaCO2 (alcalose respiratoire). Une PaO2 très basse oriente vers une forme grave."
+    },
+    {
+      "id": "28-oap-01",
+      "src": "memo",
+      "cat": "oap",
+      "level": 1,
+      "type": "choice",
+      "prompt": "L'OAP, c'est…",
+      "options": [
+        "L'envahissement des alvéoles par du plasma, le plus souvent par insuffisance cardiaque gauche",
+        "Un caillot dans l'artère pulmonaire",
+        "Une bronchoconstriction réversible",
+        "Une infection des bronches"
+      ],
+      "answer": 0,
+      "explain": "Urgence médicale, le plus souvent due à l'aggravation d'une insuffisance cardiaque gauche."
+    },
+    {
+      "id": "28-oap-02",
+      "src": "memo",
+      "cat": "oap",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels facteurs peuvent déclencher un OAP chez un insuffisant cardiaque ?",
+      "options": [
+        "Poussée hypertensive",
+        "Trouble du rythme",
+        "Arrêt ou oubli du diurétique",
+        "Repas trop salé",
+        "Perfusion ou transfusion trop rapide",
+        "Régime pauvre en sel bien suivi"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explain": "Les écarts de régime et l'arrêt du traitement sont des causes fréquentes : d'où l'éducation du patient."
+    },
+    {
+      "id": "28-oap-03",
+      "src": "memo",
+      "cat": "oap",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels signes évoquent un OAP ?",
+      "options": [
+        "Essoufflement intense, le patient refuse de s'allonger",
+        "Crachats mousseux rosés",
+        "Râles crépitants aux deux poumons",
+        "Sueurs, cyanose",
+        "Douleur lombaire"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : grésillement laryngé, polypnée (au-dessus de 25/min), désaturation, tension souvent élevée."
+    },
+    {
+      "id": "28-oap-04",
+      "src": "memo",
+      "cat": "oap",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Comment installer un patient en OAP ?",
+      "options": [
+        "Demi-assis, voire assis jambes pendantes",
+        "À plat",
+        "En position latérale de sécurité",
+        "Jambes surélevées"
+      ],
+      "answer": 0,
+      "explain": "La position assise limite le retour du sang vers le cœur et facilite la respiration."
+    },
+    {
+      "id": "28-oap-05",
+      "src": "memo",
+      "cat": "oap",
+      "level": 2,
+      "type": "choice",
+      "prompt": "OAP en phase aiguë : que fais-tu en priorité ?",
+      "options": [
+        "Appeler à l'aide, chariot d'urgence",
+        "Oxygène au masque à haute concentration",
+        "Surveiller SpO~2~, FR, TA, pouls, scope",
+        "Préparer le traitement prescrit",
+        "Faire boire un litre d'eau"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Objectif : SpO2 de 95 % ou plus. On reste près du patient pour le rassurer et le surveiller."
+    },
+    {
+      "id": "28-oap-06",
+      "src": "memo",
+      "cat": "oap",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pourquoi pas de sérum physiologique sur la voie veineuse d'un patient en OAP ?",
+      "options": [
+        "Le sel et le volume apportés aggraveraient la surcharge",
+        "Il est incompatible avec le furosémide",
+        "Il fait chuter la glycémie",
+        "Il provoque une hyperkaliémie"
+      ],
+      "answer": 0,
+      "explain": "Le patient est déjà en surcharge : on limite les apports d'eau et de sel."
+    },
+    {
+      "id": "28-oap-07",
+      "src": "memo",
+      "cat": "oap",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Furosémide (Lasilix) dans l'OAP : quels risques surveiller ?",
+      "options": [
+        "Hypokaliémie et hypovolémie",
+        "Hyperglycémie",
+        "Thrombopénie",
+        "Constipation"
+      ],
+      "answer": 0,
+      "explain": "Surveillance : ionogramme, ECG, tension, diurèse."
+    },
+    {
+      "id": "28-oap-08",
+      "src": "memo",
+      "cat": "oap",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Dans quelle situation utilise-t-on le Risordan (dérivé nitré) dans l'OAP ?",
+      "options": [
+        "Quand la pression artérielle est élevée",
+        "Quand la pression artérielle est basse",
+        "En cas de bradycardie",
+        "Jamais"
+      ],
+      "answer": 0,
+      "explain": "Il dilate les vaisseaux et soulage le cœur. Surveillance très rapprochée de la tension : risque d'hypotension."
+    },
+    {
+      "id": "28-oap-09",
+      "src": "memo",
+      "cat": "oap",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quel aspect sur la radio du thorax évoque un OAP ?",
+      "options": [
+        "Des opacités floconneuses des deux côtés",
+        "Un poumon noir sans trame (pneumothorax)",
+        "Une fracture de côte",
+        "Des niveaux hydro-aériques"
+      ],
+      "answer": 0,
+      "explain": "Autres examens : proBNP, troponine, ECG (recherche d'une cause), gaz du sang, échographie cardiaque."
+    },
+    {
+      "id": "28-oap-10",
+      "src": "memo",
+      "cat": "oap",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Après la phase aiguë d'un OAP, pourquoi peut-on poser une sonde urinaire ?",
+      "options": [
+        "Pour mesurer précisément la diurèse",
+        "Pour prévenir une infection",
+        "Pour faire un ECBU",
+        "Pour mesurer la glycémie"
+      ],
+      "answer": 0,
+      "explain": "Sous diurétique, la diurèse est le reflet de l'efficacité du traitement."
+    },
+    {
+      "id": "28-oap-11",
+      "src": "memo",
+      "cat": "oap",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quelles mesures évitent une récidive d'OAP ?",
+      "options": [
+        "Régime pauvre en sel",
+        "Bonne prise du traitement (diurétiques)",
+        "Surveillance du poids et de la tension",
+        "Repos strict au lit à vie"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "On agit sur le facteur déclenchant : tension, trouble du rythme, infection, observance."
+    },
+    {
+      "id": "28-oap-12",
+      "src": "memo",
+      "cat": "oap",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Un OAP peut avoir une cause non cardiaque, comme une transfusion trop rapide ou une noyade.",
+      "answer": true,
+      "explain": "Vrai : aussi une atteinte virale des alvéoles (comme le Covid) ou certains cancers."
+    },
+    {
+      "id": "28-oap-13",
+      "src": "memo",
+      "cat": "oap",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Pourquoi une anticoagulation préventive (HBPM) chez un patient hospitalisé pour OAP ?",
+      "options": [
+        "L'alitement et la stase veineuse favorisent la phlébite",
+        "Pour traiter l'OAP",
+        "Pour faire baisser la tension",
+        "Pour éliminer l'eau"
+      ],
+      "answer": 0,
+      "explain": "Alitement et stase veineuse favorisent la phlébite."
+    },
+    {
+      "id": "28-bpco-01",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 1,
+      "type": "choice",
+      "prompt": "La BPCO se caractérise par…",
+      "options": [
+        "Une obstruction permanente et progressive des bronches",
+        "Des crises entrecoupées de périodes normales",
+        "Une infection aiguë du poumon",
+        "Un caillot dans l'artère pulmonaire"
+      ],
+      "answer": 0,
+      "explain": "Une maladie chronique inflammatoire des bronches, avec rétrécissement progressif et obstruction permanente."
+    },
+    {
+      "id": "28-bpco-02",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 2,
+      "type": "slider",
+      "prompt": "Quelle part des BPCO est liée au tabac (actif ou passif) ?",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "answer": 80,
+      "tolerance": 5,
+      "unit": "%",
+      "explain": "Environ 80 %. Les expositions professionnelles en expliquent environ 15 %."
+    },
+    {
+      "id": "28-bpco-03",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 1,
+      "type": "choice",
+      "prompt": "BPCO : quels signes ?",
+      "options": [
+        "Toux et crachats chroniques",
+        "Essoufflement progressif à l'effort",
+        "Exacerbations",
+        "Diminution du périmètre de marche",
+        "Douleur lombaire"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "À l'auscultation : sifflements et râles bronchiques. SpO2 souvent sous 95 %."
+    },
+    {
+      "id": "28-bpco-04",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quel examen confirme une BPCO ?",
+      "options": [
+        "La spirométrie (EFR)",
+        "L'ECG",
+        "La radiographie de l'abdomen",
+        "La glycémie"
+      ],
+      "answer": 0,
+      "explain": "La spirométrie montre une obstruction qui ne se corrige pas complètement après un bronchodilatateur."
+    },
+    {
+      "id": "28-bpco-05",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Chez un patient BPCO, l'aérosol se fait souvent à l'air plutôt qu'à l'oxygène.",
+      "answer": true,
+      "explain": "Vrai : trop d'oxygène peut aggraver l'hypercapnie. Chez l'asthmatique, l'aérosol se fait sous O~2~, à 6 à 8 L/min, pendant 15 à 20 minutes."
+    },
+    {
+      "id": "28-bpco-06",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque médicament à sa famille.",
+      "left": "Médicament",
+      "right": "Famille",
+      "pairs": [
+        [
+          "Terbutaline (Bricanyl)",
+          "Bronchodilatateur bêta-2 mimétique"
+        ],
+        [
+          "Ipratropium (Atrovent)",
+          "Bronchodilatateur anticholinergique"
+        ],
+        [
+          "Budésonide (Pulmicort)",
+          "Corticoïde inhalé"
+        ],
+        [
+          "Bétaméthasone (Célestène)",
+          "Corticoïde oral ou injectable"
+        ]
+      ],
+      "explain": "Les bronchodilatateurs ouvrent les bronches ; les corticoïdes calment l'inflammation."
+    },
+    {
+      "id": "28-bpco-07",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Ipratropium (Atrovent) en nébulisation : quels effets indésirables ?",
+      "options": [
+        "Sécheresse de la bouche",
+        "Tachycardie",
+        "Crise de glaucome par fermeture de l'angle, mydriase",
+        "Hypoglycémie"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Bien ajuster le masque pour éviter que l'aérosol n'atteigne les yeux."
+    },
+    {
+      "id": "28-bpco-08",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Aérosols de terbutaline répétés : que surveilles-tu ?",
+      "options": [
+        "Fréquence cardiaque",
+        "Kaliémie",
+        "Glycémie",
+        "Tremblements",
+        "INR"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Effets : tremblements, tachycardie, palpitations, hypokaliémie, modification de la glycémie."
+    },
+    {
+      "id": "28-bpco-09",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "La terbutaline en nébulisation peut servir à faire baisser une hyperkaliémie.",
+      "answer": true,
+      "explain": "Vrai : à forte dose (10 à 20 mg, sous air), elle fait entrer le potassium dans les cellules. Baisse d'environ 1 mmol/L en 1 heure."
+    },
+    {
+      "id": "28-bpco-10",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Rôle préventif de l'IDE auprès d'un patient BPCO ?",
+      "options": [
+        "Aide à l'arrêt du tabac",
+        "Vaccination contre la grippe",
+        "Éducation thérapeutique",
+        "Équilibre alimentaire, activité adaptée",
+        "Arrêt de toute activité physique"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Les rôles de l'IDE : préventif, curatif (aérosols, soins, antibiotiques si surinfection) et relationnel."
+    },
+    {
+      "id": "28-bpco-11",
+      "src": "memo",
+      "cat": "bpco",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Patient BPCO qui interrompt son traitement et se montre agressif : quelle attitude ?",
+      "options": [
+        "Écoute active et négociation",
+        "Menacer d'arrêter les soins",
+        "L'ignorer",
+        "Lui faire la morale devant sa famille"
+      ],
+      "answer": 0,
+      "explain": "Chronicité, épuisement, perte de l'estime de soi : le soin relationnel fait partie de la prise en charge."
+    },
+    {
+      "id": "28-asthme-01",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 1,
+      "type": "choice",
+      "prompt": "L'asthme est une maladie respiratoire chronique dite…",
+      "options": [
+        "Expiratoire : l'air a du mal à sortir",
+        "Inspiratoire : l'air a du mal à entrer",
+        "Infectieuse",
+        "Contagieuse"
+      ],
+      "answer": 0,
+      "explain": "Les bronches rétrécies gênent surtout la sortie de l'air."
+    },
+    {
+      "id": "28-asthme-02",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Combien de personnes environ sont touchées par l'asthme en France ?",
+      "options": [
+        "Plus de 4 millions",
+        "Environ 10 000",
+        "Environ 100 000",
+        "Plus de 30 millions"
+      ],
+      "answer": 0,
+      "shuffle": false,
+      "explain": "Plus de 4 millions : c'est une maladie chronique très fréquente."
+    },
+    {
+      "id": "28-asthme-03",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pendant une crise d'asthme, que se passe-t-il dans les bronches ?",
+      "options": [
+        "Contraction des muscles lisses (bronchoconstriction)",
+        "Inflammation de la muqueuse",
+        "Production de mucus",
+        "Dilatation des bronches"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Contraction des muscles lisses + inflammation de la muqueuse + mucus = passage de l'air difficile."
+    },
+    {
+      "id": "28-asthme-04",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels signes évoquent une crise d'asthme ?",
+      "options": [
+        "Essoufflement",
+        "Respiration sifflante",
+        "Toux sèche",
+        "Sensation d'oppression",
+        "Crachats mousseux rosés"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Les crachats mousseux rosés évoquent plutôt un OAP."
+    },
+    {
+      "id": "28-asthme-05",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont des facteurs déclenchants d'une crise d'asthme ?",
+      "options": [
+        "Infection virale",
+        "Allergènes (pollens, acariens…)",
+        "Effort, froid, pollution",
+        "Arrêt du traitement de fond",
+        "Bêtabloquants, même en collyre",
+        "Le sommeil"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explain": "Aussi : stress, variations hormonales, mauvaise connaissance de la maladie."
+    },
+    {
+      "id": "28-asthme-06",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Quels signes font d'une crise d'asthme une crise grave ?",
+      "options": [
+        "Difficulté à parler ou à tousser",
+        "Fréquence respiratoire de 30/min ou plus",
+        "Fréquence cardiaque de 120/min ou plus",
+        "Agitation, sueurs, cyanose",
+        "Toux sèche isolée"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : crise inhabituelle ou qui s'aggrave vite, orthopnée, signes de lutte (tirage)."
+    },
+    {
+      "id": "28-asthme-07",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "Pendant une crise d'asthme, une PaCO~2~ normale est un signe rassurant.",
+      "answer": false,
+      "explain": "Faux : en crise, le patient hyperventile et sa PaCO2 devrait être basse. Normale ou élevée, elle traduit un épuisement : signe de gravité."
+    },
+    {
+      "id": "28-asthme-08",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Crise d'asthme grave : quelle prise en charge immédiate ?",
+      "options": [
+        "Demi-assis, oxygène, bêta-2 mimétiques en nébulisation, corticoïdes",
+        "Allongé à plat, sédatif",
+        "Antibiotique seul",
+        "Bêtabloquant en urgence"
+      ],
+      "answer": 0,
+      "explain": "Bêta-2 mimétiques : terbutaline ou salbutamol en nébulisation."
+    },
+    {
+      "id": "28-asthme-09",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 2,
+      "type": "number",
+      "prompt": "Asthme aigu grave : un aérosol de terbutaline toutes les 20 minutes. Combien d'aérosols dans la première heure ?",
+      "answer": 3,
+      "explain": "3 nébulisations dans l'heure. Dose chez l'adulte : 5 mg de terbutaline par aérosol."
+    },
+    {
+      "id": "28-asthme-10",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Asthme aigu grave : à quoi associe-t-on la terbutaline dans le premier aérosol ?",
+      "options": [
+        "L'ipratropium (Atrovent)",
+        "Le furosémide",
+        "L'héparine",
+        "La morphine"
+      ],
+      "answer": 0,
+      "explain": "Ipratropium dans le premier aérosol seulement, puis terbutaline seule dans les suivants."
+    },
+    {
+      "id": "28-asthme-11",
+      "src": "memo",
+      "cat": "asthme",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Éducation thérapeutique de l'asthmatique : sur quoi porte-t-elle ?",
+      "options": [
+        "Comprendre la maladie",
+        "Distinguer traitement de fond et traitement de crise",
+        "Limiter l'exposition aux allergènes",
+        "Garder une activité physique adaptée",
+        "Arrêter le traitement de fond quand tout va bien"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Le traitement de fond se poursuit même quand tout va bien."
+    }
+  ]
+}
