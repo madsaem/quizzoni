@@ -275,7 +275,7 @@
 /* ruban de chantier : boîte pas finie */
 .box__wip {
   position: absolute; z-index: 2;
-  left: -12%; right: -12%; bottom: 30%;
+  left: -12%; right: -12%; bottom: 25%;
   display: grid; place-items: center;
   height: 1.7rem;
   transform: rotate(-9deg);

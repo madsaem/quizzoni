@@ -1,0 +1,932 @@
+{
+  "title": "Soins éducatifs et préventifs",
+  "short": "Éducatifs",
+  "subtitle": "Éducation thérapeutique du patient (ETP)",
+  "ue": "UE 4.6",
+  "badge": "S3",
+  "shelf": "S3",
+  "color": "c1",
+  "icon": "talk",
+  "wip": "Pour l'instant, seule l'éducation thérapeutique du patient (ETP) est en questions. Les autres cours de l'UE 4.6 seront ajoutés au fur et à mesure.",
+  "description": "L'éducation thérapeutique du patient : définition et finalités, démarche en 4 étapes, diagnostic éducatif, compétences d'autosoins et d'adaptation, objectifs SMART, posture de l'éducateur et évaluation.",
+  "tags": [
+    "UE 4.6",
+    "éducation thérapeutique",
+    "ETP",
+    "diagnostic éducatif",
+    "SMART",
+    "Bloom",
+    "autosoins",
+    "compétences",
+    "prévention",
+    "maladie chronique"
+  ],
+  "sources": [{"id": "fiches", "title": "Fiches de révision ETP, UE 4.6"}],
+  "time": {"match": 75, "order": 60, "sort": 75},
+  "categories": [
+    {"id": "bases", "title": "Définition et finalités"},
+    {"id": "demarche", "title": "Démarche en 4 étapes"},
+    {"id": "diagnostic", "title": "Diagnostic éducatif"},
+    {"id": "competences", "title": "Compétences et objectifs"},
+    {"id": "posture", "title": "Posture et évaluation"}
+  ],
+  "questions": [
+    {
+      "id": "46-bases-01",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 1,
+      "type": "text",
+      "prompt": "Que signifie le sigle ETP ?",
+      "variants": [
+        "ETP : que veulent dire ces trois lettres ?",
+        "Développe le sigle ETP.",
+        "Écris la signification de ETP."
+      ],
+      "answers": ["éducation thérapeutique du patient", "education therapeutique du patient"],
+      "explain": "Éducation thérapeutique du patient."
+    },
+    {
+      "id": "46-bases-02",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 1,
+      "type": "choice",
+      "prompt": "L'éducation thérapeutique du patient, c'est…",
+      "variants": [
+        "Comment définir l'ETP ?",
+        "ETP : quelle définition ?",
+        "À quoi correspond l'éducation thérapeutique du patient ?"
+      ],
+      "options": [
+        "Une démarche qui aide le patient et ses proches à acquérir ou maintenir les compétences pour gérer au mieux sa vie avec une maladie chronique",
+        "Une séance d'information unique donnée à la sortie de l'hôpital",
+        "Un cours magistral sur la maladie",
+        "Une liste de consignes à respecter"
+      ],
+      "answer": 0,
+      "explain": "Elle comprend des activités organisées et un soutien psychosocial. Elle aide le patient à comprendre sa maladie et son traitement, à collaborer avec les soignants et à devenir plus autonome."
+    },
+    {
+      "id": "46-bases-03",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 1,
+      "type": "choice",
+      "prompt": "À quelles maladies s'adresse l'ETP ?",
+      "variants": [
+        "L'ETP concerne quels patients ?",
+        "Pour quel type de maladies propose-t-on une ETP ?",
+        "ETP : quelles maladies sont concernées ?"
+      ],
+      "options": [
+        "Aux maladies chroniques",
+        "Uniquement aux maladies infectieuses aiguës",
+        "Uniquement au diabète",
+        "Aux fractures"
+      ],
+      "answer": 0,
+      "explain": "Diabète, asthme, BPCO, insuffisance cardiaque, VIH, maladies rénales… La HAS liste les maladies chroniques concernées."
+    },
+    {
+      "id": "46-bases-04",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quel est l'objectif principal de l'ETP ?",
+      "variants": [
+        "Finalité de l'ETP : quel but premier ?",
+        "L'ETP vise avant tout à…",
+        "Quel est le but ultime de l'éducation thérapeutique ?"
+      ],
+      "options": [
+        "Améliorer la santé et la qualité de vie du patient et de ses proches",
+        "Réduire le nombre de consultations",
+        "Que le patient obéisse aux prescriptions",
+        "Remplacer le traitement médicamenteux"
+      ],
+      "answer": 0,
+      "explain": "Objectifs spécifiques : acquérir ou maintenir des compétences d'autosoins, mobiliser ou acquérir des compétences d'adaptation."
+    },
+    {
+      "id": "46-bases-05",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont les objectifs spécifiques de l'ETP ?",
+      "variants": [
+        "ETP : repère les objectifs spécifiques.",
+        "Quels objectifs précis poursuit l'éducation thérapeutique ?",
+        "Objectifs spécifiques de l'ETP ?"
+      ],
+      "options": [
+        "Acquérir et maintenir des compétences d'autosoins",
+        "Mobiliser ou acquérir des compétences d'adaptation",
+        "Remplacer le traitement par l'éducation",
+        "Faire respecter les consignes sans discussion"
+      ],
+      "answer": [0, 1],
+      "explain": "Ces compétences s'appuient sur le vécu et l'expérience du patient et font partie de compétences psychosociales plus larges."
+    },
+    {
+      "id": "46-bases-06",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "L'ETP fait partie intégrante du traitement et de la prise en charge.",
+      "variants": [
+        "L'éducation thérapeutique est une partie du traitement à part entière.",
+        "L'ETP est intégrée à la prise en charge du patient.",
+        "L'ETP fait partie du soin, pas en plus du soin."
+      ],
+      "answer": true,
+      "explain": "Vrai. Elle est adaptée à l'évolution de la maladie et au mode de vie du patient."
+    },
+    {
+      "id": "46-bases-07",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "L'ETP se met en place avec l'accord du patient.",
+      "variants": [
+        "Le patient doit être d'accord pour entrer dans une démarche d'ETP.",
+        "On ne fait pas d'ETP sans l'accord du patient.",
+        "L'ETP nécessite l'adhésion du patient."
+      ],
+      "answer": true,
+      "explain": "Vrai. La démarche se construit avec lui, à partir de ses besoins et de ses projets."
+    },
+    {
+      "id": "46-bases-08",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quand proposer une éducation thérapeutique ?",
+      "variants": [
+        "À quel moment propose-t-on une ETP ?",
+        "ETP : quand l'initier ?",
+        "Quand peut-on proposer une ETP à un patient ?"
+      ],
+      "options": [
+        "À l'annonce du diagnostic (ETP initiale), puis en suivi régulier ou de renforcement, et dès que le besoin se présente",
+        "Uniquement le jour du diagnostic",
+        "Seulement après une hospitalisation pour complication",
+        "Seulement si le patient la demande par écrit"
+      ],
+      "answer": 0,
+      "explain": "ETP initiale à l'annonce, ETP de suivi régulier (renforcement) ou de suivi approfondi (reprise) si besoin."
+    },
+    {
+      "id": "46-bases-09",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Un patient qui lit mal le français ne peut pas bénéficier d'une ETP.",
+      "variants": [
+        "Des difficultés de lecture excluent le patient de l'ETP.",
+        "L'ETP n'est pas possible si le patient ne maîtrise pas la langue.",
+        "Un patient illettré ne peut pas suivre d'éducation thérapeutique."
+      ],
+      "answer": false,
+      "explain": "Faux. Difficultés d'apprentissage, langue, handicap, niveau socio-économique ou lieu de vie ne doivent pas priver un patient d'ETP : on adapte le programme."
+    },
+    {
+      "id": "46-bases-10",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qui peut réaliser une ETP ?",
+      "variants": [
+        "Qui propose et anime l'éducation thérapeutique ?",
+        "ETP : quels intervenants ?",
+        "Repère qui peut réaliser une ETP."
+      ],
+      "options": [
+        "Un professionnel de santé formé à l'ETP",
+        "Une équipe pluriprofessionnelle formée à l'ETP",
+        "Des patients (experts), en complément, dans les séances collectives",
+        "N'importe quel soignant, même sans formation",
+        "Uniquement le médecin traitant"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "L'ETP est réalisée par des professionnels formés à la démarche et aux techniques pédagogiques, qui coordonnent leurs actions."
+    },
+    {
+      "id": "46-bases-11",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Quelle formation minimale faut-il pour dispenser l'ETP dans un programme autorisé ?",
+      "variants": [
+        "ETP : combien d'heures de formation sont exigées pour intervenir dans un programme ?",
+        "Formation obligatoire pour animer un programme d'ETP : quelle durée ?",
+        "Pour participer à un programme d'ETP, quelle formation minimale ?"
+      ],
+      "options": ["40 heures", "4 heures", "400 heures", "Aucune"],
+      "answer": 0,
+      "explain": "Une formation d'au moins 40 heures à l'éducation thérapeutique est exigée pour dispenser l'ETP dans un programme."
+    },
+    {
+      "id": "46-bases-12",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Où peuvent se dérouler les séances d'ETP ?",
+      "variants": [
+        "Lieu des séances d'éducation thérapeutique ?",
+        "ETP : où se passent les séances ?",
+        "Où peut-on faire de l'ETP ?"
+      ],
+      "options": [
+        "À domicile ou en structure (hôpital, centre, cabinet)",
+        "Uniquement à l'hôpital",
+        "Uniquement en pharmacie",
+        "Uniquement par téléphone"
+      ],
+      "answer": 0,
+      "explain": "Les séances peuvent être individuelles ou collectives."
+    },
+    {
+      "id": "46-bases-13",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Un programme d'ETP définit…",
+      "variants": [
+        "Que précise un programme d'éducation thérapeutique ?",
+        "Programme d'ETP : de quoi est-il fait ?",
+        "À quoi sert un programme d'ETP ?"
+      ],
+      "options": [
+        "Qui fait quoi, pour qui, où, quand, comment et pourquoi",
+        "Uniquement la liste des médicaments",
+        "Les horaires de visite",
+        "Le prix des séances"
+      ],
+      "answer": 0,
+      "explain": "Pour une maladie chronique et un contexte donnés : c'est le cadre de référence de l'ETP personnalisée."
+    },
+    {
+      "id": "46-bases-14",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Une ETP de qualité doit être…",
+      "variants": [
+        "Quelles sont les caractéristiques d'une ETP de qualité ?",
+        "Repère ce qui fait une bonne éducation thérapeutique.",
+        "ETP de qualité : quels critères ?"
+      ],
+      "options": [
+        "Centrée sur le patient",
+        "Scientifiquement fondée et enrichie par l'expérience des patients",
+        "Un processus permanent, adapté à l'évolution de la maladie",
+        "Réalisée par des professionnels formés, en équipe",
+        "Identique pour tous les patients",
+        "Limitée à une seule séance"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Elle s'appuie sur un diagnostic éducatif et se construit sur des priorités d'apprentissage."
+    },
+    {
+      "id": "46-bases-15",
+      "src": "fiches",
+      "cat": "bases",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "En ETP, le soignant et le patient apprennent l'un de l'autre.",
+      "variants": [
+        "Dans l'éducation thérapeutique, soignant et patient s'éduquent mutuellement.",
+        "L'ETP est un apprentissage réciproque entre soignant et patient.",
+        "En ETP, deux expertises se rencontrent : celle du soignant et celle du patient."
+      ],
+      "answer": true,
+      "explain": "Vrai. Le soignant apporte son expertise de la maladie, le patient celle de sa vie avec la maladie."
+    },
+    {
+      "id": "46-demarche-01",
+      "src": "fiches",
+      "cat": "demarche",
+      "level": 1,
+      "type": "order",
+      "prompt": "Remets dans l'ordre les 4 étapes de la démarche d'ETP.",
+      "variants": [
+        "Démarche d'éducation thérapeutique : quel ordre ?",
+        "Ordonne les étapes de l'ETP.",
+        "De la première à la dernière : les étapes de l'ETP."
+      ],
+      "items": [
+        "Élaborer un diagnostic éducatif",
+        "Définir un programme personnalisé avec des priorités d'apprentissage",
+        "Planifier et réaliser les séances individuelles ou collectives",
+        "Évaluer les compétences acquises et le déroulement du programme"
+      ],
+      "explain": "Puis on propose une nouvelle offre d'ETP selon les résultats de l'évaluation."
+    },
+    {
+      "id": "46-demarche-02",
+      "src": "fiches",
+      "cat": "demarche",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Comment s'appelle le premier entretien de la démarche d'ETP ?",
+      "variants": [
+        "Première étape de l'ETP : comment s'appelle-t-elle ?",
+        "L'ETP commence par…",
+        "Quel est le nom du premier entretien éducatif ?"
+      ],
+      "options": [
+        "Le diagnostic éducatif",
+        "Le bilan de sortie",
+        "L'évaluation finale",
+        "La consultation d'annonce médicale"
+      ],
+      "answer": 0,
+      "explain": "Il sert à connaître le patient : ses besoins, ses freins, ses ressources, ses leviers et son projet."
+    },
+    {
+      "id": "46-demarche-03",
+      "src": "fiches",
+      "cat": "demarche",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Programme personnalisé : comment sont choisies les compétences à acquérir ?",
+      "variants": [
+        "Qui décide des compétences travaillées en ETP ?",
+        "Comment fixe-t-on les priorités d'apprentissage ?",
+        "Programme d'ETP personnalisé : comment définit-on les compétences ?"
+      ],
+      "options": [
+        "Formulées et négociées avec le patient, puis communiquées clairement aux professionnels impliqués",
+        "Imposées par le médecin",
+        "Choisies par la famille seule",
+        "Identiques pour tous les patients atteints de la même maladie"
+      ],
+      "answer": 0,
+      "explain": "Elles tiennent compte du projet du patient et de la stratégie thérapeutique."
+    },
+    {
+      "id": "46-demarche-04",
+      "src": "fiches",
+      "cat": "demarche",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Après l'évaluation, que propose-t-on au patient ?",
+      "variants": [
+        "Fin de programme d'ETP : et ensuite ?",
+        "Une fois l'évaluation faite, quelle suite pour le patient ?",
+        "Que se passe-t-il après l'évaluation des compétences ?"
+      ],
+      "options": [
+        "Une nouvelle offre d'ETP (suivi, renforcement ou reprise) selon l'évaluation et le suivi de la maladie",
+        "Rien, l'ETP est terminée pour toujours",
+        "Le même programme, recommencé à l'identique",
+        "Une sortie du parcours de soins"
+      ],
+      "answer": 0,
+      "explain": "On fait le point avec lui : ce qu'il sait, ce qu'il a compris, ce qu'il sait faire, ce qu'il lui reste à acquérir."
+    },
+    {
+      "id": "46-demarche-05",
+      "src": "fiches",
+      "cat": "demarche",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Comment assurer un suivi éducatif de qualité ?",
+      "variants": [
+        "Suivi en ETP : que faut-il faire ?",
+        "Repère ce qui fait un bon suivi éducatif.",
+        "ETP au long cours : comment bien suivre le patient ?"
+      ],
+      "options": [
+        "Actualiser le diagnostic éducatif",
+        "Redéfinir les objectifs avec le patient si besoin",
+        "Ajuster le plan d'action selon la tolérance et l'évolution de la maladie",
+        "Proposer une ETP de renforcement ou de reprise si besoin",
+        "Garder les mêmes objectifs quoi qu'il arrive"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "S'adapter au patient, à ses besoins, ses attentes et ses capacités tout au long du parcours."
+    },
+    {
+      "id": "46-diagnostic-01",
+      "src": "fiches",
+      "cat": "diagnostic",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Diagnostic éducatif : quels sont ses buts ?",
+      "variants": [
+        "À quoi sert le diagnostic éducatif ?",
+        "Repère les objectifs du diagnostic éducatif.",
+        "Diagnostic éducatif : que cherche-t-on ?"
+      ],
+      "options": [
+        "Identifier les besoins, les freins, les ressources et les leviers",
+        "Connaître les attentes et le projet du patient",
+        "Lui permettre de s'exprimer et renforcer sa motivation",
+        "Poser le diagnostic médical de la maladie",
+        "Vérifier la prescription médicale"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Il permet une compréhension mutuelle et un engagement dans une éducation personnalisée."
+    },
+    {
+      "id": "46-diagnostic-02",
+      "src": "fiches",
+      "cat": "diagnostic",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque dimension du diagnostic éducatif à ce qu'elle explore.",
+      "variants": [
+        "Les 5 dimensions du diagnostic éducatif : forme les paires.",
+        "Diagnostic éducatif : quelle dimension pour quelle question ?",
+        "Relie chaque dimension du diagnostic éducatif à son contenu."
+      ],
+      "left": "Dimension",
+      "right": "Ce qu'elle explore",
+      "pairs": [
+        ["Cognitive", "Ce qu'il sait de sa maladie"],
+        ["Psychologique", "Ce qu'il croit et ressent"],
+        ["Socio-culturelle", "Qui il est : famille, travail, loisirs"],
+        ["Motivationnelle", "Ce qui le motive, ses projets"],
+        ["Expérientielle", "Ce qu'il fait, son expérience"]
+      ],
+      "explain": "Cognitive : ce qu'il sait. Psychologique : ce qu'il croit et ressent. Socio-culturelle : qui il est. Motivationnelle : ce qui le motive. Expérientielle : ce qu'il fait."
+    },
+    {
+      "id": "46-diagnostic-03",
+      "src": "fiches",
+      "cat": "diagnostic",
+      "level": 2,
+      "type": "order",
+      "prompt": "Analyse du diagnostic éducatif : remets les stades dans l'ordre.",
+      "variants": [
+        "Du recueil aux objectifs : ordonne l'analyse du diagnostic éducatif.",
+        "Comment passe-t-on du diagnostic éducatif aux objectifs ?",
+        "Diagnostic éducatif : dans quel ordre se fait l'analyse ?"
+      ],
+      "items": [
+        "Recueillir des informations",
+        "En tirer les besoins du patient",
+        "Traduire les besoins en compétences à acquérir",
+        "Écrire plusieurs objectifs pour chaque compétence"
+      ],
+      "explain": "Informations → besoins → compétences → objectifs (pédagogie par objectifs)."
+    },
+    {
+      "id": "46-diagnostic-04",
+      "src": "fiches",
+      "cat": "diagnostic",
+      "level": 3,
+      "type": "choice",
+      "prompt": "À quoi sert la pédagogie par objectifs (PPO) ?",
+      "variants": [
+        "PPO : quel intérêt en ETP ?",
+        "Pédagogie par objectifs : à quoi sert-elle ?",
+        "Que permet la PPO ?"
+      ],
+      "options": [
+        "À découper, étape par étape, ce que le patient doit apprendre pour atteindre une compétence",
+        "À noter le patient comme à l'école",
+        "À remplacer le diagnostic éducatif",
+        "À fixer un objectif unique pour tous"
+      ],
+      "answer": 0,
+      "explain": "Chaque compétence est déclinée en plusieurs objectifs, chacun évaluable."
+    },
+    {
+      "id": "46-diagnostic-05",
+      "src": "fiches",
+      "cat": "diagnostic",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Patient diabétique : le médecin veut améliorer son équilibre glycémique ; lui veut surtout éviter les contraintes et l'insuline. Leurs objectifs sont…",
+      "variants": [
+        "Médecin : équilibrer la glycémie. Patient : pas de contrainte, pas d'insuline. Comment qualifier ces objectifs ?",
+        "Objectifs du médecin et du patient diabétique : convergents ou divergents ?",
+        "Le soignant et le patient visent des buts différents. Que constates-tu ?"
+      ],
+      "options": [
+        "Divergents : il faudra les négocier pour trouver des objectifs communs",
+        "Convergents",
+        "Sans importance pour l'ETP",
+        "Le patient doit adopter celui du médecin"
+      ],
+      "answer": 0,
+      "explain": "Le diagnostic éducatif fait apparaître ces écarts. La négociation, sans froisser le patient, permet de fixer des priorités partagées."
+    },
+    {
+      "id": "46-diagnostic-06",
+      "src": "fiches",
+      "cat": "diagnostic",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels freins peuvent compliquer une ETP ?",
+      "variants": [
+        "Repère les difficultés qui peuvent freiner une éducation thérapeutique.",
+        "ETP : quels obstacles rencontre-t-on ?",
+        "Quelles difficultés peuvent gêner l'apprentissage du patient ?"
+      ],
+      "options": [
+        "Barrière de la langue",
+        "Troubles cognitifs ou difficultés d'apprentissage",
+        "Handicap sensoriel",
+        "Manque de motivation, moral en berne",
+        "Représentations sur la maladie ou le traitement",
+        "Le fait d'avoir une maladie chronique"
+      ],
+      "answer": [0, 1, 2, 3, 4],
+      "explain": "Ces freins ne doivent pas exclure le patient : on adapte le programme et on s'appuie sur ses ressources et ses leviers."
+    },
+    {
+      "id": "46-competences-01",
+      "src": "fiches",
+      "cat": "competences",
+      "level": 2,
+      "type": "sort",
+      "prompt": "Autosoins ou adaptation ? Range chaque compétence.",
+      "variants": [
+        "Compétences en ETP : autosoins ou adaptation ?",
+        "Classe ces compétences du patient.",
+        "Range chaque compétence dans sa famille."
+      ],
+      "groups": [
+        {
+          "name": "Compétences d'autosoins",
+          "items": [
+            "Soulager ses symptômes",
+            "Adapter les doses de ses médicaments",
+            "Réaliser un geste technique (glycémie capillaire, injection)",
+            "Prévenir les complications évitables"
+          ]
+        },
+        {
+          "name": "Compétences d'adaptation",
+          "items": [
+            "Gérer ses émotions et son stress",
+            "Avoir confiance en soi",
+            "Prendre des décisions et résoudre un problème",
+            "Se fixer des buts et faire des choix"
+          ]
+        }
+      ],
+      "explain": "Autosoins : gestes et décisions sur la maladie et le traitement. Adaptation : compétences psychosociales pour vivre avec la maladie."
+    },
+    {
+      "id": "46-competences-02",
+      "src": "fiches",
+      "cat": "competences",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Que sont les compétences dites de sécurité ?",
+      "variants": [
+        "Compétences de sécurité en ETP : de quoi s'agit-il ?",
+        "Pourquoi parle-t-on de compétences de sécurité ?",
+        "Compétences de sécurité : définition ?"
+      ],
+      "options": [
+        "Des compétences d'autosoins qui visent à sauvegarder la vie du patient (reconnaître et traiter une hypoglycémie…)",
+        "Les règles de sécurité de l'hôpital",
+        "Les compétences du soignant en hygiène",
+        "Des compétences facultatives"
+      ],
+      "answer": 0,
+      "explain": "Elles sont prioritaires dans le programme personnalisé."
+    },
+    {
+      "id": "46-competences-03",
+      "src": "fiches",
+      "cat": "competences",
+      "level": 2,
+      "type": "match",
+      "prompt": "Taxonomie de Bloom : associe chaque savoir à son domaine.",
+      "variants": [
+        "Savoir, savoir-faire, savoir-être : quel domaine ?",
+        "Relie chaque type de savoir à son domaine d'apprentissage.",
+        "Domaines de Bloom : forme les paires."
+      ],
+      "left": "Savoir",
+      "right": "Domaine",
+      "pairs": [
+        ["Savoir", "Cognitif : connaissances"],
+        ["Savoir-faire", "Psychomoteur : gestes"],
+        ["Savoir-être", "Affectif : attitudes et comportements"]
+      ],
+      "explain": "Un objectif éducatif porte sur un de ces domaines et se formule avec un verbe d'action adapté."
+    },
+    {
+      "id": "46-competences-04",
+      "src": "fiches",
+      "cat": "competences",
+      "level": 3,
+      "type": "order",
+      "prompt": "Taxonomie de Bloom : remets les 6 niveaux cognitifs dans l'ordre, du plus simple au plus complexe.",
+      "variants": [
+        "Niveaux de Bloom : du plus simple au plus élaboré.",
+        "Ordonne les niveaux d'habileté cognitive de Bloom.",
+        "Remets dans l'ordre la hiérarchie de Bloom."
+      ],
+      "items": ["Connaissance", "Compréhension", "Application", "Analyse", "Synthèse", "Évaluation"],
+      "explain": "Connaître, comprendre, appliquer, analyser, synthétiser, évaluer (juger)."
+    },
+    {
+      "id": "46-competences-05",
+      "src": "fiches",
+      "cat": "competences",
+      "level": 1,
+      "type": "match",
+      "prompt": "Objectif SMART : que veut dire chaque lettre ?",
+      "variants": [
+        "SMART : complète chaque lettre.",
+        "Relie chaque lettre de SMART à sa signification.",
+        "Objectif SMART : forme les paires lettre / sens."
+      ],
+      "left": "Lettre",
+      "right": "Signification",
+      "pairs": [
+        ["S", "Spécifique"],
+        ["M", "Mesurable"],
+        ["A", "Atteignable (acceptable)"],
+        ["R", "Réaliste"],
+        ["T", "Temporellement défini"]
+      ],
+      "explain": "Spécifique, Mesurable, Atteignable (acceptable), Réaliste, Temporellement défini. Version SMARTER : + Évaluable, Réévaluable."
+    },
+    {
+      "id": "46-competences-06",
+      "src": "fiches",
+      "cat": "competences",
+      "level": 3,
+      "type": "choice",
+      "prompt": "« À l'issue de son stage, l'étudiant réalisera au moins un sondage urinaire de bonne qualité. » Quel est le critère de réussite ?",
+      "variants": [
+        "Dans cet objectif, où est le critère : « à l'issue de son stage, l'étudiant réalisera au moins un sondage urinaire de bonne qualité » ?",
+        "Objectif : « au terme du stage, réaliser au moins un sondage urinaire de bonne qualité ». Quel élément est le critère ?",
+        "Repère le critère de réussite dans : « à la fin du stage, l'étudiant réalisera au moins un sondage urinaire de bonne qualité »."
+      ],
+      "options": [
+        "« Au moins un sondage de bonne qualité »",
+        "« À l'issue de son stage »",
+        "« L'étudiant »",
+        "« Réalisera »"
+      ],
+      "answer": 0,
+      "explain": "Le critère dit ce qui permettra de juger l'objectif atteint. « À l'issue du stage » est le délai, « réalisera » le verbe d'action."
+    },
+    {
+      "id": "46-competences-07",
+      "src": "fiches",
+      "cat": "competences",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Patient diabétique et gourmand : quel objectif pédagogique est bien formulé ?",
+      "variants": [
+        "Lequel de ces objectifs éducatifs est correctement rédigé ?",
+        "Diabète et gourmandise : quel objectif pédagogique choisir ?",
+        "Choisis l'objectif pédagogique bien formulé pour ce patient."
+      ],
+      "options": [
+        "À la fin du programme, il sera capable de citer 4 ingrédients de pâtisserie à index glycémique bas",
+        "Il doit arrêter les gâteaux",
+        "Comprendre le diabète",
+        "Manger mieux"
+      ],
+      "answer": 0,
+      "explain": "Un objectif pédagogique décrit ce que le patient saura faire (verbe d'action), de façon observable et mesurable, dans un délai donné."
+    },
+    {
+      "id": "46-competences-08",
+      "src": "fiches",
+      "cat": "competences",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Atelier cuisine pour ce patient : quels objectifs opérationnels ?",
+      "variants": [
+        "Atelier pâtisserie à index glycémique bas : quels objectifs opérationnels ?",
+        "Quels objectifs opérationnels pour l'atelier cuisine du patient diabétique ?",
+        "Atelier cuisine : repère les objectifs opérationnels pertinents."
+      ],
+      "options": [
+        "Reconnaître les aliments les moins sucrés",
+        "Réaliser lui-même une pâtisserie à index glycémique bas",
+        "Supprimer tout dessert de son alimentation",
+        "Écouter une conférence sur l'insuline"
+      ],
+      "answer": [0, 1],
+      "explain": "Les objectifs opérationnels déclinent l'objectif pédagogique en activités concrètes pendant l'atelier."
+    },
+    {
+      "id": "46-competences-09",
+      "src": "fiches",
+      "cat": "competences",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Pour cet objectif, quel indicateur de résultat est pertinent ?",
+      "variants": [
+        "Comment vérifier que l'atelier pâtisserie a atteint son but ?",
+        "Quel indicateur montre que le patient applique ce qu'il a appris ?",
+        "Atelier pâtisserie à index glycémique bas : quel indicateur suivre ?"
+      ],
+      "options": [
+        "Le nombre de pâtisseries qu'il prépare lui-même, et celles qu'il achète",
+        "Sa satisfaction à la fin de l'atelier",
+        "Le nombre de séances proposées",
+        "Le prix des ingrédients"
+      ],
+      "answer": 0,
+      "explain": "L'indicateur mesure un changement observable. La satisfaction se mesure aussi, mais elle ne suffit pas à évaluer l'atteinte des objectifs."
+    },
+    {
+      "id": "46-posture-01",
+      "src": "fiches",
+      "cat": "posture",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels outils de communication utilise l'éducateur ?",
+      "variants": [
+        "ETP : quels outils de communication ?",
+        "Repère les techniques de communication de l'éducateur.",
+        "Comment l'éducateur fait-il parler le patient ?"
+      ],
+      "options": [
+        "Reformulation",
+        "Questions ouvertes",
+        "Écoute active",
+        "Empathie",
+        "Questions fermées en rafale",
+        "Conseils imposés"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Reformuler et recentrer le patient l'aident à exprimer et clarifier ses besoins."
+    },
+    {
+      "id": "46-posture-02",
+      "src": "fiches",
+      "cat": "posture",
+      "level": 1,
+      "type": "sort",
+      "prompt": "Éducateur en ETP : attitude à adopter ou à éviter ?",
+      "variants": [
+        "Posture de l'éducateur : range ces attitudes.",
+        "Bonne ou mauvaise posture en ETP ? Classe-les.",
+        "ETP : quelles attitudes adopter, lesquelles éviter ?"
+      ],
+      "groups": [
+        {
+          "name": "À adopter",
+          "items": [
+            "Créer un climat de confiance",
+            "Accepter les silences",
+            "Rester centré sur le patient",
+            "Contrôler ses émotions"
+          ]
+        },
+        {
+          "name": "À éviter",
+          "items": [
+            "Généraliser",
+            "Disqualifier ce que dit le patient",
+            "Chercher les solutions à sa place",
+            "Faire à la place du patient"
+          ]
+        }
+      ],
+      "explain": "L'éducateur accompagne : il ne décide pas et ne fait pas à la place du patient."
+    },
+    {
+      "id": "46-posture-03",
+      "src": "fiches",
+      "cat": "posture",
+      "level": 2,
+      "type": "choice",
+      "prompt": "À quoi sert l'évaluation en ETP ?",
+      "variants": [
+        "Pourquoi évalue-t-on en éducation thérapeutique ?",
+        "Évaluation en ETP : quel rôle ?",
+        "Que mesure l'évaluation en ETP ?"
+      ],
+      "options": [
+        "À mesurer l'acquisition progressive des compétences : l'écart entre ce qui est souhaité et ce qui est observé",
+        "À noter le patient",
+        "À choisir les médicaments",
+        "À justifier la durée d'hospitalisation"
+      ],
+      "answer": 0,
+      "explain": "Faire de l'ETP, c'est savoir évaluer. Une évaluation au diagnostic éducatif est obligatoire, et chaque atelier se termine par une évaluation."
+    },
+    {
+      "id": "46-posture-04",
+      "src": "fiches",
+      "cat": "posture",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "En ETP, on peut évaluer un groupe de patients collectivement, sans évaluation individuelle.",
+      "variants": [
+        "Une évaluation collective suffit en ETP.",
+        "En séance de groupe, on n'évalue pas chaque patient.",
+        "L'évaluation en ETP peut se faire seulement pour le groupe."
+      ],
+      "answer": false,
+      "explain": "Faux. L'évaluation est individuelle et centrée sur le patient, même après une séance collective."
+    },
+    {
+      "id": "46-posture-05",
+      "src": "fiches",
+      "cat": "posture",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Si on manque de temps, on peut se passer d'évaluer en ETP.",
+      "variants": [
+        "Faute de temps, l'évaluation en ETP est facultative.",
+        "On peut sauter l'évaluation quand la séance a pris du retard.",
+        "L'évaluation n'est pas indispensable en ETP."
+      ],
+      "answer": false,
+      "explain": "Faux. Sans évaluation, on ne sait pas si le patient a compris ni ce qu'il lui reste à acquérir."
+    },
+    {
+      "id": "46-posture-06",
+      "src": "fiches",
+      "cat": "posture",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "L'évaluateur peut être une autre personne que l'animateur de la séance.",
+      "variants": [
+        "L'animateur et l'évaluateur d'une séance d'ETP peuvent être deux personnes différentes.",
+        "En ETP, ce n'est pas forcément l'animateur qui évalue.",
+        "Une autre personne que l'animateur peut évaluer le patient."
+      ],
+      "answer": true,
+      "explain": "Vrai."
+    },
+    {
+      "id": "46-posture-07",
+      "src": "fiches",
+      "cat": "posture",
+      "level": 2,
+      "type": "choice",
+      "prompt": "En ETP, évalue-t-on à chaud ou à froid ?",
+      "variants": [
+        "Évaluation en ETP : juste après la séance ou plus tard ?",
+        "À chaud ou à froid : quand évaluer les acquis ?",
+        "Faut-il évaluer immédiatement ou à distance ?"
+      ],
+      "options": [
+        "Les deux : juste après la séance, puis quelques semaines plus tard pour vérifier que les acquis se maintiennent",
+        "Uniquement à chaud",
+        "Uniquement à froid, au bout d'un an",
+        "Jamais à froid"
+      ],
+      "answer": 0,
+      "explain": "L'évaluation à froid vérifie que la compétence est maîtrisée dans la durée."
+    },
+    {
+      "id": "46-posture-08",
+      "src": "fiches",
+      "cat": "posture",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Évaluer la satisfaction des patients suffit à évaluer une ETP.",
+      "variants": [
+        "Mesurer la satisfaction, c'est évaluer l'ETP.",
+        "La satisfaction des patients est la seule évaluation nécessaire.",
+        "Une ETP est évaluée si les patients sont satisfaits."
+      ],
+      "answer": false,
+      "explain": "Faux. L'atteinte des objectifs (compétences acquises) est essentielle ; la satisfaction s'ajoute à cette évaluation."
+    },
+    {
+      "id": "46-posture-09",
+      "src": "fiches",
+      "cat": "posture",
+      "level": 3,
+      "type": "match",
+      "prompt": "Quelle évaluation à quelle phase du programme ?",
+      "variants": [
+        "Associe chaque phase du programme d'ETP à son évaluation.",
+        "Phases de l'ETP : quel type d'évaluation ?",
+        "Relie chaque moment du programme à la façon d'évaluer."
+      ],
+      "left": "Phase",
+      "right": "Évaluation",
+      "pairs": [
+        ["Phase initiale", "Diagnostic éducatif : évaluation des besoins"],
+        ["Apprentissage", "Pré-test et post-test des ateliers, jeux pédagogiques"],
+        ["Suivi éducatif", "Point sur les objectifs en cours, entretien individuel"],
+        ["Fin de programme", "Objectifs atteints ou non, entretien individuel"]
+      ],
+      "explain": "On évalue à chaque phase, de façon individuelle."
+    }
+  ]
+}

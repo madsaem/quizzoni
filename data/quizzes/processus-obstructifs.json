@@ -26,9 +26,22 @@
     "OAP",
     "BPCO",
     "asthme",
-    "morphine titrée"
+    "morphine titrée",
+    "thrombophlébite cérébrale",
+    "TR Band",
+    "VEMS",
+    "peak flow",
+    "drain de Kehr",
+    "cholestase",
+    "cytolyse"
   ],
-  "sources": [{"id": "memo", "title": "Mémo UE 2.8, IFSI de Bastia, 2026"}],
+  "sources": [
+    {"id": "memo", "title": "Mémo UE 2.8, IFSI de Bastia, 2026"},
+    {
+      "id": "fiches",
+      "title": "Fiches de révision UE 2.8 (BPCO, asthme, OAP, AVC, infarctus, coronarographie, lithiases, synthèse)"
+    }
+  ],
   "time": {"number": 90, "match": 75, "order": 60, "label": 75},
   "categories": [
     {"id": "bases", "title": "Bases et anatomie"},
@@ -617,6 +630,194 @@
       "explain": "Programme d'éducation thérapeutique : tension, alimentation, arrêt du tabac, activité, observance du traitement."
     },
     {
+      "id": "28-avc-24",
+      "src": "fiches",
+      "cat": "avc",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Infarctus sylvien total (artère cérébrale moyenne) : quel tableau ?",
+      "variants": [
+        "Quel tableau clinique évoque un infarctus de tout le territoire sylvien ?",
+        "Artère sylvienne bouchée en entier : quels signes attends-tu ?",
+        "AVC de l'artère cérébrale moyenne (territoire total) : quel tableau ?"
+      ],
+      "options": [
+        "Hémiplégie massive et proportionnelle, aphasie si hémisphère dominant, yeux déviés vers la lésion",
+        "Hémianopsie latérale homonyme isolée",
+        "Vertiges et troubles de l'équilibre isolés",
+        "Céphalée brutale sans aucun déficit"
+      ],
+      "answer": 0,
+      "explain": "Infarctus sylvien total (profond et superficiel) : hémiplégie massive et proportionnelle, hémianesthésie, aphasie globale (hémisphère dominant), déviation des yeux du côté de la lésion, parfois troubles de la conscience."
+    },
+    {
+      "id": "28-avc-25",
+      "src": "fiches",
+      "cat": "avc",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Infarctus du territoire superficiel de l'artère cérébrale postérieure : quel signe ?",
+      "variants": [
+        "Artère cérébrale postérieure, territoire superficiel : quel signe évoque l'atteinte ?",
+        "Quel déficit attendre dans un infarctus cérébral postérieur superficiel ?",
+        "AVC de l'artère cérébrale postérieure (superficielle) : quel signe ?"
+      ],
+      "options": [
+        "Hémianopsie latérale homonyme",
+        "Hémiplégie proportionnelle",
+        "Aphasie globale",
+        "Paralysie faciale périphérique"
+      ],
+      "answer": 0,
+      "explain": "L'artère cérébrale postérieure irrigue le lobe occipital (vision) : hémianopsie latérale homonyme, agnosie visuelle. Son territoire profond (thalamus) donne un syndrome thalamique : troubles sensitifs, douleurs."
+    },
+    {
+      "id": "28-avc-26",
+      "src": "fiches",
+      "cat": "avc",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "La thrombolyse intraveineuse d'un AVC ischémique se fait dans les 4 h 30 suivant le début des symptômes.",
+      "variants": [
+        "Un AVC ischémique peut être thrombolysé par voie IV jusqu'à 4 h 30 après le début des signes.",
+        "Le délai de la thrombolyse IV d'un AVC ischémique est de 4 h 30 au maximum.",
+        "Thrombolyse IV d'un AVC ischémique : elle se discute jusqu'à 4 h 30 après le début."
+      ],
+      "answer": true,
+      "explain": "Vrai. D'où l'importance de noter l'heure de début des signes. La thrombectomie mécanique peut se faire plus tard (jusqu'à 6 h, parfois 24 h selon l'imagerie)."
+    },
+    {
+      "id": "28-avc-27",
+      "src": "fiches",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qu'appelle-t-on la zone de pénombre dans un AVC ischémique ?",
+      "variants": [
+        "AVC ischémique : qu'est-ce que la pénombre ?",
+        "Zone de pénombre : de quoi s'agit-il dans un infarctus cérébral ?",
+        "Que désigne la « pénombre » autour d'un infarctus cérébral ?"
+      ],
+      "options": [
+        "Le tissu en souffrance autour de la zone nécrosée, encore récupérable si on rétablit vite la circulation",
+        "La zone déjà nécrosée, définitivement perdue",
+        "Le saignement autour d'un AVC hémorragique",
+        "L'œdème qui apparaît après 48 heures"
+      ],
+      "answer": 0,
+      "explain": "Le traitement en urgence vise à sauver la pénombre : chaque minute compte (« time is brain »)."
+    },
+    {
+      "id": "28-avc-28",
+      "src": "fiches",
+      "cat": "avc",
+      "level": 2,
+      "type": "match",
+      "prompt": "Prévention secondaire après un AVC ischémique : associe la cause au traitement.",
+      "variants": [
+        "Après un AVC ischémique, quel traitement pour quelle cause ?",
+        "Éviter la récidive d'AVC : relie chaque cause à son traitement.",
+        "AVC ischémique : forme les paires cause / traitement préventif."
+      ],
+      "left": "Cause",
+      "right": "Traitement",
+      "pairs": [
+        ["Athérome (plaque sur une artère)", "Antiagrégant plaquettaire (aspirine, clopidogrel)"],
+        ["Fibrillation atriale (caillot venu du cœur)", "Anticoagulant"],
+        ["Hypertension artérielle", "Antihypertenseur"],
+        ["Hypercholestérolémie", "Statine"]
+      ],
+      "explain": "La prévention secondaire évite la récidive : traitement de la cause (antiagrégant si athérome, anticoagulant si cardiopathie emboligène) et des facteurs de risque (TA, cholestérol, diabète, tabac)."
+    },
+    {
+      "id": "28-avc-29",
+      "src": "fiches",
+      "cat": "avc",
+      "level": 3,
+      "type": "choice",
+      "prompt": "AVC hémorragique : quels signes sont plus évocateurs que dans l'AVC ischémique ?",
+      "variants": [
+        "Quels signes orientent plutôt vers un AVC hémorragique ?",
+        "Hémorragie cérébrale : quels signes la distinguent souvent d'un infarctus ?",
+        "AVC : quels éléments font penser à une hémorragie plutôt qu'à une ischémie ?"
+      ],
+      "options": [
+        "Céphalée intense",
+        "Troubles de la conscience précoces",
+        "Aggravation rapide des signes",
+        "Signes qui régressent en moins d'une heure",
+        "Fièvre élevée d'emblée"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Céphalée, vomissements, troubles de la conscience précoces (hypertension intracrânienne) et aggravation rapide. Seule l'imagerie fait la différence avec certitude. Contrôle de la TA +++."
+    },
+    {
+      "id": "28-avc-30",
+      "src": "fiches",
+      "cat": "avc",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Thrombophlébite cérébrale : quels sont des facteurs favorisants ?",
+      "variants": [
+        "Thrombose veineuse cérébrale : quels facteurs la favorisent ?",
+        "Qu'est-ce qui favorise une thrombophlébite cérébrale ?",
+        "Thrombophlébite cérébrale : repère les facteurs de risque."
+      ],
+      "options": [
+        "Grossesse et post-partum",
+        "Contraception orale",
+        "Infection ORL de voisinage (otite, sinusite)",
+        "Hypotension artérielle",
+        "Hypoglycémie"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Aussi : chirurgie récente, cancer, troubles de la coagulation, traumatisme crânien. Signes : céphalées, crises d'épilepsie, déficits focaux."
+    },
+    {
+      "id": "28-avc-31",
+      "src": "fiches",
+      "cat": "avc",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Thrombophlébite cérébrale : quel traitement en urgence ?",
+      "variants": [
+        "Thrombose veineuse cérébrale : quel traitement débute-t-on en urgence ?",
+        "Quel traitement de première intention pour une thrombophlébite cérébrale ?",
+        "Thrombophlébite cérébrale confirmée : que met-on en place en urgence ?"
+      ],
+      "options": [
+        "Héparine, puis relais par un anticoagulant oral",
+        "Thrombolyse systématique",
+        "Aspirine seule",
+        "Corticoïdes à forte dose"
+      ],
+      "answer": 0,
+      "explain": "Anticoagulation en urgence (héparine, puis relais oral), traitement de la cause (infection, arrêt de la contraception) et des symptômes (antiépileptique, traitement de l'œdème)."
+    },
+    {
+      "id": "28-avc-32",
+      "src": "fiches",
+      "cat": "avc",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Phase aiguë d'un AVC : quels traitements et soins symptomatiques ?",
+      "variants": [
+        "AVC à la phase aiguë : que mets-tu en place pour limiter les complications ?",
+        "Quels soins symptomatiques après un AVC aigu ?",
+        "AVC aigu : quelles mesures symptomatiques ?"
+      ],
+      "options": [
+        "Surveiller et contrôler la pression artérielle",
+        "Lutter contre la fièvre",
+        "Éviter l'hyperglycémie",
+        "Prévenir la thrombose veineuse et débuter la rééducation",
+        "Faire boire le patient avant tout test de déglutition",
+        "Le laisser à plat strict pendant 15 jours"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Fièvre, hyperglycémie et chiffres de TA mal contrôlés aggravent les lésions. Prévention des complications de décubitus (anticoagulation préventive, mobilisation) et rééducation précoce."
+    },
+    {
       "id": "28-occlusion-01",
       "src": "memo",
       "cat": "occlusion",
@@ -1063,6 +1264,113 @@
       "explain": "Faux : ce test n'est pas fiable à lui seul. Avant une alimentation, la position se confirme selon le protocole du service, en général par une radiographie."
     },
     {
+      "id": "28-occlusion-23",
+      "src": "fiches",
+      "cat": "occlusion",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Vomissements précoces et fréquents, arrêt des matières tardif, météorisme modéré : quelle occlusion ?",
+      "variants": [
+        "Quelle occlusion évoquer devant des vomissements précoces et un arrêt des matières tardif ?",
+        "Occlusion avec vomissements d'emblée et peu de ballonnement : où est l'obstacle ?",
+        "Grêle ou côlon : vomissements précoces, arrêt du transit tardif ?"
+      ],
+      "options": [
+        "Occlusion du grêle",
+        "Occlusion du côlon",
+        "Iléus paralytique uniquement",
+        "Ce n'est pas une occlusion"
+      ],
+      "answer": 0,
+      "explain": "Grêle : vomissements précoces, arrêt des matières tardif (le segment d'aval se vide d'abord), météorisme modéré. Côlon : arrêt des matières précoce, gros météorisme, vomissements tardifs."
+    },
+    {
+      "id": "28-occlusion-24",
+      "src": "fiches",
+      "cat": "occlusion",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Constipation chronique : quels conseils pour éviter une occlusion sur fécalome ?",
+      "variants": [
+        "Prévenir le fécalome chez un patient constipé : quels conseils ?",
+        "Constipation chronique : que conseilles-tu pour éviter une récidive d'occlusion ?",
+        "Quels conseils d'hygiène de vie contre la constipation chronique ?"
+      ],
+      "options": [
+        "Repas à heures régulières",
+        "Bien mâcher",
+        "Boire suffisamment",
+        "Bouger et manger des fibres",
+        "Prendre des laxatifs stimulants tous les jours sans avis"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Le fécalome est une cause fréquente d'occlusion chez la personne âgée. Les laxatifs au long cours se discutent avec le médecin."
+    },
+    {
+      "id": "28-occlusion-25",
+      "src": "fiches",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pose de sonde gastrique : comment mesurer la longueur à introduire ?",
+      "variants": [
+        "SNG : quel repère pour la longueur de sonde ?",
+        "Avant de poser une sonde gastrique, comment prends-tu le repère ?",
+        "Longueur d'une sonde nasogastrique : quelle mesure ?"
+      ],
+      "options": [
+        "Du nez au lobe de l'oreille, puis jusqu'à l'appendice xiphoïde",
+        "Du menton au nombril",
+        "De la bouche à l'épaule",
+        "On introduit toujours 20 cm"
+      ],
+      "answer": 0,
+      "explain": "Repère nez, oreille, xiphoïde (souvent noté NEX). On marque la sonde et on note le repère dans le dossier pour le vérifier ensuite."
+    },
+    {
+      "id": "28-occlusion-26",
+      "src": "fiches",
+      "cat": "occlusion",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pendant la pose d'une sonde gastrique, le patient tousse et devient cyanosé. Que fais-tu ?",
+      "variants": [
+        "Toux et cyanose pendant la pose de la SNG : ta conduite ?",
+        "Sonde gastrique en cours de pose, le patient s'étouffe : que fais-tu ?",
+        "Pose de SNG : le patient tousse fort et se cyanose. Quelle action ?"
+      ],
+      "options": [
+        "Retirer la sonde, la laisser récupérer, puis recommencer",
+        "Pousser plus vite pour passer l'obstacle",
+        "Gonfler la sonde avec de l'air",
+        "Continuer et vérifier à la fin"
+      ],
+      "answer": 0,
+      "explain": "La sonde est probablement dans la trachée. On la retire, on attend que la respiration se calme, puis on recommence en faisant déglutir le patient (tête fléchie)."
+    },
+    {
+      "id": "28-occlusion-27",
+      "src": "fiches",
+      "cat": "occlusion",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Comment éviter une escarre de la narine avec une sonde gastrique ?",
+      "variants": [
+        "Sonde gastrique : comment protéger la narine ?",
+        "Prévention de l'escarre narinaire sous SNG : que fais-tu ?",
+        "SNG au long cours : quels gestes protègent le nez ?"
+      ],
+      "options": [
+        "Fixer sans appui sur l'aile du nez",
+        "Mobiliser légèrement la sonde chaque jour",
+        "Changer la fixation chaque jour",
+        "Faire les soins de nez et de bouche",
+        "Serrer la fixation au maximum pour qu'elle ne bouge pas"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "On vérifie aussi chaque jour le repère de la sonde."
+    },
+    {
       "id": "28-biliaire-01",
       "src": "memo",
       "cat": "biliaire",
@@ -1421,6 +1729,143 @@
       "explain": "Vrai : traçabilité obligatoire des stupéfiants. En urgence, on préfère la voie IV en titration aux voies IM ou SC."
     },
     {
+      "id": "28-biliaire-19",
+      "src": "fiches",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "sort",
+      "prompt": "Bilan hépatique : range chaque marqueur dans sa catégorie.",
+      "variants": [
+        "Cytolyse ou cholestase : classe ces marqueurs.",
+        "Tests hépatiques : quel marqueur pour quel type d'atteinte ?",
+        "Range les marqueurs du bilan hépatique."
+      ],
+      "groups": [
+        {"name": "Cytolyse (cellules du foie détruites)", "items": ["ASAT (TGO)", "ALAT (TGP)"]},
+        {
+          "name": "Cholestase (bile bloquée)",
+          "items": ["Bilirubine conjuguée", "Gamma GT", "Phosphatases alcalines"]
+        }
+      ],
+      "explain": "Calcul dans la voie biliaire principale : cholestase (bilirubine, gamma GT, PAL augmentées), puis élévation des transaminases dans un second temps."
+    },
+    {
+      "id": "28-biliaire-20",
+      "src": "fiches",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quel type de calcul biliaire est le plus fréquent ?",
+      "variants": [
+        "Lithiase biliaire : de quoi sont faits la plupart des calculs ?",
+        "Calculs de la vésicule : quelle composition le plus souvent ?",
+        "Quelle lithiase biliaire rencontre-t-on le plus ?"
+      ],
+      "options": ["Cholestérolique", "Pigmentaire noire", "Oxalate de calcium", "Acide urique"],
+      "answer": 0,
+      "explain": "Les calculs de cholestérol sont favorisés par le sexe féminin, l'obésité, la grossesse et certains médicaments. Les calculs pigmentaires sont liés à l'hémolyse, à la cirrhose ou à une infection biliaire."
+    },
+    {
+      "id": "28-biliaire-21",
+      "src": "fiches",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Dans une colique hépatique simple, il n'y a ni fièvre ni ictère, et la biologie est normale.",
+      "variants": [
+        "Colique hépatique non compliquée : pas de fièvre, pas d'ictère, bilan sanguin normal.",
+        "Une colique hépatique simple ne donne ni fièvre ni jaunisse, et le bilan est normal.",
+        "Colique hépatique simple : apyrexie, pas d'ictère, biologie normale."
+      ],
+      "answer": true,
+      "explain": "Vrai. La fièvre évoque une cholécystite ou une angiocholite ; l'ictère, un blocage de la voie biliaire principale. Ce sont des complications."
+    },
+    {
+      "id": "28-biliaire-22",
+      "src": "fiches",
+      "cat": "biliaire",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quelles sont les 3 complications de la lithiase biliaire ?",
+      "variants": [
+        "Lithiase biliaire : quelles complications redouter ?",
+        "Repère les complications d'un calcul biliaire.",
+        "Calculs biliaires : quelles sont les trois complications principales ?"
+      ],
+      "options": [
+        "Cholécystite aiguë",
+        "Angiocholite",
+        "Pancréatite aiguë",
+        "Colique néphrétique",
+        "Embolie pulmonaire"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Calcul bloqué dans le canal cystique : cholécystite. Dans le cholédoque : angiocholite (triade de Charcot). Au niveau du sphincter d'Oddi : pancréatite aiguë."
+    },
+    {
+      "id": "28-biliaire-23",
+      "src": "fiches",
+      "cat": "biliaire",
+      "level": 2,
+      "type": "order",
+      "prompt": "Remets dans l'ordre le trajet de la bile, du foie à l'intestin.",
+      "variants": [
+        "Du foie au duodénum : dans quel ordre la bile traverse-t-elle ces structures ?",
+        "Trajet de la bile : remets les étapes dans l'ordre.",
+        "Ordonne le chemin de la bile jusqu'à l'intestin."
+      ],
+      "items": [
+        "Canaux hépatiques droit et gauche",
+        "Canal hépatique commun",
+        "Canal cholédoque",
+        "Ampoule de Vater et sphincter d'Oddi",
+        "Duodénum"
+      ],
+      "explain": "La vésicule stocke la bile et s'y raccorde par le canal cystique, qui rejoint le canal hépatique commun pour former le cholédoque. Le canal pancréatique (Wirsung) arrive aussi à l'ampoule de Vater."
+    },
+    {
+      "id": "28-biliaire-24",
+      "src": "fiches",
+      "cat": "biliaire",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Bile bloquée (cholestase) : quel aspect des urines et des selles ?",
+      "variants": [
+        "Cholestase : à quoi ressemblent les urines et les selles ?",
+        "Obstacle sur la voie biliaire : quel changement d'urines et de selles ?",
+        "Ictère par rétention de bile : couleur des urines et des selles ?"
+      ],
+      "options": [
+        "Urines foncées, selles décolorées",
+        "Urines claires, selles noires",
+        "Urines rouges, selles vertes",
+        "Aucun changement"
+      ],
+      "answer": 0,
+      "explain": "La bilirubine conjuguée passe dans le sang et les urines (urines foncées) et n'arrive plus à l'intestin (selles décolorées). À surveiller et à noter."
+    },
+    {
+      "id": "28-biliaire-25",
+      "src": "fiches",
+      "cat": "biliaire",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Après une cholécystectomie avec drain de Kehr, que surveilles-tu ?",
+      "variants": [
+        "Drain de Kehr en place : quelles surveillances ?",
+        "Patient opéré avec un drain de Kehr : que surveilles-tu ?",
+        "Drain de Kehr : qu'est-ce qui doit être noté ?"
+      ],
+      "options": [
+        "La quantité et l'aspect de la bile recueillie, le pansement, l'orifice et la fixation du drain",
+        "Uniquement la température",
+        "La glycémie toutes les heures",
+        "Rien : il se retire seul"
+      ],
+      "answer": 0,
+      "explain": "Le drain de Kehr est placé dans le cholédoque. Après une cœlioscopie simple, un pansement simple suffit."
+    },
+    {
       "id": "28-nephretique-01",
       "src": "memo",
       "cat": "nephretique",
@@ -1675,6 +2120,107 @@
       ],
       "answer": [0, 1, 2, 3],
       "explain": "Et on rassure le patient et son entourage : la douleur est très impressionnante."
+    },
+    {
+      "id": "28-nephretique-14",
+      "src": "fiches",
+      "cat": "nephretique",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Colique néphrétique : où irradie typiquement la douleur ?",
+      "variants": [
+        "Douleur de colique néphrétique : quel trajet ?",
+        "Colique néphrétique : vers où la douleur descend-elle ?",
+        "Où irradie la douleur d'un calcul urétéral ?"
+      ],
+      "options": [
+        "De la fosse lombaire vers l'avant et le bas, jusqu'aux organes génitaux",
+        "Vers l'épaule droite",
+        "Vers le bras gauche et la mâchoire",
+        "Dans tout le dos, des deux côtés"
+      ],
+      "answer": 0,
+      "explain": "Douleur brutale, unilatérale, très intense, sans position antalgique, souvent avec nausées, vomissements et hématurie."
+    },
+    {
+      "id": "28-nephretique-15",
+      "src": "fiches",
+      "cat": "nephretique",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "En cas de calcul calcique, il faut supprimer le calcium de l'alimentation.",
+      "variants": [
+        "Calcul calcique : on supprime les laitages.",
+        "Pour éviter une récidive de calcul calcique, il faut arrêter le calcium alimentaire.",
+        "Lithiase calcique : régime sans calcium."
+      ],
+      "answer": false,
+      "explain": "Faux. On garde un apport normal en calcium (le supprimer augmente l'oxalate urinaire). On réduit le sel et les protéines animales, et on boit au moins 2 litres d'eau par jour."
+    },
+    {
+      "id": "28-nephretique-16",
+      "src": "fiches",
+      "cat": "nephretique",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Calcul d'acide urique : quel conseil de prévention ?",
+      "variants": [
+        "Lithiase urique : que conseiller pour éviter une récidive ?",
+        "Prévention des calculs d'acide urique : quelle mesure ?",
+        "Calcul d'acide urique : quel conseil diététique ?"
+      ],
+      "options": [
+        "Alcaliniser les urines (eau bicarbonatée) et limiter les protéines animales",
+        "Supprimer tout apport de calcium",
+        "Boire moins pour concentrer les urines",
+        "Manger plus d'abats et de charcuterie"
+      ],
+      "answer": 0,
+      "explain": "L'acide urique précipite dans les urines acides. Eau riche en bicarbonates, moins de viande et d'abats (purines), et boire abondamment."
+    },
+    {
+      "id": "28-nephretique-17",
+      "src": "fiches",
+      "cat": "nephretique",
+      "level": 3,
+      "type": "match",
+      "prompt": "Colique néphrétique compliquée : associe la situation à ce qu'elle implique.",
+      "variants": [
+        "Formes compliquées de colique néphrétique : forme les paires.",
+        "Colique néphrétique : relie chaque situation à risque à sa conséquence.",
+        "Quelle conséquence pour chaque forme compliquée de colique néphrétique ?"
+      ],
+      "left": "Situation",
+      "right": "Ce que ça implique",
+      "pairs": [
+        ["Fièvre", "Infection en amont de l'obstacle : drainage en urgence"],
+        ["Anurie", "Rein unique ou obstacle des deux côtés"],
+        ["Grossesse", "Risque de déclencher le travail"],
+        ["Douleur qui résiste aux antalgiques", "Forme hyperalgique : hospitalisation"]
+      ],
+      "explain": "Une colique néphrétique fébrile (environ 10 % des cas) est une urgence : antibiotiques sans attendre et levée de l'obstacle."
+    },
+    {
+      "id": "28-nephretique-18",
+      "src": "fiches",
+      "cat": "nephretique",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Colique néphrétique simple traitée à domicile : quels conseils ?",
+      "variants": [
+        "Retour à domicile après une colique néphrétique simple : que dis-tu au patient ?",
+        "Colique néphrétique non compliquée : quels conseils de sortie ?",
+        "Quels conseils donner après une colique néphrétique simple ?"
+      ],
+      "options": [
+        "Filtrer les urines pour récupérer le calcul",
+        "Surveiller sa température",
+        "Consulter en urgence en cas de fièvre, de frissons ou de douleur qui ne cède pas",
+        "Venir au rendez-vous de contrôle",
+        "Boire 3 litres d'un coup pendant la crise"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Pendant la crise, on limite les boissons (la pression dans les voies urinaires augmente la douleur). À distance : bilan de la lithiase et boissons abondantes."
     },
     {
       "id": "28-idm-01",
@@ -2104,6 +2650,246 @@
       "explain": "Contre-indications : rétrécissement aortique serré, association avec le sildénafil et sa famille. Effets : céphalées, hypotension, tachycardie réflexe."
     },
     {
+      "id": "28-idm-21",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Les artères coronaires se remplissent surtout pendant la diastole.",
+      "variants": [
+        "C'est pendant la diastole que le muscle cardiaque est le mieux irrigué.",
+        "Le cœur est surtout perfusé par les coronaires quand il se relâche (diastole).",
+        "Les coronaires se remplissent principalement pendant le relâchement du cœur."
+      ],
+      "answer": true,
+      "explain": "Vrai. Pendant la systole, le muscle comprime ses propres vaisseaux. À l'effort, le cœur accélère et la diastole raccourcit : une artère rétrécie ne suffit plus, d'où la douleur."
+    },
+    {
+      "id": "28-idm-22",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Douleur d'infarctus : comment réagit-elle à la trinitrine ?",
+      "variants": [
+        "Que devient la douleur d'un infarctus après une prise de trinitrine ?",
+        "Infarctus : la douleur cède-t-elle sous trinitrine ?",
+        "Trinitrine sublinguale : quelle réponse de la douleur oriente vers un infarctus ?"
+      ],
+      "options": [
+        "Elle persiste malgré la trinitrine (au-delà de 20 minutes)",
+        "Elle cède en 1 à 2 minutes",
+        "Elle disparaît puis réapparaît à l'effort uniquement",
+        "Elle augmente toujours après la trinitrine"
+      ],
+      "answer": 0,
+      "explain": "Douleur rétrosternale constrictive, irradiant au bras gauche, au cou ou à la mâchoire, prolongée et résistante à la trinitrine. Une douleur qui cède vite sous trinitrine évoque plutôt un angor."
+    },
+    {
+      "id": "28-idm-23",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Thrombolyse d'un infarctus : quels critères montrent qu'elle est efficace ?",
+      "variants": [
+        "Comment sait-on qu'une thrombolyse d'infarctus a fonctionné ?",
+        "Infarctus thrombolysé : quels signes de reperfusion ?",
+        "Thrombolyse : quels critères d'efficacité surveilles-tu ?"
+      ],
+      "options": [
+        "Disparition de la douleur",
+        "Régression du sus-décalage du segment ST",
+        "Troubles du rythme de reperfusion",
+        "Hausse franche de la pression artérielle",
+        "Fréquence respiratoire qui ralentit sous 10/min"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Douleur qui cède, ST qui redescend et troubles du rythme dits de reperfusion. Principal risque : l'hémorragie, notamment cérébrale."
+    },
+    {
+      "id": "28-idm-24",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Thrombolyse : quel est le principal risque grave ?",
+      "variants": [
+        "Quel risque majeur surveilles-tu après une thrombolyse ?",
+        "Thrombolytique injecté : quelle complication redoute-t-on surtout ?",
+        "Principal danger d'une thrombolyse ?"
+      ],
+      "options": ["L'hémorragie, notamment cérébrale", "L'hyperglycémie", "L'hypothermie", "La constipation"],
+      "answer": 0,
+      "explain": "Surveiller la conscience, les céphalées, les points de ponction, les urines et les selles. Les thrombolytiques : altéplase (Actilyse), ténectéplase (Métalyse)…"
+    },
+    {
+      "id": "28-idm-25",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont les 3 risques immédiats d'un infarctus ?",
+      "variants": [
+        "Infarctus aigu : quelles complications peuvent survenir tout de suite ?",
+        "Tableau d'infarctus : quels risques immédiats prévenir ?",
+        "Repère les trois risques vitaux immédiats d'un infarctus."
+      ],
+      "options": [
+        "Troubles du rythme",
+        "Choc cardiogénique",
+        "Arrêt cardiorespiratoire",
+        "Insuffisance rénale chronique",
+        "Ostéoporose"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "D'où le repos strict sous scope, une voie veineuse de bon calibre et le chariot d'urgence vérifié et à proximité."
+    },
+    {
+      "id": "28-idm-26",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Douleur thoracique : dans quel délai faire un ECG 12 dérivations ?",
+      "variants": [
+        "Patient qui arrive pour une douleur thoracique : l'ECG doit être fait en combien de temps ?",
+        "ECG devant une douleur thoracique : quel délai maximal ?",
+        "Douleur thoracique aux urgences : quand réaliser l'ECG ?"
+      ],
+      "options": [
+        "Dans les 10 minutes",
+        "Dans l'heure",
+        "Dans les 6 heures",
+        "Après le résultat de la troponine"
+      ],
+      "answer": 0,
+      "explain": "ECG dans les 10 minutes suivant le premier contact médical : un sus-décalage du ST impose une reperfusion en urgence, sans attendre la biologie."
+    },
+    {
+      "id": "28-idm-27",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Infarctus avec bradycardie mal tolérée : quel médicament prépares-tu ?",
+      "variants": [
+        "Bradycardie mal supportée pendant un infarctus : quel traitement préparer ?",
+        "Infarctus inférieur, FC à 38/min, malaise : quel médicament ?",
+        "Quel médicament accélère le cœur en cas de bradycardie à la phase aiguë d'un infarctus ?"
+      ],
+      "options": ["Atropine", "Bêtabloquant", "Furosémide", "Naloxone"],
+      "answer": 0,
+      "explain": "L'atropine lève le frein vagal. Un bêtabloquant ralentirait encore le cœur."
+    },
+    {
+      "id": "28-idm-28",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 1,
+      "type": "choice",
+      "prompt": "La coronarographie, c'est…",
+      "variants": [
+        "Qu'est-ce qu'une coronarographie ?",
+        "Coronarographie : définition ?",
+        "À quoi correspond l'examen appelé coronarographie ?"
+      ],
+      "options": [
+        "Une radiographie des artères coronaires rendues visibles par un produit de contraste iodé injecté par un cathéter artériel",
+        "Une échographie du cœur à travers la paroi du thorax",
+        "Un enregistrement de l'ECG sur 24 heures",
+        "Une prise de sang qui dose la troponine"
+      ],
+      "answer": 0,
+      "explain": "Elle localise les rétrécissements et permet de les traiter dans le même temps (angioplastie, stent). Accès radial (poignet) ou fémoral (pli de l'aine)."
+    },
+    {
+      "id": "28-idm-29",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Bracelet TR Band après coronarographie radiale : combien de temps reste-t-il gonflé en général ?",
+      "variants": [
+        "TR Band : pendant combien de temps la compression est-elle maintenue ?",
+        "Après une coronarographie par le poignet, combien de temps garde-t-on le TR Band gonflé ?",
+        "Durée habituelle de compression par TR Band ?"
+      ],
+      "options": [
+        "Environ 4 heures, en le dégonflant progressivement par 2 mL",
+        "15 minutes",
+        "24 heures sans y toucher",
+        "Jusqu'au lendemain matin, gonflé au maximum"
+      ],
+      "answer": 0,
+      "explain": "Le déroulé exact (volumes, horaires) suit le protocole du service : déflation progressive, puis bracelet laissé en place sans pression. Surveiller la coloration de la main et le saignement."
+    },
+    {
+      "id": "28-idm-30",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "TR Band : le point de ponction se met à saigner. Que fais-tu ?",
+      "variants": [
+        "Saignement au point de ponction radiale sous TR Band : ta conduite ?",
+        "Après coronarographie, le poignet saigne sous le bracelet : que fais-tu ?",
+        "TR Band et saignement : quelle action ?"
+      ],
+      "options": [
+        "Regonfler le ballonnet jusqu'à l'arrêt du saignement, puis prévenir le médecin",
+        "Retirer le bracelet et faire un pansement compressif",
+        "Dégonfler complètement le bracelet",
+        "Surélever le bras sans toucher au bracelet"
+      ],
+      "answer": 0,
+      "explain": "On regonfle jusqu'à l'arrêt du saignement. En cas d'hématome : compression manuelle et appel du médecin. On note les volumes et les horaires."
+    },
+    {
+      "id": "28-idm-31",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "TR Band : la main devient pâle, froide et douloureuse. Que fais-tu ?",
+      "variants": [
+        "Sous TR Band, les doigts sont pâles et douloureux : ta conduite ?",
+        "Compression radiale trop forte : que fais-tu ?",
+        "Main froide et douloureuse sous le bracelet de compression : quelle action ?"
+      ],
+      "options": [
+        "Dégonfler un peu le ballonnet (2 mL), puis vérifier la recoloration, la SpO~2~ du doigt et l'absence de saignement",
+        "Regonfler le bracelet au maximum",
+        "Laisser en l'état jusqu'à la fin des 4 heures",
+        "Retirer le bracelet d'un coup"
+      ],
+      "answer": 0,
+      "explain": "Une compression trop forte coupe la circulation de la main. On desserre progressivement en surveillant que le point de ponction ne saigne pas."
+    },
+    {
+      "id": "28-idm-32",
+      "src": "fiches",
+      "cat": "idm",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Après une coronarographie, le patient a une douleur thoracique. Que fais-tu ?",
+      "variants": [
+        "Douleur thoracique au retour de coronarographie : ta conduite ?",
+        "Patient revenu de coronarographie qui se plaint de la poitrine : que fais-tu ?",
+        "Post-coronarographie, douleur thoracique et malaise : quelles actions ?"
+      ],
+      "options": [
+        "L'allonger et prendre ses constantes",
+        "Faire un ECG",
+        "Prévenir le cardiologue",
+        "Approcher le chariot d'urgence",
+        "Le faire marcher pour voir si ça passe",
+        "Lui proposer un repas"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Il peut s'agir d'une thrombose du stent ou d'une complication de l'angioplastie : ECG immédiat et cardiologue."
+    },
+    {
       "id": "28-ep-01",
       "src": "memo",
       "cat": "ep",
@@ -2475,6 +3261,28 @@
       "explain": "La polypnée fait baisser la PaCO2 (alcalose respiratoire). Une PaO2 très basse oriente vers une forme grave."
     },
     {
+      "id": "28-ep-20",
+      "src": "fiches",
+      "cat": "ep",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Embolie pulmonaire : quels soins relèvent de ton rôle propre ?",
+      "variants": [
+        "EP : quelles actions en rôle propre ?",
+        "Patient en embolie pulmonaire : que fais-tu en rôle propre ?",
+        "Rôle propre de l'IDE face à une embolie pulmonaire ?"
+      ],
+      "options": [
+        "Repos au lit strict",
+        "Surveiller SpO~2~, FR, FC et la TA aux deux bras",
+        "Guetter l'apparition de marbrures",
+        "Vérifier la perméabilité de la voie veineuse",
+        "Faire marcher le patient pour éviter une autre phlébite"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Le lever se fait sur prescription, une fois l'anticoagulation efficace. Évaluer la douleur (TILT) et aider aux soins d'hygiène au lit."
+    },
+    {
       "id": "28-oap-01",
       "src": "memo",
       "cat": "oap",
@@ -2741,6 +3549,73 @@
       "explain": "Alitement et stase veineuse favorisent la phlébite."
     },
     {
+      "id": "28-oap-14",
+      "src": "fiches",
+      "cat": "oap",
+      "level": 1,
+      "type": "choice",
+      "prompt": "OAP : quels examens complémentaires prévoir ?",
+      "variants": [
+        "Œdème aigu du poumon : quels examens anticiper ?",
+        "Quels examens accompagnent la prise en charge d'un OAP ?",
+        "OAP : repère les examens complémentaires utiles."
+      ],
+      "options": [
+        "Radio du thorax au lit",
+        "Gaz du sang artériel",
+        "ECG",
+        "Ionogramme sanguin",
+        "Échographie cardiaque",
+        "Coloscopie"
+      ],
+      "answer": [0, 1, 2, 3, 4],
+      "explain": "Radio (opacités en ailes de papillon), gaz du sang (PaO~2~ effondrée), ECG (cause : trouble du rythme, infarctus), ionogramme (sous diurétiques), échographie (fonction du ventricule gauche)."
+    },
+    {
+      "id": "28-oap-15",
+      "src": "fiches",
+      "cat": "oap",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Quelles sont des causes non cardiaques d'OAP ?",
+      "variants": [
+        "OAP lésionnel : quelles causes possibles ?",
+        "Repère les causes d'OAP qui ne viennent pas du cœur.",
+        "Un OAP peut avoir une cause non cardiaque : lesquelles ?"
+      ],
+      "options": [
+        "Noyade",
+        "Inhalation de gaz toxiques",
+        "Surdosage en héroïne",
+        "Remplissage vasculaire excessif",
+        "Poussée d'hypertension artérielle",
+        "Trouble du rythme cardiaque"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "La poussée d'HTA et le trouble du rythme sont des causes cardiaques (ils font défaillir le ventricule gauche). Autres causes non cardiaques : inhalation lors d'une fausse route, infection virale grave."
+    },
+    {
+      "id": "28-oap-16",
+      "src": "fiches",
+      "cat": "oap",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pourquoi un patient en OAP refuse-t-il de s'allonger ?",
+      "variants": [
+        "OAP : pourquoi le patient veut-il rester assis ?",
+        "Qu'est-ce qui explique l'orthopnée dans l'OAP ?",
+        "Pourquoi la position allongée aggrave-t-elle l'essoufflement dans l'OAP ?"
+      ],
+      "options": [
+        "Allongé, plus de sang revient au cœur et aux poumons : l'œdème et l'essoufflement s'aggravent",
+        "Il a mal au dos",
+        "La position assise fait baisser sa température",
+        "Allongé, il risque de faire une fausse route"
+      ],
+      "answer": 0,
+      "explain": "C'est l'orthopnée. Position demi-assise, jambes pendantes si possible : moins de retour veineux, meilleure ventilation."
+    },
+    {
       "id": "28-bpco-01",
       "src": "memo",
       "cat": "bpco",
@@ -2950,6 +3825,135 @@
       ],
       "answer": 0,
       "explain": "Chronicité, épuisement, perte de l'estime de soi : le soin relationnel fait partie de la prise en charge."
+    },
+    {
+      "id": "28-bpco-12",
+      "src": "fiches",
+      "cat": "bpco",
+      "level": 3,
+      "type": "sort",
+      "prompt": "Classe chaque VEMS dans le stade de sévérité de la BPCO.",
+      "variants": [
+        "Stades de la BPCO : range ces valeurs de VEMS.",
+        "Classification de la BPCO : à quel stade correspond chaque VEMS ?",
+        "Glisse chaque VEMS dans son stade de BPCO."
+      ],
+      "groups": [
+        {"name": "Stade 1 : VEMS ≥ 80 %", "items": ["VEMS à 92 %", "VEMS à 84 %"]},
+        {"name": "Stade 2 : 50 à 80 %", "items": ["VEMS à 70 %", "VEMS à 55 %"]},
+        {"name": "Stade 3 : 30 à 50 %", "items": ["VEMS à 45 %", "VEMS à 33 %"]},
+        {"name": "Stade 4 : < 30 %", "items": ["VEMS à 24 %", "VEMS à 15 %"]}
+      ],
+      "explain": "VEMS : volume expiré maximal pendant la première seconde, en % de la valeur attendue, mesuré par spirométrie. Plus il est bas, plus la BPCO est sévère."
+    },
+    {
+      "id": "28-bpco-13",
+      "src": "fiches",
+      "cat": "bpco",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Bronchite chronique : quelle définition ?",
+      "variants": [
+        "Quand parle-t-on de bronchite chronique ?",
+        "Bronchite chronique : quel critère de durée ?",
+        "Définition de la bronchite chronique ?"
+      ],
+      "options": [
+        "Toux et crachats presque tous les jours, au moins 3 mois par an, 2 années de suite",
+        "Une bronchite qui dure plus de 10 jours",
+        "Trois bronchites aiguës dans la même année",
+        "Une toux sèche la nuit depuis un mois"
+      ],
+      "answer": 0,
+      "explain": "Hypersécrétion de mucus par inflammation chronique des bronches, sans obstruction au début. Elle devient une BPCO quand l'obstruction s'installe."
+    },
+    {
+      "id": "28-bpco-14",
+      "src": "fiches",
+      "cat": "bpco",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Comment la fumée de tabac détruit-elle les alvéoles dans l'emphysème ?",
+      "variants": [
+        "Emphysème : par quel mécanisme le tabac abîme-t-il les alvéoles ?",
+        "Tabac et emphysème : que se passe-t-il dans le poumon ?",
+        "Pourquoi le tabac fait-il disparaître les cloisons alvéolaires ?"
+      ],
+      "options": [
+        "L'inflammation libère des protéases qui détruisent aussi les cloisons entre les alvéoles",
+        "La nicotine bouche les bronches comme un caillot",
+        "Le goudron fait éclater les alvéoles par la pression",
+        "Le monoxyde de carbone dissout le surfactant"
+      ],
+      "answer": 0,
+      "explain": "Les cellules agressées sécrètent du mucus et des protéases (enzymes) qui détruisent l'agresseur mais aussi le tissu pulmonaire : perte d'élasticité, alvéoles fusionnées, échanges gazeux réduits."
+    },
+    {
+      "id": "28-bpco-15",
+      "src": "fiches",
+      "cat": "bpco",
+      "level": 2,
+      "type": "match",
+      "prompt": "Exacerbation de BPCO : associe le niveau de gravité à la prise en charge.",
+      "variants": [
+        "Exacerbation de BPCO : quel niveau, quelle prise en charge ?",
+        "Relie chaque niveau d'exacerbation à sa prise en charge.",
+        "BPCO décompensée : forme les paires niveau / prise en charge."
+      ],
+      "left": "Niveau",
+      "right": "Prise en charge",
+      "pairs": [
+        ["Niveau 1", "Traitement à domicile"],
+        ["Niveau 2", "Hospitalisation"],
+        ["Niveau 3", "Insuffisance respiratoire aiguë : soins intensifs"]
+      ],
+      "explain": "Exacerbation : aggravation de la dyspnée, de la toux ou des crachats qui impose de changer le traitement, souvent d'origine infectieuse."
+    },
+    {
+      "id": "28-bpco-16",
+      "src": "fiches",
+      "cat": "bpco",
+      "level": 1,
+      "type": "choice",
+      "prompt": "BPCO : quels traitements et mesures ?",
+      "variants": [
+        "Que propose-t-on à un patient atteint de BPCO ?",
+        "BPCO : repère les traitements utiles.",
+        "Prise en charge de la BPCO : quelles mesures ?"
+      ],
+      "options": [
+        "Arrêt du tabac",
+        "Bronchodilatateurs inhalés",
+        "Vaccination contre la grippe et le pneumocoque",
+        "Kinésithérapie et réhabilitation respiratoire",
+        "Arrêt de toute activité physique",
+        "Oxygène à fort débit sans surveillance"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "L'arrêt du tabac est la seule mesure qui ralentit l'évolution. L'activité physique adaptée est encouragée. L'oxygène se règle sur une cible de 88 à 92 %."
+    },
+    {
+      "id": "28-bpco-17",
+      "src": "fiches",
+      "cat": "bpco",
+      "level": 2,
+      "type": "choice",
+      "prompt": "BPCO évoluée : quels signes généraux, liés à l'hypoxie chronique ?",
+      "variants": [
+        "Quels signes généraux apparaissent dans une BPCO avancée ?",
+        "Hypoxie chronique de la BPCO : quels retentissements sur l'organisme ?",
+        "BPCO sévère : repère les signes généraux."
+      ],
+      "options": [
+        "Fatigue",
+        "Amaigrissement",
+        "Troubles du sommeil",
+        "Irritabilité",
+        "Prise de poids rapide",
+        "Fièvre permanente"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "L'hypoxie touche tout l'organisme. L'amaigrissement (dénutrition) est un facteur de mauvais pronostic : surveiller le poids."
     },
     {
       "id": "28-asthme-01",
@@ -3165,6 +4169,164 @@
       ],
       "answer": [0, 1, 2, 3],
       "explain": "Le traitement de fond se poursuit même quand tout va bien."
+    },
+    {
+      "id": "28-asthme-12",
+      "src": "fiches",
+      "cat": "asthme",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Asthme : pourquoi le bronchodilatateur agit-il vite et le corticoïde inhalé lentement ?",
+      "variants": [
+        "Bronchodilatateur en minutes, corticoïde en jours : pourquoi cette différence ?",
+        "Asthme : qu'est-ce qui explique les délais d'action des deux traitements ?",
+        "Pourquoi un corticoïde inhalé ne soulage-t-il pas une crise tout de suite ?"
+      ],
+      "options": [
+        "Le bronchodilatateur relâche le muscle bronchique contracté ; le corticoïde réduit l'œdème et le mucus, qui mettent plus de temps à céder",
+        "Le corticoïde est mal absorbé par les bronches",
+        "Le bronchodilatateur est plus concentré",
+        "Ils agissent de la même façon, mais à des doses différentes"
+      ],
+      "answer": 0,
+      "explain": "Trois mécanismes : bronchoconstriction (rapide, traitée par bronchodilatateur), œdème inflammatoire et hypersécrétion de mucus (plus lents et durables, traités par corticoïdes inhalés)."
+    },
+    {
+      "id": "28-asthme-13",
+      "src": "fiches",
+      "cat": "asthme",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Débitmètre de pointe : quel écart entre le matin et le soir fait suspecter un asthme ?",
+      "variants": [
+        "Peak flow : à partir de quelle variabilité matin / soir pense-t-on à un asthme ?",
+        "Débit expiratoire de pointe : quel écart jour après jour est évocateur d'asthme ?",
+        "Variabilité du DEP : quel seuil évoque un asthme ?"
+      ],
+      "options": [
+        "Plus de 20 %",
+        "Plus de 2 %",
+        "Plus de 80 %",
+        "Aucun écart : c'est la valeur absolue qui compte"
+      ],
+      "answer": 0,
+      "explain": "On mesure le DEP matin et soir. Dans l'asthme, il est plus bas le matin. Une variabilité de plus de 20 % évoque un asthme."
+    },
+    {
+      "id": "28-asthme-14",
+      "src": "fiches",
+      "cat": "asthme",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Asthme : à quel moment de la journée le débit expiratoire de pointe est-il le plus bas ?",
+      "variants": [
+        "Chez l'asthmatique, quand le DEP est-il habituellement le plus faible ?",
+        "Peak flow d'un asthmatique : moment de la valeur la plus basse ?",
+        "Asthme : à quel moment les bronches sont-elles le plus fermées ?"
+      ],
+      "options": ["Le matin au réveil", "En début d'après-midi", "Le soir", "Il ne varie pas dans la journée"],
+      "answer": 0,
+      "explain": "Les symptômes de l'asthme s'aggravent typiquement la nuit et au petit matin."
+    },
+    {
+      "id": "28-asthme-15",
+      "src": "fiches",
+      "cat": "asthme",
+      "level": 1,
+      "type": "sort",
+      "prompt": "Asthme : range chaque conseil sur l'environnement dans la bonne colonne.",
+      "variants": [
+        "Asthmatique à la maison : à conseiller ou à éviter ?",
+        "Range ces habitudes : bonnes ou mauvaises pour un asthmatique ?",
+        "Environnement de l'asthmatique : classe ces conseils."
+      ],
+      "groups": [
+        {
+          "name": "À conseiller",
+          "items": [
+            "Aérer les pièces chaque jour",
+            "Chambre à 18 à 20 °C",
+            "Nettoyer avec un chiffon humide",
+            "Housses anti-acariens sur matelas et oreiller"
+          ]
+        },
+        {
+          "name": "À éviter",
+          "items": [
+            "Moquettes et tapis épais",
+            "Animaux à poils dans la chambre",
+            "Produits ménagers en aérosol",
+            "Fumée de tabac"
+          ]
+        }
+      ],
+      "explain": "Réduire les allergènes (acariens, moisissures, poils) et les irritants (fumée, aérosols, pollution). Balayer soulève la poussière : on préfère l'aspirateur et le chiffon humide."
+    },
+    {
+      "id": "28-asthme-16",
+      "src": "fiches",
+      "cat": "asthme",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels symptômes rendent un asthme plus probable ?",
+      "variants": [
+        "Qu'est-ce qui oriente vers un asthme ?",
+        "Asthme : quels symptômes le rendent plus probable ?",
+        "Repère les éléments évocateurs d'un asthme."
+      ],
+      "options": [
+        "Plusieurs symptômes associés (sifflements, essoufflement, toux, oppression)",
+        "Symptômes pires la nuit ou au réveil",
+        "Symptômes qui varient dans le temps et en intensité",
+        "Déclenchés par un virus, un allergène, l'effort, le rire ou la fumée",
+        "Toux isolée, sans autre symptôme",
+        "Expectoration chronique"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Une toux isolée, des crachats chroniques, des vertiges ou des picotements associés, une douleur thoracique rendent l'asthme moins probable."
+    },
+    {
+      "id": "28-asthme-17",
+      "src": "fiches",
+      "cat": "asthme",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Corticoïdes par voie générale au long cours : quels effets indésirables surveiller ?",
+      "variants": [
+        "Corticothérapie orale prolongée : quels effets indésirables ?",
+        "Que surveilles-tu chez un patient sous corticoïdes oraux depuis longtemps ?",
+        "Corticoïdes au long cours : repère les effets indésirables."
+      ],
+      "options": [
+        "Hyperglycémie, voire diabète",
+        "Hypertension artérielle",
+        "Ostéoporose",
+        "Hypoglycémie",
+        "Hypotension artérielle"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Aussi : prise de poids, rétention d'eau et de sel, fragilité cutanée, infections, troubles de l'humeur. Les corticoïdes inhalés en ont beaucoup moins (surtout mycose buccale : se rincer la bouche)."
+    },
+    {
+      "id": "28-asthme-18",
+      "src": "fiches",
+      "cat": "asthme",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels médicaments un asthmatique doit-il éviter, sauf avis médical ?",
+      "variants": [
+        "Asthme : quels médicaments peuvent déclencher une crise ?",
+        "Quels antalgiques éviter chez un asthmatique ?",
+        "Asthmatique : quel médicament courant peut aggraver les bronches ?"
+      ],
+      "options": [
+        "L'aspirine et les anti-inflammatoires non stéroïdiens",
+        "Le paracétamol",
+        "Les corticoïdes inhalés",
+        "Le salbutamol"
+      ],
+      "answer": 0,
+      "explain": "Certains asthmatiques font des crises sévères sous aspirine ou AINS. Les bêtabloquants sont aussi à éviter. Le paracétamol est l'antalgique de choix."
     }
   ],
   "icon": "lungs"

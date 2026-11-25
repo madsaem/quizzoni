@@ -1,7 +1,7 @@
 # Quizzoni
 
 Site de révision pour les étudiants infirmiers de 2e année (IFSI de Bastia).
-Quiz courts, 13 types de questions, 7 thèmes avec leurs propres sons, progression enregistrée dans le navigateur.
+Quiz courts, 13 types de questions, 14 thèmes avec leurs propres sons, progression enregistrée dans le navigateur (et sur un compte, une fois les comptes activés).
 
 Aucune installation, aucun framework : HTML, CSS et JavaScript.
 
@@ -35,7 +35,8 @@ La progression des étudiants est enregistrée dans leur navigateur : une mise �
 
 ```
 index.html            page unique
-css/themes.css        polices + couleurs des 3 thèmes
+css/themes.css        polices + couleurs des premiers thèmes
+css/themes/           un fichier par thème ajouté (Automne, Scarlet, Gilded, Grunge, IFSI, David, Bazaar)
 css/base.css          touches en relief, champs, dialogues
 css/home.css          accueil, boîtes 3D, page d'un quiz
 css/play.css          partie, types de questions, résultats
@@ -44,22 +45,27 @@ js/main.js            démarrage et navigation
 js/views/             écrans : accueil, notice, partie, résultats
 js/types/             un fichier par type de question
 js/audio.js           sons synthétisés (un pack par thème)
+js/sons.js            packs de sons des thèmes ajoutés
 js/music.js           musique des thèmes (menu, victoire, défaite)
 js/backdrop.js        fonds animés (ciel étoilé, étoiles et cœurs, hologramme)
+js/fonds.js           fonds animés des thèmes ajoutés (feuilles, manoir, pièces, cave, drapeau, souk)
 js/puffs.js           les deux puffs 3D du thème Mayuff (WebGL)
-js/themefx.js         effets de réponse propres à un thème (fleurs, fond rose ou rouge)
+js/themefx.js         effets de réponse propres à un thème (fleurs, feuilles, pièces, couteaux, fond rose ou rouge)
+js/compte.js          comptes : connexion et synchronisation de la progression
+js/compte-config.js   configuration Firebase des comptes (à remplir, voir « Comptes »)
 js/fx.js              confettis, secousse, tracé d'ECG
 js/state.js           sauvegarde locale (records, erreurs, réglages)
 data/catalog.json     rayons et liste des quiz
 data/quizzes/*.json   les questions
 assets/schemas/       images des questions (SVG, PNG, JPG…)
 assets/mayuff/        photos des deux puffs du thème Mayuff (textures 3D et monogrammes)
-assets/audio/         musiques et sons à déposer soi-même (voir « Thèmes et sons »)
+assets/audio/         musiques des thèmes (voir « Thèmes et sons »)
+assets/fonts/         polices (libres : licence OFL, voir les fichiers de licence)
 ```
 
 ## Ajouter un quiz
 
-1. Copier un fichier de `data/quizzes/`, par exemple `soins-urgence.json`, et le renommer (`mon-quiz.json`, sans espace ni accent).
+1. Copier un fichier de `data/quizzes/`, par exemple `calculs-de-doses.json`, et le renommer (`mon-quiz.json`, sans espace ni accent).
 2. Ajouter `"mon-quiz"` dans la liste `quizzes` de `data/catalog.json`.
 3. Remplir l'en-tête :
 
@@ -72,6 +78,8 @@ assets/audio/         musiques et sons à déposer soi-même (voir « Thèmes et
   "badge": "S4",
   "shelf": "S4",                    // id d'un rayon de catalog.json
   "color": "c6",                    // c1 à c6 : suit le thème choisi
+  "icon": "pill",                   // logo en filigrane : pill, lungs, virus, talk, vial, syringe (js/icons.js)
+  "wip": "Texte affiché sur la notice", // facultatif : ruban « En construction » sur la boîte
   "description": "Texte de la notice.",
   "tags": ["mots", "pour", "la recherche"],
   "time": { "number": 90 },         // facultatif : secondes par type en mode Défi
@@ -201,9 +209,25 @@ Pour trouver les coordonnées d'un point : ouvrir l'image dans un logiciel qui a
 
 ## Thèmes et sons
 
-Sept thèmes, choisis avec le bouton **Thèmes** en haut à droite : Officine (clair), Garde de nuit (sombre), Contraste élevé (noir, contours jaunes et blancs), Nuit étoilée (ciel animé), Pinksoni (rose, étoiles filantes qui éclatent en cœurs, fleurs qui éclosent sur les bonnes réponses), Mayuff (deux puffs en 3D, fumée dans les touches, fond rose ou rouge selon la réponse) et Warfare (hologramme vert, musique). Chacun a ses couleurs (`css/themes.css`), parfois un décor (`css/ambiances.css`, `js/backdrop.js`) et son pack de sons (`js/audio.js`), générés par le navigateur, sans fichier audio.
+Quatorze thèmes, choisis avec le bouton **Thèmes** en haut à droite :
 
-Pour ajouter un thème : copier un bloc `[data-theme="…"]` dans `css/themes.css`, ajouter le thème dans la liste `THEMES` de `js/ui.js`, et un pack du même nom dans `PACKS` de `js/audio.js`.
+- **Officine** (clair), **Garde de nuit** (sombre), **Contraste élevé** (noir, contours jaunes et blancs), **Nuit étoilée** (ciel animé) ;
+- **Pinksoni** : rose, étoiles filantes qui éclatent en cœurs, fleurs qui éclosent sur les bonnes réponses ;
+- **Mayuff** : deux puffs en 3D (WebGL, cernées de noir), fumée dans les touches, fond rose ou rouge selon la réponse ;
+- **Warfare** : hologramme vert, police façon Bank Gothic, musique de menu, de victoire et de défaite ;
+- **Automne** : soleil bas, arbres roux, feuilles qui tombent, boutons en tricot jacquard, feuilles qui jaillissent des bonnes réponses ;
+- **Scarlet** : manoir écarlate sous une lune de sang, chauves-souris, lance rouge qui traverse le ciel, arrêt du temps avec couteaux d'argent ;
+- **Gilded** : cuir frappé d'un monogramme doré et irisé, boutons cousus aux rivets dorés, pièces d'or ;
+- **Grunge** : cave rouillée, ampoule qui grésille, toiles d'araignée, tôle larmée sur les boutons, bruit de fond inquiétant ;
+- **IFSI** : feuille d'écolier à carreaux Seyès, titres manuscrits, boutons de site des années 2000 ;
+- **David** : drapeau bleu et blanc qui flotte en fond, Hava Nagila au menu ;
+- **Bazaar** : souk en grès, arcades, lanternes, enseignes en arabe, boutons en zellige, musique à l'oud et au darbouka.
+
+Chacun a ses couleurs (`css/themes.css` ou `css/themes/<thème>.css`), parfois un décor animé (`js/backdrop.js`, `js/fonds.js`) et son pack de sons (`js/audio.js`, `js/sons.js`), générés par le navigateur.
+
+Pour ajouter un thème : copier un fichier de `css/themes/` et le lier dans `index.html`, ajouter le thème dans la liste `THEMES` de `js/ui.js`, et un pack de sons du même nom dans `js/sons.js`.
+
+Musiques : Warfare (fichiers fournis), David (Hava Nagila, enregistrement du domaine public venant de Wikimedia Commons), Grunge et Bazaar (composées par le navigateur), Scarlet (en attente d'un fichier : le déposer dans `assets/audio/scarlet/` et écrire son nom dans `pistes.json`). Chaque thème musical a son `assets/audio/<thème>/pistes.json`.
 
 ### Musique du thème Warfare
 
@@ -223,6 +247,35 @@ Les fichiers publiés sont des versions préparées (`menu.mp3`, `victoire.mp3`,
 
 Le dépôt GitHub et le site sont publics : tout fichier poussé dans `assets/audio/` est téléchargeable. Pour qu'un fichier reste sur ton ordinateur, ajoute son nom dans `.gitignore` : il jouera en local mais ne sera pas envoyé en ligne.
 
+## Comptes
+
+Le bouton **Compte** en haut à droite permet de se connecter (Google, Microsoft, GitHub, e-mail et mot de passe…) pour retrouver sa progression sur tous ses appareils. Seuls les résultats partent en ligne : records, erreurs à revoir, statistiques, boîtes déjà ouvertes. Les réglages restent propres à chaque appareil.
+
+Tant que les comptes ne sont pas activés, le bouton annonce qu'ils arrivent bientôt. Pour les activer (gratuit, une dizaine de minutes) :
+
+1. Sur https://console.firebase.google.com, créer un projet (par exemple `quizzoni`), sans Google Analytics.
+2. **Authentication** > Commencer > Sign-in method : activer **Google** et **Adresse e-mail/Mot de passe**. Microsoft, GitHub, Facebook demandent en plus de créer une application chez eux (la console explique quoi copier).
+3. **Authentication** > Settings > Domaines autorisés : ajouter `madsaem.github.io`.
+4. **Firestore Database** > Créer une base (mode production, région Europe), puis onglet Règles, coller et publier :
+
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /progression/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['data', 'updatedAt'])
+        && request.resource.data.data is string
+        && request.resource.data.data.size() < 500000;
+    }
+  }
+}
+```
+
+5. Paramètres du projet > Vos applications > icône web `</>` : enregistrer l'application, copier l'objet `firebaseConfig` dans `js/compte-config.js` (constante `FIREBASE`), et ajuster la liste `PROVIDERS` selon les moyens de connexion activés.
+6. Pousser sur GitHub : le bouton Compte propose alors la connexion.
+
 ## Ajouter un type de question
 
 Copier un fichier de `js/types/` (par exemple `truefalse.js`), l'adapter, puis l'ajouter dans `js/types/index.js`. Le haut de `index.js` décrit ce que chaque type doit fournir.
@@ -239,5 +292,7 @@ Sur la page d'un quiz (la « notice »), avant de commencer :
 Le nombre de questions disponibles s'affiche à chaque choix, et les réglages sont mémorisés pour chaque quiz.
 
 ## Contenu
+
+Rayon **Semestre 3** : Pharmacologie (UE 2.11), Processus obstructifs (UE 2.8), Processus infectieux (UE 2.5, en construction : VIH pour l'instant), Soins éducatifs et préventifs (UE 4.6, en construction : éducation thérapeutique pour l'instant). Rayon **Spécialisées** : Valeurs normales et Calculs de doses.
 
 La boîte Pharmacologie reprend la fiche de révision pharmaco S3 (anticoagulants, anti-infectieux, cardio, asthme et BPCO, digestif, anti-inflammatoires, urologie, vaccins). Quelques questions vont au-delà de la fiche (statines, antifongiques, types de vaccins) : elles portent `"src": "complement"`. Les questions ont été rédigées à partir des repères usuels de la formation (référentiel 2009, numéros d'UE indicatifs). Elles doivent être relues par des étudiants ou des formateurs avant une diffusion large : certaines valeurs varient selon les laboratoires et les protocoles des services.

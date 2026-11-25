@@ -776,6 +776,261 @@
       "answer": 0,
       "explain": "Environ 0,5 mL/kg/h, soit 35 mL/h pour 70 kg. En dessous pendant plusieurs heures : prévenir le médecin (risque d'insuffisance rénale aiguë).",
       "src": "complement"
+    },
+    {
+      "id": "vn-chlore",
+      "cat": "bio",
+      "level": 3,
+      "type": "range",
+      "prompt": "Chlorémie normale",
+      "variants": [
+        "Place la fourchette normale du chlore sanguin.",
+        "Ionogramme : entre quelles valeurs se situe une chlorémie normale ?",
+        "Quelle est la plage normale du chlore dans le sang ?"
+      ],
+      "min": 80,
+      "max": 120,
+      "step": 1,
+      "answer": [98, 106],
+      "tolerance": 2,
+      "unit": "mmol/L",
+      "explain": "98 à 106 mmol/L. Le chlore suit souvent le sodium : il monte avec une déshydratation ou beaucoup de NaCl perfusé."
+    },
+    {
+      "id": "vn-protides",
+      "cat": "bio",
+      "level": 3,
+      "type": "range",
+      "prompt": "Protidémie (protéines totales) normale",
+      "variants": [
+        "Place la fourchette normale des protéines totales du sang.",
+        "Protides sanguins : entre quelles valeurs est-on dans la norme ?",
+        "Quelle est la plage normale de la protidémie ?"
+      ],
+      "min": 30,
+      "max": 110,
+      "step": 1,
+      "answer": [60, 80],
+      "tolerance": 3,
+      "unit": "g/L",
+      "explain": "60 à 80 g/L. Basse : dénutrition, insuffisance hépatique, fuite rénale ou digestive. Haute : déshydratation (hémoconcentration), myélome."
+    },
+    {
+      "id": "vn-hypoglycemie",
+      "cat": "bio",
+      "level": 1,
+      "type": "choice",
+      "prompt": "En dessous de quelle glycémie parle-t-on d'hypoglycémie chez un patient diabétique ?",
+      "variants": [
+        "Patient diabétique : à partir de quelle glycémie est-il en hypoglycémie ?",
+        "Quel seuil de glycémie définit l'hypoglycémie chez le diabétique traité ?",
+        "Glycémie capillaire d'un diabétique : sous quelle valeur parle-t-on d'hypoglycémie ?"
+      ],
+      "options": [
+        "0,70 g/L (3,9 mmol/L)",
+        "1,10 g/L (6,1 mmol/L)",
+        "0,30 g/L (1,7 mmol/L)",
+        "1,26 g/L (7 mmol/L)"
+      ],
+      "answer": 0,
+      "explain": "Moins de 0,70 g/L chez le diabétique traité. Resucrage : 15 g de sucre, contrôle 15 minutes après. Sévère sous 0,54 g/L (3 mmol/L) ou en cas de troubles de la conscience."
+    },
+    {
+      "id": "vn-fievre",
+      "cat": "constantes",
+      "level": 1,
+      "type": "choice",
+      "prompt": "À partir de quelle température centrale parle-t-on de fièvre chez l'adulte au repos ?",
+      "variants": [
+        "Adulte au repos : quelle température centrale définit la fièvre ?",
+        "Fièvre : à partir de combien de degrés, chez l'adulte au repos ?",
+        "Quel seuil de température centrale signe une fièvre chez l'adulte ?"
+      ],
+      "options": ["38 °C", "37,2 °C", "37,5 °C", "39 °C"],
+      "answer": 0,
+      "explain": "Fièvre : température centrale d'au moins 38 °C au repos. Hypothermie : moins de 35 °C. Toujours la noter avec l'heure et la méthode de prise."
+    },
+    {
+      "id": "vn-fr-nn",
+      "cat": "constantes",
+      "level": 2,
+      "type": "range",
+      "prompt": "Fréquence respiratoire du nouveau-né au repos",
+      "variants": [
+        "Place la fourchette normale de la fréquence respiratoire du nouveau-né.",
+        "Nouveau-né au repos : combien de mouvements respiratoires par minute ?",
+        "Quelle est la plage normale de la FR chez le nouveau-né ?"
+      ],
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "answer": [40, 60],
+      "tolerance": 5,
+      "unit": "/min",
+      "explain": "40 à 60 mouvements par minute (30 à 60 selon les sources). Au-delà de 60 : polypnée, chercher des signes de lutte (tirage, battement des ailes du nez, geignement)."
+    },
+    {
+      "id": "vn-neutropenie",
+      "cat": "sang",
+      "level": 3,
+      "type": "choice",
+      "prompt": "On parle de neutropénie quand les polynucléaires neutrophiles sont en dessous de :",
+      "variants": [
+        "Neutropénie : sous quel seuil de polynucléaires neutrophiles ?",
+        "À partir de quel taux de PNN parle-t-on de neutropénie ?",
+        "PNN bas : quel seuil définit la neutropénie ?"
+      ],
+      "options": ["1,5 G/L", "15 G/L", "0,15 G/L", "4 G/L"],
+      "answer": 0,
+      "explain": "PNN normaux : 1,5 à 7 G/L. Moins de 1,5 G/L : neutropénie ; moins de 0,5 G/L : agranulocytose, risque infectieux majeur (isolement protecteur ; une fièvre est une urgence)."
+    },
+    {
+      "id": "vn-hematocrite",
+      "cat": "sang",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Hématocrite normal chez l'homme adulte :",
+      "variants": [
+        "Quelle valeur d'hématocrite est normale chez un homme adulte ?",
+        "Homme adulte : dans quelle fourchette se situe l'hématocrite ?",
+        "Hématocrite : quelle est la norme chez l'homme ?"
+      ],
+      "options": ["Environ 40 à 52 %", "Environ 20 à 30 %", "Environ 60 à 70 %", "Environ 5 à 10 %"],
+      "answer": 0,
+      "explain": "Homme : environ 40 à 52 % ; femme : environ 37 à 47 %. Il monte en cas de déshydratation et baisse en cas d'anémie ou d'hémodilution."
+    },
+    {
+      "id": "vn-bilirubine",
+      "cat": "bio",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Bilirubine totale normale :",
+      "variants": [
+        "Quelle bilirubine totale est normale ?",
+        "Bilan hépatique : sous quelle valeur la bilirubine totale reste-t-elle normale ?",
+        "Bilirubine totale : quelle est la norme ?"
+      ],
+      "options": [
+        "Moins de 17 µmol/L environ",
+        "Moins de 170 µmol/L",
+        "Moins de 1,7 µmol/L",
+        "Entre 50 et 100 µmol/L"
+      ],
+      "answer": 0,
+      "explain": "Moins de 17 à 20 µmol/L selon les laboratoires. L'ictère devient visible (conjonctives jaunes) au-delà de 35 à 50 µmol/L environ."
+    },
+    {
+      "id": "vn-hyperk-grave",
+      "cat": "bio",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Une kaliémie à 6,5 mmol/L expose à des troubles du rythme cardiaque graves.",
+      "variants": [
+        "Kaliémie à 6,5 mmol/L : le risque de trouble du rythme grave est réel.",
+        "Avec 6,5 mmol/L de potassium, le cœur est menacé par des troubles du rythme graves.",
+        "Une hyperkaliémie à 6,5 mmol/L peut provoquer un trouble du rythme grave."
+      ],
+      "answer": true,
+      "explain": "Vrai. Hyperkaliémie sévère (6,5 mmol/L ou plus, ou signes à l'ECG) : risque d'arrêt cardiaque. ECG en urgence, prévenir le médecin, et vérifier que le tube n'était pas hémolysé."
+    },
+    {
+      "id": "vn-hypotension",
+      "cat": "constantes",
+      "level": 1,
+      "type": "choice",
+      "prompt": "En dessous de quelle pression artérielle systolique parle-t-on d'hypotension chez l'adulte ?",
+      "variants": [
+        "Hypotension artérielle de l'adulte : sous quelle PA systolique ?",
+        "Quelle PA systolique définit l'hypotension chez l'adulte ?",
+        "Adulte : à partir de quelle systolique basse parle-t-on d'hypotension ?"
+      ],
+      "options": ["90 mmHg", "120 mmHg", "60 mmHg", "110 mmHg"],
+      "answer": 0,
+      "explain": "PAS sous 90 mmHg (ou PAM sous 65 mmHg). Avec des marbrures, une tachycardie ou une oligurie, elle doit faire penser à un état de choc."
+    },
+    {
+      "id": "vn-trc",
+      "cat": "constantes",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Temps de recoloration cutanée (TRC) normal :",
+      "variants": [
+        "Quel TRC est normal ?",
+        "Après une pression sur le lit de l'ongle, en combien de temps la couleur doit-elle revenir ?",
+        "TRC : quelle durée est normale ?"
+      ],
+      "options": ["Moins de 3 secondes", "Moins de 10 secondes", "Entre 5 et 8 secondes", "Plus de 3 secondes"],
+      "answer": 0,
+      "explain": "On appuie 5 secondes sur le lit de l'ongle (ou le sternum chez l'enfant) : la couleur revient en moins de 3 secondes. Allongé, il signe une mauvaise perfusion (choc, déshydratation, froid)."
+    },
+    {
+      "id": "vn-imc",
+      "cat": "constantes",
+      "level": 1,
+      "type": "range",
+      "prompt": "IMC normal chez l'adulte",
+      "variants": [
+        "Place la fourchette d'un indice de masse corporelle normal chez l'adulte.",
+        "Adulte : entre quelles valeurs l'IMC est-il normal ?",
+        "Corpulence normale : quelle plage d'IMC ?"
+      ],
+      "min": 10,
+      "max": 45,
+      "step": 0.5,
+      "answer": [18.5, 25],
+      "tolerance": 0.5,
+      "unit": "kg/m²",
+      "explain": "IMC = poids (kg) / taille² (m). Moins de 18,5 : maigreur ; 25 à 30 : surpoids ; 30 et plus : obésité. Après 70 ans, la dénutrition commence sous 22."
+    },
+    {
+      "id": "vn-imc-calcul",
+      "cat": "constantes",
+      "level": 2,
+      "type": "number",
+      "prompt": "Patient de 80 kg mesurant 1,80 m : calcule son IMC (à 0,1 près).",
+      "variants": [
+        "80 kg pour 1,80 m : quel est son indice de masse corporelle ?",
+        "Calcule l'IMC d'un patient de 1,80 m qui pèse 80 kg.",
+        "IMC d'un homme de 80 kg et 1,80 m (une décimale) ?"
+      ],
+      "answer": 24.7,
+      "tolerance": 0.1,
+      "unit": "kg/m²",
+      "explain": "80 / (1,80 × 1,80) = 80 / 3,24 ≈ 24,7 kg/m² : corpulence normale, à la limite du surpoids."
+    },
+    {
+      "id": "vn-glyc-postprandiale",
+      "cat": "bio",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Glycémie normale 2 heures après un repas, chez une personne non diabétique :",
+      "variants": [
+        "Personne non diabétique, 2 h après le repas : quelle glycémie est normale ?",
+        "Glycémie postprandiale (2 h) : quelle valeur est normale sans diabète ?",
+        "2 heures après avoir mangé, sous quelle glycémie reste-t-on dans la norme ?"
+      ],
+      "options": ["Moins de 1,40 g/L (7,8 mmol/L)", "Moins de 0,70 g/L", "Plus de 2 g/L", "Exactement 1 g/L"],
+      "answer": 0,
+      "explain": "Moins de 1,40 g/L 2 h après un repas. Une glycémie d'au moins 2 g/L (11 mmol/L) à n'importe quel moment, avec des signes cliniques, fait poser le diagnostic de diabète."
+    },
+    {
+      "id": "vn-spo2-cible",
+      "cat": "gaz",
+      "level": 2,
+      "type": "range",
+      "prompt": "SpO~2~ visée sous oxygène, patient sans risque d'hypercapnie",
+      "variants": [
+        "Patient sous oxygène, sans risque d'hypercapnie : quelle fourchette de SpO~2~ viser ?",
+        "Place la cible de saturation sous oxygénothérapie (patient non BPCO).",
+        "Oxygénothérapie, patient sans BPCO : entre quelles valeurs maintenir la SpO~2~ ?"
+      ],
+      "min": 80,
+      "max": 100,
+      "step": 1,
+      "answer": [94, 98],
+      "tolerance": 1,
+      "unit": "%",
+      "explain": "Cible 94 à 98 %. Chez le patient à risque d'hypercapnie (BPCO), on vise 88 à 92 %. Trop d'oxygène n'apporte rien et peut être nocif."
     }
   ]
 }

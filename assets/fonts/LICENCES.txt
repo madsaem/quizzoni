@@ -1,0 +1,14 @@
+Polices utilisées par Quizzoni (toutes libres de diffusion)
+
+Bricolage Grotesque, Atkinson Hyperlegible Next ... SIL Open Font License 1.1 (Google Fonts)
+Cinzel (thème Scarlet) ............................ SIL Open Font License 1.1 (Google Fonts)
+Playfair Display (thème Gilded) ................... SIL Open Font License 1.1 (Google Fonts)
+Fraunces (thème Automne) .......................... SIL Open Font License 1.1 (Google Fonts)
+Reem Kufi (thème Bazaar) .......................... SIL Open Font License 1.1 (Google Fonts)
+Playwrite France Traditionnelle (thème IFSI) ...... SIL Open Font License 1.1 (Google Fonts)
+Special Elite (thème Grunge) ...................... Apache License 2.0 (Google Fonts)
+Warfare Gothic (thème Warfare) .................... dérivée de Squarish Sans CT (Tim Larson), SIL Open Font
+                                                    License 1.1, renommée comme l'exige la licence (nom réservé).
+                                                    Texte complet : squarish-OFL.txt
+
+Licences : https://openfontlicense.org et https://www.apache.org/licenses/LICENSE-2.0

@@ -1,0 +1,1140 @@
+{
+  "title": "Processus infectieux",
+  "short": "Infectieux",
+  "subtitle": "Infection par le VIH : du virus au sida",
+  "ue": "UE 2.5",
+  "badge": "S3",
+  "shelf": "S3",
+  "color": "c5",
+  "icon": "virus",
+  "wip": "Pour l'instant, seul le cours sur le VIH est en questions. Les autres cours de l'UE 2.5 seront ajoutés au fur et à mesure.",
+  "description": "Processus inflammatoires et infectieux. Le VIH : le virus et ses cibles, la transmission et la prévention (PrEP, TPE, I = I), l'évolution jusqu'au sida, le dépistage et le traitement antirétroviral.",
+  "tags": [
+    "UE 2.5",
+    "infectieux",
+    "inflammatoire",
+    "VIH",
+    "sida",
+    "CD4",
+    "charge virale",
+    "PrEP",
+    "TPE",
+    "AES",
+    "antirétroviraux",
+    "infection opportuniste",
+    "zona",
+    "candidose",
+    "TROD"
+  ],
+  "sources": [
+    {
+      "id": "vih",
+      "title": "Cours « Infection par le VIH : de l'infection au sida », A. Falchi, UE 2.5, 2026-2027"
+    },
+    {"id": "complement", "title": "Compléments hors cours (conduite à tenir après un AES)"}
+  ],
+  "time": {"match": 60, "order": 60, "sort": 75},
+  "categories": [
+    {"id": "virus", "title": "Le virus"},
+    {"id": "transmission", "title": "Transmission et prévention"},
+    {"id": "evolution", "title": "Évolution et clinique"},
+    {"id": "diagnostic", "title": "Dépistage et suivi"},
+    {"id": "traitement", "title": "Traitement"}
+  ],
+  "questions": [
+    {
+      "id": "25-virus-01",
+      "cat": "virus",
+      "level": 1,
+      "type": "choice",
+      "prompt": "VIH et sida : quelle différence ?",
+      "variants": [
+        "Quelle est la différence entre le VIH et le sida ?",
+        "VIH, sida : est-ce la même chose ?",
+        "Distingue le VIH du sida."
+      ],
+      "options": [
+        "Le VIH est le virus ; le sida est le stade avancé d'une infection à VIH non contrôlée",
+        "Ce sont deux noms du même virus",
+        "Le sida est le virus ; le VIH est la maladie",
+        "Le VIH touche les enfants, le sida les adultes"
+      ],
+      "answer": 0,
+      "explain": "Une personne vivant avec le VIH n'est pas forcément au stade sida. Traitée tôt, elle n'y arrive le plus souvent jamais.",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-02",
+      "cat": "virus",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Une personne vivant avec le VIH est forcément au stade sida.",
+      "variants": [
+        "Être séropositif au VIH, c'est être au stade sida.",
+        "Toute personne infectée par le VIH a le sida.",
+        "VIH positif = sida."
+      ],
+      "answer": false,
+      "explain": "Faux. Le sida est le stade le plus avancé, défini par une pathologie classant sida. Le traitement antirétroviral précoce l'évite le plus souvent.",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-03",
+      "cat": "virus",
+      "level": 1,
+      "type": "text",
+      "prompt": "Que signifie le sigle VIH ?",
+      "variants": [
+        "VIH : que veulent dire ces trois lettres ?",
+        "Écris la signification de VIH.",
+        "Développe le sigle VIH."
+      ],
+      "answers": ["virus de l'immunodéficience humaine", "virus de l immunodeficience humaine"],
+      "explain": "Virus de l'immunodéficience humaine (HIV en anglais).",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-04",
+      "cat": "virus",
+      "level": 1,
+      "type": "text",
+      "prompt": "Que signifie le sigle SIDA ?",
+      "variants": [
+        "SIDA : que veulent dire ces lettres ?",
+        "Écris la signification de SIDA.",
+        "Développe le sigle SIDA."
+      ],
+      "answers": [
+        "syndrome d'immunodéficience acquise",
+        "syndrome d immunodeficience acquise",
+        "syndrome de l'immunodéficience acquise"
+      ],
+      "explain": "Syndrome d'immunodéficience acquise : un stade clinique, pas un virus.",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-05",
+      "cat": "virus",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Le VIH est…",
+      "variants": [
+        "De quel type de micro-organisme s'agit-il avec le VIH ?",
+        "Classe le VIH : quel type de virus ?",
+        "VIH : quelle nature ?"
+      ],
+      "options": [
+        "Un rétrovirus enveloppé à ARN (genre Lentivirus)",
+        "Une bactérie intracellulaire",
+        "Un virus à ADN sans enveloppe",
+        "Un champignon microscopique"
+      ],
+      "answer": 0,
+      "explain": "Rétrovirus : il transforme son ARN en ADN grâce à la transcriptase inverse, puis l'intègre dans l'ADN de la cellule. Deux types : VIH-1 et VIH-2.",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-06",
+      "cat": "virus",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quelles sont les cellules cibles principales du VIH ?",
+      "variants": [
+        "Quelles cellules le VIH infecte-t-il surtout ?",
+        "Le VIH détruit surtout quelles cellules ?",
+        "Cellules cibles du VIH ?"
+      ],
+      "options": ["Les lymphocytes T CD4", "Les globules rouges", "Les plaquettes", "Les neurones"],
+      "answer": 0,
+      "explain": "Surtout les lymphocytes T CD4, mais aussi les macrophages et certaines cellules dendritiques.",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-07",
+      "cat": "virus",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pourquoi les lymphocytes T CD4 sont-ils si importants ?",
+      "variants": [
+        "Quel est le rôle des lymphocytes T CD4 ?",
+        "Lymphocytes T CD4 : à quoi servent-ils ?",
+        "Pourquoi perdre ses CD4 affaiblit-il toute l'immunité ?"
+      ],
+      "options": [
+        "Ils coordonnent la réponse immunitaire acquise : ils activent les lymphocytes B (anticorps) et les T CD8",
+        "Ils transportent l'oxygène",
+        "Ils fabriquent les plaquettes",
+        "Ils produisent l'insuline"
+      ],
+      "answer": 0,
+      "explain": "Sans CD4, les autres cellules de l'immunité ne sont plus activées correctement : les infections opportunistes apparaissent.",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-08",
+      "cat": "virus",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque enzyme du VIH à son rôle.",
+      "variants": [
+        "Enzymes du VIH : qui fait quoi ?",
+        "Relie chaque enzyme virale à sa fonction.",
+        "VIH : forme les paires enzyme / rôle."
+      ],
+      "left": "Enzyme",
+      "right": "Rôle",
+      "pairs": [
+        ["Transcriptase inverse", "Transforme l'ARN viral en ADN"],
+        ["Intégrase", "Insère l'ADN viral dans l'ADN de la cellule"],
+        ["Protéase", "Découpe les protéines virales lors de la maturation"]
+      ],
+      "explain": "Ces trois enzymes sont les cibles principales des antirétroviraux.",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-09",
+      "cat": "virus",
+      "level": 3,
+      "type": "match",
+      "prompt": "Structure du VIH : associe chaque protéine à sa place.",
+      "variants": [
+        "Protéines du VIH : où se trouve chacune ?",
+        "Relie chaque protéine du VIH à sa localisation.",
+        "gp120, p17, p24 : où sont-elles ?"
+      ],
+      "left": "Protéine",
+      "right": "Place et rôle",
+      "pairs": [
+        ["gp120 et gp41", "Enveloppe : fixation au CD4 et fusion"],
+        ["p17", "Matrice, sous l'enveloppe"],
+        ["p24", "Capside, détectable tôt par les tests combinés"]
+      ],
+      "explain": "L'antigène p24 est recherché par les tests combinés de 4e génération : il apparaît avant les anticorps.",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-10",
+      "cat": "virus",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce qu'une infection opportuniste ?",
+      "variants": [
+        "Infection opportuniste : définition ?",
+        "Que veut dire « opportuniste » pour une infection ?",
+        "Comment définir une infection opportuniste ?"
+      ],
+      "options": [
+        "Une infection par un microbe habituellement contrôlé par l'immunité, qui devient grave quand l'immunité est très affaiblie",
+        "Une infection attrapée à l'hôpital",
+        "Une infection qui touche plusieurs personnes en même temps",
+        "Une infection due à un vaccin"
+      ],
+      "answer": 0,
+      "explain": "Le microbe « profite de l'occasion » : candidose, toxoplasmose, zona, herpès, pneumocystose…",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-11",
+      "cat": "virus",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont des exemples d'infections opportunistes ?",
+      "variants": [
+        "Repère les infections opportunistes.",
+        "Infections opportunistes : lesquelles ?",
+        "Coche les infections dites opportunistes."
+      ],
+      "options": [
+        "Candidose",
+        "Toxoplasmose",
+        "Zona",
+        "Pneumocystose",
+        "Angine à streptocoque",
+        "Grippe saisonnière"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Ces infections sont maîtrisées par une immunité normale et deviennent graves quand les CD4 sont bas.",
+      "src": "vih"
+    },
+    {
+      "id": "25-virus-12",
+      "cat": "virus",
+      "level": 3,
+      "type": "order",
+      "prompt": "Remets dans l'ordre les étapes du cycle du VIH.",
+      "variants": [
+        "Cycle de réplication du VIH : dans quel ordre ?",
+        "Ordonne les étapes de la multiplication du VIH.",
+        "Du virus qui se fixe au nouveau virus : remets les étapes en ordre."
+      ],
+      "items": [
+        "Fixation au CD4 et fusion",
+        "Entrée de l'ARN viral dans la cellule",
+        "Transcription inverse : l'ARN devient de l'ADN",
+        "Intégration de l'ADN viral dans l'ADN de la cellule",
+        "Production et assemblage des composants viraux",
+        "Bourgeonnement puis maturation par la protéase"
+      ],
+      "explain": "Les antirétroviraux bloquent plusieurs de ces étapes, ce qui empêche la production de nouveaux virus.",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-01",
+      "cat": "transmission",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Par quelles voies le VIH se transmet-il ?",
+      "variants": [
+        "Comment se transmet le VIH ?",
+        "VIH : quelles sont les voies de transmission ?",
+        "Repère les modes de transmission du VIH."
+      ],
+      "options": [
+        "Sexuelle",
+        "Sanguine",
+        "De la mère à l'enfant",
+        "Par la salive (baiser)",
+        "Par les piqûres de moustique",
+        "Par les toilettes ou la vaisselle"
+      ],
+      "answer": [0, 1, 2],
+      "explain": "Voie sexuelle (environ 90 % des contaminations), sanguine (seringues partagées, accident d'exposition au sang) et mère-enfant (grossesse, accouchement, allaitement).",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-02",
+      "cat": "transmission",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels liquides biologiques peuvent transmettre le VIH ?",
+      "variants": [
+        "Repère les liquides contaminants pour le VIH.",
+        "Quels liquides du corps transmettent le VIH ?",
+        "VIH : quels liquides biologiques sont à risque ?"
+      ],
+      "options": ["Sang", "Sperme", "Sécrétions vaginales", "Lait maternel", "Salive", "Larmes"],
+      "answer": [0, 1, 2, 3],
+      "explain": "La salive, les larmes, la sueur et l'urine ne transmettent pas le VIH.",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-03",
+      "cat": "transmission",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quel est le facteur qui détermine le plus le risque de transmission ?",
+      "variants": [
+        "De quoi dépend surtout le risque de transmettre le VIH ?",
+        "Transmission du VIH : quel est le facteur déterminant ?",
+        "Qu'est-ce qui fait varier le plus le risque de contamination ?"
+      ],
+      "options": [
+        "La charge virale du liquide contaminant",
+        "L'âge de la personne",
+        "Le groupe sanguin",
+        "La saison"
+      ],
+      "answer": 0,
+      "explain": "Plus la charge virale est élevée (primo-infection, absence de traitement), plus le risque est grand. Une IST associée l'augmente aussi.",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-04",
+      "cat": "transmission",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Que veut dire « I = I » ?",
+      "variants": [
+        "I = I : de quoi parle-t-on ?",
+        "Le message « I = I » signifie…",
+        "Que résume la formule I = I ?"
+      ],
+      "options": [
+        "Indétectable = intransmissible : charge virale durablement indétectable sous traitement, pas de transmission sexuelle",
+        "Infection = immunité",
+        "Injection = infection",
+        "Il faut deux tests identiques"
+      ],
+      "answer": 0,
+      "explain": "Le traitement protège la santé de la personne et empêche la transmission sexuelle du virus.",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-05",
+      "cat": "transmission",
+      "level": 3,
+      "type": "slider",
+      "prompt": "Risque de contamination par le VIH après une piqûre avec une aiguille contaminée, sans traitement",
+      "variants": [
+        "Place le risque de transmission du VIH après un accident avec une aiguille contaminée.",
+        "AES par piqûre, source VIH+, sans traitement : quel risque ?",
+        "Piqûre avec une aiguille souillée par du sang VIH+ : quel risque de contamination ?"
+      ],
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "answer": 0.3,
+      "tolerance": 0.2,
+      "unit": "%",
+      "explain": "Environ 0,3 % par piqûre, ce qui justifie l'évaluation urgente d'un traitement post-exposition.",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-06",
+      "cat": "transmission",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Le VIH peut se transmettre par une piqûre de moustique.",
+      "variants": [
+        "Un moustique peut transmettre le VIH.",
+        "Les moustiques sont un vecteur du VIH.",
+        "On peut attraper le VIH par une piqûre de moustique."
+      ],
+      "answer": false,
+      "explain": "Faux. Ni les moustiques, ni la salive, ni les contacts de la vie courante, ni la vaisselle, ni les toilettes.",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-07",
+      "cat": "transmission",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Comment réduit-on la transmission du VIH de la mère à l'enfant ?",
+      "variants": [
+        "Grossesse et VIH : quelles mesures protègent le bébé ?",
+        "Prévenir la transmission mère-enfant du VIH : que fait-on ?",
+        "Mère séropositive : comment éviter de transmettre le VIH à l'enfant ?"
+      ],
+      "options": [
+        "Traitement antirétroviral de la mère pour une charge virale indétectable",
+        "Traitement préventif du nouveau-né et suivi",
+        "Lait artificiel, sauf décision partagée avec l'équipe",
+        "Mode d'accouchement adapté à la charge virale",
+        "Césarienne systématique pour toutes, quelle que soit la charge virale"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Accouchement par voie basse possible si la charge virale est < 50 copies/mL. Avec ces mesures, le risque devient extrêmement faible (environ 0,3 %).",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-08",
+      "cat": "transmission",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Grossesse : quand propose-t-on la sérologie VIH ?",
+      "variants": [
+        "À quel moment de la grossesse fait-on le dépistage du VIH ?",
+        "Dépistage du VIH chez la femme enceinte : quand ?",
+        "Sérologie VIH pendant la grossesse : à quel moment la propose-t-on ?"
+      ],
+      "options": [
+        "En début de grossesse (premier trimestre)",
+        "Seulement à l'accouchement",
+        "Uniquement si la femme le demande au 9e mois",
+        "Jamais pendant la grossesse"
+      ],
+      "answer": 0,
+      "explain": "Dépistage proposé en début de grossesse, refait si l'exposition persiste. Le dépistage du partenaire est aussi recommandé.",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-09",
+      "cat": "transmission",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce que la PrEP ?",
+      "variants": [
+        "PrEP : de quoi s'agit-il ?",
+        "À quoi sert la PrEP ?",
+        "La PrEP, c'est…"
+      ],
+      "options": [
+        "Un traitement préventif pris par une personne séronégative exposée à un risque, avant l'exposition",
+        "Le traitement d'une personne séropositive",
+        "Un vaccin contre le VIH",
+        "Le traitement d'urgence après un accident d'exposition"
+      ],
+      "answer": 0,
+      "explain": "Prophylaxie pré-exposition : comprimés de ténofovir/emtricitabine en continu ou à la demande, ou injection de cabotégravir. Suivi VIH, rénal et IST. Tout médecin peut la prescrire en France.",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-10",
+      "cat": "transmission",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Après une exposition à risque (accident d'exposition au sang, rapport non protégé), quand débuter le traitement post-exposition ?",
+      "variants": [
+        "Traitement post-exposition (TPE) : dans quel délai ?",
+        "Exposition récente au VIH : jusqu'à quand peut-on débuter un TPE ?",
+        "AES ou rapport à risque : quel délai pour le traitement post-exposition ?"
+      ],
+      "options": [
+        "Idéalement dans les 4 heures, au plus tard dans les 48 heures",
+        "Dans la semaine",
+        "Après le résultat de la sérologie à 6 semaines",
+        "Dans le mois"
+      ],
+      "answer": 0,
+      "explain": "C'est une urgence : aux urgences, dans un service qui prend en charge le VIH ou un CeGIDD. Efficacité de plus de 90 % s'il est débuté à temps.",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-11",
+      "cat": "transmission",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Traitement post-exposition : combien de temps dure-t-il ?",
+      "variants": [
+        "TPE : quelle durée ?",
+        "Combien de temps prend-on le traitement post-exposition ?",
+        "Durée du traitement après une exposition au VIH ?"
+      ],
+      "options": ["Environ un mois", "48 heures", "Une semaine", "Toute la vie"],
+      "answer": 0,
+      "explain": "Association de 3 antirétroviraux pendant environ un mois, avec un bilan initial (VIH, VHB, VHC, IST, fonction rénale) et un contrôle à distance.",
+      "src": "vih"
+    },
+    {
+      "id": "25-transmission-12",
+      "cat": "transmission",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Accident d'exposition au sang (piqûre) chez un soignant : quel est le premier geste ?",
+      "variants": [
+        "Tu te piques avec une aiguille souillée : que fais-tu en premier ?",
+        "AES par piqûre : premiers soins locaux ?",
+        "Piqûre accidentelle en soins : quel geste immédiat ?"
+      ],
+      "options": [
+        "Ne pas faire saigner, nettoyer à l'eau et au savon, rincer, puis désinfecter au moins 5 minutes (Dakin ou alcool à 70°)",
+        "Faire saigner fort en pressant la plaie",
+        "Mettre un pansement et finir le soin",
+        "Attendre la fin de la garde pour en parler"
+      ],
+      "answer": 0,
+      "explain": "Puis appeler le médecin référent ou les urgences pour évaluer un traitement post-exposition (moins de 48 h, idéalement 4 h), et déclarer l'accident du travail.",
+      "src": "complement"
+    },
+    {
+      "id": "25-transmission-13",
+      "cat": "transmission",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Prévention combinée du VIH : quels outils existent ?",
+      "variants": [
+        "Quels moyens permettent de se protéger du VIH ?",
+        "Repère les outils de la prévention combinée.",
+        "VIH : quels outils de prévention ?"
+      ],
+      "options": [
+        "Préservatifs",
+        "Dépistage régulier",
+        "PrEP",
+        "Traitement post-exposition",
+        "Matériel d'injection stérile",
+        "Vaccin contre le VIH"
+      ],
+      "answer": [0, 1, 2, 3, 4],
+      "explain": "Il n'existe pas de vaccin contre le VIH. Le traitement des personnes séropositives (I = I) fait aussi partie de la prévention.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-01",
+      "cat": "evolution",
+      "level": 1,
+      "type": "order",
+      "prompt": "Sans traitement, remets dans l'ordre l'évolution de l'infection à VIH.",
+      "variants": [
+        "Histoire naturelle du VIH : dans quel ordre se succèdent ces phases ?",
+        "VIH non traité : ordonne les étapes.",
+        "Remets les phases de l'infection à VIH dans l'ordre."
+      ],
+      "items": ["Contamination", "Primo-infection", "Phase chronique souvent sans symptômes", "Stade sida"],
+      "explain": "Sans traitement, le stade sida survenait en moyenne 8 à 10 ans après la contamination, avec de grandes variations.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-02",
+      "cat": "evolution",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quand apparaissent les signes de primo-infection ?",
+      "variants": [
+        "Primo-infection VIH : combien de temps après l'exposition ?",
+        "Délai d'apparition de la primo-infection après la contamination ?",
+        "Les premiers signes du VIH apparaissent au bout de combien de temps ?"
+      ],
+      "options": ["2 à 4 semaines après l'exposition", "Le jour même", "6 mois après", "10 ans après"],
+      "answer": 0,
+      "explain": "Elle dure environ 2 semaines, n'est pas toujours symptomatique, et passe souvent pour une grippe.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-03",
+      "cat": "evolution",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels signes peut donner une primo-infection par le VIH ?",
+      "variants": [
+        "Primo-infection VIH : quels symptômes ?",
+        "Repère les signes possibles de primo-infection.",
+        "Quels signes doivent faire penser à une primo-infection VIH ?"
+      ],
+      "options": [
+        "Fièvre et syndrome pseudo-grippal",
+        "Angine ou pharyngite",
+        "Éruption cutanée",
+        "Ganglions dans plusieurs aires",
+        "Ulcérations buccales ou génitales",
+        "Ictère franc"
+      ],
+      "answer": [0, 1, 2, 3, 4],
+      "explain": "Signes fréquents mais non constants. La biologie peut montrer une thrombopénie et une leucopénie. Toute fièvre avec éruption ou angine après une exposition doit faire tester.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-04",
+      "cat": "evolution",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Pendant la primo-infection, la charge virale est très élevée et la personne est très contagieuse.",
+      "variants": [
+        "En primo-infection, le virus est abondant dans le sang et le risque de transmission est fort.",
+        "La primo-infection est une période de forte contagiosité.",
+        "Charge virale élevée et contagiosité importante : c'est la primo-infection."
+      ],
+      "answer": true,
+      "explain": "Vrai. Et une sérologie peut encore être négative : on demande un test combiné de 4e génération, voire l'ARN du VIH.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-05",
+      "cat": "evolution",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "En phase chronique, l'absence de symptômes signifie que le virus ne se multiplie plus.",
+      "variants": [
+        "Phase chronique sans symptôme = virus au repos.",
+        "Pas de symptômes en phase chronique : le VIH ne se réplique pas.",
+        "Une personne en phase chronique asymptomatique n'a plus de réplication virale."
+      ],
+      "answer": false,
+      "explain": "Faux. Le virus continue de se répliquer et de détruire les CD4, à bas bruit. La personne peut transmettre le virus sans traitement.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-06",
+      "cat": "evolution",
+      "level": 2,
+      "type": "sort",
+      "prompt": "Classe ces taux de lymphocytes T CD4.",
+      "variants": [
+        "Range chaque résultat de CD4 dans la bonne catégorie.",
+        "CD4 : repère normal, déficit ou immunodépression sévère ?",
+        "Classe ces numérations de CD4."
+      ],
+      "groups": [
+        {"name": "Repère habituel (> 500/mm³)", "items": ["CD4 à 850/mm³", "CD4 à 620/mm³"]},
+        {"name": "Déficit immunitaire (200 à 500/mm³)", "items": ["CD4 à 420/mm³", "CD4 à 260/mm³"]},
+        {"name": "Immunodépression sévère (< 200/mm³)", "items": ["CD4 à 150/mm³", "CD4 à 40/mm³"]}
+      ],
+      "explain": "Le diagnostic de sida repose sur une pathologie classante, pas seulement sur le taux de CD4.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-07",
+      "cat": "evolution",
+      "level": 1,
+      "type": "choice",
+      "prompt": "En dessous de quel taux de CD4 parle-t-on d'immunodépression sévère ?",
+      "variants": [
+        "Immunodépression sévère : sous quel taux de CD4 ?",
+        "Quel seuil de CD4 marque une immunodépression sévère ?",
+        "CD4 : à partir de quelle valeur l'immunodépression est-elle sévère ?"
+      ],
+      "options": ["200/mm³", "1 000/mm³", "500/mm³", "50/mm³"],
+      "answer": 0,
+      "explain": "Sous 200/mm³, le risque d'infections opportunistes est important et des traitements préventifs (prophylaxies) se discutent.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-08",
+      "cat": "evolution",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Phase chronique : quels signes doivent alerter ?",
+      "variants": [
+        "Infection à VIH en phase chronique : quels signes d'alerte ?",
+        "Repère les signes qui doivent faire réévaluer une personne vivant avec le VIH.",
+        "Quels symptômes signalent que l'immunité baisse ?"
+      ],
+      "options": [
+        "Perte de poids",
+        "Fièvre prolongée et sueurs nocturnes",
+        "Diarrhée qui dure",
+        "Zona",
+        "Candidose buccale à répétition",
+        "Hypertension artérielle"
+      ],
+      "answer": [0, 1, 2, 3, 4],
+      "explain": "Aussi : tuberculose, pneumonies à répétition. Ces signes justifient un bilan clinique, immunologique (CD4) et virologique (charge virale).",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-09",
+      "cat": "evolution",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Candidose oropharyngée : quel aspect ?",
+      "variants": [
+        "À quoi ressemble une candidose de la bouche ?",
+        "Muguet (candidose buccale) : comment le reconnaître ?",
+        "Candidose oropharyngée : quels signes visibles ?"
+      ],
+      "options": [
+        "Plaques blanches crémeuses sur la langue et les muqueuses, qui se détachent au grattage",
+        "Vésicules groupées sur un trajet nerveux",
+        "Taches violacées en relief",
+        "Ulcère unique et induré"
+      ],
+      "answer": 0,
+      "explain": "Due à une levure, Candida albicans. Fréquente quand les CD4 sont bas. Prévention : soins de bouche.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-10",
+      "cat": "evolution",
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "Une candidose buccale isolée suffit à classer l'infection au stade sida.",
+      "variants": [
+        "Une candidose de la bouche seule définit le stade sida.",
+        "Muguet isolé chez une personne séropositive = stade sida.",
+        "Candidose buccale seule : pathologie classant sida."
+      ],
+      "answer": false,
+      "explain": "Faux. C'est la candidose œsophagienne (douleur ou gêne à la déglutition) qui est classante, pas la candidose buccale isolée.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-11",
+      "cat": "evolution",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Le zona, c'est…",
+      "variants": [
+        "Qu'est-ce que le zona ?",
+        "Zona : quel mécanisme ?",
+        "D'où vient un zona ?"
+      ],
+      "options": [
+        "La réactivation du virus de la varicelle, resté au repos dans les ganglions nerveux",
+        "Une infection par un champignon",
+        "Une allergie de la peau",
+        "Une bactérie transmise par les moustiques"
+      ],
+      "answer": 0,
+      "explain": "Plus fréquent, récidivant ou étendu en cas d'immunodépression. Traitement : valaciclovir ou aciclovir, le plus tôt possible.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-12",
+      "cat": "evolution",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Zona typique : quel aspect ?",
+      "variants": [
+        "À quoi ressemble un zona ?",
+        "Comment reconnaître un zona ?",
+        "Zona : quels signes ?"
+      ],
+      "options": [
+        "Douleurs ou brûlures, puis vésicules groupées sur un seul dermatome, d'un seul côté",
+        "Plaques blanches dans la bouche",
+        "Boutons sur tout le corps des deux côtés",
+        "Rougeur diffuse sans douleur"
+      ],
+      "answer": 0,
+      "explain": "Un zona ophtalmique, disséminé ou avec déficit neurologique demande un avis spécialisé urgent.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-13",
+      "cat": "evolution",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Comment se définit le stade sida ?",
+      "variants": [
+        "Stade sida : quelle définition ?",
+        "Qu'est-ce qui fait passer au stade sida ?",
+        "À quoi reconnaît-on le stade sida ?"
+      ],
+      "options": [
+        "Par l'apparition d'une pathologie classant sida, quel que soit le taux de CD4",
+        "Par un taux de CD4 supérieur à 500/mm³",
+        "Par une charge virale indétectable",
+        "Par la première prise de traitement"
+      ],
+      "answer": 0,
+      "explain": "Infections opportunistes graves ou certains cancers. Le dépistage et le traitement précoces évitent le plus souvent ce stade.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-14",
+      "cat": "evolution",
+      "level": 3,
+      "type": "sort",
+      "prompt": "Classant sida ou non ? Range chaque affection.",
+      "variants": [
+        "Ces affections définissent-elles le stade sida ?",
+        "Pathologie classant sida ou simplement fréquente ? Classe-les.",
+        "Range ces affections : classantes sida ou non."
+      ],
+      "groups": [
+        {
+          "name": "Classe au stade sida",
+          "items": [
+            "Pneumocystose",
+            "Candidose œsophagienne",
+            "Toxoplasmose cérébrale",
+            "Sarcome de Kaposi",
+            "Tuberculose"
+          ]
+        },
+        {
+          "name": "Fréquente mais pas classante",
+          "items": ["Candidose buccale isolée", "Zona localisé", "Pneumonie bactérienne isolée"]
+        }
+      ],
+      "explain": "Le stade sida est défini par une affection classante. Les autres peuvent révéler ou accompagner le VIH sans définir le stade sida.",
+      "src": "vih"
+    },
+    {
+      "id": "25-evolution-15",
+      "cat": "evolution",
+      "level": 3,
+      "type": "match",
+      "prompt": "Associe le taux de CD4 aux infections qu'il expose à faire.",
+      "variants": [
+        "CD4 et infections : quel risque à quel niveau ?",
+        "Relie chaque taux de CD4 aux infections typiques.",
+        "Infections selon le niveau d'immunodépression : forme les paires."
+      ],
+      "left": "CD4",
+      "right": "Infections typiques",
+      "pairs": [
+        ["Entre 200 et 500/mm³", "Zona récidivant, candidose buccale"],
+        ["Moins de 200/mm³", "Pneumocystose, candidose œsophagienne"],
+        ["Moins de 100/mm³", "Toxoplasmose cérébrale, cryptococcose"]
+      ],
+      "explain": "Toujours interpréter avec la charge virale, les symptômes et les traitements. La tuberculose peut survenir quel que soit le taux de CD4.",
+      "src": "vih"
+    },
+    {
+      "id": "25-diagnostic-01",
+      "cat": "diagnostic",
+      "level": 3,
+      "type": "order",
+      "prompt": "Après une contamination, dans quel ordre ces marqueurs deviennent-ils positifs ?",
+      "variants": [
+        "Marqueurs du VIH : lequel apparaît en premier ?",
+        "Ordonne ces marqueurs selon leur délai de positivité.",
+        "Du plus précoce au plus tardif : quand chaque marqueur se positive-t-il ?"
+      ],
+      "items": ["ARN du VIH (charge virale)", "Antigène p24", "Anticorps anti-VIH"],
+      "explain": "ARN du VIH vers J10, antigène p24 vers J15, anticorps vers J20 à J28. D'où la fenêtre où une sérologie peut être négative.",
+      "src": "vih"
+    },
+    {
+      "id": "25-diagnostic-02",
+      "cat": "diagnostic",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Test de laboratoire de 4e génération : que détecte-t-il ?",
+      "variants": [
+        "Test combiné VIH : que recherche-t-il ?",
+        "Sérologie VIH de 4e génération : qu'est-ce qu'elle cherche ?",
+        "Le test combiné du laboratoire détecte…"
+      ],
+      "options": [
+        "Les anticorps anti-VIH et l'antigène p24",
+        "Uniquement l'ARN du virus",
+        "Les lymphocytes CD4",
+        "Les plaquettes"
+      ],
+      "answer": 0,
+      "explain": "C'est l'examen de référence du dépistage en laboratoire.",
+      "src": "vih"
+    },
+    {
+      "id": "25-diagnostic-03",
+      "cat": "diagnostic",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Test combiné de 4e génération négatif : à partir de quel délai après la dernière exposition est-il fiable ?",
+      "variants": [
+        "Test VIH de laboratoire : délai après lequel un résultat négatif est fiable ?",
+        "Sérologie VIH de 4e génération négative : fiable au bout de combien de temps ?",
+        "Combien de temps après une prise de risque un test combiné négatif rassure-t-il ?"
+      ],
+      "options": ["6 semaines", "48 heures", "1 semaine", "1 an"],
+      "answer": 0,
+      "explain": "En cas d'exposition très récente ou de symptômes, on demande l'ARN du VIH selon le contexte.",
+      "src": "vih"
+    },
+    {
+      "id": "25-diagnostic-04",
+      "cat": "diagnostic",
+      "level": 2,
+      "type": "choice",
+      "prompt": "TROD ou autotest VIH négatif : à partir de quel délai est-il fiable ?",
+      "variants": [
+        "Autotest VIH : délai de fiabilité d'un résultat négatif ?",
+        "Un TROD VIH négatif rassure à partir de quand ?",
+        "Test rapide VIH négatif : fiable combien de temps après l'exposition ?"
+      ],
+      "options": ["3 mois après la dernière exposition", "6 semaines", "2 jours", "15 jours"],
+      "answer": 0,
+      "explain": "Le TROD et l'autotest ne détectent que les anticorps, qui apparaissent plus tard que l'antigène p24.",
+      "src": "vih"
+    },
+    {
+      "id": "25-diagnostic-05",
+      "cat": "diagnostic",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Un TROD VIH positif suffit à poser le diagnostic.",
+      "variants": [
+        "Un test rapide VIH réactif vaut diagnostic.",
+        "Autotest positif = diagnostic d'infection à VIH.",
+        "Un TROD réactif suffit pour annoncer une séropositivité."
+      ],
+      "answer": false,
+      "explain": "Faux. Tout test réactif doit être confirmé au laboratoire, sur un second prélèvement, avant l'annonce.",
+      "src": "vih"
+    },
+    {
+      "id": "25-diagnostic-06",
+      "cat": "diagnostic",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Dépistage du VIH : quelles règles s'appliquent ?",
+      "variants": [
+        "Dépister le VIH : que faut-il respecter ?",
+        "Quelles règles encadrent le test et l'annonce du VIH ?",
+        "Dépistage et annonce du VIH : repère les règles."
+      ],
+      "options": [
+        "Consentement du patient",
+        "Annonce d'un résultat positif par le médecin, accompagnée",
+        "Déclaration obligatoire anonymisée",
+        "Prise en charge à 100 % (ALD)",
+        "Résultat communiqué à l'employeur"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Le dépistage est confidentiel. L'annonce est suivie d'un bilan initial et d'un traitement rapide.",
+      "src": "vih"
+    },
+    {
+      "id": "25-diagnostic-07",
+      "cat": "diagnostic",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Que mesure la charge virale ?",
+      "variants": [
+        "Charge virale VIH : qu'évalue-t-elle ?",
+        "À quoi sert la charge virale ?",
+        "Charge virale : que nous apprend-elle ?"
+      ],
+      "options": [
+        "La quantité d'ARN du VIH dans le plasma : l'activité du virus et l'efficacité du traitement",
+        "Le nombre de lymphocytes CD4",
+        "La présence d'anticorps",
+        "Le risque d'allergie au traitement"
+      ],
+      "answer": 0,
+      "explain": "Charge virale = contrôle du virus (en copies/mL). CD4 = état de l'immunité et risque d'infections opportunistes.",
+      "src": "vih"
+    },
+    {
+      "id": "25-diagnostic-08",
+      "cat": "diagnostic",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Sous traitement, quel objectif de charge virale ?",
+      "variants": [
+        "Charge virale visée sous antirétroviraux ?",
+        "Traitement efficace : quelle charge virale attend-on ?",
+        "Quel résultat de charge virale montre un traitement efficace ?"
+      ],
+      "options": [
+        "Indétectable, en général moins de 50 copies/mL",
+        "Plus de 100 000 copies/mL",
+        "Exactement 500 copies/mL",
+        "La charge virale ne se mesure pas sous traitement"
+      ],
+      "answer": 0,
+      "explain": "Durablement indétectable : la personne ne transmet pas le virus par voie sexuelle (I = I).",
+      "src": "vih"
+    },
+    {
+      "id": "25-traitement-01",
+      "cat": "traitement",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quand débuter le traitement antirétroviral ?",
+      "variants": [
+        "Personne qui découvre sa séropositivité : quand commencer le traitement ?",
+        "Antirétroviraux : à quel moment les débuter ?",
+        "Quand démarrer les ARV après le diagnostic ?"
+      ],
+      "options": [
+        "Dès que possible après le diagnostic, chez toutes les personnes, quel que soit le stade",
+        "Seulement au stade sida",
+        "Quand les CD4 passent sous 200/mm³",
+        "Jamais avant 5 ans d'infection"
+      ],
+      "answer": 0,
+      "explain": "Souvent dans les 14 jours, sans délai en primo-infection. Objectifs : charge virale indétectable, CD4 restaurés, prévention de la transmission.",
+      "src": "vih"
+    },
+    {
+      "id": "25-traitement-02",
+      "cat": "traitement",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pourquoi associer plusieurs antirétroviraux ?",
+      "variants": [
+        "Pourquoi ne donne-t-on pas un seul antirétroviral ?",
+        "Trithérapie : pourquoi associer plusieurs molécules ?",
+        "Quel est l'intérêt d'une association d'antirétroviraux ?"
+      ],
+      "options": [
+        "Pour bloquer plusieurs étapes du cycle et éviter l'apparition de virus résistants",
+        "Pour réduire le prix",
+        "Parce qu'un seul médicament est toxique",
+        "Pour pouvoir arrêter plus vite"
+      ],
+      "answer": 0,
+      "explain": "Aujourd'hui, souvent un inhibiteur de l'intégrase et deux INTI, parfois en un seul comprimé par jour.",
+      "src": "vih"
+    },
+    {
+      "id": "25-traitement-03",
+      "cat": "traitement",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "On peut arrêter le traitement antirétroviral quand la charge virale est indétectable.",
+      "variants": [
+        "Charge virale indétectable : le traitement peut s'arrêter.",
+        "Une fois le virus indétectable, les ARV ne sont plus utiles.",
+        "Le traitement du VIH s'arrête quand la charge virale devient indétectable."
+      ],
+      "answer": false,
+      "explain": "Faux. Le traitement contrôle le virus sans l'éliminer : le provirus persiste dans des réservoirs. Le traitement est pris à vie, sans interruption.",
+      "src": "vih"
+    },
+    {
+      "id": "25-traitement-04",
+      "cat": "traitement",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Les antirétroviraux éliminent définitivement le VIH de l'organisme.",
+      "variants": [
+        "Les ARV guérissent l'infection à VIH.",
+        "Sous traitement, le VIH disparaît complètement du corps.",
+        "Le traitement antirétroviral éradique le virus."
+      ],
+      "answer": false,
+      "explain": "Faux. Ils bloquent la réplication mais n'éliminent pas les réservoirs viraux. À l'arrêt, le virus se remet à se multiplier.",
+      "src": "vih"
+    },
+    {
+      "id": "25-traitement-05",
+      "cat": "traitement",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quelles sont les conditions d'efficacité du traitement ?",
+      "variants": [
+        "Traitement antirétroviral : qu'est-ce qui le rend efficace ?",
+        "Repère les conditions pour que le traitement du VIH marche.",
+        "Que faut-il pour qu'une trithérapie reste efficace ?"
+      ],
+      "options": [
+        "Prises régulières, sans interruption (observance)",
+        "Repérer et traiter les effets indésirables",
+        "Vérifier les interactions (automédication, plantes, compléments)",
+        "Suivi régulier de la charge virale et des CD4",
+        "Sauter les prises le week-end"
+      ],
+      "answer": [0, 1, 2, 3],
+      "explain": "Une observance insuffisante laisse le virus se répliquer et sélectionne des virus résistants : échec du traitement. Accompagner les difficultés sans jugement.",
+      "src": "vih"
+    },
+    {
+      "id": "25-traitement-06",
+      "cat": "traitement",
+      "level": 3,
+      "type": "match",
+      "prompt": "Associe chaque classe d'antirétroviraux à l'étape qu'elle bloque.",
+      "variants": [
+        "Antirétroviraux : quelle classe bloque quelle étape ?",
+        "Relie chaque famille d'ARV à sa cible dans le cycle du VIH.",
+        "ARV et cycle viral : forme les paires."
+      ],
+      "left": "Classe",
+      "right": "Étape bloquée",
+      "pairs": [
+        ["Inhibiteurs de l'intégrase (dolutégravir, bictégravir)", "Insertion de l'ADN viral dans le génome"],
+        ["Inhibiteurs de transcriptase inverse (ténofovir, emtricitabine)", "Transformation de l'ARN en ADN"],
+        ["Inhibiteurs de protéase (darunavir)", "Maturation des nouveaux virus"],
+        ["Inhibiteur de fusion (enfuvirtide)", "Entrée du virus dans la cellule"]
+      ],
+      "explain": "En pratique, le traitement associe des molécules qui agissent à des étapes différentes.",
+      "src": "vih"
+    },
+    {
+      "id": "25-traitement-07",
+      "cat": "traitement",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Personne vivant avec le VIH : quel vaccin est contre-indiqué ?",
+      "variants": [
+        "VIH et vaccination : quel vaccin ne faut-il pas faire ?",
+        "Quel vaccin est toujours contre-indiqué en cas d'infection à VIH ?",
+        "Vaccins et VIH : lequel est interdit ?"
+      ],
+      "options": [
+        "Le BCG (vaccin vivant atténué)",
+        "Le vaccin contre la grippe",
+        "Le vaccin contre l'hépatite B",
+        "Le vaccin contre le papillomavirus (HPV)"
+      ],
+      "answer": 0,
+      "explain": "Vaccins recommandés : hépatites B et A, grippe, HPV, de préférence quand les CD4 sont > 200/mm³ et la charge virale indétectable.",
+      "src": "vih"
+    },
+    {
+      "id": "25-traitement-08",
+      "cat": "traitement",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Au stade sida, quelle prévention médicamenteuse met-on en place selon les CD4 ?",
+      "variants": [
+        "CD4 bas : quelle prophylaxie prescrit-on ?",
+        "Immunodépression sévère : quelles infections prévient-on par un traitement ?",
+        "Stade sida : quelle prophylaxie selon le taux de CD4 ?"
+      ],
+      "options": [
+        "Prévention de la pneumocystose, et de la toxoplasmose selon la sérologie",
+        "Antibiotiques contre l'angine",
+        "Vaccin BCG",
+        "Aucune, le traitement antirétroviral suffit toujours"
+      ],
+      "answer": 0,
+      "explain": "Prophylaxies réévaluées après la remontée des CD4. On surveille aussi le syndrome inflammatoire de restauration immunitaire après l'introduction des ARV.",
+      "src": "vih"
+    }
+  ]
+}

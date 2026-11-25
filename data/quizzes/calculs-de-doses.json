@@ -6,7 +6,7 @@
   "badge": "Calculs",
   "shelf": "spe",
   "color": "c2",
-  "description": "Débits de perfusion, pousse-seringue, dilutions et conversions : les calculs à maîtriser avant le partiel et en stage. Prends un brouillon.",
+  "description": "Débits de perfusion, pousse-seringue, dilutions, pourcentages, doses au poids et conversions : les calculs à maîtriser avant le partiel et en stage. Prends un brouillon.",
   "tags": [
     "calcul",
     "débit",
@@ -17,7 +17,16 @@
     "conversion",
     "pédiatrie"
   ],
-  "time": {"number": 90},
+  "time": {"number": 90, "match": 60, "order": 60},
+  "icon": "syringe",
+  "categories": [
+    {"id": "debit", "title": "Débits de perfusion"},
+    {"id": "pse", "title": "Pousse-seringue"},
+    {"id": "dilution", "title": "Dilutions et volumes"},
+    {"id": "concentration", "title": "Pourcentages et concentrations"},
+    {"id": "poids", "title": "Doses au poids"},
+    {"id": "conversion", "title": "Conversions"}
+  ],
   "questions": [
     {
       "level": 2,
@@ -32,7 +41,8 @@
       "tolerance": 1,
       "unit": "gouttes/min",
       "answerText": "environ 42 gouttes/min (41,7)",
-      "explain": "Débit = volume (mL) × 20 ÷ durée (min) = 1 000 × 20 ÷ 480 = 41,7. On arrondit à 42 gouttes/min."
+      "explain": "Débit = volume (mL) × 20 ÷ durée (min) = 1 000 × 20 ÷ 480 = 41,7. On arrondit à 42 gouttes/min.",
+      "cat": "debit"
     },
     {
       "level": 1,
@@ -45,7 +55,8 @@
       ],
       "answer": 125,
       "unit": "mL/h",
-      "explain": "1 000 ÷ 8 = 125 mL/h."
+      "explain": "1 000 ÷ 8 = 125 mL/h.",
+      "cat": "debit"
     },
     {
       "level": 2,
@@ -58,7 +69,8 @@
       ],
       "answer": 15,
       "unit": "mL",
-      "explain": "1 g = 1 000 mg dans 20 mL, soit 50 mg/mL. 750 ÷ 50 = 15 mL."
+      "explain": "1 g = 1 000 mg dans 20 mL, soit 50 mg/mL. 750 ÷ 50 = 15 mL.",
+      "cat": "dilution"
     },
     {
       "level": 1,
@@ -71,7 +83,8 @@
       ],
       "answer": 4.5,
       "unit": "g",
-      "explain": "0,9 % = 0,9 g pour 100 mL. Pour 500 mL : 0,9 × 5 = 4,5 g."
+      "explain": "0,9 % = 0,9 g pour 100 mL. Pour 500 mL : 0,9 × 5 = 4,5 g.",
+      "cat": "concentration"
     },
     {
       "level": 2,
@@ -84,7 +97,8 @@
       ],
       "answer": 1,
       "unit": "g",
-      "explain": "10 % = 10 g pour 100 mL, donc 1 g dans 10 mL. Rappel : le KCl ne s'injecte jamais en IV directe, il est toujours dilué."
+      "explain": "10 % = 10 g pour 100 mL, donc 1 g dans 10 mL. Rappel : le KCl ne s'injecte jamais en IV directe, il est toujours dilué.",
+      "cat": "concentration"
     },
     {
       "level": 1,
@@ -97,7 +111,8 @@
       ],
       "options": ["25 g de glucose", "5 g de glucose", "50 g de glucose", "2,5 g de glucose"],
       "answer": 0,
-      "explain": "5 % = 5 g pour 100 mL, donc 25 g dans 500 mL."
+      "explain": "5 % = 5 g pour 100 mL, donc 25 g dans 500 mL.",
+      "cat": "concentration"
     },
     {
       "level": 2,
@@ -110,7 +125,8 @@
       ],
       "answer": 5,
       "unit": "mL/h",
-      "explain": "Concentration : 50 mg ÷ 50 mL = 1 mg/mL. Pour 5 mg/h, il faut 5 mL/h."
+      "explain": "Concentration : 50 mg ÷ 50 mL = 1 mg/mL. Pour 5 mg/h, il faut 5 mL/h.",
+      "cat": "pse"
     },
     {
       "level": 1,
@@ -123,7 +139,8 @@
       ],
       "answer": 270,
       "unit": "mg",
-      "explain": "18 × 15 = 270 mg par prise. Dose usuelle : 15 mg/kg toutes les 6 h, sans dépasser 60 mg/kg par jour."
+      "explain": "18 × 15 = 270 mg par prise. Dose usuelle : 15 mg/kg toutes les 6 h, sans dépasser 60 mg/kg par jour.",
+      "cat": "poids"
     },
     {
       "level": 1,
@@ -136,7 +153,8 @@
       ],
       "answer": 250,
       "unit": "µg",
-      "explain": "1 mg = 1 000 µg, donc 0,25 mg = 250 µg."
+      "explain": "1 mg = 1 000 µg, donc 0,25 mg = 250 µg.",
+      "cat": "conversion"
     },
     {
       "level": 2,
@@ -149,7 +167,8 @@
       ],
       "answer": 1,
       "unit": "mL",
-      "explain": "25 000 UI ÷ 5 mL = 5 000 UI/mL, donc 1 mL."
+      "explain": "25 000 UI ÷ 5 mL = 5 000 UI/mL, donc 1 mL.",
+      "cat": "dilution"
     },
     {
       "level": 2,
@@ -161,7 +180,8 @@
         "Perfuseur de précision : 1 mL = 60 gouttes."
       ],
       "answer": true,
-      "explain": "Vrai. Perfuseur standard : 20 gouttes/mL. Perfuseur de précision : 60 microgouttes/mL. Astuce : avec 60 microgouttes/mL, le débit en microgouttes/min est égal au débit en mL/h."
+      "explain": "Vrai. Perfuseur standard : 20 gouttes/mL. Perfuseur de précision : 60 microgouttes/mL. Astuce : avec 60 microgouttes/mL, le débit en microgouttes/min est égal au débit en mL/h.",
+      "cat": "debit"
     },
     {
       "level": 1,
@@ -178,8 +198,700 @@
       "answer": 62.5,
       "tolerance": 1,
       "unit": "mL/h",
-      "explain": "1 500 ÷ 24 = 62,5 mL/h."
+      "explain": "1 500 ÷ 24 = 62,5 mL/h.",
+      "cat": "debit"
+    },
+    {
+      "id": "cd-deb-01",
+      "cat": "debit",
+      "level": 2,
+      "type": "number",
+      "prompt": "Prescription : 500 mL de G5 % en 4 h avec un perfuseur standard (1 mL = 20 gouttes). Débit en gouttes par minute ?",
+      "variants": [
+        "Perfuseur standard : 500 mL de G5 % sur 4 heures. Combien de gouttes par minute ?",
+        "500 mL de glucosé à 5 % en 4 h, perfuseur à 20 gouttes/mL : débit en gouttes/min ?",
+        "Combien de gouttes par minute pour passer 500 mL en 4 h (1 mL = 20 gouttes) ?"
+      ],
+      "answer": 42,
+      "unit": "gouttes/min",
+      "explain": "500 × 20 / (4 × 60) = 10 000 / 240 ≈ 41,7, soit 42 gouttes par minute.",
+      "tolerance": 1
+    },
+    {
+      "id": "cd-deb-02",
+      "cat": "debit",
+      "level": 1,
+      "type": "number",
+      "prompt": "Prescription : 2 L de soluté sur 24 h à la pompe. Quel débit en mL/h ?",
+      "variants": [
+        "Pompe volumétrique : 2 litres sur 24 heures. Combien de mL par heure ?",
+        "2 000 mL à passer en 24 h : quel débit horaire ?",
+        "Quel débit régler pour perfuser 2 L en 24 h ?"
+      ],
+      "answer": 83,
+      "unit": "mL/h",
+      "explain": "2 000 / 24 ≈ 83,3 mL/h, arrondi à 83 mL/h.",
+      "tolerance": 1
+    },
+    {
+      "id": "cd-deb-03",
+      "cat": "debit",
+      "level": 1,
+      "type": "number",
+      "prompt": "Prescription : 250 mL à passer en 30 minutes à la pompe. Quel débit en mL/h ?",
+      "variants": [
+        "250 mL en une demi-heure : quel débit en mL/h ?",
+        "Pompe : 250 mL sur 30 min. Combien de mL par heure ?",
+        "Quel débit horaire pour perfuser 250 mL en 30 minutes ?"
+      ],
+      "answer": 500,
+      "unit": "mL/h",
+      "explain": "250 mL en 0,5 h : 250 / 0,5 = 500 mL/h."
+    },
+    {
+      "id": "cd-deb-04",
+      "cat": "debit",
+      "level": 2,
+      "type": "number",
+      "prompt": "Antibiotique dilué dans 100 mL, à passer en 20 minutes avec un perfuseur standard (20 gouttes/mL). Débit en gouttes/min ?",
+      "variants": [
+        "100 mL en 20 min avec un perfuseur à 20 gouttes par mL : combien de gouttes par minute ?",
+        "Perfuseur standard : 100 mL d'antibiotique en 20 minutes. Débit en gouttes/min ?",
+        "Combien de gouttes/min pour passer 100 mL en 20 minutes (1 mL = 20 gouttes) ?"
+      ],
+      "answer": 100,
+      "unit": "gouttes/min",
+      "explain": "100 × 20 / 20 = 100 gouttes par minute."
+    },
+    {
+      "id": "cd-deb-05",
+      "cat": "debit",
+      "level": 3,
+      "type": "number",
+      "prompt": "Une perfusion coule à 30 gouttes par minute avec un perfuseur standard (20 gouttes/mL). Combien de mL par heure ?",
+      "variants": [
+        "Perfuseur standard réglé à 30 gouttes/min : quel débit en mL/h ?",
+        "30 gouttes par minute (1 mL = 20 gouttes) : combien de mL passent en une heure ?",
+        "Convertis 30 gouttes/min en mL/h (perfuseur à 20 gouttes par mL)."
+      ],
+      "answer": 90,
+      "unit": "mL/h",
+      "explain": "30 gouttes/min = 1,5 mL/min, soit 1,5 × 60 = 90 mL/h."
+    },
+    {
+      "id": "cd-deb-06",
+      "cat": "debit",
+      "level": 1,
+      "type": "number",
+      "prompt": "Une poche de 1 L passe à 125 mL/h. En combien d'heures sera-t-elle finie ?",
+      "variants": [
+        "1 000 mL à 125 mL/h : quelle durée de perfusion ?",
+        "Combien d'heures pour passer 1 L à 125 mL par heure ?",
+        "Poche de 1 litre réglée à 125 mL/h : elle durera combien d'heures ?"
+      ],
+      "answer": 8,
+      "unit": "h",
+      "explain": "1 000 / 125 = 8 heures."
+    },
+    {
+      "id": "cd-deb-07",
+      "cat": "debit",
+      "level": 2,
+      "type": "number",
+      "prompt": "Perfuseur de précision (60 gouttes/mL) : pour 60 mL/h, combien de gouttes par minute ?",
+      "variants": [
+        "60 mL/h avec un perfuseur à 60 gouttes par mL : débit en gouttes/min ?",
+        "Perfuseur de précision, 60 mL par heure : combien de microgouttes par minute ?",
+        "Combien de gouttes/min pour 60 mL/h avec 1 mL = 60 gouttes ?"
+      ],
+      "answer": 60,
+      "unit": "gouttes/min",
+      "explain": "60 mL/h × 60 gouttes / 60 min = 60 gouttes/min. Avec un perfuseur de précision, le nombre de gouttes par minute est égal au débit en mL/h."
+    },
+    {
+      "id": "cd-deb-08",
+      "cat": "debit",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quelle formule donne le débit en gouttes par minute avec un perfuseur standard ?",
+      "variants": [
+        "Perfuseur standard : comment calcule-t-on le nombre de gouttes par minute ?",
+        "Débit en gouttes/min : quelle est la bonne formule (1 mL = 20 gouttes) ?",
+        "Choisis la formule du débit d'un perfuseur standard en gouttes par minute."
+      ],
+      "options": [
+        "Volume (mL) × 20 / durée (min)",
+        "Volume (mL) / (durée (h) × 20)",
+        "Volume (mL) × 60 / durée (h)",
+        "Durée (min) × 20 / volume (mL)"
+      ],
+      "answer": 0,
+      "explain": "Gouttes/min = volume en mL × 20 / durée en minutes. Avec un perfuseur de précision, remplacer 20 par 60."
+    },
+    {
+      "id": "cd-deb-09",
+      "cat": "debit",
+      "level": 2,
+      "type": "number",
+      "prompt": "Une perfusion de 1 500 mL commence à 8 h à 125 mL/h. À quelle heure se termine-t-elle ?",
+      "variants": [
+        "1 500 mL à 125 mL/h, posés à 8 h : heure de fin ?",
+        "Début à 8 h, 1 500 mL à 125 mL par heure : à quelle heure la poche est-elle vide ?",
+        "Perfusion de 1,5 L à 125 mL/h démarrée à 8 heures : quand finit-elle ?"
+      ],
+      "answer": 20,
+      "unit": "h",
+      "explain": "1 500 / 125 = 12 heures de perfusion : 8 h + 12 h = 20 h."
+    },
+    {
+      "id": "cd-pse-01",
+      "cat": "pse",
+      "level": 1,
+      "type": "number",
+      "prompt": "Insuline rapide au pousse-seringue : 50 UI dans 50 mL. Prescription 2,5 UI/h. Quel débit ?",
+      "variants": [
+        "PSE d'insuline à 1 UI/mL : pour 2,5 UI/h, quel débit en mL/h ?",
+        "50 UI d'insuline dans 50 mL, prescription 2,5 UI par heure : débit du PSE ?",
+        "Seringue d'insuline à 50 UI/50 mL : débit pour 2,5 UI/h ?"
+      ],
+      "answer": 2.5,
+      "unit": "mL/h",
+      "explain": "50 UI / 50 mL = 1 UI/mL, donc 2,5 UI/h = 2,5 mL/h."
+    },
+    {
+      "id": "cd-pse-02",
+      "cat": "pse",
+      "level": 3,
+      "type": "number",
+      "prompt": "Héparine au pousse-seringue : 25 000 UI dans 50 mL. Prescription 20 000 UI/24 h. Quel débit en mL/h (à 0,1 près) ?",
+      "variants": [
+        "PSE d'héparine : 25 000 UI dans 50 mL, 20 000 UI par 24 h. Débit en mL/h ?",
+        "20 000 UI/24 h d'héparine, seringue de 25 000 UI pour 50 mL : quel débit ?",
+        "Seringue à 500 UI/mL, prescription 20 000 UI sur 24 h : débit horaire ?"
+      ],
+      "answer": 1.7,
+      "unit": "mL/h",
+      "explain": "25 000 / 50 = 500 UI/mL. 20 000 UI / 500 = 40 mL sur 24 h, soit 40 / 24 ≈ 1,7 mL/h.",
+      "tolerance": 0.05
+    },
+    {
+      "id": "cd-pse-03",
+      "cat": "pse",
+      "level": 1,
+      "type": "number",
+      "prompt": "Morphine au pousse-seringue : 50 mg dans 50 mL. Prescription 2 mg/h. Quel débit ?",
+      "variants": [
+        "PSE de morphine à 1 mg/mL : débit pour 2 mg/h ?",
+        "50 mg de morphine dans 50 mL, 2 mg par heure : débit ?",
+        "Seringue de morphine 50 mg/50 mL, prescription 2 mg/h : combien de mL/h ?"
+      ],
+      "answer": 2,
+      "unit": "mL/h",
+      "explain": "50 mg / 50 mL = 1 mg/mL, donc 2 mg/h = 2 mL/h. Surveiller fréquence respiratoire et sédation."
+    },
+    {
+      "id": "cd-pse-04",
+      "cat": "pse",
+      "level": 2,
+      "type": "number",
+      "prompt": "Seringue de 50 mL contenant 10 mg de noradrénaline. Prescription 1 mg/h. Quel débit ?",
+      "variants": [
+        "Noradrénaline 10 mg dans 50 mL, prescription 1 mg/h : débit du PSE ?",
+        "PSE de noradrénaline à 0,2 mg/mL : combien de mL/h pour 1 mg/h ?",
+        "10 mg dans une seringue de 50 mL, 1 mg par heure : quel débit ?"
+      ],
+      "answer": 5,
+      "unit": "mL/h",
+      "explain": "10 mg / 50 mL = 0,2 mg/mL. 1 / 0,2 = 5 mL/h."
+    },
+    {
+      "id": "cd-pse-05",
+      "cat": "pse",
+      "level": 2,
+      "type": "number",
+      "prompt": "Seringue de 20 mL contenant 200 mg de furosémide. Prescription 20 mg/h. Quel débit ?",
+      "variants": [
+        "Furosémide 200 mg dans 20 mL au PSE, prescription 20 mg/h : débit ?",
+        "PSE de furosémide à 10 mg/mL : combien de mL/h pour 20 mg/h ?",
+        "200 mg de furosémide dans 20 mL, 20 mg par heure : quel débit régler ?"
+      ],
+      "answer": 2,
+      "unit": "mL/h",
+      "explain": "200 / 20 = 10 mg/mL. 20 / 10 = 2 mL/h."
+    },
+    {
+      "id": "cd-pse-06",
+      "cat": "pse",
+      "level": 1,
+      "type": "number",
+      "prompt": "Un pousse-seringue de 50 mL est réglé à 2 mL/h. Combien d'heures avant la fin de la seringue ?",
+      "variants": [
+        "Seringue de 50 mL à 2 mL/h : elle durera combien d'heures ?",
+        "PSE réglé à 2 mL par heure avec 50 mL : durée avant le changement de seringue ?",
+        "Combien d'heures pour vider une seringue de 50 mL à 2 mL/h ?"
+      ],
+      "answer": 25,
+      "unit": "h",
+      "explain": "50 / 2 = 25 heures. Anticiper la préparation de la seringue suivante."
+    },
+    {
+      "id": "cd-pse-07",
+      "cat": "pse",
+      "level": 3,
+      "type": "number",
+      "prompt": "Prescription 0,5 mg/kg/h pour un patient de 70 kg. Seringue de 50 mL contenant 350 mg. Quel débit ?",
+      "variants": [
+        "0,5 mg/kg/h, patient de 70 kg, seringue de 350 mg dans 50 mL : débit en mL/h ?",
+        "Patient de 70 kg, 0,5 mg/kg par heure, PSE à 7 mg/mL : combien de mL/h ?",
+        "Calcule le débit : 0,5 mg/kg/h, 70 kg, 350 mg dans 50 mL."
+      ],
+      "answer": 5,
+      "unit": "mL/h",
+      "explain": "Dose : 0,5 × 70 = 35 mg/h. Concentration : 350 / 50 = 7 mg/mL. Débit : 35 / 7 = 5 mL/h."
+    },
+    {
+      "id": "cd-pse-08",
+      "cat": "pse",
+      "level": 2,
+      "type": "number",
+      "prompt": "Seringue de 50 mL à préparer avec 50 mg de produit. Ampoules de 50 mg dans 5 mL. Combien de mL de solvant ajouter ?",
+      "variants": [
+        "Pour 50 mg dans une seringue de 50 mL, avec une ampoule de 50 mg/5 mL : volume de solvant ?",
+        "Tu prélèves une ampoule de 5 mL (50 mg) et complètes à 50 mL : combien de solvant ?",
+        "Ampoule de 50 mg/5 mL, seringue finale de 50 mL : quel volume de NaCl 0,9 % ajouter ?"
+      ],
+      "answer": 45,
+      "unit": "mL",
+      "explain": "50 mL au total − 5 mL de produit = 45 mL de solvant. La seringue est alors à 1 mg/mL."
+    },
+    {
+      "id": "cd-pse-09",
+      "cat": "pse",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Au pousse-seringue électrique, le débit se règle en mL par heure.",
+      "variants": [
+        "Le débit d'un PSE s'exprime en mL/h.",
+        "Sur un pousse-seringue, on règle un débit en millilitres par heure.",
+        "PSE : le réglage du débit est en mL/h."
+      ],
+      "answer": true,
+      "explain": "Vrai. Le PSE se règle en mL/h. On passe de la dose prescrite (mg/h, UI/h) au débit grâce à la concentration de la seringue."
+    },
+    {
+      "id": "cd-dil-01",
+      "cat": "dilution",
+      "level": 2,
+      "type": "number",
+      "prompt": "Paracétamol injectable : flacon de 1 g dans 100 mL. Prescription 600 mg. Quel volume administrer ?",
+      "variants": [
+        "Flacon de paracétamol de 1 g/100 mL : volume pour 600 mg ?",
+        "600 mg de paracétamol à partir d'un flacon de 1 g dans 100 mL : combien de mL ?",
+        "Paracétamol IV à 10 mg/mL : quel volume pour 600 mg ?"
+      ],
+      "answer": 60,
+      "unit": "mL",
+      "explain": "1 g / 100 mL = 10 mg/mL. 600 / 10 = 60 mL."
+    },
+    {
+      "id": "cd-dil-02",
+      "cat": "dilution",
+      "level": 1,
+      "type": "number",
+      "prompt": "Ampoule de furosémide (Lasilix) de 40 mg dans 2 mL. Prescription 20 mg. Volume à prélever ?",
+      "variants": [
+        "Lasilix 40 mg/2 mL : combien de mL pour 20 mg ?",
+        "Furosémide en ampoule de 40 mg pour 2 mL, 20 mg prescrits : quel volume ?",
+        "Quel volume prélever pour 20 mg de furosémide (ampoule de 40 mg/2 mL) ?"
+      ],
+      "answer": 1,
+      "unit": "mL",
+      "explain": "40 mg / 2 mL = 20 mg/mL : 20 mg = 1 mL."
+    },
+    {
+      "id": "cd-dil-03",
+      "cat": "dilution",
+      "level": 2,
+      "type": "number",
+      "prompt": "Flacon de ceftriaxone de 1 g à reconstituer dans 10 mL. Prescription 250 mg. Volume à prélever ?",
+      "variants": [
+        "Ceftriaxone 1 g dans 10 mL : volume pour 250 mg ?",
+        "Pour 250 mg de ceftriaxone, flacon de 1 g dilué dans 10 mL : combien de mL ?",
+        "Ceftriaxone reconstituée à 100 mg/mL : quel volume pour 250 mg ?"
+      ],
+      "answer": 2.5,
+      "unit": "mL",
+      "explain": "1 000 mg / 10 mL = 100 mg/mL : 250 mg = 2,5 mL."
+    },
+    {
+      "id": "cd-dil-04",
+      "cat": "dilution",
+      "level": 2,
+      "type": "number",
+      "prompt": "Ampoule de morphine de 10 mg dans 1 mL, complétée à 10 mL avec du NaCl 0,9 %. Quelle concentration en mg/mL ?",
+      "variants": [
+        "Morphine 10 mg/1 mL diluée dans une seringue de 10 mL : combien de mg par mL ?",
+        "10 mg de morphine dans 10 mL au total : quelle concentration ?",
+        "Tu dilues une ampoule de 10 mg dans 9 mL de NaCl : concentration obtenue ?"
+      ],
+      "answer": 1,
+      "unit": "mg/mL",
+      "explain": "10 mg dans 10 mL = 1 mg/mL. Cette dilution sert à la titration (par exemple 2 à 3 mg toutes les 5 minutes)."
+    },
+    {
+      "id": "cd-dil-05",
+      "cat": "dilution",
+      "level": 1,
+      "type": "number",
+      "prompt": "Morphine diluée à 1 mg/mL. Prescription : 3 mg en bolus. Quel volume ?",
+      "variants": [
+        "Seringue de morphine à 1 mg/mL : combien de mL pour 3 mg ?",
+        "Bolus de 3 mg de morphine diluée à 1 mg/mL : quel volume injecter ?",
+        "Morphine à 1 mg par mL : volume pour 3 mg ?"
+      ],
+      "answer": 3,
+      "unit": "mL",
+      "explain": "3 mg à 1 mg/mL = 3 mL."
+    },
+    {
+      "id": "cd-dil-06",
+      "cat": "dilution",
+      "level": 2,
+      "type": "number",
+      "prompt": "Héparine à 5 000 UI/mL. Prescription : 7 500 UI. Quel volume ?",
+      "variants": [
+        "Flacon d'héparine à 5 000 UI par mL : volume pour 7 500 UI ?",
+        "7 500 UI d'héparine dosée à 5 000 UI/mL : combien de mL ?",
+        "Héparine 5 000 UI/mL, prescription 7 500 UI : volume à prélever ?"
+      ],
+      "answer": 1.5,
+      "unit": "mL",
+      "explain": "7 500 / 5 000 = 1,5 mL."
+    },
+    {
+      "id": "cd-dil-07",
+      "cat": "dilution",
+      "level": 2,
+      "type": "number",
+      "prompt": "Insuline à 100 UI/mL. Combien de mL pour 12 UI ?",
+      "variants": [
+        "Insuline U-100 : volume correspondant à 12 UI ?",
+        "12 UI d'une insuline à 100 UI par mL : combien de mL ?",
+        "Quel volume représentent 12 UI d'insuline dosée à 100 UI/mL ?"
+      ],
+      "answer": 0.12,
+      "unit": "mL",
+      "explain": "12 / 100 = 0,12 mL. On utilise un stylo ou une seringue à insuline graduée en UI, jamais une seringue ordinaire."
+    },
+    {
+      "id": "cd-dil-08",
+      "cat": "dilution",
+      "level": 3,
+      "type": "number",
+      "prompt": "Amikacine 15 mg/kg, patient de 60 kg. Flacons de 500 mg dans 2 mL. Quel volume prélever ?",
+      "variants": [
+        "Patient de 60 kg, amikacine 15 mg/kg, flacon de 500 mg/2 mL : volume ?",
+        "Amikacine à 250 mg/mL : combien de mL pour 15 mg/kg chez un patient de 60 kg ?",
+        "Calcule le volume d'amikacine : 15 mg/kg, 60 kg, flacon de 500 mg dans 2 mL."
+      ],
+      "answer": 3.6,
+      "unit": "mL",
+      "explain": "Dose : 15 × 60 = 900 mg. Concentration : 500 / 2 = 250 mg/mL. Volume : 900 / 250 = 3,6 mL.",
+      "tolerance": 0.05
+    },
+    {
+      "id": "cd-pct-01",
+      "cat": "concentration",
+      "level": 1,
+      "type": "number",
+      "prompt": "Combien de grammes de glucose dans 250 mL de G10 % ?",
+      "variants": [
+        "Poche de 250 mL de glucosé à 10 % : combien de grammes de glucose ?",
+        "G10 %, 250 mL : quelle quantité de glucose en grammes ?",
+        "Quelle masse de glucose apporte 250 mL de G10 % ?"
+      ],
+      "answer": 25,
+      "unit": "g",
+      "explain": "10 % = 10 g pour 100 mL. 250 mL × 10 / 100 = 25 g."
+    },
+    {
+      "id": "cd-pct-02",
+      "cat": "concentration",
+      "level": 2,
+      "type": "number",
+      "prompt": "Combien de mg de lidocaïne dans 5 mL de lidocaïne à 1 % ?",
+      "variants": [
+        "Lidocaïne à 1 %, 5 mL : combien de mg ?",
+        "5 mL de Xylocaïne à 1 % contiennent combien de milligrammes ?",
+        "Quelle dose de lidocaïne dans 5 mL d'une solution à 1 % ?"
+      ],
+      "answer": 50,
+      "unit": "mg",
+      "explain": "1 % = 1 g pour 100 mL = 10 mg/mL. 5 mL × 10 = 50 mg."
+    },
+    {
+      "id": "cd-pct-03",
+      "cat": "concentration",
+      "level": 1,
+      "type": "number",
+      "prompt": "Ampoule de 10 mL de G30 % : combien de grammes de glucose ?",
+      "variants": [
+        "G30 % en ampoule de 10 mL : quantité de glucose ?",
+        "Combien de grammes de sucre dans une ampoule de 10 mL de glucosé à 30 % ?",
+        "Ampoule de glucosé hypertonique à 30 %, 10 mL : combien de g ?"
+      ],
+      "answer": 3,
+      "unit": "g",
+      "explain": "30 g pour 100 mL, donc 3 g pour 10 mL."
+    },
+    {
+      "id": "cd-pct-04",
+      "cat": "concentration",
+      "level": 2,
+      "type": "number",
+      "prompt": "Ampoule de 10 mL de NaCl à 20 % : combien de grammes de NaCl ?",
+      "variants": [
+        "NaCl 20 %, ampoule de 10 mL : combien de grammes de sel ?",
+        "Quelle quantité de chlorure de sodium dans 10 mL de NaCl à 20 % ?",
+        "Ampoule de NaCl hypertonique à 20 % (10 mL) : combien de g ?"
+      ],
+      "answer": 2,
+      "unit": "g",
+      "explain": "20 g pour 100 mL, donc 2 g pour 10 mL."
+    },
+    {
+      "id": "cd-pct-05",
+      "cat": "concentration",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Une solution à 5 % contient :",
+      "variants": [
+        "Que veut dire « solution à 5 % » ?",
+        "Une concentration de 5 % correspond à :",
+        "Solution à 5 % : quelle quantité de produit ?"
+      ],
+      "options": ["5 g pour 100 mL", "5 mg pour 100 mL", "5 g pour 1 L", "0,5 g pour 100 mL"],
+      "answer": 0,
+      "explain": "Un pourcentage = des grammes pour 100 mL. 5 % = 5 g/100 mL = 50 g/L = 50 mg/mL."
+    },
+    {
+      "id": "cd-pct-06",
+      "cat": "concentration",
+      "level": 3,
+      "type": "number",
+      "prompt": "1 g de KCl apporte environ 13,4 mmol de potassium. Combien de mmol dans une ampoule de 10 mL de KCl à 10 % ?",
+      "variants": [
+        "Ampoule de KCl à 10 % (10 mL) : combien de mmol de potassium, sachant que 1 g de KCl ≈ 13,4 mmol ?",
+        "KCl 10 %, 10 mL : apport en mmol de K⁺ (1 g ≈ 13,4 mmol) ?",
+        "Combien de millimoles de potassium dans 10 mL de KCl à 10 % (1 g = 13,4 mmol environ) ?"
+      ],
+      "answer": 13.4,
+      "unit": "mmol",
+      "explain": "L'ampoule contient 1 g de KCl, soit environ 13,4 mmol de K⁺. Le KCl ne se donne jamais en IV directe : toujours dilué, au débit prescrit.",
+      "tolerance": 0.5
+    },
+    {
+      "id": "cd-pct-07",
+      "cat": "concentration",
+      "level": 2,
+      "type": "number",
+      "prompt": "Combien de mL de G30 % pour apporter 15 g de glucose ?",
+      "variants": [
+        "Resucrage : volume de G30 % pour 15 g de glucose ?",
+        "Pour 15 g de glucose, combien de mL de glucosé à 30 % ?",
+        "G30 % : quel volume apporte 15 grammes de glucose ?"
+      ],
+      "answer": 50,
+      "unit": "mL",
+      "explain": "30 g pour 100 mL. 15 g = 50 mL."
+    },
+    {
+      "id": "cd-poids-01",
+      "cat": "poids",
+      "level": 2,
+      "type": "number",
+      "prompt": "Amoxicilline 50 mg/kg/jour en 3 prises, enfant de 20 kg. Dose par prise (arrondie au mg) ?",
+      "variants": [
+        "Enfant de 20 kg, amoxicilline 50 mg/kg/j en 3 prises : combien de mg par prise ?",
+        "Dose par prise d'amoxicilline : 50 mg/kg/jour, 20 kg, trois prises.",
+        "50 mg/kg/j d'amoxicilline réparti en 3 prises pour 20 kg : dose de chaque prise ?"
+      ],
+      "answer": 333,
+      "unit": "mg",
+      "explain": "50 × 20 = 1 000 mg par jour, divisés en 3 prises : environ 333 mg par prise.",
+      "tolerance": 1
+    },
+    {
+      "id": "cd-poids-02",
+      "cat": "poids",
+      "level": 1,
+      "type": "number",
+      "prompt": "Énoxaparine 100 UI/kg toutes les 12 h, patient de 70 kg. Dose par injection ?",
+      "variants": [
+        "HBPM à 100 UI/kg toutes les 12 h, 70 kg : combien d'UI par injection ?",
+        "Patient de 70 kg, énoxaparine 100 UI/kg/12 h : dose de chaque injection ?",
+        "Combien d'UI d'énoxaparine par injection à 100 UI/kg pour 70 kg ?"
+      ],
+      "answer": 7000,
+      "unit": "UI",
+      "explain": "100 × 70 = 7 000 UI toutes les 12 heures (dose curative)."
+    },
+    {
+      "id": "cd-poids-03",
+      "cat": "poids",
+      "level": 2,
+      "type": "number",
+      "prompt": "Énoxaparine : il faut 7 000 UI. Seringue dosée à 10 000 UI/mL. Quel volume ?",
+      "variants": [
+        "7 000 UI d'énoxaparine à 10 000 UI/mL : combien de mL ?",
+        "Seringue de Lovenox à 10 000 UI/mL : volume pour 7 000 UI ?",
+        "Quel volume injecter pour 7 000 UI avec une HBPM à 10 000 UI par mL ?"
+      ],
+      "answer": 0.7,
+      "unit": "mL",
+      "explain": "7 000 / 10 000 = 0,7 mL. Purger l'excédent avant l'injection sous-cutanée."
+    },
+    {
+      "id": "cd-poids-04",
+      "cat": "poids",
+      "level": 1,
+      "type": "number",
+      "prompt": "Gentamicine 3 mg/kg en une injection par jour, patient de 75 kg. Dose ?",
+      "variants": [
+        "Patient de 75 kg, gentamicine 3 mg/kg/j : combien de mg ?",
+        "Dose journalière de gentamicine à 3 mg/kg pour 75 kg ?",
+        "Gentamicine 3 mg/kg, 75 kg, une injection : quelle dose ?"
+      ],
+      "answer": 225,
+      "unit": "mg",
+      "explain": "3 × 75 = 225 mg. Surveiller la fonction rénale et l'audition (aminoside)."
+    },
+    {
+      "id": "cd-poids-05",
+      "cat": "poids",
+      "level": 3,
+      "type": "number",
+      "prompt": "Paracétamol 15 mg/kg par prise, enfant de 12 kg, suspension buvable à 24 mg/mL. Volume par prise ?",
+      "variants": [
+        "Enfant de 12 kg, paracétamol 15 mg/kg, suspension à 24 mg/mL : combien de mL ?",
+        "Sirop de paracétamol à 24 mg/mL : volume pour 15 mg/kg chez un enfant de 12 kg ?",
+        "Calcule le volume : 15 mg/kg, 12 kg, suspension à 24 mg par mL."
+      ],
+      "answer": 7.5,
+      "unit": "mL",
+      "explain": "Dose : 15 × 12 = 180 mg. Volume : 180 / 24 = 7,5 mL.",
+      "tolerance": 0.1
+    },
+    {
+      "id": "cd-poids-06",
+      "cat": "poids",
+      "level": 1,
+      "type": "number",
+      "prompt": "Dose maximale de paracétamol chez l'adulte de plus de 50 kg, par 24 heures (en g) ?",
+      "variants": [
+        "Adulte de plus de 50 kg : combien de grammes de paracétamol au maximum par jour ?",
+        "Paracétamol chez l'adulte : dose maximale sur 24 h, en grammes ?",
+        "Quelle est la dose journalière maximale de paracétamol chez un adulte de plus de 50 kg ?"
+      ],
+      "answer": 4,
+      "unit": "g",
+      "explain": "4 g par 24 h au maximum, 1 g par prise, 4 heures minimum entre deux prises. Souvent 3 g en cas d'insuffisance hépatique, d'alcool ou de dénutrition."
+    },
+    {
+      "id": "cd-conv-01",
+      "cat": "conversion",
+      "level": 1,
+      "type": "number",
+      "prompt": "Convertis 1,5 g en mg.",
+      "variants": [
+        "1,5 g, c'est combien de mg ?",
+        "Combien de milligrammes dans 1,5 gramme ?",
+        "Exprime 1,5 g en mg."
+      ],
+      "answer": 1500,
+      "unit": "mg",
+      "explain": "1 g = 1 000 mg, donc 1,5 g = 1 500 mg."
+    },
+    {
+      "id": "cd-conv-02",
+      "cat": "conversion",
+      "level": 1,
+      "type": "number",
+      "prompt": "Convertis 500 µg en mg.",
+      "variants": [
+        "500 microgrammes, c'est combien de mg ?",
+        "Combien de mg dans 500 µg ?",
+        "Exprime 500 µg en milligrammes."
+      ],
+      "answer": 0.5,
+      "unit": "mg",
+      "explain": "1 mg = 1 000 µg, donc 500 µg = 0,5 mg."
+    },
+    {
+      "id": "cd-conv-03",
+      "cat": "conversion",
+      "level": 1,
+      "type": "number",
+      "prompt": "Combien de mL dans 2,5 L ?",
+      "variants": [
+        "2,5 litres, c'est combien de millilitres ?",
+        "Convertis 2,5 L en mL.",
+        "Exprime 2,5 L en mL."
+      ],
+      "answer": 2500,
+      "unit": "mL",
+      "explain": "1 L = 1 000 mL, donc 2,5 L = 2 500 mL."
+    },
+    {
+      "id": "cd-conv-04",
+      "cat": "conversion",
+      "level": 1,
+      "type": "number",
+      "prompt": "Combien de minutes dans 3 h 20 ?",
+      "variants": [
+        "3 heures 20, c'est combien de minutes ?",
+        "Convertis 3 h 20 min en minutes.",
+        "Exprime une durée de 3 h 20 en minutes."
+      ],
+      "answer": 200,
+      "unit": "min",
+      "explain": "3 × 60 + 20 = 200 minutes."
+    },
+    {
+      "id": "cd-conv-05",
+      "cat": "conversion",
+      "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque unité à son équivalent.",
+      "variants": [
+        "Relie chaque quantité à sa conversion.",
+        "Conversions d'unités : forme les paires.",
+        "Fais correspondre chaque unité avec son équivalent."
+      ],
+      "left": "Unité",
+      "right": "Équivalent",
+      "pairs": [
+        ["1 g", "1 000 mg"],
+        ["1 mg", "1 000 µg"],
+        ["1 L", "1 000 mL"],
+        ["1 dL", "100 mL"],
+        ["1 cL", "10 mL"]
+      ],
+      "explain": "Masse : g → mg → µg (× 1 000 à chaque fois). Volume : 1 L = 10 dL = 100 cL = 1 000 mL."
+    },
+    {
+      "id": "cd-conv-06",
+      "cat": "conversion",
+      "level": 2,
+      "type": "order",
+      "prompt": "Range ces doses de la plus petite à la plus grande.",
+      "variants": [
+        "Classe ces quantités, de la plus faible à la plus forte.",
+        "De la plus petite à la plus grande : remets ces doses dans l'ordre.",
+        "Ordonne ces masses par ordre croissant."
+      ],
+      "items": ["50 µg", "0,5 mg", "5 mg", "0,05 g", "0,5 g"],
+      "explain": "50 µg = 0,05 mg < 0,5 mg < 5 mg < 0,05 g (= 50 mg) < 0,5 g (= 500 mg). Tout convertir dans la même unité avant de comparer."
     }
-  ],
-  "icon": "syringe"
+  ]
 }
