@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Grunge : cave rouillée, ampoule qui grésille, toiles d'araignée, saleté (js/fonds.js),
+   boutons en tôle larmée (diamond plate) avec reflets, rivets et rouille, bruit de fond inquiétant.
+   ========================================================================== */
+@font-face {
+  font-family: "Special Elite";
+  src: url("../../assets/fonts/special-elite.woff2") format("woff2");
+  font-weight: 400; font-display: swap;
+}
+
+[data-theme="grunge"] {
+  color-scheme: dark;
+  --font-display: "Special Elite", "Courier New", monospace;
+  --bg: #0F0D0B;
+  --bg-grid: transparent;
+  --surface: #1C1916;
+  --surface-2: #26221D;
+  --ink: #DCD5C6;
+  --ink-2: #ADA390;
+  --ink-3: #7E7564;
+  --line: #3A342C;
+  --edge: rgba(0, 0, 0, .7);
+  --gloss: rgba(255, 255, 255, .14);
+  --focus: #D9B44A;
+
+  --brand: #B0512A;
+  --brand-2: #7C3A1E;
+  --brand-ink: #F4EBDD;
+
+  --c1: #A9522C; --c1-ink: #F7EEE2;   /* rouille */
+  --c2: #5F7350; --c2-ink: #F1F4EC;   /* mousse */
+  --c3: #B89A3A; --c3-ink: #15120D;   /* soufre */
+  --c4: #7C2B24; --c4-ink: #F7E9E6;   /* sang séché */
+  --c5: #5B656F; --c5-ink: #F1F4F7;   /* acier */
+  --c6: #86684A; --c6-ink: #F7F0E6;   /* boue */
+
+  --good: #8DB060;
+  --bad: #D2452F;
+  --mid: #CC9B30;
+
+  --stage: rgba(15, 13, 11, .82);
+  --stage-2: rgba(32, 27, 22, .9);
+  --stage-grid: rgba(255, 255, 255, .03);
+  --stage-ink: #DCD5C6;
+  --trace: #B89A3A;
+  --plank: #26221D;
+  --plank-edge: #A9522C;
+
+  /* tôle larmée : rangées de larmes croisées en relief */
+  --plate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' stroke-linecap='round' stroke-width='3'%3E%3Cpath d='M3.3 7.5l5-5M12.5 13.3l5 5' stroke='%23000' stroke-opacity='.5'/%3E%3Cpath d='M2.5 6.7l5-5M11.7 12.5l5 5' stroke='%23fff' stroke-opacity='.5'/%3E%3C/svg%3E");
+  --dirt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .22 0 0 0 0 .13 0 0 0 0 .05 0 0 0 1.5 -.62'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
+  --dirt-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035' numOctaves='4' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 .22 0 0 0 0 .13 0 0 0 0 .05 0 0 0 .9 -.5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
+  --web: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110' fill='none' stroke='%23E8E2D4' stroke-opacity='.35' stroke-width='.8'%3E%3Cpath d='M0 0l110 70M0 0l90 90M0 0l70 110M0 0l105 30M0 0l30 105'/%3E%3Cpath d='M22 6q6 9 4 18 9-2 15 7-9 3-9 14M44 13q8 14 5 31 16-4 27 10-14 7-15 22M70 22q8 20 3 42 22-5 37 13M15 30q8 0 11 0'/%3E%3Cpath d='M12 3q3 7 1 11 7-1 12 4-6 4-5 9' stroke-opacity='.25'/%3E%3C/svg%3E");
+}
+html[data-theme="grunge"] { background: #0F0D0B; }
+[data-theme="grunge"] body { background-color: transparent; background-image: none; }
+
+/* lumière qui grésille sur toute la page : quelques coupures brèves */
+[data-theme="grunge"] body::after {
+  content: ""; position: fixed; inset: 0; z-index: 40; pointer-events: none;
+  background: #000;
+  opacity: 0;
+  animation: grunge-flicker 9s steps(1, end) infinite;
+}
+@keyframes grunge-flicker {
+  0%, 61%, 63.5%, 66%, 100% { opacity: 0; }
+  62% { opacity: .38; }
+  64% { opacity: .22; }
+  65% { opacity: .5; }
+  88% { opacity: 0; }
+  88.6% { opacity: .3; }
+}
+html[data-motion="reduced"][data-theme="grunge"] body::after { animation: none; }
+@media (prefers-reduced-motion: reduce) { [data-theme="grunge"] body::after { animation: none; } }
+
+/* boutons en tôle larmée : métal teinté, larmes en relief, rouille, rivets, reflet qui passe */
+[data-theme="grunge"] .key:not(.key--ghost) {
+  --rivet: radial-gradient(circle at 40% 35%, #f2efe8 0 .8px, #9a948a 1.8px, #3d3a35 3px, transparent 3.6px);
+  background-color: color-mix(in srgb, var(--k-bg) 55%, #8f9296);
+  background-image:
+    var(--rivet), var(--rivet), var(--rivet), var(--rivet),
+    linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .28) 42%, transparent 54%),
+    var(--dirt),
+    var(--plate),
+    linear-gradient(180deg, rgba(255, 255, 255, .22), rgba(0, 0, 0, .35));
+  background-size: 8px 8px, 8px 8px, 8px 8px, 8px 8px, 260% 100%, 180px 180px, 20px 20px, 100% 100%;
+  background-position: 7px 7px, calc(100% - 7px) 7px, 7px calc(100% - 7px - var(--k-edge)), calc(100% - 7px) calc(100% - 7px - var(--k-edge)), 120% 0, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat, repeat, no-repeat;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .6);
+  transition: background-position .9s var(--ease-out), transform .09s var(--ease-out), box-shadow .09s var(--ease-out);
+}
+@media (hover: hover) {
+  [data-theme="grunge"] .key:not(.key--ghost):hover:not(:disabled) {
+    background-position: 7px 7px, calc(100% - 7px) 7px, 7px calc(100% - 7px - var(--k-edge)), calc(100% - 7px) calc(100% - 7px - var(--k-edge)), -20% 0, 0 0, 0 0, 0 0;
+    filter: none;
+  }
+}
+[data-theme="grunge"] .answer--3 .answer__text { text-shadow: 0 1px 0 rgba(255, 255, 255, .35); }
+[data-theme="grunge"] .key--ghost { background: rgba(28, 25, 22, .85); color: var(--ink); box-shadow: inset 0 0 0 1.5px #4A4339, inset 0 -3px 0 rgba(0, 0, 0, .5); }
+
+/* cartes : béton sale, toiles d'araignée dans les coins */
+[data-theme="grunge"] :is(.q-card, .rx, .dialog, .notice, .receipt) {
+  background-color: rgba(28, 25, 22, .94);
+  background-image: var(--web), var(--dirt-soft);
+  background-size: 110px 110px, 180px 180px;
+  background-position: 0 0, 0 0;
+  background-repeat: no-repeat, repeat;
+  outline: 1px solid rgba(120, 110, 95, .35);
+  outline-offset: -1px;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, .55), 0 10px 30px rgba(0, 0, 0, .6);
+}
+[data-theme="grunge"] .hero__title,
+[data-theme="grunge"] .notice__title { text-shadow: 2px 2px 0 rgba(124, 43, 36, .6), 0 0 18px rgba(0, 0, 0, .8); letter-spacing: .01em; }
+[data-theme="grunge"] .topbar { background: rgba(15, 13, 11, .86); border-bottom-color: #3A342C; }
+[data-theme="grunge"] .dialog::backdrop { background: rgba(0, 0, 0, .72); }
+[data-theme="grunge"] .cross3d__layer { background: #7C2B24; }
+[data-theme="grunge"] .field { background: rgba(15, 13, 11, .9); border-color: #4A4339; color: var(--ink); }
+
+.tprev[data-theme="grunge"] { background: radial-gradient(60% 80% at 50% 0%, rgba(255, 214, 140, .35), transparent 70%), #0F0D0B; }
+.tprev[data-theme="grunge"]::before { content: ""; position: absolute; left: 0; top: 0; width: 70px; height: 70px; background: var(--web) 0 0 / 70px 70px no-repeat; }
+.tprev[data-theme="grunge"] .tprev__tile { background-color: color-mix(in srgb, var(--t) 55%, #8f9296); background-image: var(--plate), linear-gradient(180deg, rgba(255, 255, 255, .2), rgba(0, 0, 0, .35)); background-size: 13px 13px, 100% 100%; }

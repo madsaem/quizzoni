@@ -1,0 +1,7 @@
+{
+  "_aide": "Thème grunge : sans fichier, la musique est composée et jouée par le navigateur. Pour la remplacer, déposer un fichier ici et écrire son nom dans menu.fichier.",
+  "menu": { "fichier": "", "volume": 0.5 },
+  "victoire": { "fichier": "", "debut": 0, "duree": 0, "volume": 0.6 },
+  "defaite": { "fichier": "", "debut": 0, "duree": 0, "volume": 0.6 },
+  "sons": {}
+}

@@ -363,3 +363,15 @@ html[data-theme="mayuff"][data-mood="lose"] body::after { opacity: 1; }
 /* Les deux puffs du fond : vrai volume 3D dessiné en WebGL (js/puffs.js) */
 #puffs { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 @media (max-width: 760px) { #puffs { opacity: .6; } }
+
+/* Jaillissements des thèmes Automne, Gilded et Scarlet (js/themefx.js) */
+.fx-fling { position: fixed; inset: 0; z-index: 70; pointer-events: none; overflow: hidden; }
+.fx-fling > * { position: absolute; will-change: transform, opacity; }
+.fx-leaf { width: 26px; height: 26px; }
+.fx-leaf svg, .fx-knife svg { display: block; width: 100%; height: 100%; }
+.fx-coin {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FFF6C9 0 12%, #F0C94A 40%, #A7801F 100%);
+  box-shadow: inset 0 0 0 2px rgba(122, 90, 20, .7), inset 0 0 0 5px rgba(255, 240, 180, .35), 0 0 10px rgba(255, 215, 90, .6);
+}
+.fx-knife { width: 58px; height: 10px; filter: drop-shadow(0 0 6px rgba(190, 210, 255, .9)); }

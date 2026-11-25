@@ -1,0 +1,7 @@
+{
+  "_aide": "Thème David. Menu : Hava Nagila, chant traditionnel (enregistrement du domaine public, Wikimedia Commons, d'après A. Z. Idelsohn, 1915). Pour mettre une autre chanson (par exemple Tel Aviv), déposer le fichier dans ce dossier et écrire son nom dans menu.fichier.",
+  "menu": { "fichier": "hava-nagila.mp3", "volume": 0.6 },
+  "victoire": { "fichier": "", "debut": 0, "duree": 0, "volume": 0.6 },
+  "defaite": { "fichier": "", "debut": 0, "duree": 0, "volume": 0.6 },
+  "sons": {}
+}

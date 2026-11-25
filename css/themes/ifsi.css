@@ -1,0 +1,143 @@
+/* ==========================================================================
+   IFSI : feuille d'écolier (réglure Seyès, marge rouge, trous de classeur) et site
+   institutionnel d'un autre temps : bandeau bleu dégradé, boutons bombés, Verdana, liens soulignés.
+   Titres écrits à la main (Playwrite France, écriture scolaire).
+   ========================================================================== */
+@font-face {
+  font-family: "Playwrite FR";
+  src: url("../../assets/fonts/playwrite-fr.woff2") format("woff2");
+  font-weight: 400; font-display: swap;
+}
+
+[data-theme="ifsi"] {
+  color-scheme: light;
+  --font-display: "Playwrite FR", "Comic Sans MS", cursive;
+  --font-body: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+  --cut: 0px;
+  --bg: #FDFDF6;
+  --bg-grid: transparent;
+  --surface: #FFFFFF;
+  --surface-2: #F1F4FB;
+  --ink: #1B2A5E;
+  --ink-2: #3D4B7A;
+  --ink-3: #6B7497;
+  --line: #C9D3EA;
+  --edge: rgba(15, 30, 80, .45);
+  --gloss: rgba(255, 255, 255, .7);
+  --focus: #C62828;
+
+  --brand: #2153A8;
+  --brand-2: #163D80;
+  --brand-ink: #FFFFFF;
+
+  --c1: #2153A8; --c1-ink: #FFFFFF;   /* stylo bleu */
+  --c2: #C62828; --c2-ink: #FFFFFF;   /* stylo rouge */
+  --c3: #F4D63E; --c3-ink: #1B2A5E;   /* surligneur jaune */
+  --c4: #2E7D32; --c4-ink: #FFFFFF;   /* stylo vert */
+  --c5: #7B3FA0; --c5-ink: #FFFFFF;   /* stylo violet */
+  --c6: #F06F9F; --c6-ink: #1B2A5E;   /* surligneur rose */
+
+  --good: #2E7D32;
+  --bad: #C62828;
+  --mid: #E08A00;
+
+  --stage: rgba(241, 244, 251, .7);
+  --stage-2: rgba(210, 222, 245, .75);
+  --stage-grid: rgba(80, 110, 200, .12);
+  --stage-ink: #1B2A5E;
+  --trace: #C62828;
+  --plank: #FFFFFF;
+  --plank-edge: #2153A8;
+}
+/* réglure Seyès : interlignes fins tous les 8 px, ligne forte tous les 32 px, verticales, marge rouge */
+html[data-theme="ifsi"] {
+  background-color: #FDFDF6;
+  background-image:
+    linear-gradient(90deg, transparent 78px, rgba(230, 70, 80, .75) 78px 80px, transparent 80px),
+    repeating-linear-gradient(to bottom, transparent 0 31px, rgba(90, 120, 205, .45) 31px 32px),
+    repeating-linear-gradient(to bottom, transparent 0 7px, rgba(120, 150, 220, .2) 7px 8px),
+    repeating-linear-gradient(to right, transparent 0 31px, rgba(150, 120, 200, .16) 31px 32px);
+  background-attachment: fixed;
+}
+[data-theme="ifsi"] body { background-color: transparent; background-image: none; }
+/* trous de classeur dans la marge */
+[data-theme="ifsi"] body::before {
+  content: ""; position: fixed; left: 26px; top: 0; bottom: 0; width: 22px; z-index: -1; pointer-events: none;
+  background: radial-gradient(circle at 11px 50%, #E6E6DC 0 7px, rgba(0, 0, 0, .12) 7.5px, transparent 9px) 0 0 / 22px 33.3vh repeat-y;
+}
+
+/* titres écrits au stylo bleu */
+[data-theme="ifsi"] :is(h1, h2, .hero__title, .notice__title, .shelf__title, .box__title, .dialog h2) { font-weight: 400; letter-spacing: 0; font-stretch: 100%; color: #1B3A8C; }
+[data-theme="ifsi"] .hero__title { font-size: clamp(1.9rem, 4.2vw, 3rem); line-height: 1.5; }
+[data-theme="ifsi"] .box__title { font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.5; }
+[data-theme="ifsi"] .q-prompt { font-family: Verdana, Tahoma, sans-serif; font-weight: 700; letter-spacing: -.01em; }
+[data-theme="ifsi"] a:not(.key):not(.box):not(.logo) { color: #1A0DAB; text-decoration: underline; }
+[data-theme="ifsi"] a:not(.key):not(.box):not(.logo):visited { color: #681DA8; }
+
+/* boutons bombés façon site des années 2000 */
+[data-theme="ifsi"] .key {
+  clip-path: none;
+  border-radius: 5px;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-size: calc(var(--t-lg) * .82);
+  letter-spacing: -.01em;
+}
+[data-theme="ifsi"] .key:not(.key--ghost) {
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--k-bg) 30%, #fff) 0%,
+    color-mix(in srgb, var(--k-bg) 72%, #fff) 48%,
+    var(--k-bg) 52%,
+    color-mix(in srgb, var(--k-bg) 82%, #000) 100%);
+  border: 1px solid color-mix(in srgb, var(--k-bg) 55%, #000);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .75), inset 0 -1px 0 rgba(0, 0, 0, .15), 1px 2px 2px rgba(0, 0, 0, .25);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+  padding-bottom: .7em;
+}
+[data-theme="ifsi"] :is(.answer--3, .answer--6) .answer__text { text-shadow: 0 1px 0 rgba(255, 255, 255, .6); }
+[data-theme="ifsi"] .key:not(.key--ghost):active:not(:disabled) { transform: translateY(1px); box-shadow: inset 0 2px 4px rgba(0, 0, 0, .3); }
+[data-theme="ifsi"] .key--ghost {
+  background: linear-gradient(#FFFFFF, #E4E9F4);
+  color: #1B2A5E;
+  border: 1px solid #8C9BC2;
+  box-shadow: inset 0 1px 0 #fff, 1px 1px 1px rgba(0, 0, 0, .15);
+  padding-bottom: .7em;
+}
+[data-theme="ifsi"] .answer[aria-pressed="true"] { box-shadow: inset 0 0 0 3px #fff, 0 0 0 3px #1B2A5E; }
+[data-theme="ifsi"] .answer.is-correct { box-shadow: 0 0 0 4px var(--good), inset 0 0 0 2px #fff; }
+[data-theme="ifsi"] .answer.is-wrong { box-shadow: 0 0 0 4px var(--bad), inset 0 0 0 2px #fff; }
+
+/* cartes : feuilles blanches, cadre fin et ombre portée d'époque */
+[data-theme="ifsi"] :is(.q-card, .rx, .dialog, .notice, .receipt, .tcard, .mode) {
+  clip-path: none;
+  border-radius: 0;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 1px #B8C4E0, 3px 3px 0 rgba(27, 42, 94, .12);
+}
+[data-theme="ifsi"] :is(.notice, .receipt) {
+  background-image: linear-gradient(90deg, transparent 30px, rgba(230, 70, 80, .55) 30px 31.5px, transparent 31.5px);
+  padding-left: 2.6rem;
+}
+/* bandeau institutionnel bleu dégradé */
+[data-theme="ifsi"] .topbar {
+  background: linear-gradient(to bottom, #4A7BC8 0%, #2C5AA6 50%, #1F4A94 51%, #1A3F80 100%);
+  border-bottom: 3px solid #F4D63E;
+  color: #fff;
+}
+[data-theme="ifsi"] .topbar .logo { color: #fff; font-family: Verdana, Tahoma, sans-serif; font-weight: 700; letter-spacing: -.02em; text-shadow: 1px 1px 0 rgba(0, 0, 0, .35); }
+[data-theme="ifsi"] .topbar .key--ghost { background: linear-gradient(#FFFFFF, #DCE4F4); }
+[data-theme="ifsi"] .cross3d__layer { background: #C62828; }
+[data-theme="ifsi"] .dialog::backdrop { background: rgba(20, 30, 70, .45); backdrop-filter: none; }
+[data-theme="ifsi"] .field { border-radius: 2px; border: 1px solid #7F8FB8; box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .15); }
+[data-theme="ifsi"] .box__front { background-image: repeating-linear-gradient(to bottom, transparent 0 15px, rgba(90, 120, 205, .2) 15px 16px); }
+
+.tprev[data-theme="ifsi"] {
+  background-color: #FDFDF6;
+  background-image:
+    linear-gradient(90deg, transparent 18px, rgba(230, 70, 80, .7) 18px 19px, transparent 19px),
+    repeating-linear-gradient(to bottom, transparent 0 15px, rgba(90, 120, 205, .4) 15px 16px),
+    repeating-linear-gradient(to bottom, transparent 0 3px, rgba(120, 150, 220, .18) 3px 4px);
+}
+.tprev[data-theme="ifsi"] .tprev__q { clip-path: none; box-shadow: 0 0 0 1px #B8C4E0; font-family: Verdana, sans-serif; }
+.tprev[data-theme="ifsi"] .tprev__tile { clip-path: none; border-radius: 3px; background: linear-gradient(color-mix(in srgb, var(--t) 40%, #fff), var(--t) 52%); border: 1px solid color-mix(in srgb, var(--t) 60%, #000); box-shadow: none; }

@@ -5,7 +5,8 @@
 // La rubrique "sons" du même fichier peut remplacer les bruitages (clic, bonne réponse…).
 import { audioOut, sound } from './audio.js';
 
-const MUSICAL = new Set(['warfare']);
+const MUSICAL = new Set(['warfare', 'grunge', 'scarlet', 'david', 'bazaar']);
+const AMBIENT = new Set(['grunge']);   // bruit de fond : continue pendant les parties
 
 let theme = null;
 let manifest = null;
@@ -200,6 +201,116 @@ function synthDefeat(ctx, dest) {
   return 9;
 }
 
+/** Grunge : bruit de fond inquiétant. Grondement grave qui respire, vent dans les tuyaux,
+    et de temps en temps un grincement, un choc lointain ou une goutte qui résonne. */
+function synthDrone(ctx, dest) {
+  const nodes = [];
+  const t0 = ctx.currentTime;
+  const lp = ctx.createBiquadFilter();
+  lp.type = 'lowpass'; lp.frequency.value = 220; lp.Q.value = 4;
+  const lfo = ctx.createOscillator(); lfo.frequency.value = .07;
+  const lfoG = ctx.createGain(); lfoG.gain.value = 120;
+  lfo.connect(lfoG).connect(lp.frequency);
+  const g = ctx.createGain(); g.gain.value = .5;
+  lp.connect(g).connect(dest);
+  [36.7, 37.3, 55.1].forEach((f) => { const o = ctx.createOscillator(); o.type = 'sawtooth'; o.frequency.value = f; o.connect(lp); o.start(t0); nodes.push(o); });
+  // vent : bruit filtré dont le volume ondule
+  const len = ctx.sampleRate * 4;
+  const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+  const d = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+  const wind = ctx.createBufferSource(); wind.buffer = buf; wind.loop = true;
+  const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 420; bp.Q.value = 1.4;
+  const wg = ctx.createGain(); wg.gain.value = .05;
+  const wl = ctx.createOscillator(); wl.frequency.value = .11;
+  const wlg = ctx.createGain(); wlg.gain.value = .04;
+  wl.connect(wlg).connect(wg.gain);
+  wind.connect(bp).connect(wg).connect(dest);
+  wind.start(t0); lfo.start(t0); wl.start(t0);
+  nodes.push(wind, lfo, wl);
+  // évènements isolés
+  const events = [
+    (t) => { // grincement de métal
+      const o = ctx.createOscillator(); o.type = 'sawtooth';
+      o.frequency.setValueAtTime(300, t); o.frequency.linearRampToValueAtTime(420, t + .5); o.frequency.linearRampToValueAtTime(260, t + 1.2);
+      const f = ctx.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = 1400; f.Q.value = 18;
+      const e = ctx.createGain(); e.gain.setValueAtTime(.0001, t); e.gain.exponentialRampToValueAtTime(.05, t + .2); e.gain.exponentialRampToValueAtTime(.0001, t + 1.3);
+      o.connect(f).connect(e).connect(dest); o.start(t); o.stop(t + 1.4);
+    },
+    (t) => boom(ctx, dest, { t, g: .25, f: 48 }),          // choc lointain
+    (t) => { // goutte qui résonne
+      [0, .28, .56].forEach((dt, i) => {
+        const o = ctx.createOscillator(); o.frequency.setValueAtTime(1500, t + dt); o.frequency.exponentialRampToValueAtTime(900, t + dt + .12);
+        const e = ctx.createGain(); e.gain.setValueAtTime(.0001, t + dt); e.gain.exponentialRampToValueAtTime(.05 / (i + 1), t + dt + .005); e.gain.exponentialRampToValueAtTime(.0001, t + dt + .25);
+        o.connect(e).connect(dest); o.start(t + dt); o.stop(t + dt + .3);
+      });
+    },
+  ];
+  const timer = setInterval(() => { if (Math.random() < .35) events[(Math.random() * events.length) | 0](ctx.currentTime + .05); }, 2500);
+  return () => { clearInterval(timer); nodes.forEach((n) => { try { n.stop(ctx.currentTime + 2); } catch { /* déjà arrêté */ } }); };
+}
+
+/** Bazaar : air original en mode hijaz (ré), oud, darbouka (rythme maqsum), bourdon et ney. */
+function synthSouk(ctx, dest) {
+  const beat = 60 / 96;
+  const bar = beat * 4;
+  const scale = [0, 1, 4, 5, 7, 8, 10, 12, 13, 16];
+  const D = 146.83;
+  // 8 mesures, 8 croches chacune : degrés de la gamme (null = silence)
+  const MELODY = [
+    [4, null, 3, 2, 1, null, 0, null], [1, 2, 3, null, 4, 3, 2, null],
+    [4, 5, 6, null, 5, 4, 3, 2], [1, null, 0, null, null, null, null, null],
+    [7, null, 6, 5, 4, null, 5, 6], [7, 8, 7, null, 6, 5, 4, null],
+    [3, 4, 5, 4, 3, 2, 1, null], [0, null, null, null, null, null, null, null],
+  ];
+  const pluckNote = (f, t, g = .07) => {
+    const o = ctx.createOscillator(); o.type = 'sawtooth'; o.frequency.value = f;
+    const filt = ctx.createBiquadFilter(); filt.type = 'lowpass'; filt.frequency.setValueAtTime(2600, t); filt.frequency.exponentialRampToValueAtTime(500, t + .35);
+    const e = ctx.createGain(); e.gain.setValueAtTime(.0001, t); e.gain.exponentialRampToValueAtTime(g, t + .004); e.gain.exponentialRampToValueAtTime(.0001, t + .6);
+    o.connect(filt).connect(e).connect(dest); o.start(t); o.stop(t + .65);
+  };
+  const drum = (t, low) => {
+    if (low) { boom(ctx, dest, { t, g: .22, f: 92 }); return; }
+    const len = Math.floor(ctx.sampleRate * .06);
+    const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len) ** 2;
+    const n = ctx.createBufferSource(); n.buffer = buf;
+    const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 3000;
+    const g = ctx.createGain(); g.gain.value = .16;
+    n.connect(hp).connect(g).connect(dest); n.start(t);
+  };
+  let i = 0;
+  let next = ctx.currentTime + .15;
+  // bourdon tenu sur ré (arrêté avec la musique)
+  const dg = ctx.createGain();
+  dg.gain.setValueAtTime(.0001, next); dg.gain.exponentialRampToValueAtTime(.035, next + 2);
+  dg.connect(dest);
+  const drones = [D / 2, D / 2 * 1.003, D * .75].map((f) => { const o = ctx.createOscillator(); o.type = 'triangle'; o.frequency.value = f; o.connect(dg); o.start(next); return o; });
+  const timer = setInterval(schedule, 200);
+  schedule();
+  function schedule() {
+    while (next < ctx.currentTime + 1.2) {
+      const m = MELODY[i % MELODY.length];
+      const t = next;
+      // maqsum : DUM tek . tek DUM . tek .
+      [[0, 1], [1, 0], [3, 0], [4, 1], [6, 0]].forEach(([k, low]) => drum(t + k * beat / 2, low));
+      m.forEach((deg, k) => { if (deg != null) pluckNote(D * 2 * Math.pow(2, scale[deg] / 12), t + k * beat / 2, .06); });
+      // ney : une longue note toutes les 4 mesures
+      if (i % 4 === 2) voice(ctx, dest, { f: D * 4 * Math.pow(2, scale[4] / 12), t: t + beat, dur: bar * 1.2, type: 'sine', g: .025, a: .5, r: 1.2, cutoff: 3000, detune: 6 });
+      i += 1;
+      next += bar;
+    }
+  }
+  return () => { clearInterval(timer); drones.forEach((o) => o.stop(ctx.currentTime + 2)); };
+}
+
+const SYNTH = {
+  warfare: { menu: synthMenu, win: synthVictory, lose: synthDefeat },
+  grunge: { menu: synthDrone },
+  bazaar: { menu: synthSouk },
+};
+
 /* -------------------------------------------------- Lecture de fichiers */
 function playFile(ctx, spec, { loop = false, onEnd } = {}) {
   const el = new Audio();
@@ -236,8 +347,10 @@ function startMenu() {
   if (!o) return null;
   const spec = fileSpec(manifest.menu);
   if (spec) return { kind: 'menu', stop: playFile(o.ctx, spec, { loop: true }) };
+  const make = SYNTH[theme]?.menu;
+  if (!make) return null;
   const g = track(o.ctx, 1);
-  const stopSched = synthMenu(o.ctx, g);
+  const stopSched = make(o.ctx, g);
   return {
     kind: 'menu',
     stop(fade = 1) {
@@ -248,6 +361,12 @@ function startMenu() {
   };
 }
 
+/** Ce thème a-t-il une musique de fin de partie (fichier ou synthèse) ? */
+function hasOutcome(win) {
+  const entry = win ? manifest?.victoire : manifest?.defaite;
+  return !!(entry?.fichier || (win ? SYNTH[theme]?.win : SYNTH[theme]?.lose));
+}
+
 function startOutcome(win) {
   const o = out();
   if (!o) return null;
@@ -255,10 +374,12 @@ function startOutcome(win) {
   const back = () => { if (my === token && current?.kind === 'outcome') { current = null; wanted = 'menu'; music.menu(); } };
   const spec = fileSpec(win ? manifest.victoire : manifest.defaite);
   if (spec) return { kind: 'outcome', stop: playFile(o.ctx, spec, { onEnd: () => setTimeout(back, 1500) }) };
+  const fn = win ? SYNTH[theme]?.win : SYNTH[theme]?.lose;
+  if (!fn) return null;
   const g = track(o.ctx, 1);
   g.gain.cancelScheduledValues(o.ctx.currentTime);
   g.gain.setValueAtTime(1, o.ctx.currentTime);
-  const len = win ? synthVictory(o.ctx, g) : synthDefeat(o.ctx, g);
+  const len = fn(o.ctx, g);
   const timer = setTimeout(back, (len + 2.5) * 1000);
   return {
     kind: 'outcome',
@@ -332,13 +453,14 @@ export const music = {
   /** Pendant une partie : silence. */
   quiet() {
     wanted = null;
+    if (AMBIENT.has(theme) && current?.kind === 'menu') return;   // le bruit de fond continue
     stopCurrent(1.5);
   },
 
   /** Fin de partie : victoire ou défaite. Renvoie true si une musique est jouée. */
   outcome(win) {
+    if (!can() || !hasOutcome(win)) return false;   // pas de musique de fin : on garde celle qui joue
     wanted = null;
-    if (!can()) return false;
     stopCurrent(0.3);
     current = startOutcome(win);
     return !!current;

@@ -1,6 +1,7 @@
 // Point d'entrée : réglages, barre du haut, navigation entre les écrans.
 import * as store from './state.js';
 import { sound } from './audio.js';
+import './sons.js';   // packs de sons des thèmes ajoutés
 import { loadCatalog } from './data.js';
 import { applyTheme, applyMotion, openSettings, openThemes, soundIcon, THEMES } from './ui.js';
 import { setMood } from './themefx.js';

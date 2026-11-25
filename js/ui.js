@@ -14,6 +14,13 @@ export const THEMES = [
   { id: 'pinksoni', name: 'Pinksoni', desc: 'Rose en dégradé, étoiles filantes qui éclatent en cœurs, fleurs qui éclosent sur les bonnes réponses.', sounds: 'Clochettes de cristal' },
   { id: 'mayuff', name: 'Mayuff', desc: 'Deux puffs géantes en 3D, fumée dans les touches, fond rose quand tu réussis, rouge quand tu rates.', sounds: 'Bulles de chewing-gum' },
   { id: 'warfare', name: 'Warfare', desc: 'Hologramme vert, globe radar, lignes de balayage.', sounds: 'Sons de menu militaires', music: true },
+  { id: 'automne', name: 'Automne', desc: 'Soleil bas, arbres roux, feuilles qui tombent, boutons en tricot de pull à losanges.', sounds: 'Bois et feuilles' },
+  { id: 'scarlet', name: 'Scarlet', desc: 'Le manoir écarlate sous la lune de sang : la lance rouge traverse le ciel, le temps s\'arrête parfois.', sounds: 'Clavecin et couteaux', music: true },
+  { id: 'gilded', name: 'Gilded', desc: 'Cuir frappé d\'un monogramme doré et irisé, boutons cousus, rivets et pièces d\'or.', sounds: 'Pièces d\'or' },
+  { id: 'grunge', name: 'Grunge', desc: 'Cave rouillée, ampoule qui grésille, toiles d\'araignée, tôle larmée sur les boutons.', sounds: 'Métal et gouttes', music: true },
+  { id: 'ifsi', name: 'IFSI', desc: 'Feuille d\'écolier à carreaux Seyès et boutons de site des années 2000.', sounds: 'Stylo et sonnerie' },
+  { id: 'david', name: 'David', desc: 'Le drapeau bleu et blanc flotte en fond, étoile de David, Hava Nagila au menu.', sounds: 'Clarinette et tambourin', music: true },
+  { id: 'bazaar', name: 'Bazaar', desc: 'Souk en grès, arcades, lanternes et enseignes en arabe, boutons en zellige.', sounds: 'Oud et darbouka', music: true },
 ];
 
 export function applyTheme(id) {
@@ -120,7 +127,7 @@ export function openSettings() {
       h('div', { class: 'switch-row' }, h('span', {}, 'Thème : ', themeName), themeBtn)),
     h('div', { class: 'setting' },
       h('div', { class: 'switch-row' }, h('label', { for: 'set-sound' }, 'Sons'), soundSwitch),
-      h('div', { class: 'switch-row' }, h('label', { for: 'set-music' }, 'Musique des thèmes', h('small', { class: 'setting__hint', style: { display: 'block', marginTop: 0 } }, 'Thème Warfare : musique de menu, de victoire et de défaite')), musicSwitch),
+      h('div', { class: 'switch-row' }, h('label', { for: 'set-music' }, 'Musique des thèmes', h('small', { class: 'setting__hint', style: { display: 'block', marginTop: 0 } }, `Thèmes ${THEMES.filter((t) => t.music).map((t) => t.name).join(', ')}`)), musicSwitch),
       h('div', { class: 'switch-row' }, h('span', {}, 'Volume'), h('div', { style: { flex: '0 1 12rem' } }, volume)),
       h('div', { class: 'switch-row' }, h('label', { for: 'set-motion' }, 'Réduire les animations'), motionSwitch)),
     h('div', { class: 'dialog__actions', style: { justifyContent: 'space-between' } },

@@ -3,8 +3,10 @@
 //   pinksoni : grandes étoiles filantes qui tombent et éclatent en cœurs au sol
 //   mayuff   : deux puffs en 3D qui tournent (WebGL, voir puffs.js)
 //   warfare  : globe en fil de fer, grille en perspective, cibles, coordonnées (Bastia)
+//   automne, scarlet, gilded, grunge, david, bazaar : voir fonds.js
 import { prefersReducedMotion } from './utils.js';
 import { setPuffs } from './puffs.js';
+import { automne, scarlet, gilded, grunge, david, bazaar } from './fonds.js';
 
 let canvas = null;
 let ctx = null;
@@ -13,7 +15,9 @@ let painter = null;
 let W = 0, H = 0, DPR = 1;
 let last = 0;
 
-const PAINTERS = { etoiles: starry, pinksoni: pinkFall, warfare: holo };
+const PAINTERS = { etoiles: starry, pinksoni: pinkFall, warfare: holo, automne, scarlet, gilded, grunge, david, bazaar };
+// ce que voient les fonds de fonds.js (tenu à jour au redimensionnement)
+const env = { ctx: null, W: 0, H: 0, DPR: 1 };
 
 export function setBackdrop(theme) {
   stop();
@@ -28,7 +32,7 @@ export function setBackdrop(theme) {
     ctx = canvas.getContext('2d');
   }
   resize();
-  painter = make();
+  painter = make(env);
   start();
 }
 
@@ -39,6 +43,7 @@ function resize() {
   canvas.width = Math.round(W * DPR);
   canvas.height = Math.round(H * DPR);
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  Object.assign(env, { ctx, W, H, DPR });
   painter?.resize?.();
 }
 
@@ -56,7 +61,7 @@ function start() {
   raf = requestAnimationFrame(loop);
 }
 
-function stop() { cancelAnimationFrame(raf); raf = 0; painter = null; }
+function stop() { cancelAnimationFrame(raf); raf = 0; painter?.stop?.(); painter = null; }
 
 window.addEventListener('resize', () => { if (painter) { resize(); if (prefersReducedMotion()) painter.draw(0, 0); } });
 document.addEventListener('visibilitychange', () => {

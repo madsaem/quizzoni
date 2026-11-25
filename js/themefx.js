@@ -1,6 +1,7 @@
 // Effets de réponse propres à certains thèmes.
 //   pinksoni : des fleurs éclosent au lieu des confettis sur une bonne réponse
 //   mayuff   : le fond passe au monogramme rose (réussi) ou rouge rosé (raté)
+//   automne, gilded, scarlet : feuilles, pièces d'or ou couteaux d'argent jaillissent de la réponse
 import { prefersReducedMotion } from './utils.js';
 
 const theme = () => document.documentElement.dataset.theme;
@@ -26,7 +27,62 @@ export function answerFx(kind, x, y) {
     bloom(x, y, kind === 'good' ? 3 + Math.round(Math.random() * 2) : 2);
     return true;
   }
+  if (FLING[t] && kind !== 'bad') {
+    fling(x, y, kind === 'good' ? FLING[t].n : Math.ceil(FLING[t].n / 3), FLING[t].make);
+    return true;
+  }
   return false;
+}
+
+/* ------------------------------------------- Jaillissements (DOM + WAAPI) */
+const LEAVES = ['#C8561F', '#E07A2E', '#D9A021', '#A8323A', '#8E3B22', '#E9B44C'];
+const FLING = {
+  automne: {
+    n: 14,
+    make: () => {
+      const el = document.createElement('div');
+      el.className = 'fx-leaf';
+      const c = LEAVES[(Math.random() * LEAVES.length) | 0];
+      el.innerHTML = `<svg viewBox="-10 -10 20 20" aria-hidden="true"><path fill="${c}" d="M0-9.5 2.1-4.3 5.9-5.9 4.3-1.7 9 .5 4-1.9 4.6 5.9 0 3.6-4.6 5.9-4 1.9-9 .5-4.3-1.7-5.9-5.9-2.1-4.3z"/><path d="M0-6v15" stroke="rgba(60,25,8,.5)" stroke-width="1"/></svg>`;
+      return el;
+    },
+  },
+  gilded: { n: 12, make: () => { const el = document.createElement('div'); el.className = 'fx-coin'; return el; } },
+  scarlet: {
+    n: 9,
+    make: () => {
+      const el = document.createElement('div');
+      el.className = 'fx-knife';
+      el.innerHTML = '<svg viewBox="0 0 60 10" aria-hidden="true"><defs><linearGradient id="kb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#C9CED8"/><stop offset="1" stop-color="#6E7586"/></linearGradient></defs><path d="M60 5Q36 1 18 2v6q18 1 42-3z" fill="url(#kb)"/><rect x="15" y="0" width="3" height="10" fill="#E3B04B"/><rect x="2" y="3" width="13" height="4" rx="1.5" fill="#3A1020"/></svg>';
+      return el;
+    },
+  },
+};
+
+let flingLayer = null;
+function fling(x, y, n, make) {
+  if (prefersReducedMotion()) return;
+  if (!flingLayer || !flingLayer.isConnected) {
+    flingLayer = document.createElement('div');
+    flingLayer.className = 'fx-fling';
+    document.body.append(flingLayer);
+  }
+  for (let k = 0; k < n; k++) {
+    const el = make();
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
+    flingLayer.append(el);
+    const a = -Math.PI / 2 + rand(-1.15, 1.15);
+    const v = rand(160, 330);
+    const dx = Math.cos(a) * v, dy = Math.sin(a) * v;
+    const spin = rand(-540, 540);
+    const dur = rand(1100, 1600);
+    el.animate([
+      { transform: 'translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(.4)', opacity: 1 },
+      { transform: `translate(-50%, -50%) translate(${dx * .55}px, ${dy * .55}px) rotate(${spin * .4}deg) scale(1)`, opacity: 1, offset: .35, easing: 'cubic-bezier(.3, 0, .7, 1)' },
+      { transform: `translate(-50%, -50%) translate(${dx * .9}px, ${dy * .15 + 260}px) rotate(${spin}deg) scale(.9)`, opacity: 0 },
+    ], { duration: dur, delay: k * 18, easing: 'cubic-bezier(.15, .7, .4, 1)', fill: 'both' }).finished.then(() => el.remove(), () => el.remove());
+  }
 }
 
 /* ------------------------------------------------------- Fleurs (Pinksoni) */

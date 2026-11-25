@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Bazaar : souk en grès, arcades en fer à cheval, lanternes, enseignes en arabe (js/fonds.js),
+   boutons en zellige (étoiles à huit branches), musique de menu au son de l'oud et du darbouka.
+   ========================================================================== */
+@font-face {
+  font-family: "Reem Kufi";
+  src: url("../../assets/fonts/reem-kufi.woff2") format("woff2");
+  font-weight: 400 700; font-display: swap;
+}
+
+[data-theme="bazaar"] {
+  color-scheme: light;
+  --font-display: "Reem Kufi", "Trebuchet MS", sans-serif;
+  --bg: #E8CFA0;
+  --bg-grid: transparent;
+  --surface: #FBF1DD;
+  --surface-2: #F3E2BF;
+  --ink: #3A2210;
+  --ink-2: #6A4524;
+  --ink-3: #9A7550;
+  --line: #DDBF8C;
+  --edge: rgba(58, 34, 16, .5);
+  --gloss: rgba(255, 248, 230, .35);
+  --focus: #1D7A80;
+
+  --brand: #B5452B;
+  --brand-2: #8C3220;
+  --brand-ink: #FFF6E6;
+
+  --c1: #B5452B; --c1-ink: #FFF6E6;   /* terre cuite */
+  --c2: #1D7A80; --c2-ink: #F0FBFB;   /* turquoise d'Iznik */
+  --c3: #D9A23A; --c3-ink: #3A2210;   /* safran */
+  --c4: #24498F; --c4-ink: #F2F5FF;   /* lapis-lazuli */
+  --c5: #7E3768; --c5-ink: #FFF0FA;   /* prune */
+  --c6: #557A33; --c6-ink: #F4FAEE;   /* olive */
+
+  --good: #3F7D2C;
+  --bad: #B3261E;
+  --mid: #D98E04;
+
+  --stage: rgba(251, 241, 221, .7);
+  --stage-2: rgba(217, 162, 58, .3);
+  --stage-grid: rgba(58, 34, 16, .05);
+  --stage-ink: #3A2210;
+  --trace: #B5452B;
+  --plank: #FBF1DD;
+  --plank-edge: #1D7A80;
+
+  /* zellige : étoile à huit branches entrelacée */
+  --zellige: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' fill='none' stroke='%23FFF6E6' stroke-opacity='.55' stroke-width='1.6'%3E%3Cpath d='M18 4l4 10 10 4-10 4-4 10-4-10-10-4 10-4z'/%3E%3Cpath d='M8 8h20v20H8z' transform='rotate(45 18 18)' stroke-opacity='.35'/%3E%3Cpath d='M8 8h20v20H8z' stroke-opacity='.35'/%3E%3Ccircle cx='18' cy='18' r='2.4' fill='%23FFF6E6' fill-opacity='.5' stroke='none'/%3E%3Cpath d='M0 0l4 4M36 0l-4 4M0 36l4-4M36 36l-4-4' stroke-opacity='.4'/%3E%3C/svg%3E");
+  --sand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .15 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
+}
+html[data-theme="bazaar"] { background: #E8CFA0; }
+[data-theme="bazaar"] body { background-color: transparent; background-image: none; }
+
+/* boutons en zellige, arrondis en haut comme une petite arche */
+[data-theme="bazaar"] .key {
+  clip-path: inset(0 round 18px 18px 5px 5px);
+  border-radius: 18px 18px 5px 5px;
+}
+[data-theme="bazaar"] .key:not(.key--ghost) {
+  background-color: var(--k-bg);
+  background-image:
+    var(--zellige),
+    radial-gradient(120% 120% at 50% 0%, rgba(255, 246, 230, .25), transparent 60%);
+  background-size: 36px 36px, 100% 100%;
+  background-position: center top, 0 0;
+  box-shadow:
+    inset 0 calc(var(--k-edge) * -1) 0 var(--edge),
+    inset 0 0 0 2px rgba(255, 246, 230, .7),
+    inset 0 0 0 4px color-mix(in srgb, var(--k-bg) 70%, #000);
+  text-shadow: 0 1px 2px rgba(40, 20, 5, .5);
+}
+[data-theme="bazaar"] .answer--3 .answer__text { text-shadow: 0 1px 0 rgba(255, 246, 230, .5); }
+[data-theme="bazaar"] .answer[aria-pressed="true"] { box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 6px var(--ink); }
+[data-theme="bazaar"] .answer.is-correct { box-shadow: inset 0 0 0 6px var(--good), inset 0 0 0 8px #fff; }
+[data-theme="bazaar"] .answer.is-wrong { box-shadow: inset 0 0 0 6px var(--bad), inset 0 0 0 8px #fff; }
+[data-theme="bazaar"] .key--ghost { background: rgba(251, 241, 221, .9); color: var(--ink); box-shadow: inset 0 0 0 2px var(--c2), inset 0 -4px 0 rgba(29, 122, 128, .25); }
+
+/* cartes : grès clair, frise de carreaux en haut, coins arrondis */
+[data-theme="bazaar"] :is(.q-card, .rx, .dialog, .notice, .receipt) {
+  clip-path: none;
+  border-radius: 22px 22px 8px 8px;
+  background-color: var(--surface);
+  background-image:
+    linear-gradient(90deg, #1D7A80 0 25%, #D9A23A 25% 50%, #24498F 50% 75%, #B5452B 75%),
+    var(--sand);
+  background-size: 48px 8px, 140px 140px;
+  background-repeat: repeat-x, repeat;
+  background-position: 0 0, 0 0;
+  box-shadow: inset 0 0 0 2px rgba(106, 69, 36, .35), 0 14px 30px rgba(80, 45, 10, .2);
+}
+[data-theme="bazaar"] .dialog { overflow: hidden; }
+[data-theme="bazaar"] .topbar { background: rgba(232, 207, 160, .86); border-bottom: 3px solid #1D7A80; }
+[data-theme="bazaar"] .dialog::backdrop { background: rgba(60, 30, 5, .4); }
+[data-theme="bazaar"] .cross3d__layer { background: #1D7A80; }
+[data-theme="bazaar"] .hero__title { text-shadow: 0 2px 0 rgba(251, 241, 221, .7); }
+
+.tprev[data-theme="bazaar"] { background: radial-gradient(40% 70% at 25% 100%, #6A4524 0 60%, transparent 61%), radial-gradient(40% 70% at 75% 100%, #6A4524 0 60%, transparent 61%), linear-gradient(#F3C987, #E8CFA0); }
+.tprev[data-theme="bazaar"] .tprev__q { clip-path: none; border-radius: 12px 12px 4px 4px; }
+.tprev[data-theme="bazaar"] .tprev__tile { clip-path: none; border-radius: 10px 10px 3px 3px; background-image: var(--zellige); background-size: 22px 22px; }

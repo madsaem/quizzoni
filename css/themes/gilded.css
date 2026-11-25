@@ -1,0 +1,154 @@
+/* ==========================================================================
+   Gilded : luxe. Cuir sombre frappé d'un monogramme répété (dessin original : Q à la croix,
+   médaillon à quatre lobes, étoile, losange), parcouru d'un reflet doré et d'une irisation arc-en-ciel.
+   Boutons en cuir cousu avec rivets dorés, coins arrondis, pièces d'or (js/fonds.js, js/themefx.js).
+   ========================================================================== */
+@font-face {
+  font-family: "Playfair Gilded";
+  src: url("../../assets/fonts/playfair-display.woff2") format("woff2");
+  font-weight: 400 900; font-display: swap;
+}
+
+[data-theme="gilded"] {
+  color-scheme: dark;
+  --font-display: "Playfair Gilded", Georgia, serif;
+  --cut: 0px;
+  --bg: #24160D;
+  --bg-grid: transparent;
+  --surface: #2F1E13;
+  --surface-2: #3B2618;
+  --ink: #F6EBD6;
+  --ink-2: #D9C29A;
+  --ink-3: #A88C66;
+  --line: #5A4027;
+  --edge: rgba(10, 4, 0, .6);
+  --gloss: rgba(255, 236, 190, .25);
+  --focus: #F3D27A;
+  --gold: #D4AF37;
+  --gold-hi: #FFF1B8;
+  --gold-lo: #8A6A1E;
+
+  --brand: #C9A227;
+  --brand-2: #8A6A1E;
+  --brand-ink: #24160D;
+
+  --c1: #8A4B2A; --c1-ink: #FBEFD9;   /* cognac */
+  --c2: #2A3F66; --c2-ink: #F2F5FF;   /* denim */
+  --c3: #C9A227; --c3-ink: #24160D;   /* or */
+  --c4: #6E1F2C; --c4-ink: #FBEFD9;   /* bordeaux */
+  --c5: #2F5240; --c5-ink: #F1F8EF;   /* vert anglais */
+  --c6: #1C1C1E; --c6-ink: #F6EBD6;   /* cuir noir */
+
+  --good: #7BC77E;
+  --bad: #E2675B;
+  --mid: #E9B949;
+
+  --stage: rgba(36, 22, 13, .82);
+  --stage-2: rgba(59, 38, 24, .9);
+  --stage-grid: rgba(212, 175, 55, .05);
+  --stage-ink: #F6EBD6;
+  --trace: #D4AF37;
+  --plank: #3B2618;
+  --plank-edge: #D4AF37;
+
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .42 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --mono: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%23000' stroke-width='3'%3E%3Ccircle cx='30' cy='30' r='13'/%3E%3Ccircle cx='90' cy='88' r='11'/%3E%3Cpath d='M97 95l9 10' stroke-width='4' stroke-linecap='round'/%3E%3C/g%3E%3Cg fill='%23000'%3E%3Ccircle cx='30' cy='24.5' r='4.6'/%3E%3Ccircle cx='30' cy='35.5' r='4.6'/%3E%3Ccircle cx='24.5' cy='30' r='4.6'/%3E%3Ccircle cx='35.5' cy='30' r='4.6'/%3E%3Cpath d='M88 81h4v5h5v4h-5v5h-4v-5h-5v-4h5z'/%3E%3Cpath d='M90 14q2.4 13.6 16 16-13.6 2.4-16 16-2.4-13.6-16-16 13.6-2.4 16-16z'/%3E%3Cpath fill-rule='evenodd' d='M30 76l14 14-14 14-14-14zm0 9.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z'/%3E%3Ccircle cx='60' cy='60' r='2.2'/%3E%3Ccircle cx='0' cy='60' r='2.2'/%3E%3Ccircle cx='120' cy='60' r='2.2'/%3E%3Ccircle cx='60' cy='0' r='2.2'/%3E%3Ccircle cx='60' cy='120' r='2.2'/%3E%3C/g%3E%3C/svg%3E");
+}
+html[data-theme="gilded"] {
+  background-color: #24160D;
+  background-image: var(--grain), radial-gradient(120% 90% at 50% 0%, #4A2E1B 0%, #24160D 70%);
+  background-attachment: fixed;
+}
+[data-theme="gilded"] body { background-color: transparent; background-image: none; }
+
+/* monogramme frappé : dorure qui se déplace + irisation arc-en-ciel par-dessus */
+[data-theme="gilded"] body::before,
+[data-theme="gilded"] body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none;
+  -webkit-mask: var(--mono) 0 0 / 120px 120px repeat;
+  mask: var(--mono) 0 0 / 120px 120px repeat;
+}
+[data-theme="gilded"] body::before {
+  z-index: -3;
+  background: linear-gradient(115deg, #6E531A 0%, #B8902E 18%, #FFF1B8 24%, #D4AF37 30%, #7A5C18 46%, #B8902E 62%, #FFF1B8 68%, #D4AF37 74%, #6E531A 100%);
+  background-size: 250% 250%;
+  opacity: .5;
+  animation: gild-shine 10s linear infinite;
+}
+[data-theme="gilded"] body::after {
+  z-index: -2;
+  background: linear-gradient(90deg, #ff5f6d, #ffc371, #f9f871, #7cf5a4, #5ec8ff, #a78bfa, #ff7bd5, #ff5f6d);
+  background-size: 400% 100%;
+  mix-blend-mode: color;
+  opacity: .32;
+  animation: gild-rainbow 16s linear infinite;
+}
+@keyframes gild-shine { from { background-position: 100% 100%; } to { background-position: -150% -150%; } }
+@keyframes gild-rainbow { from { background-position: 0 0; } to { background-position: 400% 0; } }
+
+/* boutons en cuir cousu : grain, coutures, rivets dorés, coins arrondis */
+[data-theme="gilded"] .key {
+  clip-path: inset(0 round 14px);
+  border-radius: 14px;
+}
+[data-theme="gilded"] .key:not(.key--ghost) {
+  --rivet: radial-gradient(circle, var(--gold-hi) 0 1.2px, var(--gold) 2.2px, var(--gold-lo) 3.4px, transparent 4px);
+  background-color: var(--k-bg);
+  background-image:
+    var(--rivet), var(--rivet), var(--rivet), var(--rivet),
+    var(--grain),
+    radial-gradient(120% 140% at 30% 0%, rgba(255, 240, 210, .28), transparent 55%),
+    linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, .3));
+  background-size: 8px 8px, 8px 8px, 8px 8px, 8px 8px, 160px 160px, 100% 100%, 100% 100%;
+  background-position: 7px 7px, calc(100% - 7px) 7px, 7px calc(100% - 7px - var(--k-edge)), calc(100% - 7px) calc(100% - 7px - var(--k-edge)), 0 0, 0 0, 0 0;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat, no-repeat, no-repeat;
+  outline: 1.6px dashed rgba(255, 236, 200, .72);
+  outline-offset: -8px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .55);
+}
+[data-theme="gilded"] .answer--3 .answer__text { text-shadow: 0 1px 0 rgba(255, 241, 184, .5); }
+[data-theme="gilded"] .key--ghost {
+  background: linear-gradient(180deg, rgba(255, 241, 184, .12), rgba(0, 0, 0, .2)), var(--surface);
+  color: var(--gold-hi);
+  box-shadow: inset 0 0 0 1.5px var(--gold), inset 0 -3px 0 rgba(0, 0, 0, .35);
+}
+
+/* cartes : cuir sombre, cadre doré arrondi, coins en or */
+[data-theme="gilded"] :is(.q-card, .rx, .dialog, .notice, .receipt, .tcard, .mode, .figure, .slider, .sort__zone) {
+  clip-path: none;
+  border-radius: 16px;
+}
+[data-theme="gilded"] :is(.q-card, .rx, .dialog, .notice, .receipt) {
+  --gc: radial-gradient(circle at 50% 50%, var(--gold-hi) 0 2px, var(--gold) 3px 5px, var(--gold-lo) 6px, transparent 6.5px);
+  background-color: var(--surface);
+  background-image: var(--gc), var(--gc), var(--gc), var(--gc), var(--grain);
+  background-size: 14px 14px, 14px 14px, 14px 14px, 14px 14px, 160px 160px;
+  background-position: 8px 8px, calc(100% - 8px) 8px, 8px calc(100% - 8px), calc(100% - 8px) calc(100% - 8px), 0 0;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+  box-shadow: inset 0 0 0 2px var(--gold), inset 0 0 0 5px rgba(0, 0, 0, .35), inset 0 0 0 6px rgba(212, 175, 55, .45), 0 18px 40px rgba(0, 0, 0, .45);
+}
+[data-theme="gilded"] .dialog { border-radius: 18px; overflow: hidden; }
+[data-theme="gilded"] .hero__title,
+[data-theme="gilded"] .shelf__title,
+[data-theme="gilded"] .notice__title {
+  background: linear-gradient(115deg, #B8902E 0%, #FFF1B8 30%, #D4AF37 45%, #8A6A1E 60%, #FFF1B8 80%, #D4AF37 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  animation: gild-shine 8s linear infinite;
+}
+[data-theme="gilded"] .topbar { background: rgba(30, 18, 10, .82); border-bottom: 1px solid rgba(212, 175, 55, .5); }
+[data-theme="gilded"] .dialog::backdrop { background: rgba(10, 5, 0, .65); }
+[data-theme="gilded"] .cross3d__layer { background: var(--gold); }
+[data-theme="gilded"] .field { background: rgba(20, 12, 6, .85); border-color: var(--gold); color: var(--ink); border-radius: 10px; }
+[data-theme="gilded"] .box__front { background-image: var(--grain); }
+
+.tprev[data-theme="gilded"] { background-color: #24160D; background-image: var(--grain); }
+.tprev[data-theme="gilded"]::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(115deg, #6E531A, #FFF1B8 30%, #D4AF37 45%, #6E531A);
+  -webkit-mask: var(--mono) 0 0 / 60px 60px repeat; mask: var(--mono) 0 0 / 60px 60px repeat;
+  opacity: .5;
+}
+.tprev[data-theme="gilded"] .tprev__q { border-radius: 8px; clip-path: none; box-shadow: inset 0 0 0 1.5px #D4AF37; }
+.tprev[data-theme="gilded"] .tprev__tile { border-radius: 8px; clip-path: none; outline: 1px dashed rgba(255, 236, 200, .7); outline-offset: -4px; }

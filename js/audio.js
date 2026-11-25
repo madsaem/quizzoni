@@ -271,6 +271,10 @@ const PACKS = {
   },
 };
 
+/** Pour js/sons.js : les briques de synthèse et l'ajout de packs. */
+export const synth = { tone, noise, pluck, bell, semis };
+export function addPacks(packs) { Object.assign(PACKS, packs); }
+
 /* Sons enregistrés : un thème peut remplacer un son synthétisé par un fichier
    (voir assets/audio/<thème>/pistes.json, rubrique "sons"). */
 let samples = {};

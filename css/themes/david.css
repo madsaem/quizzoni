@@ -1,0 +1,79 @@
+/* ==========================================================================
+   David : le drapeau bleu et blanc flotte en fond (js/fonds.js), étoile de David,
+   boutons aux deux bandes blanches du drapeau. Musique : Hava Nagila (domaine public).
+   ========================================================================== */
+[data-theme="david"] {
+  color-scheme: light;
+  --bg: #F4F7FD;
+  --bg-grid: transparent;
+  --surface: #FFFFFF;
+  --surface-2: #EEF3FC;
+  --ink: #0A1F4D;
+  --ink-2: #33466F;
+  --ink-3: #6A7A9C;
+  --line: #C9D6F0;
+  --edge: rgba(0, 20, 70, .45);
+  --gloss: rgba(255, 255, 255, .35);
+  --focus: #0A1F4D;
+  --flag: #0038B8;
+
+  --brand: #0038B8;
+  --brand-2: #00267F;
+  --brand-ink: #FFFFFF;
+
+  --c1: #0038B8; --c1-ink: #FFFFFF;   /* bleu du drapeau */
+  --c2: #1E88E5; --c2-ink: #FFFFFF;   /* azur */
+  --c3: #F2C14E; --c3-ink: #0A1F4D;   /* or */
+  --c4: #00205B; --c4-ink: #FFFFFF;   /* marine */
+  --c5: #5C7CFA; --c5-ink: #FFFFFF;   /* pervenche */
+  --c6: #1A9E8F; --c6-ink: #FFFFFF;   /* turquoise */
+
+  --good: #1E8E3E;
+  --bad: #D93025;
+  --mid: #E8A100;
+
+  --stage: rgba(244, 247, 253, .7);
+  --stage-2: rgba(200, 216, 245, .7);
+  --stage-grid: rgba(0, 56, 184, .06);
+  --stage-ink: #0A1F4D;
+  --trace: #0038B8;
+  --plank: #FFFFFF;
+  --plank-edge: #0038B8;
+}
+html[data-theme="david"] { background: #F4F7FD; }
+[data-theme="david"] body { background-color: transparent; background-image: none; }
+
+/* boutons : deux bandes blanches, comme le drapeau */
+[data-theme="david"] .key:not(.key--ghost) {
+  background:
+    linear-gradient(to bottom,
+      transparent 0 5px, rgba(255, 255, 255, .92) 5px 9px, transparent 9px calc(100% - var(--k-edge) - 9px),
+      rgba(255, 255, 255, .92) calc(100% - var(--k-edge) - 9px) calc(100% - var(--k-edge) - 5px), transparent calc(100% - var(--k-edge) - 5px)),
+    linear-gradient(180deg, color-mix(in srgb, var(--k-bg) 85%, #fff), var(--k-bg) 60%);
+  text-shadow: 0 1px 2px rgba(0, 20, 70, .45);
+}
+[data-theme="david"] .answer--3 .answer__text { text-shadow: none; }
+[data-theme="david"] .key--ghost { background: rgba(255, 255, 255, .9); color: var(--ink); box-shadow: inset 0 0 0 2px var(--flag), inset 0 -4px 0 rgba(0, 56, 184, .25); }
+
+/* cartes : blanc, bandes bleues en haut et en bas */
+[data-theme="david"] :is(.q-card, .rx, .dialog, .notice, .receipt) {
+  background-color: rgba(255, 255, 255, .96);
+  background-image:
+    linear-gradient(var(--flag), var(--flag)),
+    linear-gradient(var(--flag), var(--flag));
+  background-size: 100% 6px, 100% 6px;
+  background-position: 0 12px, 0 calc(100% - 12px);
+  background-repeat: no-repeat;
+  box-shadow: 0 10px 30px rgba(0, 30, 90, .15);
+}
+[data-theme="david"] .topbar { background: rgba(255, 255, 255, .85); border-bottom: 4px solid var(--flag); }
+[data-theme="david"] .dialog::backdrop { background: rgba(0, 20, 70, .35); }
+[data-theme="david"] .cross3d__layer { background: var(--flag); }
+[data-theme="david"] .hero__title { text-shadow: 0 2px 0 #fff, 0 0 20px rgba(255, 255, 255, .9); }
+
+.tprev[data-theme="david"] {
+  background:
+    linear-gradient(to bottom, transparent 0 12%, #0038B8 12% 24%, transparent 24% 76%, #0038B8 76% 88%, transparent 88%),
+    #FFFFFF;
+}
+.tprev[data-theme="david"] .tprev__q { box-shadow: inset 0 0 0 2px #0038B8; }
