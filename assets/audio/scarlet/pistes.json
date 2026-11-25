@@ -1,6 +1,6 @@
 {
-  "_aide": "Thème Scarlet. Déposer la musique dans ce dossier et écrire son nom dans menu.fichier (debut/duree pour victoire et défaite si besoin). Sans fichier, pas de musique.",
-  "menu": { "fichier": "", "volume": 0.5 },
+  "_aide": "Thème Scarlet. Menu : Septette for the Dead Princess (thème de Remilia Scarlet, Embodiment of Scarlet Devil), réencodé en 128 kbit/s ; l'original est dans originaux/ (non publié). Volume réglé pour sonner comme les autres musiques de menu.",
+  "menu": { "fichier": "menu.mp3", "volume": 0.3 },
   "victoire": { "fichier": "", "debut": 0, "duree": 0, "volume": 0.6 },
   "defaite": { "fichier": "", "debut": 0, "duree": 0, "volume": 0.6 },
   "sons": {}
