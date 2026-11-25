@@ -1,7 +1,7 @@
 # Quizzoni
 
 Site de révision pour les étudiants infirmiers de 2e année (IFSI de Bastia).
-Quiz courts, 13 types de questions, 4 thèmes avec leurs propres sons, progression enregistrée dans le navigateur.
+Quiz courts, 13 types de questions, 6 thèmes avec leurs propres sons, progression enregistrée dans le navigateur.
 
 Aucune installation, aucun framework : HTML, CSS et JavaScript.
 
@@ -44,12 +44,14 @@ js/main.js            démarrage et navigation
 js/views/             écrans : accueil, notice, partie, résultats
 js/types/             un fichier par type de question
 js/audio.js           sons synthétisés (un pack par thème)
-js/backdrop.js        fonds animés (ciel étoilé)
+js/backdrop.js        fonds animés (ciel étoilé, étoiles et cœurs, puffs 3D)
+js/themefx.js         effets de réponse propres à un thème (fleurs, fond rose ou rouge)
 js/fx.js              confettis, secousse, tracé d'ECG
 js/state.js           sauvegarde locale (records, erreurs, réglages)
 data/catalog.json     rayons et liste des quiz
 data/quizzes/*.json   les questions
 assets/schemas/       images des questions (SVG, PNG, JPG…)
+assets/mayuff/        photos des deux puffs du thème Mayuff (textures 3D et monogrammes)
 ```
 
 ## Ajouter un quiz
@@ -196,7 +198,7 @@ Pour trouver les coordonnées d'un point : ouvrir l'image dans un logiciel qui a
 
 ## Thèmes et sons
 
-Quatre thèmes, choisis avec le bouton **Thèmes** en haut à droite : Officine (clair), Garde de nuit (sombre), Contraste élevé (noir, contours jaunes et blancs) et Nuit étoilée (ciel animé). Chacun a ses couleurs (`css/themes.css`), parfois un décor (`css/ambiances.css`, `js/backdrop.js`) et son pack de sons (`js/audio.js`), générés par le navigateur, sans fichier audio.
+Six thèmes, choisis avec le bouton **Thèmes** en haut à droite : Officine (clair), Garde de nuit (sombre), Contraste élevé (noir, contours jaunes et blancs), Nuit étoilée (ciel animé), Pinksoni (rose, étoiles filantes qui éclatent en cœurs, fleurs qui éclosent sur les bonnes réponses) et Mayuff (deux puffs en 3D, fumée dans les touches, fond rose ou rouge selon la réponse). Chacun a ses couleurs (`css/themes.css`), parfois un décor (`css/ambiances.css`, `js/backdrop.js`) et son pack de sons (`js/audio.js`), générés par le navigateur, sans fichier audio.
 
 Pour ajouter un thème : copier un bloc `[data-theme="…"]` dans `css/themes.css`, ajouter le thème dans la liste `THEMES` de `js/ui.js`, et un pack du même nom dans `PACKS` de `js/audio.js`.
 
@@ -208,6 +210,7 @@ Copier un fichier de `js/types/` (par exemple `truefalse.js`), l'adapter, puis l
 
 Sur la page d'un quiz (la « notice »), avant de commencer :
 - **Catégories** (si le quiz en a) : on coche les chapitres à réviser ;
+- **Types de questions** (si la boîte en a plusieurs) : on garde seulement les types voulus (QCM, vrai ou faux…). Les compteurs tiennent compte des catégories et de la difficulté choisies ;
 - **Difficulté** : tous niveaux, facile, moyen ou difficile ;
 - **Nombre de questions** : 10, 20, 30, toutes, ou un nombre au choix (« Autre »), tirées au hasard ;
 - **Mode** : Entraînement ou Défi.

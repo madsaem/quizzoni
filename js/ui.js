@@ -10,6 +10,8 @@ export const THEMES = [
   { id: 'nuit', name: 'Garde de nuit', desc: 'Sombre et doux, pour réviser tard sans s\'abîmer les yeux.', sounds: 'Sons feutrés' },
   { id: 'contraste', name: 'Contraste élevé', desc: 'Noir profond, contours jaunes, blancs et cyan. Lisibilité maximale.', sounds: 'Bips nets' },
   { id: 'etoiles', name: 'Nuit étoilée', desc: 'Ciel animé, étoiles filantes, constellations qui dérivent sur les touches.', sounds: 'Carillons' },
+  { id: 'pinksoni', name: 'Pinksoni', desc: 'Rose en dégradé, étoiles filantes qui éclatent en cœurs, fleurs qui éclosent sur les bonnes réponses.', sounds: 'Clochettes de cristal' },
+  { id: 'mayuff', name: 'Mayuff', desc: 'Deux puffs géantes en 3D, fumée dans les touches, fond rose quand tu réussis, rouge quand tu rates.', sounds: 'Bulles de chewing-gum' },
 ];
 
 export function applyTheme(id) {

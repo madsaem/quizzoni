@@ -37,10 +37,16 @@ export function renderIntro(root, id) {
   if (cats && !selCats.size) selCats = new Set(cats.map((c) => c.id));
   let level = [0, 1, 2, 3].includes(prefs.level) ? prefs.level : 0;
   let count = prefs.count ?? (quiz.questions.length > 15 ? 10 : 0);
+  // types de questions présents dans la boîte (les plus nombreux d'abord)
+  const types = typeCounts(quiz);
+  const typeIds = types.map((t) => t.type);
+  let selTypes = new Set((Array.isArray(prefs.types) ? prefs.types : typeIds).filter((t) => typeIds.includes(t)));
+  if (!selTypes.size) selTypes = new Set(typeIds);
 
   const inCats = (q) => !cats || selCats.has(q.cat);
   const atLevel = (q, lv = level) => !lv || q.level === lv;
-  const pool = () => quiz.questions.filter((q) => inCats(q) && atLevel(q));
+  const ofType = (q) => selTypes.has(q.type);
+  const pool = () => quiz.questions.filter((q) => inCats(q) && atLevel(q) && ofType(q));
 
   /* ------------------------------------------- Boîte qu'on peut faire tourner */
   const box = renderBox(quiz, { sticker: false });
@@ -101,6 +107,40 @@ export function renderIntro(root, id) {
       h('div', { class: 'block-head' }, h('h2', {}, 'Catégories'), toggleAll),
       h('div', { class: 'cat-chips', role: 'group', 'aria-label': 'Catégories à réviser' }, catChips));
     catBlock._toggle = toggleAll;
+  }
+
+  /* ---------------------------------------------------- Types de questions */
+  let typeBlock = null;
+  let typeChips = [];
+  if (types.length > 1) {
+    typeChips = types.map((t) => {
+      const countEl = h('span', { class: 'cat-chip__count' });
+      const chip = h('button', {
+        type: 'button',
+        class: 'cat-chip',
+        onClick: () => {
+          if (selTypes.has(t.type)) selTypes.delete(t.type); else selTypes.add(t.type);
+          sound.play('click');
+          refresh();
+        },
+      }, h('span', { class: 'cat-chip__box', 'aria-hidden': 'true' }, icon('check')), h('span', { class: 'cat-chip__name' }, t.label), countEl);
+      chip._type = t.type;
+      chip._count = countEl;
+      return chip;
+    });
+    const toggleAll = h('button', {
+      type: 'button',
+      class: 'linkbtn',
+      onClick: () => {
+        selTypes = selTypes.size === typeIds.length ? new Set() : new Set(typeIds);
+        sound.play('click');
+        refresh();
+      },
+    });
+    typeBlock = h('section', { class: 'notice__block' },
+      h('div', { class: 'block-head' }, h('h2', {}, 'Types de questions'), toggleAll),
+      h('div', { class: 'cat-chips', role: 'group', 'aria-label': 'Types de questions à garder' }, typeChips));
+    typeBlock._toggle = toggleAll;
   }
 
   /* ----------------------------------------------------------- Difficulté */
@@ -190,14 +230,25 @@ export function renderIntro(root, id) {
     catChips.forEach((chip) => {
       const cid = chip.dataset.cat;
       chip.setAttribute('aria-pressed', String(selCats.has(cid)));
-      chip._count.textContent = String(quiz.questions.filter((q) => q.cat === cid && atLevel(q)).length);
+      const n = quiz.questions.filter((q) => q.cat === cid && atLevel(q) && ofType(q)).length;
+      chip._count.textContent = String(n);
+      chip.dataset.empty = String(n === 0);
     });
     if (catBlock) catBlock._toggle.textContent = selCats.size === cats.length ? 'Tout décocher' : 'Tout cocher';
 
-    // difficulté : nombre de questions dans les catégories choisies
+    // types : nombre de questions de ce type dans les catégories et la difficulté choisies
+    typeChips.forEach((chip) => {
+      chip.setAttribute('aria-pressed', String(selTypes.has(chip._type)));
+      const n = quiz.questions.filter((q) => q.type === chip._type && inCats(q) && atLevel(q)).length;
+      chip._count.textContent = String(n);
+      chip.dataset.empty = String(n === 0);
+    });
+    if (typeBlock) typeBlock._toggle.textContent = selTypes.size === typeIds.length ? 'Tout décocher' : 'Tout cocher';
+
+    // difficulté : nombre de questions dans les catégories et types choisis
     levelOpts.forEach((b) => {
       b.setAttribute('aria-checked', String(b._lv === level));
-      b._count.textContent = String(quiz.questions.filter((q) => inCats(q) && atLevel(q, b._lv)).length);
+      b._count.textContent = String(quiz.questions.filter((q) => inCats(q) && ofType(q) && atLevel(q, b._lv)).length);
     });
 
     // nombre : on grise les tailles impossibles
@@ -217,7 +268,9 @@ export function renderIntro(root, id) {
     if (!p.length) {
       summary.textContent = cats && !selCats.size
         ? 'Choisis au moins une catégorie.'
-        : 'Aucune question ne correspond. Change la difficulté ou ajoute des catégories.';
+        : !selTypes.size
+          ? 'Choisis au moins un type de question.'
+          : 'Aucune question ne correspond. Change la difficulté, ajoute des catégories ou des types.';
     } else if (n < p.length) {
       summary.textContent = `${n} questions tirées au hasard parmi ${p.length}`;
     } else {
@@ -231,7 +284,7 @@ export function renderIntro(root, id) {
     if (!n) return;
     const questions = n < p.length ? sample(p, n) : p;
     store.setSetting('lastMode', mode);
-    store.setQuizPrefs(quiz.id, { cats: [...selCats], level, count });
+    store.setQuizPrefs(quiz.id, { cats: [...selCats], level, count, types: [...selTypes] });
     startSession({
       questions,
       mode,
@@ -243,6 +296,8 @@ export function renderIntro(root, id) {
         level,
         allCats: !cats || selCats.size === cats.length,
         catTitles: cats ? cats.filter((c) => selCats.has(c.id)).map((c) => c.title) : null,
+        allTypes: selTypes.size === typeIds.length,
+        typeLabels: types.filter((t) => selTypes.has(t.type)).map((t) => t.label),
       },
     });
     sound.play('whoosh');
@@ -265,6 +320,7 @@ export function renderIntro(root, id) {
     h('section', { class: 'notice__block' }, h('h2', {}, 'Dans la boîte'), contents),
     h('section', { class: 'notice__block' }, h('h2', {}, 'Ton record'), record),
     catBlock,
+    typeBlock,
     levelBlock,
     countBlock,
     h('section', { class: 'notice__block' }, h('h2', {}, 'Mode de jeu'), modes),

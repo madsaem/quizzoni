@@ -421,6 +421,7 @@
 }
 .cat-chip__box svg { width: .85rem; height: .85rem; }
 .cat-chip__count { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.cat-chip[data-empty="true"] { opacity: .5; }
 .cat-chip[aria-pressed="true"] { border-color: var(--ink); background: var(--surface); color: var(--ink); }
 .cat-chip[aria-pressed="true"] .cat-chip__box { border-color: var(--c, var(--brand)); background: var(--c, var(--brand)); color: var(--c-ink, #fff); }
 

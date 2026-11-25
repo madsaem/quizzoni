@@ -3,6 +3,7 @@ import * as store from './state.js';
 import { sound } from './audio.js';
 import { loadCatalog } from './data.js';
 import { applyTheme, applyMotion, openSettings, openThemes, soundIcon, THEMES } from './ui.js';
+import { setMood } from './themefx.js';
 import { renderHome } from './views/home.js';
 import { renderIntro } from './views/intro.js';
 import { renderPlay } from './views/play.js';
@@ -65,6 +66,7 @@ function route() {
     if (typeof cleanup === 'function') cleanup();
     cleanup = null;
     topbar.dataset.hidden = String(hash === '#/play');
+    setMood(null);
     cleanup = found[1](hash.match(found[0]));
     if (hash !== '#/play') window.scrollTo(0, 0);
   };

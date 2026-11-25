@@ -11,7 +11,7 @@
     {
       "id": "fond",
       "title": "Fondamentaux",
-      "note": "Valeurs normales et anatomie : à connaître toute l'année."
+      "note": "Anatomie et physiologie : à connaître toute l'année. Les valeurs normales sont dans la boîte Pharmacologie."
     }
   ],
   "quizzes": [
@@ -21,7 +21,6 @@
     "calculs-de-doses",
     "hygiene-risques",
     "soins-urgence",
-    "valeurs-normales",
     "coeur-circulation"
   ]
 }

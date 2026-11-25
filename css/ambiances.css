@@ -148,3 +148,135 @@
 /* Nuit étoilée : le texte blanc reste lisible sur les touches claires */
 [data-theme="etoiles"] .answer .answer__text { text-shadow: 0 1px 2px rgba(10, 6, 40, .35); }
 [data-theme="etoiles"] .answer--3 .answer__text { text-shadow: none; }
+
+/* --------------------------------------------------------------------------
+   Pinksoni : dégradé rose, étoiles filantes qui éclatent en cœurs (js/backdrop.js),
+   fleurs qui éclosent sur les bonnes réponses (js/themefx.js)
+   -------------------------------------------------------------------------- */
+html[data-theme="pinksoni"] { background: linear-gradient(165deg, #FFC9E1 0%, #FF94C6 42%, #F2589D 100%) fixed; }
+[data-theme="pinksoni"] body { background-color: transparent; background-image: none; }
+[data-theme="pinksoni"] { --pinkgram: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='88'%20height='88'%3E%20%3Cpath%20d='M18.0,8.0%20L20.7,14.3%20L27.5,14.9%20L22.4,19.4%20L23.9,26.1%20L18.0,22.6%20L12.1,26.1%20L13.6,19.4%20L8.5,14.9%20L15.3,14.3Z'%20fill='white'%20fill-opacity='.42'/%3E%20%3Cpath%20d='M62%2025.2C57.6%2022.0%2054%2019.2%2054%2015.6A4.0%204.0%200%200%201%2062%2014.4A4.0%204.0%200%200%201%2070%2015.6C70%2019.2%2066.4%2022.0%2062%2025.2Z'%20fill='%23FFD6E8'%20fill-opacity='.6'/%3E%20%3Cpath%20d='M26%2067.85C22.425%2065.25%2019.5%2062.975%2019.5%2060.05A3.25%203.25%200%200%201%2026%2059.075A3.25%203.25%200%200%201%2032.5%2060.05C32.5%2062.975%2029.575%2065.25%2026%2067.85Z'%20fill='white'%20fill-opacity='.45'/%3E%20%3Cpath%20d='M68.0,56.0%20L70.2,61.0%20L75.6,61.5%20L71.5,65.1%20L72.7,70.5%20L68.0,67.7%20L63.3,70.5%20L64.5,65.1%20L60.4,61.5%20L65.8,61.0Z'%20fill='%23FFD6E8'%20fill-opacity='.55'/%3E%20%3Cpath%20d='M46.0,38.6%20L46.8,40.9%20L49.2,40.9%20L47.3,42.4%20L48.0,44.8%20L46.0,43.4%20L44.0,44.8%20L44.7,42.4%20L42.8,40.9%20L45.2,40.9Z'%20fill='white'%20fill-opacity='.7'/%3E%20%3Ccircle%20cx='8'%20cy='44'%20r='1.4'%20fill='white'%20fill-opacity='.7'/%3E%20%3Ccircle%20cx='84'%20cy='38'%20r='1.2'%20fill='white'%20fill-opacity='.6'/%3E%20%3Ccircle%20cx='48'%20cy='82'%20r='1.3'%20fill='white'%20fill-opacity='.6'/%3E%20%3C/svg%3E"); }
+[data-theme="pinksoni"] .key:not(.key--ghost),
+[data-theme="pinksoni"] .sort__head {
+  background-image:
+    var(--pinkgram),
+    linear-gradient(165deg, color-mix(in srgb, var(--k-bg, var(--zc)) 78%, #fff) 0%, var(--k-bg, var(--zc)) 50%, color-mix(in srgb, var(--k-bg, var(--zc)) 78%, #5A0B33) 100%);
+  background-size: 88px 88px, 100% 100%;
+  outline: 2px solid rgba(255, 255, 255, .7);
+  outline-offset: -6px;
+  animation: pink-drift 34s linear infinite;
+}
+[data-theme="pinksoni"] .answer:nth-child(2n) { animation-direction: reverse; }
+@keyframes pink-drift { to { background-position: 88px 88px, 0 0; } }
+[data-theme="pinksoni"] .key--ghost { outline: 2px solid rgba(255, 255, 255, .75); outline-offset: -5px; }
+[data-theme="pinksoni"] :is(.q-card, .rx, .dialog, .notice) {
+  background: linear-gradient(170deg, #FFFFFF 0%, #FFF0F7 55%, #FFE1EF 100%);
+  outline: 3px solid #FFC2DC;
+  outline-offset: -3px;
+}
+[data-theme="pinksoni"] .q-prompt { text-shadow: 0 0 18px rgba(255, 79, 154, .25); }
+[data-theme="pinksoni"] .topbar { background: rgba(255, 200, 226, .72); border-bottom-color: rgba(255, 255, 255, .7); }
+[data-theme="pinksoni"] .dialog::backdrop { background: rgba(120, 10, 60, .35); }
+[data-theme="pinksoni"] .answer .answer__text { text-shadow: 0 1px 2px rgba(90, 11, 51, .35); }
+[data-theme="pinksoni"] .answer--3 .answer__text { text-shadow: none; }
+.tprev[data-theme="pinksoni"] { background: linear-gradient(165deg, #FFC9E1, #FF94C6 50%, #F2589D); }
+.tprev[data-theme="pinksoni"] .tprev__tile { background-image: var(--pinkgram), linear-gradient(165deg, color-mix(in srgb, var(--t) 78%, #fff), var(--t)); background-size: 44px 44px, 100% 100%; outline: 1.5px solid rgba(255, 255, 255, .75); outline-offset: -3px; }
+
+/* Fleurs qui éclosent (bonne réponse, Pinksoni) */
+#bloom { position: fixed; inset: 0; z-index: 82; pointer-events: none; overflow: hidden; }
+.bloom { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%) scale(0); will-change: transform, opacity; }
+.bloom svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.bloom g { transform-box: fill-box; transform-origin: center; }
+
+/* --------------------------------------------------------------------------
+   Mayuff : deux puffs en 3D (js/backdrop.js), fumée sur les touches,
+   monogramme rose quand on réussit, rouge rosé quand on rate (js/themefx.js)
+   -------------------------------------------------------------------------- */
+html[data-theme="mayuff"] { background: linear-gradient(160deg, #FBC6E3 0%, #F4A3D3 38%, #CDA8F5 72%, #9FE3F7 100%) fixed; }
+[data-theme="mayuff"] body { background-color: transparent; background-image: none; }
+[data-theme="mayuff"] body::before,
+[data-theme="mayuff"] body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none;
+  background-size: 120px 120px, 100% 100%;
+  opacity: 0;
+  transition: opacity .45s ease;
+  animation: gram-drift 40s linear infinite;
+}
+[data-theme="mayuff"] body::before { z-index: -3; background-image: url("../assets/mayuff/monogramme-rose.webp"), linear-gradient(160deg, #FF8CC8 0%, #FF4FA6 50%, #E5248A 100%); }
+[data-theme="mayuff"] body::after { z-index: -2; background-image: url("../assets/mayuff/monogramme-rouge.webp"), linear-gradient(160deg, #F58A98 0%, #E8475F 50%, #C0233F 100%); }
+html[data-theme="mayuff"][data-mood="win"] body::before,
+html[data-theme="mayuff"][data-mood="lose"] body::after { opacity: 1; }
+@keyframes gram-drift { to { background-position: 120px 120px, 0 0; } }
+
+[data-theme="mayuff"] :is(.q-card, .rx, .dialog, .notice) { outline: 3px solid #16070F; outline-offset: -3px; }
+[data-theme="mayuff"] .topbar { background: rgba(255, 220, 240, .7); border-bottom-color: #16070F; }
+[data-theme="mayuff"] .dialog::backdrop { background: rgba(40, 5, 25, .4); }
+
+/* fumée qui se balade dans les touches, de la couleur de la touche */
+[data-theme="mayuff"] .key:not(.key--ghost) { isolation: isolate; }
+[data-theme="mayuff"] .key:not(.key--ghost)::before,
+[data-theme="mayuff"] .key:not(.key--ghost)::after {
+  content: ""; position: absolute; inset: -35% -25%; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(closest-side, color-mix(in srgb, var(--k-bg) 30%, #fff), transparent) 8% 75% / 50% 70% no-repeat,
+    radial-gradient(closest-side, color-mix(in srgb, var(--k-bg) 55%, #fff), transparent) 55% 35% / 42% 60% no-repeat,
+    radial-gradient(closest-side, color-mix(in srgb, var(--k-bg) 65%, #16070F), transparent) 92% 70% / 38% 55% no-repeat;
+  filter: blur(7px);
+  opacity: .7;
+  animation: smoke-a 7s ease-in-out infinite alternate;
+}
+[data-theme="mayuff"] .key:not(.key--ghost)::after {
+  background:
+    radial-gradient(closest-side, color-mix(in srgb, var(--k-bg) 40%, #fff), transparent) 30% 30% / 46% 60% no-repeat,
+    radial-gradient(closest-side, color-mix(in srgb, var(--k-bg) 25%, #fff), transparent) 78% 80% / 40% 55% no-repeat;
+  opacity: .55;
+  animation: smoke-b 9.5s ease-in-out infinite alternate;
+}
+[data-theme="mayuff"] .key:nth-child(2n)::before { animation-delay: -3s; }
+[data-theme="mayuff"] .key:nth-child(3n)::after { animation-delay: -5s; }
+@keyframes smoke-a {
+  0% { transform: translate(-16%, 10%) scale(.9) rotate(0deg); }
+  50% { transform: translate(4%, -8%) scale(1.15) rotate(7deg); }
+  100% { transform: translate(18%, 6%) scale(1) rotate(-5deg); }
+}
+@keyframes smoke-b {
+  0% { transform: translate(14%, -8%) scale(1.1); }
+  100% { transform: translate(-16%, 10%) scale(.9) rotate(9deg); }
+}
+.tprev[data-theme="mayuff"] { background: linear-gradient(160deg, #FBC6E3, #F4A3D3 40%, #CDA8F5 75%, #9FE3F7); }
+.tprev[data-theme="mayuff"] .tprev__q { box-shadow: inset 0 0 0 2px #16070F; }
+.tprev[data-theme="mayuff"] .tprev__tile { box-shadow: inset 0 0 0 1.5px #16070F, inset 0 -4px 0 var(--edge); }
+
+/* Les deux puffs du fond : un cylindre aplati fait de bandes verticales, photo enroulée, qui tourne en 3D */
+#puffs { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; perspective: 1700px; }
+.puff3d {
+  position: absolute; top: 50%;
+  width: 0; height: var(--h);
+  transform-style: preserve-3d;
+  transform: translateY(-50%) scale(var(--k, 1)) rotateX(-10deg) rotateZ(var(--tilt, -6deg));
+  animation: puff-float 8s ease-in-out infinite alternate;
+}
+.puff3d--l { left: clamp(7rem, 15vw, 16rem); --tilt: -7deg; }
+.puff3d--r { right: clamp(7rem, 15vw, 16rem); --tilt: 6deg; animation-delay: -4s; }
+.puff3d__spin { position: absolute; inset: 0; transform-style: preserve-3d; animation: puff-spin 24s linear infinite; }
+.puff3d--r .puff3d__spin { animation-duration: 28s; animation-direction: reverse; }
+.puff3d__shape { position: absolute; inset: 0; transform-style: preserve-3d; transform: scaleZ(.58); }
+.puff3d__strip {
+  position: absolute; left: 0; top: var(--top);
+  width: calc(var(--sw) + 1px); height: var(--sh);
+  margin-left: calc(var(--sw) / -2);
+  backface-visibility: hidden;
+  background-repeat: no-repeat;
+}
+.puff3d__lid { position: absolute; left: 0; border-radius: 50%; }
+@keyframes puff-spin { to { transform: rotateY(360deg); } }
+@keyframes puff-float {
+  from { transform: translateY(-53%) scale(var(--k, 1)) rotateX(-9deg) rotateZ(var(--tilt, -6deg)); }
+  to { transform: translateY(-47%) scale(var(--k, 1)) rotateX(-13deg) rotateZ(calc(var(--tilt, -6deg) * -.4)); }
+}
+@media (max-width: 760px) {
+  #puffs { opacity: .6; }
+  .puff3d--l { left: 2.5rem; }
+  .puff3d--r { right: 2.5rem; }
+}
+html[data-motion="reduced"] .puff3d__spin { transform: rotateY(-28deg); }

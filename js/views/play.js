@@ -7,6 +7,7 @@ import { getQuiz, categoryOf, levelLabel } from '../data.js';
 import { session, endSession, timeFor, pointsFor } from '../session.js';
 import { sound } from '../audio.js';
 import { burst, shake, floatText, centerOf, countUp, vibrate, createMonitor } from '../fx.js';
+import { answerFx, setMood } from '../themefx.js';
 import { confirmDialog, levelPills } from '../ui.js';
 
 const TITLES = {
@@ -73,6 +74,7 @@ export function renderPlay(root) {
 
   /* -------------------------------------------------------------- Question */
   function showQuestion() {
+    setMood(null);
     phase = 'answer';
     answer = null;
     ready = false;
@@ -175,15 +177,16 @@ export function renderPlay(root) {
     if (kind === 'good') {
       sound.play('correct');
       monitor.kick('good');
-      burst(from.x, from.y, { count: ses.streak >= 3 ? 60 : 34, power: ses.streak >= 3 ? 1.25 : 1 });
+      if (!answerFx('good', from.x, from.y)) burst(from.x, from.y, { count: ses.streak >= 3 ? 60 : 34, power: ses.streak >= 3 ? 1.25 : 1 });
       if (ses.streak >= 2) setTimeout(() => sound.play('streak', ses.streak), 260);
     } else if (kind === 'mid') {
       sound.play('partial');
       monitor.kick('mid');
-      burst(from.x, from.y, { count: 12, power: 0.7 });
+      if (!answerFx('mid', from.x, from.y)) burst(from.x, from.y, { count: 12, power: 0.7 });
     } else {
       sound.play(timeout ? 'timeup' : 'wrong');
       monitor.kick('bad');
+      answerFx('bad', from.x, from.y);
       shake(cardWrap);
       vibrate(70);
     }

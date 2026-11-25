@@ -210,3 +210,83 @@
   --plank: #221F5A;
   --plank-edge: #06041A;
 }
+
+/* --- Pinksoni : rose en dégradé, monogramme d'étoiles et de cœurs --- */
+[data-theme="pinksoni"] {
+  color-scheme: light;
+  --bg: #FF9CC9;
+  --bg-grid: transparent;
+  --surface: #FFF5FA;
+  --surface-2: #FFE3F0;
+  --ink: #4A0D2C;
+  --ink-2: #86305C;
+  --ink-3: #A85A82;
+  --line: #FFB8D6;
+  --edge: rgba(122, 10, 60, .35);
+  --gloss: rgba(255, 255, 255, .5);
+  --focus: #7A0A3C;
+
+  --brand: #FF2E88;
+  --brand-2: #D4146A;
+  --brand-ink: #FFFFFF;
+
+  --c1: #FF2E88; --c1-ink: #FFFFFF;   /* rose bonbon */
+  --c2: #A3155E; --c2-ink: #FFFFFF;   /* framboise */
+  --c3: #FFB3D1; --c3-ink: #5A0B33;   /* rose dragée */
+  --c4: #FF5468; --c4-ink: #FFFFFF;   /* rose corail */
+  --c5: #C45BF0; --c5-ink: #FFFFFF;   /* lilas */
+  --c6: #FF8E6E; --c6-ink: #FFFFFF;   /* pêche */
+
+  --good: #0F9F74;
+  --bad: #D7263D;
+  --mid: #E58A0C;
+
+  --stage: rgba(255, 170, 210, .3);
+  --stage-2: rgba(230, 70, 140, .4);
+  --stage-grid: rgba(255, 255, 255, 0);
+  --stage-ink: #4A0D2C;
+  --trace: #FFFFFF;
+  --plank: #FFD3E6;
+  --plank-edge: #C2185B;
+}
+
+/* --- Mayuff : les couleurs des deux puffs, rose bubblegum et rouge framboise --- */
+[data-theme="mayuff"] {
+  color-scheme: light;
+  --bg: #F7B9DA;
+  --bg-grid: transparent;
+  --surface: #FFF3FA;
+  --surface-2: #FBDDF0;
+  --ink: #16070F;
+  --ink-2: #4E2440;
+  --ink-3: #7E4A6D;
+  --line: #E9A6CC;
+  --edge: rgba(22, 7, 15, .45);
+  --gloss: rgba(255, 255, 255, .45);
+  --focus: #16070F;
+
+  --brand: #FF4FA6;
+  --brand-2: #E02F88;
+  --brand-ink: #16070F;
+
+  --c1: #FF4FA6; --c1-ink: #16070F;   /* rose bubblegum */
+  --c2: #3CCBF4; --c2-ink: #06141F;   /* cyan */
+  --c3: #A77BFF; --c3-ink: #FFFFFF;   /* lavande */
+  --c4: #E3192B; --c4-ink: #FFFFFF;   /* rouge framboise */
+  --c5: #16070F; --c5-ink: #FFFFFF;   /* noir graffiti */
+  --c6: #FF9BD0; --c6-ink: #16070F;   /* rose clair */
+
+  --good: #0FA36B;
+  --bad: #E3192B;
+  --mid: #F59E0B;
+
+  --stage: rgba(255, 200, 230, .28);
+  --stage-2: rgba(190, 130, 235, .32);
+  --stage-grid: transparent;
+  --stage-ink: #16070F;
+  --trace: #16070F;
+  --plank: #FBDDF0;
+  --plank-edge: #16070F;
+}
+html[data-theme="mayuff"][data-mood="win"] { --brand: #FF2E93; --stage: rgba(255, 60, 160, .18); --stage-2: rgba(255, 60, 160, .3); }
+html[data-theme="mayuff"][data-mood="lose"] { --stage: rgba(200, 20, 50, .16); --stage-2: rgba(150, 10, 30, .3); --trace: #FFFFFF; }

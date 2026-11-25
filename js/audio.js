@@ -179,6 +179,54 @@ const PACKS = {
     },
     whoosh: () => noise({ f: 2500, f2: 7000, dur: 0.35, g: 0.03, type: 'highpass', q: 0.3 }),
   },
+
+  // Pinksoni : clochettes de cristal, scintillements aigus
+  pinksoni: {
+    click: () => bell({ f: 2093, dur: 0.12, g: 0.05 }),
+    select: () => { bell({ f: 1568, dur: 0.25, g: 0.07 }); bell({ f: 2349.3, t: 0.05, dur: 0.3, g: 0.05 }); },
+    pop: () => tone({ f: 900, f2: 1700, type: 'sine', dur: 0.08, g: 0.12 }),
+    place: () => { pluck({ f: 1046.5, dur: 0.25, g: 0.12 }); bell({ f: 2093, t: 0.02, dur: 0.2, g: 0.03 }); },
+    correct: () => [1046.5, 1318.5, 1568, 2093, 2637].forEach((f, i) => bell({ f, t: i * 0.055, dur: 0.7, g: 0.065 })),
+    partial: () => [1046.5, 1318.5].forEach((f, i) => bell({ f, t: i * 0.08, dur: 0.5, g: 0.07 })),
+    wrong: () => { tone({ f: 466.2, f2: 392, type: 'triangle', dur: 0.22, g: 0.12 }); tone({ f: 349.2, f2: 293.7, type: 'triangle', t: 0.15, dur: 0.38, g: 0.12 }); },
+    tick: () => bell({ f: 3136, dur: 0.06, g: 0.03 }),
+    timeup: () => { bell({ f: 587.3, dur: 0.6, g: 0.12 }); bell({ f: 440, t: 0.2, dur: 0.9, g: 0.12 }); },
+    streak: (n = 2) => {
+      const base = semis(1318.5, Math.min(n, 8));
+      [0, 4, 7, 12].forEach((sm, i) => bell({ f: semis(base, sm), t: i * 0.04, dur: 0.4, g: 0.045 }));
+    },
+    finish: (pct = 1) => {
+      const notes = pct >= 0.7 ? [1046.5, 1318.5, 1568, 2093, 2637, 3136] : [880, 1046.5, 1318.5];
+      notes.forEach((f, i) => bell({ f, t: i * 0.1, dur: 1.3, g: 0.08 }));
+    },
+    whoosh: () => noise({ f: 1800, f2: 7000, dur: 0.32, g: 0.03, type: 'highpass', q: 0.4 }),
+  },
+
+  // Mayuff : bulles de chewing-gum qui éclatent, souffle de fumée
+  mayuff: {
+    click: () => tone({ f: 520, f2: 1150, type: 'sine', dur: 0.05, g: 0.14 }),
+    select: () => { tone({ f: 480, f2: 1400, type: 'sine', dur: 0.08, g: 0.16 }); noise({ f: 3200, dur: 0.04, g: 0.05, type: 'highpass' }); },
+    pop: () => tone({ f: 700, f2: 1800, type: 'sine', dur: 0.06, g: 0.15 }),
+    place: () => tone({ f: 420, f2: 950, type: 'sine', dur: 0.07, g: 0.15 }),
+    correct: () => {
+      [0, 0.07, 0.14].forEach((t, i) => tone({ f: 600 + i * 220, f2: 1400 + i * 380, type: 'sine', t, dur: 0.07, g: 0.14 }));
+      [784, 1046.5, 1318.5].forEach((f, i) => tone({ f, type: 'triangle', t: 0.2 + i * 0.07, dur: 0.3, g: 0.08 }));
+    },
+    partial: () => { tone({ f: 600, f2: 1400, type: 'sine', dur: 0.07, g: 0.14 }); tone({ f: 880, type: 'triangle', t: 0.1, dur: 0.25, g: 0.07 }); },
+    wrong: () => { noise({ f: 1100, f2: 260, dur: 0.5, g: 0.1, type: 'lowpass', q: 0.5 }); tone({ f: 220, f2: 140, type: 'sawtooth', dur: 0.35, g: 0.06 }); },
+    tick: () => tone({ f: 1300, f2: 1800, type: 'sine', dur: 0.03, g: 0.05 }),
+    timeup: () => { tone({ f: 400, f2: 160, type: 'sine', dur: 0.5, g: 0.2 }); noise({ f: 900, f2: 200, t: 0.05, dur: 0.6, g: 0.07, type: 'lowpass' }); },
+    streak: (n = 2) => {
+      const base = semis(700, Math.min(n, 8));
+      [0, 0.06, 0.12, 0.18].forEach((t, i) => tone({ f: semis(base, i * 3), f2: semis(base, i * 3 + 12), type: 'sine', t, dur: 0.06, g: 0.12 }));
+    },
+    finish: (pct = 1) => {
+      const notes = pct >= 0.5 ? [523.25, 659.25, 783.99, 1046.5] : [440, 392, 329.6];
+      notes.forEach((f, i) => tone({ f, type: 'triangle', t: i * 0.12, dur: 0.5, g: 0.1 }));
+      noise({ f: 500, f2: 2400, t: notes.length * 0.12, dur: 0.7, g: 0.05, type: 'lowpass', q: 0.3 });
+    },
+    whoosh: () => noise({ f: 400, f2: 2400, dur: 0.6, g: 0.06, type: 'lowpass', q: 0.3 }),
+  },
 };
 
 export const sound = {

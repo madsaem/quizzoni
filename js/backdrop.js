@@ -1,5 +1,7 @@
 // Fonds animés de certains thèmes, dessinés derrière tout le contenu.
-//   etoiles : ciel étoilé qui scintille, nébuleuses, étoiles filantes, constellations
+//   etoiles  : ciel étoilé qui scintille, nébuleuses, étoiles filantes, constellations
+//   pinksoni : grandes étoiles filantes qui tombent et éclatent en cœurs au sol
+//   mayuff   : deux puffs en 3D qui tournent (éléments HTML, pas de canvas)
 import { prefersReducedMotion } from './utils.js';
 
 let canvas = null;
@@ -9,10 +11,11 @@ let painter = null;
 let W = 0, H = 0, DPR = 1;
 let last = 0;
 
-const PAINTERS = { etoiles: starry };
+const PAINTERS = { etoiles: starry, pinksoni: pinkFall };
 
 export function setBackdrop(theme) {
   stop();
+  setPuffs(theme === 'mayuff');
   const make = PAINTERS[theme];
   if (!make) { canvas?.remove(); canvas = null; return; }
   if (!canvas) {
@@ -175,4 +178,193 @@ function starry() {
       }
     },
   };
+}
+
+/* ------------------------------------------- Pinksoni : étoiles et cœurs */
+function starPath(r, inner = 0.46) {
+  ctx.beginPath();
+  for (let i = 0; i < 10; i++) {
+    const rr = i % 2 ? r * inner : r;
+    const a = -Math.PI / 2 + i * Math.PI / 5;
+    ctx.lineTo(Math.cos(a) * rr, Math.sin(a) * rr);
+  }
+  ctx.closePath();
+}
+function heartPath(s) {
+  ctx.beginPath();
+  ctx.moveTo(0, s * 0.9);
+  ctx.bezierCurveTo(-s * 0.55, s * 0.5, -s, s * 0.15, -s, -s * 0.3);
+  ctx.arc(-s * 0.5, -s * 0.3, s * 0.5, Math.PI, 0);
+  ctx.arc(s * 0.5, -s * 0.3, s * 0.5, Math.PI, 0);
+  ctx.bezierCurveTo(s, s * 0.15, s * 0.55, s * 0.5, 0, s * 0.9);
+  ctx.closePath();
+}
+
+function pinkFall() {
+  const stars = [];
+  const hearts = [];
+  let next = 0.4;
+  const HEARTS = ['#FF2E88', '#FF5C9E', '#FF8FB8', '#FFB3D1', '#E5246B', '#C2185B', '#FF4D6D', '#D7263D', '#FFD1E3', '#B5123F'];
+  const FILLS = [['#FFFFFF', '#FFC4DF'], ['#FFF3F9', '#FF8EC2'], ['#FFE9F3', '#FF5FA2'], ['#FFFFFF', '#FFE08A']];
+  const pick = (arr) => arr[(Math.random() * arr.length) | 0];
+
+  function spawn() {
+    const size = rand(34, 78);
+    stars.push({
+      x: rand(0.06, 0.94) * W, y: -size * 1.5, size,
+      vx: rand(-28, 28), vy: rand(50, 90),
+      rot: rand(0, Math.PI * 2), vr: rand(-0.7, 0.7),
+      fill: pick(FILLS),
+    });
+  }
+  function explode(s) {
+    const n = 14 + ((Math.random() * 10) | 0);
+    for (let i = 0; i < n; i++) {
+      const a = rand(Math.PI * 1.05, Math.PI * 1.95); // vers le haut, en éventail
+      const sp = rand(140, 420);
+      hearts.push({
+        x: s.x + rand(-8, 8), y: H - 6,
+        vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+        size: rand(6, 17), rot: rand(-0.5, 0.5), vr: rand(-2.5, 2.5),
+        color: pick(HEARTS), life: 1, decay: rand(0.35, 0.65),
+      });
+    }
+  }
+  function drawStar(s) {
+    const ang = Math.atan2(s.vy, s.vx);
+    const len = s.size * 4.2;
+    const tx = s.x - Math.cos(ang) * len, ty = s.y - Math.sin(ang) * len;
+    const g = ctx.createLinearGradient(s.x, s.y, tx, ty);
+    g.addColorStop(0, 'rgba(255, 255, 255, .6)');
+    g.addColorStop(0.4, 'rgba(255, 200, 228, .25)');
+    g.addColorStop(1, 'rgba(255, 200, 228, 0)');
+    ctx.strokeStyle = g; ctx.lineWidth = s.size * 0.5; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(s.x, s.y); ctx.lineTo(tx, ty); ctx.stroke();
+
+    ctx.save();
+    ctx.translate(s.x, s.y);
+    ctx.rotate(s.rot);
+    ctx.shadowColor = 'rgba(255, 255, 255, .95)';
+    ctx.shadowBlur = s.size * 0.6;
+    const rg = ctx.createRadialGradient(0, 0, 0, 0, 0, s.size);
+    rg.addColorStop(0, s.fill[0]); rg.addColorStop(1, s.fill[1]);
+    ctx.fillStyle = rg;
+    starPath(s.size);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.strokeStyle = 'rgba(255, 255, 255, .95)';
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  return {
+    draw(t, dt) {
+      ctx.clearRect(0, 0, W, H);
+      if (!dt) {
+        // animations réduites : quelques étoiles immobiles
+        [[0.12, 0.2, 40], [0.86, 0.32, 54], [0.3, 0.75, 32], [0.7, 0.8, 44]].forEach(([x, y, size], i) =>
+          drawStar({ x: x * W, y: y * H, size, vx: 1, vy: 2, rot: i, fill: FILLS[i % FILLS.length] }));
+        return;
+      }
+      next -= dt;
+      if (next <= 0 && stars.length < 4) { spawn(); next = rand(1.6, 3.2); }
+
+      for (let i = stars.length - 1; i >= 0; i--) {
+        const s = stars[i];
+        s.x += s.vx * dt; s.y += s.vy * dt; s.rot += s.vr * dt;
+        if (s.y + s.size * 0.6 >= H) { explode(s); stars.splice(i, 1); continue; }
+        drawStar(s);
+      }
+
+      for (let i = hearts.length - 1; i >= 0; i--) {
+        const p = hearts[i];
+        p.vy += 520 * dt;
+        p.vx *= 0.99;
+        p.x += p.vx * dt; p.y += p.vy * dt;
+        if (p.y > H - p.size) { p.y = H - p.size; p.vy *= -0.35; p.vx *= 0.8; }
+        p.rot += p.vr * dt;
+        p.life -= p.decay * dt;
+        if (p.life <= 0) { hearts.splice(i, 1); continue; }
+        ctx.save();
+        ctx.globalAlpha = Math.min(1, p.life * 1.6);
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        heartPath(p.size);
+        ctx.fill();
+        ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(255, 255, 255, .7)';
+        ctx.stroke();
+        ctx.restore();
+      }
+    },
+  };
+}
+
+/* ------------------------------------------ Mayuff : deux puffs en 3D
+   Chaque puff est un cylindre aplati (scaleZ) fait de bandes verticales,
+   avec la photo de la puff enroulée devant et derrière (assets/mayuff/). */
+let puffsEl = null;
+const PUFF_H = 640;   // taille de référence, réduite ensuite selon l'écran
+// dimensions tirées des photos (voir assets/mayuff) : rayon du corps, de l'embout, hauteur de l'embout, arrondi des coins
+const PUFFS = {
+  rose: { r: 100, rc: 62.6, capH: 89.6, corner: 36, capTop: '#F45EA8', shoulder: '#E07EB7' },
+  rouge: { r: 115.9, rc: 55.4, capH: 85.7, corner: 39, capTop: '#B8202C', shoulder: '#5A0A0E' },
+};
+
+function setPuffs(on) {
+  if (!on) { puffsEl?.remove(); puffsEl = null; return; }
+  if (puffsEl) return;
+  puffsEl = document.createElement('div');
+  puffsEl.id = 'puffs';
+  puffsEl.setAttribute('aria-hidden', 'true');
+  puffsEl.append(buildPuff('rose', 'l'), buildPuff('rouge', 'r'));
+  document.body.prepend(puffsEl);
+  sizePuffs();
+}
+function sizePuffs() {
+  if (!puffsEl) return;
+  const k = Math.max(0.45, Math.min(1.05, (window.innerHeight * 0.78) / PUFF_H));
+  puffsEl.style.setProperty('--k', k.toFixed(3));
+}
+window.addEventListener('resize', sizePuffs);
+
+/** Une puff : corps + embout (deux anneaux de bandes) + deux couvercles. */
+function buildPuff(name, side) {
+  const P = PUFFS[name];
+  const bodyH = PUFF_H - P.capH;
+  const el = document.createElement('div');
+  el.className = `puff3d puff3d--${side}`;
+  el.style.setProperty('--h', `${PUFF_H}px`);
+  const spin = document.createElement('div');
+  spin.className = 'puff3d__spin';
+  const shape = document.createElement('div');
+  shape.className = 'puff3d__shape';
+  spin.append(shape);
+  el.append(spin);
+
+  const ring = (N, radius, top, height, url) => {
+    const sw = 2 * radius * Math.tan(Math.PI / N);
+    const C = sw * N;
+    for (let i = 0; i < N; i++) {
+      const s = document.createElement('div');
+      s.className = 'puff3d__strip';
+      s.style.cssText = `--top:${top}px;--sh:${height}px;--sw:${sw}px;`
+        + `transform:rotateY(${((i + 0.5) * 360) / N - 90}deg) translateZ(${radius}px);`
+        + `background-image:url("${url}");background-size:${C}px ${height}px;background-position:${-i * sw}px 0;`;
+      shape.append(s);
+    }
+  };
+  const lid = (radius, y, bg) => {
+    const d = document.createElement('div');
+    d.className = 'puff3d__lid';
+    d.style.cssText = `width:${radius * 2}px;height:${radius * 2}px;top:${y - radius}px;margin-left:${-radius}px;transform:rotateX(90deg);background:${bg};`;
+    shape.append(d);
+  };
+
+  ring(28, P.r, P.capH, bodyH, `assets/mayuff/${name}-corps.webp`);
+  ring(18, P.rc, 0, P.capH + 2, `assets/mayuff/${name}-embout.webp`);
+  // épaule du corps (sous les coins arrondis) et dessus de l'embout
+  lid(P.r * 0.9, P.capH + P.corner * 0.45, `radial-gradient(circle at 42% 40%, color-mix(in srgb, ${P.shoulder} 70%, #fff), ${P.shoulder} 75%)`);
+  lid(P.rc * 0.88, P.corner * 0.25, `radial-gradient(circle at 45% 45%, #1A0610 0 20%, color-mix(in srgb, ${P.capTop} 75%, #fff) 23%, ${P.capTop} 80%)`);
+  return el;
 }

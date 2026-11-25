@@ -6,6 +6,7 @@ import { levelLabel } from '../data.js';
 import { results, startSession } from '../session.js';
 import { sound } from '../audio.js';
 import { rain, countUp } from '../fx.js';
+import { setMood } from '../themefx.js';
 
 function verdict(pct) {
   if (pct === 100) return 'Sans faute.';
@@ -57,6 +58,7 @@ export function renderResults(root) {
     r.mode === 'defi' ? 'mode Défi' : 'mode Entraînement',
     f.level ? `niveau ${levelLabel(f.level).toLowerCase()}` : null,
     f.catTitles && !f.allCats ? f.catTitles.join(', ') : null,
+    f.typeLabels && f.allTypes === false ? f.typeLabels.join(', ') : null,
   ].filter(Boolean).join(', ');
   const rx = h('article', { class: 'rx', 'aria-labelledby': 'rx-title' },
     h('header', { class: 'rx__head' },
@@ -97,5 +99,6 @@ export function renderResults(root) {
   requestAnimationFrame(step);
 
   setTimeout(() => sound.play('finish', r.pct / 100), 200);
+  setMood(r.pct >= 50 ? 'win' : 'lose'); // thème Mayuff : fond rose ou rouge selon le résultat
   if (r.pct >= 70) setTimeout(() => rain(r.pct === 100 ? 200 : 120), 350);
 }

@@ -25,10 +25,16 @@ function load() {
     const raw = localStorage.getItem(KEY);
     if (!raw) return structuredClone(DEFAULTS);
     const parsed = JSON.parse(raw);
+    // « Valeurs normales » a rejoint la boîte Pharmacologie : on y déplace les erreurs à revoir
+    const mistakes = {};
+    Object.entries(parsed.mistakes || {}).forEach(([k, m]) => {
+      if (m?.quizId === 'valeurs-normales') { m.quizId = 'pharmacologie'; k = `pharmacologie/${m.qid}`; }
+      mistakes[k] = m;
+    });
     return {
       settings: { ...DEFAULTS.settings, ...parsed.settings },
       progress: parsed.progress || {},
-      mistakes: parsed.mistakes || {},
+      mistakes,
       stats: { ...DEFAULTS.stats, ...parsed.stats },
       prefs: parsed.prefs || {},
     };
