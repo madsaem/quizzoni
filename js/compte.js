@@ -189,12 +189,29 @@ export function openAccount() {
           ? h('img', { class: 'account__avatar', src: user.photoURL, alt: '', referrerpolicy: 'no-referrer' })
           : h('span', { class: 'account__avatar', 'aria-hidden': 'true' }, name.slice(0, 1).toUpperCase()),
         h('div', {}, h('b', {}, name), user.email && user.displayName ? h('small', {}, user.email) : null)),
+      pseudoForm(),
       h('p', { class: `account__msg${state === 'error' ? ' account__msg--bad' : ''}`, role: 'status' }, status),
       h('p', { class: 'account__note' }, 'Enregistré sur ton compte : records, erreurs à revoir, statistiques. Tes réglages (thème, son) restent propres à chaque appareil.'),
       h('div', { class: 'dialog__actions', style: { justifyContent: 'space-between' } },
         h('button', { type: 'button', class: 'key key--ghost key--sm', onClick: async () => { sound.play('click'); clearTimeout(timer); if (store.syncState().dirty) await push(); await fb.m.signOut(fb.auth); store.unlinkAccount(); toast('Déconnecté. Ta progression reste aussi sur cet appareil.'); } }, 'Se déconnecter'),
         h('button', { type: 'button', class: 'key key--sm', onClick: () => { sound.play('click'); pull(); } }, 'Synchroniser')),
     ];
+  }
+
+  /** Changer de pseudonyme (nom affiché sur le bouton du haut et dans cette fenêtre). */
+  function pseudoForm() {
+    const input = h('input', { class: 'field', type: 'text', maxlength: 30, value: user.displayName || '', placeholder: 'Ton pseudo', 'aria-label': 'Pseudonyme', autocomplete: 'nickname' });
+    const save = async (e) => {
+      e.preventDefault();
+      const name = input.value.trim().slice(0, 30);
+      if (!name || name === user.displayName) return;
+      sound.play('click');
+      try { await fb.m.updateProfile(user, { displayName: name }); toast(`Pseudo changé : ${name}`); refresh(); }
+      catch (err) { toast(errText(err)); }
+    };
+    return h('form', { class: 'account__pseudo', onSubmit: save },
+      h('label', { class: 'account__label' }, 'Pseudo', input),
+      h('button', { type: 'submit', class: 'key key--ghost key--sm' }, 'Changer'));
   }
 
   function signedOut() {

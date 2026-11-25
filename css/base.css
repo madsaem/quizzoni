@@ -225,6 +225,8 @@ a { color: inherit; }
 .dialog {
   width: min(520px, calc(100vw - 2rem));
   max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  overscroll-behavior: contain;   /* arrivé en bas de la fenêtre, le défilement ne passe pas à la page */
   padding: 0;
   border: 0;
   background: var(--surface);
@@ -374,6 +376,8 @@ html[data-motion="reduced"] *::after {
 .account__note { font-size: var(--t-sm); color: var(--ink-3); line-height: 1.45; }
 .account__who { display: flex; align-items: center; gap: .8rem; }
 .account__who small { display: block; color: var(--ink-3); }
+.account__pseudo { display: flex; align-items: flex-end; gap: .55rem; }
+.account__label { flex: 1; display: grid; gap: .3rem; font-weight: 700; font-size: var(--t-sm); }
 .account__avatar {
   display: grid; place-items: center;
   width: 3rem; height: 3rem; flex: none;
@@ -381,3 +385,7 @@ html[data-motion="reduced"] *::after {
   background: var(--brand); color: var(--brand-ink);
   font-family: var(--font-display); font-weight: 800; font-size: 1.4rem;
 }
+
+/* Fenêtre ouverte (thèmes, réglages, compte) : la page derrière ne défile plus */
+html:has(dialog[open]) { overflow: hidden; }
+html { scrollbar-gutter: stable; }
