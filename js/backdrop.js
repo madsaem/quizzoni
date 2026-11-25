@@ -1,8 +1,9 @@
 // Fonds animés de certains thèmes, dessinés derrière tout le contenu.
 //   etoiles  : ciel étoilé qui scintille, nébuleuses, étoiles filantes, constellations
 //   pinksoni : grandes étoiles filantes qui tombent et éclatent en cœurs au sol
-//   mayuff   : deux puffs en 3D qui tournent (éléments HTML, pas de canvas)
+//   mayuff   : deux puffs en 3D qui tournent (WebGL, voir puffs.js)
 import { prefersReducedMotion } from './utils.js';
+import { setPuffs } from './puffs.js';
 
 let canvas = null;
 let ctx = null;
@@ -298,73 +299,4 @@ function pinkFall() {
       }
     },
   };
-}
-
-/* ------------------------------------------ Mayuff : deux puffs en 3D
-   Chaque puff est un cylindre aplati (scaleZ) fait de bandes verticales,
-   avec la photo de la puff enroulée devant et derrière (assets/mayuff/). */
-let puffsEl = null;
-const PUFF_H = 640;   // taille de référence, réduite ensuite selon l'écran
-// dimensions tirées des photos (voir assets/mayuff) : rayon du corps, de l'embout, hauteur de l'embout, arrondi des coins
-const PUFFS = {
-  rose: { r: 100, rc: 62.6, capH: 89.6, corner: 36, capTop: '#F45EA8', shoulder: '#E07EB7' },
-  rouge: { r: 115.9, rc: 55.4, capH: 85.7, corner: 39, capTop: '#B8202C', shoulder: '#5A0A0E' },
-};
-
-function setPuffs(on) {
-  if (!on) { puffsEl?.remove(); puffsEl = null; return; }
-  if (puffsEl) return;
-  puffsEl = document.createElement('div');
-  puffsEl.id = 'puffs';
-  puffsEl.setAttribute('aria-hidden', 'true');
-  puffsEl.append(buildPuff('rose', 'l'), buildPuff('rouge', 'r'));
-  document.body.prepend(puffsEl);
-  sizePuffs();
-}
-function sizePuffs() {
-  if (!puffsEl) return;
-  const k = Math.max(0.45, Math.min(1.05, (window.innerHeight * 0.78) / PUFF_H));
-  puffsEl.style.setProperty('--k', k.toFixed(3));
-}
-window.addEventListener('resize', sizePuffs);
-
-/** Une puff : corps + embout (deux anneaux de bandes) + deux couvercles. */
-function buildPuff(name, side) {
-  const P = PUFFS[name];
-  const bodyH = PUFF_H - P.capH;
-  const el = document.createElement('div');
-  el.className = `puff3d puff3d--${side}`;
-  el.style.setProperty('--h', `${PUFF_H}px`);
-  const spin = document.createElement('div');
-  spin.className = 'puff3d__spin';
-  const shape = document.createElement('div');
-  shape.className = 'puff3d__shape';
-  spin.append(shape);
-  el.append(spin);
-
-  const ring = (N, radius, top, height, url) => {
-    const sw = 2 * radius * Math.tan(Math.PI / N);
-    const C = sw * N;
-    for (let i = 0; i < N; i++) {
-      const s = document.createElement('div');
-      s.className = 'puff3d__strip';
-      s.style.cssText = `--top:${top}px;--sh:${height}px;--sw:${sw}px;`
-        + `transform:rotateY(${((i + 0.5) * 360) / N - 90}deg) translateZ(${radius}px);`
-        + `background-image:url("${url}");background-size:${C}px ${height}px;background-position:${-i * sw}px 0;`;
-      shape.append(s);
-    }
-  };
-  const lid = (radius, y, bg) => {
-    const d = document.createElement('div');
-    d.className = 'puff3d__lid';
-    d.style.cssText = `width:${radius * 2}px;height:${radius * 2}px;top:${y - radius}px;margin-left:${-radius}px;transform:rotateX(90deg);background:${bg};`;
-    shape.append(d);
-  };
-
-  ring(28, P.r, P.capH, bodyH, `assets/mayuff/${name}-corps.webp`);
-  ring(18, P.rc, 0, P.capH + 2, `assets/mayuff/${name}-embout.webp`);
-  // épaule du corps (sous les coins arrondis) et dessus de l'embout
-  lid(P.r * 0.9, P.capH + P.corner * 0.45, `radial-gradient(circle at 42% 40%, color-mix(in srgb, ${P.shoulder} 70%, #fff), ${P.shoulder} 75%)`);
-  lid(P.rc * 0.88, P.corner * 0.25, `radial-gradient(circle at 45% 45%, #1A0610 0 20%, color-mix(in srgb, ${P.capTop} 75%, #fff) 23%, ${P.capTop} 80%)`);
-  return el;
 }

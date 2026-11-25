@@ -1,2 +1,4 @@
 .DS_Store
 *.log
+# fichiers audio d'origine (non publiés, seules les versions préparées le sont)
+assets/audio/*/originaux/
