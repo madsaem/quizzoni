@@ -7,6 +7,7 @@ const DEFAULTS = {
   settings: {
     theme: 'officine',
     sound: true,
+    music: true,
     volume: 0.7,
     reducedMotion: false,
     lastMode: 'entrainement',

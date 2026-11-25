@@ -4,6 +4,7 @@ import { sound } from './audio.js';
 import { loadCatalog } from './data.js';
 import { applyTheme, applyMotion, openSettings, openThemes, soundIcon, THEMES } from './ui.js';
 import { setMood } from './themefx.js';
+import { music } from './music.js';
 import { renderHome } from './views/home.js';
 import { renderIntro } from './views/intro.js';
 import { renderPlay } from './views/play.js';
@@ -19,11 +20,12 @@ const st = store.settings();
 if (!THEMES.some((t) => t.id === st.theme)) store.setSetting('theme', 'officine');
 sound.setEnabled(st.sound);
 sound.setVolume(st.volume);
+music.setEnabled({ music: st.music !== false, sound: st.sound });
 applyTheme(store.settings().theme);
 applyMotion(st.reducedMotion);
 
 // le navigateur n'autorise le son qu'après un premier geste
-const unlock = () => { sound.unlock(); window.removeEventListener('pointerdown', unlock); window.removeEventListener('keydown', unlock); };
+const unlock = () => { sound.unlock(); music.unlock(); window.removeEventListener('pointerdown', unlock); window.removeEventListener('keydown', unlock); };
 window.addEventListener('pointerdown', unlock);
 window.addEventListener('keydown', unlock);
 
@@ -38,6 +40,7 @@ soundBtn.addEventListener('click', () => {
   const on = !store.settings().sound;
   store.setSetting('sound', on);
   sound.setEnabled(on);
+  music.setEnabled({ sound: on });
   refreshSoundBtn();
   sound.play('select');
 });
@@ -67,6 +70,9 @@ function route() {
     cleanup = null;
     topbar.dataset.hidden = String(hash === '#/play');
     setMood(null);
+    // musique : ambiance sur les menus, silence en partie, fanfare aux résultats
+    if (hash === '#/play') music.quiet();
+    else if (hash !== '#/resultats') { music.leaveOutcome(); music.menu(); }
     cleanup = found[1](hash.match(found[0]));
     if (hash !== '#/play') window.scrollTo(0, 0);
   };

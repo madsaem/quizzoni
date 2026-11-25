@@ -3,6 +3,7 @@ import { h } from './utils.js';
 import { icon } from './icons.js';
 import * as store from './state.js';
 import { sound } from './audio.js';
+import { music } from './music.js';
 import { setBackdrop } from './backdrop.js';
 
 export const THEMES = [
@@ -12,6 +13,7 @@ export const THEMES = [
   { id: 'etoiles', name: 'Nuit étoilée', desc: 'Ciel animé, étoiles filantes, constellations qui dérivent sur les touches.', sounds: 'Carillons' },
   { id: 'pinksoni', name: 'Pinksoni', desc: 'Rose en dégradé, étoiles filantes qui éclatent en cœurs, fleurs qui éclosent sur les bonnes réponses.', sounds: 'Clochettes de cristal' },
   { id: 'mayuff', name: 'Mayuff', desc: 'Deux puffs géantes en 3D, fumée dans les touches, fond rose quand tu réussis, rouge quand tu rates.', sounds: 'Bulles de chewing-gum' },
+  { id: 'warfare', name: 'Warfare', desc: 'Hologramme vert, globe radar, lignes de balayage.', sounds: 'Sons de menu militaires', music: true },
 ];
 
 export function applyTheme(id) {
@@ -19,6 +21,7 @@ export function applyTheme(id) {
   document.documentElement.dataset.theme = theme;
   sound.setPack(theme);
   setBackdrop(theme);
+  music.setTheme(theme);
   const bg = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', bg);
   document.dispatchEvent(new CustomEvent('themechange', { detail: theme }));
@@ -75,9 +78,14 @@ export function openSettings() {
     onChange: (e) => {
       store.setSetting('sound', e.target.checked);
       sound.setEnabled(e.target.checked);
+      music.setEnabled({ sound: e.target.checked });
       document.dispatchEvent(new CustomEvent('soundchange'));
       sound.play('select');
     },
+  });
+  const musicSwitch = h('input', {
+    type: 'checkbox', class: 'switch', id: 'set-music', checked: st.music !== false,
+    onChange: (e) => { store.setSetting('music', e.target.checked); music.setEnabled({ music: e.target.checked }); sound.play('select'); },
   });
   const volume = h('input', {
     type: 'range', class: 'volume', min: 0, max: 1, step: 0.05, value: st.volume,
@@ -112,6 +120,7 @@ export function openSettings() {
       h('div', { class: 'switch-row' }, h('span', {}, 'Thème : ', themeName), themeBtn)),
     h('div', { class: 'setting' },
       h('div', { class: 'switch-row' }, h('label', { for: 'set-sound' }, 'Sons'), soundSwitch),
+      h('div', { class: 'switch-row' }, h('label', { for: 'set-music' }, 'Musique des thèmes', h('small', { class: 'setting__hint', style: { display: 'block', marginTop: 0 } }, 'Thème Warfare : musique de menu, de victoire et de défaite')), musicSwitch),
       h('div', { class: 'switch-row' }, h('span', {}, 'Volume'), h('div', { style: { flex: '0 1 12rem' } }, volume)),
       h('div', { class: 'switch-row' }, h('label', { for: 'set-motion' }, 'Réduire les animations'), motionSwitch)),
     h('div', { class: 'dialog__actions', style: { justifyContent: 'space-between' } },
@@ -144,7 +153,7 @@ export function openThemes() {
       h('span', { class: 'tprev__grid' }, ['--c1', '--c2', '--c3', '--c4'].map((c) => h('span', { class: 'tprev__tile', style: { '--t': `var(${c})` } })))),
     h('span', { class: 'tcard__name' }, t.name, h('span', { class: 'tcard__on' }, 'Actif')),
     h('span', { class: 'tcard__desc' }, t.desc),
-    h('span', { class: 'tcard__sounds' }, icon('soundOn'), t.sounds));
+    h('span', { class: 'tcard__music' }, icon('soundOn'), t.music ? `${t.sounds} et musique` : t.sounds));
     return card;
   });
   dlg.append(h('div', { class: 'dialog__inner' },

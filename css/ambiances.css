@@ -5,7 +5,9 @@
 
 /* Fond animé (canvas dessiné par js/backdrop.js), derrière tout le contenu */
 #backdrop { position: fixed; inset: 0; z-index: -1; width: 100vw; height: 100dvh; pointer-events: none; }
-[data-theme="etoiles"] body { background-color: transparent; background-image: none; }
+[data-theme="etoiles"] body,
+[data-theme="warfare"] body { background-color: transparent; }
+[data-theme="etoiles"] body { background-image: none; }
 
 /* --------------------------------------------------------------------------
    Choisir un thème : la fenêtre « Thèmes »
@@ -33,8 +35,8 @@
 }
 .tcard[aria-checked="true"] .tcard__on { visibility: visible; }
 .tcard__desc { color: var(--ink-2); font-size: var(--t-sm); line-height: 1.35; }
-.tcard__sounds { display: inline-flex; align-items: center; gap: .3rem; color: var(--ink-2); font-size: var(--t-xs); font-weight: 700; }
-.tcard__sounds svg { width: 1rem; height: 1rem; }
+.tcard__music { display: inline-flex; align-items: center; gap: .3rem; color: var(--ink-2); font-size: var(--t-xs); font-weight: 700; }
+.tcard__music svg { width: 1rem; height: 1rem; }
 
 /* Aperçu : une mini-partie dessinée avec les couleurs du thème */
 .tprev {
@@ -65,6 +67,13 @@
 }
 .tprev[data-theme="contraste"] .tprev__q { box-shadow: inset 0 0 0 2px #fff; }
 .tprev[data-theme="contraste"] .tprev__tile { background: #000; box-shadow: inset 0 0 0 2px var(--t); }
+.tprev[data-theme="warfare"] { background-color: #020805; }
+.tprev[data-theme="warfare"] .tprev__q { background: rgba(4, 18, 10, .9); color: var(--holo); box-shadow: inset 0 0 0 1px var(--holo-soft); text-shadow: 0 0 6px var(--holo-soft); letter-spacing: .08em; }
+.tprev[data-theme="warfare"] .tprev__tile { background: color-mix(in srgb, var(--t) 16%, #020805); box-shadow: inset 0 0 0 1.5px var(--t), inset 0 0 10px color-mix(in srgb, var(--t) 40%, transparent); }
+.tprev[data-theme="warfare"]::after {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,.3) 2px 3px);
+}
 .tprev[data-theme="etoiles"] {
   background:
     radial-gradient(1.2px 1.2px at 12% 20%, #fff 50%, transparent 51%),
@@ -144,6 +153,110 @@
 [data-theme="etoiles"] .cross3d { filter: drop-shadow(0 0 8px rgba(255, 213, 107, .55)); }
 [data-theme="etoiles"] .topbar { background: color-mix(in srgb, var(--bg) 62%, transparent); }
 [data-theme="etoiles"] .dialog::backdrop { background: rgba(5, 3, 24, .6); }
+
+/* --------------------------------------------------------------------------
+   Warfare : hologramme vert, contours lumineux, lignes de balayage
+   -------------------------------------------------------------------------- */
+[data-theme="warfare"] body { background-image: none; }
+/* lignes de balayage sur tout l'écran + une bande lumineuse qui descend */
+[data-theme="warfare"] body::after {
+  content: ""; position: fixed; inset: 0; z-index: 70; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0, 0, 0, .16) 2px 3px);
+}
+[data-theme="warfare"] body::before {
+  content: ""; position: fixed; left: 0; right: 0; top: 0; height: 26vh; z-index: 70; pointer-events: none;
+  background: linear-gradient(to bottom, transparent, rgba(70, 255, 150, .05) 60%, rgba(140, 255, 190, .09) 62%, transparent 64%);
+  transform: translateY(-30vh);
+  animation: holo-scan 8s linear infinite;
+}
+@keyframes holo-scan { to { transform: translateY(110vh); } }
+
+[data-theme="warfare"] h1, [data-theme="warfare"] h2,
+[data-theme="warfare"] .logo, [data-theme="warfare"] .q-prompt, [data-theme="warfare"] .key {
+  text-shadow: 0 0 10px var(--holo-soft);
+}
+[data-theme="warfare"] .logo,
+[data-theme="warfare"] .key,
+[data-theme="warfare"] .hero__title,
+[data-theme="warfare"] .shelf__title,
+[data-theme="warfare"] .box__title,
+[data-theme="warfare"] .feedback__title,
+[data-theme="warfare"] .rx__title,
+[data-theme="warfare"] .q-count,
+[data-theme="warfare"] .sort__head,
+[data-theme="warfare"] .dialog h2 { text-transform: uppercase; letter-spacing: .05em; }
+[data-theme="warfare"] .q-prompt { font-weight: 700; letter-spacing: .01em; }
+
+[data-theme="warfare"] .key {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--k-bg) 20%, transparent), color-mix(in srgb, var(--k-bg) 6%, transparent)),
+    rgba(2, 12, 6, .88);
+  color: var(--k-bg);
+  box-shadow: inset 0 0 0 1.5px var(--k-bg), inset 0 0 22px color-mix(in srgb, var(--k-bg) 30%, transparent);
+  font-weight: 700;
+}
+[data-theme="warfare"] .key--ghost,
+[data-theme="warfare"] .key--ink,
+[data-theme="warfare"] .stage__quit { --k-bg: var(--ink-2); }
+[data-theme="warfare"] .key:active:not(:disabled) { box-shadow: inset 0 0 0 2px var(--k-bg), inset 0 0 30px color-mix(in srgb, var(--k-bg) 50%, transparent); }
+@media (hover: hover) {
+  [data-theme="warfare"] .key:hover:not(:disabled) {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--k-bg) 34%, transparent), color-mix(in srgb, var(--k-bg) 14%, transparent)), rgba(2, 12, 6, .88);
+    filter: none;
+  }
+}
+[data-theme="warfare"] .key:focus-visible { box-shadow: inset 0 0 0 3px var(--focus), inset 0 0 22px color-mix(in srgb, var(--focus) 40%, transparent); }
+[data-theme="warfare"] .answer .answer__text { color: var(--ink); text-transform: none; letter-spacing: 0; font-family: var(--font-body); font-weight: 700; font-size: .92em; }
+[data-theme="warfare"] .answer__sym { background: transparent !important; box-shadow: inset 0 0 0 1.5px currentColor; }
+[data-theme="warfare"] .answer[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--k-bg) 32%, #020805);
+  box-shadow: inset 0 0 0 3px var(--k-bg), inset 0 0 30px color-mix(in srgb, var(--k-bg) 55%, transparent);
+}
+[data-theme="warfare"] .answer.is-correct { box-shadow: inset 0 0 0 3px var(--good), inset 0 0 34px rgba(70, 255, 150, .5); }
+[data-theme="warfare"] .answer.is-wrong { box-shadow: inset 0 0 0 3px var(--bad), inset 0 0 34px rgba(255, 90, 74, .45); }
+[data-theme="warfare"] .answer__badge { background: #020805; }
+
+/* cadres « tête haute » : coins en équerre */
+[data-theme="warfare"] :is(.q-card, .rx, .dialog, .slider, .figure, .sort__zone, .sfx__word, .receipt, .notice, .mode, .tcard, .quick__tile) {
+  background-color: rgba(4, 18, 10, .9);
+  background-image:
+    linear-gradient(var(--holo), var(--holo)), linear-gradient(var(--holo), var(--holo)),
+    linear-gradient(var(--holo), var(--holo)), linear-gradient(var(--holo), var(--holo)),
+    linear-gradient(var(--holo), var(--holo)), linear-gradient(var(--holo), var(--holo)),
+    linear-gradient(var(--holo), var(--holo)), linear-gradient(var(--holo), var(--holo));
+  background-size: 18px 2px, 2px 18px, 18px 2px, 2px 18px, 18px 2px, 2px 18px, 18px 2px, 2px 18px;
+  background-position: 0 0, 0 0, 100% 0, 100% 0, 0 100%, 0 100%, 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  outline: 1px solid rgba(70, 255, 150, .28);
+  outline-offset: -1px;
+}
+[data-theme="warfare"] .q-card-wrap { filter: drop-shadow(0 0 14px rgba(70, 255, 150, .18)); }
+[data-theme="warfare"] .q-card { clip-path: none; }
+[data-theme="warfare"] .field { background: rgba(2, 12, 6, .9); border-color: var(--holo); color: var(--ink); box-shadow: inset 0 0 18px rgba(70, 255, 150, .12); }
+[data-theme="warfare"] .feedback { background: rgba(3, 14, 8, .96); box-shadow: 0 -10px 40px rgba(70, 255, 150, .12); }
+[data-theme="warfare"] .cross3d { filter: drop-shadow(0 0 6px var(--holo)); }
+[data-theme="warfare"] .cross3d__layer { background: color-mix(in srgb, var(--holo) 35%, transparent); }
+[data-theme="warfare"] .cross3d__layer:first-child,
+[data-theme="warfare"] .cross3d__layer:last-child { background: var(--holo); }
+[data-theme="warfare"] .topbar { background: rgba(2, 8, 5, .78); border-bottom-color: rgba(70, 255, 150, .3); }
+[data-theme="warfare"] .dialog::backdrop { background: rgba(0, 6, 3, .7); }
+[data-theme="warfare"] .answers-need { background: rgba(4, 18, 10, .92); color: var(--c3); box-shadow: inset 0 0 0 1.5px var(--c3), inset 0 0 20px rgba(233, 255, 112, .2); }
+[data-theme="warfare"] .answers-need__n { background: var(--c3); color: #02110A; }
+[data-theme="warfare"] .sort__head { background: color-mix(in srgb, var(--zc) 18%, #020805); color: var(--zc); box-shadow: inset 0 -2px 0 var(--zc); }
+[data-theme="warfare"] .sort__zone { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--zc) 60%, transparent); }
+[data-theme="warfare"] .sort__tag { background: rgba(4, 18, 10, .95); color: var(--ink); box-shadow: inset 0 0 0 1px var(--holo-soft); }
+[data-theme="warfare"] .match__item.is-paired { background: color-mix(in srgb, var(--pc) 22%, #020805); color: var(--ink); box-shadow: inset 0 0 0 2px var(--pc); }
+
+/* Warfare : les boîtes de l'accueil deviennent des caisses holographiques */
+[data-theme="warfare"] .box__front {
+  background: rgba(4, 18, 10, .92);
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--c) 75%, transparent), inset 0 0 34px color-mix(in srgb, var(--c) 14%, transparent);
+}
+[data-theme="warfare"] .box__band { background: color-mix(in srgb, var(--c) 20%, #020805); color: var(--c); box-shadow: inset 0 -1.5px 0 var(--c); text-shadow: 0 0 8px color-mix(in srgb, var(--c) 60%, transparent); }
+[data-theme="warfare"] .box__side { background: linear-gradient(to right, rgba(0, 0, 0, .35), rgba(0, 0, 0, .1)), color-mix(in srgb, var(--c) 26%, #020805); color: var(--c); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 60%, transparent); }
+[data-theme="warfare"] .box__top { background: color-mix(in srgb, var(--c) 12%, #020805); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 40%, transparent); }
+[data-theme="warfare"] .box__stripes { opacity: .55; }
+[data-theme="warfare"] .box__shadow { background: radial-gradient(closest-side, rgba(70, 255, 150, .2), transparent); }
 
 /* Nuit étoilée : le texte blanc reste lisible sur les touches claires */
 [data-theme="etoiles"] .answer .answer__text { text-shadow: 0 1px 2px rgba(10, 6, 40, .35); }

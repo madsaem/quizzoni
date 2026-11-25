@@ -2,6 +2,7 @@
 //   etoiles  : ciel étoilé qui scintille, nébuleuses, étoiles filantes, constellations
 //   pinksoni : grandes étoiles filantes qui tombent et éclatent en cœurs au sol
 //   mayuff   : deux puffs en 3D qui tournent (WebGL, voir puffs.js)
+//   warfare  : globe en fil de fer, grille en perspective, cibles, coordonnées (Bastia)
 import { prefersReducedMotion } from './utils.js';
 import { setPuffs } from './puffs.js';
 
@@ -12,7 +13,7 @@ let painter = null;
 let W = 0, H = 0, DPR = 1;
 let last = 0;
 
-const PAINTERS = { etoiles: starry, pinksoni: pinkFall };
+const PAINTERS = { etoiles: starry, pinksoni: pinkFall, warfare: holo };
 
 export function setBackdrop(theme) {
   stop();
@@ -297,6 +298,134 @@ function pinkFall() {
         ctx.stroke();
         ctx.restore();
       }
+    },
+  };
+}
+
+/* ------------------------------------------------------------ Hologramme */
+function holo() {
+  const G = '70,255,150';
+  let blips = [];
+  const labels = ['42°41′N 9°27′E', 'BASTIA', 'IFSI-2B', 'GRID 0412', 'SAT-LINK OK', 'SECTEUR 7'];
+
+  function build() {
+    blips = Array.from({ length: 6 }, (_, i) => ({ lat: rand(-0.9, 0.9), lon: rand(0, Math.PI * 2), label: labels[i], ph: rand(0, 6) }));
+  }
+  build();
+
+  function line(x1, y1, x2, y2) { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); }
+
+  return {
+    resize: build,
+    draw(t) {
+      ctx.clearRect(0, 0, W, H);
+      const bg = ctx.createRadialGradient(W * 0.7, H * 0.45, 0, W * 0.7, H * 0.45, Math.max(W, H) * 0.8);
+      bg.addColorStop(0, '#04170C');
+      bg.addColorStop(0.6, '#020B06');
+      bg.addColorStop(1, '#010503');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      // grille au sol en perspective, qui avance
+      const hz = H * 0.62;
+      ctx.lineWidth = 1;
+      for (let i = -14; i <= 14; i++) {
+        ctx.strokeStyle = `rgba(${G},${0.1 - Math.abs(i) * 0.004})`;
+        line(W / 2 + i * 18, hz, W / 2 + i * W * 0.16, H);
+      }
+      const off = (t * 0.25) % 1;
+      for (let k = 0; k < 12; k++) {
+        const z = (k + off) / 12;
+        const y = hz + (H - hz) * z * z;
+        ctx.strokeStyle = `rgba(${G},${0.03 + z * 0.12})`;
+        line(0, y, W, y);
+      }
+      ctx.strokeStyle = `rgba(${G},.25)`;
+      line(0, hz, W, hz);
+
+      // globe en fil de fer
+      const cx = W * (W > 900 ? 0.74 : 0.5), cy = H * 0.4, R = Math.min(W, H) * (W > 900 ? 0.3 : 0.34);
+      const rot = t * 0.12;
+      const tilt = 0.38;
+      const proj = (lat, lon) => {
+        const x = Math.cos(lat) * Math.sin(lon + rot);
+        const y = Math.sin(lat);
+        const z = Math.cos(lat) * Math.cos(lon + rot);
+        const y2 = y * Math.cos(tilt) - z * Math.sin(tilt);
+        const z2 = y * Math.sin(tilt) + z * Math.cos(tilt);
+        return [cx + x * R, cy - y2 * R, z2];
+      };
+      const glow = ctx.createRadialGradient(cx, cy, R * 0.2, cx, cy, R * 1.25);
+      glow.addColorStop(0, `rgba(${G},.07)`);
+      glow.addColorStop(1, `rgba(${G},0)`);
+      ctx.fillStyle = glow;
+      ctx.beginPath(); ctx.arc(cx, cy, R * 1.25, 0, Math.PI * 2); ctx.fill();
+
+      // deux tracés seulement (face avant, face arrière) : bien plus léger à dessiner
+      const front = new Path2D();
+      const back = new Path2D();
+      const seg = (pts) => {
+        for (let i = 1; i < pts.length; i++) {
+          const [x1, y1, z1] = pts[i - 1];
+          const [x2, y2, z2] = pts[i];
+          const p = (z1 + z2) / 2 > 0 ? front : back;
+          p.moveTo(x1, y1); p.lineTo(x2, y2);
+        }
+      };
+      for (let la = -75; la <= 75; la += 15) {
+        const pts = [];
+        for (let lo = 0; lo <= 360; lo += 10) pts.push(proj((la * Math.PI) / 180, (lo * Math.PI) / 180));
+        seg(pts);
+      }
+      for (let lo = 0; lo < 360; lo += 20) {
+        const pts = [];
+        for (let la = -90; la <= 90; la += 10) pts.push(proj((la * Math.PI) / 180, (lo * Math.PI) / 180));
+        seg(pts);
+      }
+      ctx.strokeStyle = `rgba(${G},.1)`;
+      ctx.stroke(back);
+      ctx.strokeStyle = `rgba(${G},.42)`;
+      ctx.stroke(front);
+      ctx.strokeStyle = `rgba(${G},.55)`;
+      ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();
+
+      // cibles sur le globe
+      ctx.font = '600 11px Rajdhani, monospace';
+      blips.forEach((b) => {
+        const [x, y, z] = proj(b.lat, b.lon);
+        if (z <= 0.05) return;
+        const pulse = 0.5 + 0.5 * Math.sin(t * 3 + b.ph);
+        ctx.strokeStyle = `rgba(${G},${0.5 + pulse * 0.4})`;
+        const s = 6 + pulse * 3;
+        ctx.strokeRect(x - s, y - s, s * 2, s * 2);
+        ctx.fillStyle = `rgba(${G},.9)`;
+        ctx.fillRect(x - 1.5, y - 1.5, 3, 3);
+        ctx.fillStyle = `rgba(${G},${0.45 + z * 0.4})`;
+        line(x + s, y - s, x + s + 14, y - s - 12);
+        ctx.fillText(b.label, x + s + 16, y - s - 14);
+      });
+
+      // balayage radar autour du globe
+      const ang = (t * 0.9) % (Math.PI * 2);
+      const sweep = ctx.createConicGradient ? ctx.createConicGradient(ang, cx, cy) : null;
+      if (sweep) {
+        sweep.addColorStop(0, `rgba(${G},.16)`);
+        sweep.addColorStop(0.08, `rgba(${G},0)`);
+        sweep.addColorStop(1, `rgba(${G},0)`);
+        ctx.fillStyle = sweep;
+        ctx.beginPath(); ctx.arc(cx, cy, R * 1.18, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.strokeStyle = `rgba(${G},.18)`;
+      ctx.setLineDash([4, 6]);
+      ctx.beginPath(); ctx.arc(cx, cy, R * 1.18, 0, Math.PI * 2); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // texte de télémétrie dans un coin
+      ctx.fillStyle = `rgba(${G},.45)`;
+      ctx.font = '600 12px Rajdhani, monospace';
+      const clock = new Date();
+      const hh = String(clock.getHours()).padStart(2, '0'), mm = String(clock.getMinutes()).padStart(2, '0'), ss = String(clock.getSeconds()).padStart(2, '0');
+      [`T+ ${hh}:${mm}:${ss}`, `LAT 42.70  LON 09.45`, `SIGNAL ${(92 + Math.sin(t) * 6).toFixed(1)} %`].forEach((txt, i) => ctx.fillText(txt, 18, H - 54 + i * 16));
     },
   };
 }

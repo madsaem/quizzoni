@@ -1,7 +1,7 @@
 # Quizzoni
 
 Site de révision pour les étudiants infirmiers de 2e année (IFSI de Bastia).
-Quiz courts, 13 types de questions, 6 thèmes avec leurs propres sons, progression enregistrée dans le navigateur.
+Quiz courts, 13 types de questions, 7 thèmes avec leurs propres sons, progression enregistrée dans le navigateur.
 
 Aucune installation, aucun framework : HTML, CSS et JavaScript.
 
@@ -35,7 +35,7 @@ La progression des étudiants est enregistrée dans leur navigateur : une mise �
 
 ```
 index.html            page unique
-css/themes.css        polices + couleurs des thèmes
+css/themes.css        polices + couleurs des 3 thèmes
 css/base.css          touches en relief, champs, dialogues
 css/home.css          accueil, boîtes 3D, page d'un quiz
 css/play.css          partie, types de questions, résultats
@@ -44,7 +44,9 @@ js/main.js            démarrage et navigation
 js/views/             écrans : accueil, notice, partie, résultats
 js/types/             un fichier par type de question
 js/audio.js           sons synthétisés (un pack par thème)
-js/backdrop.js        fonds animés (ciel étoilé, étoiles et cœurs, puffs 3D)
+js/music.js           musique des thèmes (menu, victoire, défaite)
+js/backdrop.js        fonds animés (ciel étoilé, étoiles et cœurs, hologramme)
+js/puffs.js           les deux puffs 3D du thème Mayuff (WebGL)
 js/themefx.js         effets de réponse propres à un thème (fleurs, fond rose ou rouge)
 js/fx.js              confettis, secousse, tracé d'ECG
 js/state.js           sauvegarde locale (records, erreurs, réglages)
@@ -52,6 +54,7 @@ data/catalog.json     rayons et liste des quiz
 data/quizzes/*.json   les questions
 assets/schemas/       images des questions (SVG, PNG, JPG…)
 assets/mayuff/        photos des deux puffs du thème Mayuff (textures 3D et monogrammes)
+assets/audio/         musiques et sons à déposer soi-même (voir « Thèmes et sons »)
 ```
 
 ## Ajouter un quiz
@@ -198,9 +201,27 @@ Pour trouver les coordonnées d'un point : ouvrir l'image dans un logiciel qui a
 
 ## Thèmes et sons
 
-Six thèmes, choisis avec le bouton **Thèmes** en haut à droite : Officine (clair), Garde de nuit (sombre), Contraste élevé (noir, contours jaunes et blancs), Nuit étoilée (ciel animé), Pinksoni (rose, étoiles filantes qui éclatent en cœurs, fleurs qui éclosent sur les bonnes réponses) et Mayuff (deux puffs en 3D, fumée dans les touches, fond rose ou rouge selon la réponse). Chacun a ses couleurs (`css/themes.css`), parfois un décor (`css/ambiances.css`, `js/backdrop.js`) et son pack de sons (`js/audio.js`), générés par le navigateur, sans fichier audio.
+Sept thèmes, choisis avec le bouton **Thèmes** en haut à droite : Officine (clair), Garde de nuit (sombre), Contraste élevé (noir, contours jaunes et blancs), Nuit étoilée (ciel animé), Pinksoni (rose, étoiles filantes qui éclatent en cœurs, fleurs qui éclosent sur les bonnes réponses), Mayuff (deux puffs en 3D, fumée dans les touches, fond rose ou rouge selon la réponse) et Warfare (hologramme vert, musique). Chacun a ses couleurs (`css/themes.css`), parfois un décor (`css/ambiances.css`, `js/backdrop.js`) et son pack de sons (`js/audio.js`), générés par le navigateur, sans fichier audio.
 
 Pour ajouter un thème : copier un bloc `[data-theme="…"]` dans `css/themes.css`, ajouter le thème dans la liste `THEMES` de `js/ui.js`, et un pack du même nom dans `PACKS` de `js/audio.js`.
+
+### Musique du thème Warfare
+
+Le thème Warfare joue une musique sur les menus (Opening Titles), se tait pendant la partie, puis joue un extrait de victoire (Extraction Point, de 2:20 à 2:34 avec fondu, à partir de 50 % de réussite) ou de défaite (Mission Failed). Elles se coupent dans Réglages (« Musique des thèmes ») ou avec le bouton son. Sans fichier, des musiques composées par le navigateur prennent le relais.
+
+Les fichiers publiés sont des versions préparées (`menu.mp3`, `victoire.mp3`, `defaite.mp3`) ; les originaux restent dans `assets/audio/warfare/originaux/`, ignoré par git. Pour changer de fichier, le déposer dans `assets/audio/warfare/` puis écrire son nom dans `assets/audio/warfare/pistes.json` :
+
+```json
+"menu":     { "fichier": "menu.mp3", "volume": 0.5 },
+"victoire": { "fichier": "victoire.mp3", "debut": 0, "duree": 0, "volume": 0.8 },
+"defaite":  { "fichier": "defaite.mp3", "debut": 0, "duree": 0, "volume": 0.8 }
+```
+
+- `debut` : la seconde à laquelle commencer (pour partir directement du refrain, par exemple).
+- `duree` : combien de secondes jouer avant le fondu (0 = jusqu'à la fin).
+- La rubrique `sons` remplace les bruitages : `"click": "clic.wav"`, `"correct": "…"`, `"wrong": "…"`, `"select": "…"`, `"whoosh": "…"`.
+
+Le dépôt GitHub et le site sont publics : tout fichier poussé dans `assets/audio/` est téléchargeable. Pour qu'un fichier reste sur ton ordinateur, ajoute son nom dans `.gitignore` : il jouera en local mais ne sera pas envoyé en ligne.
 
 ## Ajouter un type de question
 

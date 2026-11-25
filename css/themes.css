@@ -290,3 +290,55 @@
 }
 html[data-theme="mayuff"][data-mood="win"] { --brand: #FF2E93; --stage: rgba(255, 60, 160, .18); --stage-2: rgba(255, 60, 160, .3); }
 html[data-theme="mayuff"][data-mood="lose"] { --stage: rgba(200, 20, 50, .16); --stage-2: rgba(150, 10, 30, .3); --trace: #FFFFFF; }
+
+/* --- Warfare : hologramme vert, lignes de radiographie --- */
+@font-face {
+  font-family: "Rajdhani";
+  src: url("../assets/fonts/rajdhani-600.woff2") format("woff2");
+  font-weight: 500 600; font-display: swap;
+}
+@font-face {
+  font-family: "Rajdhani";
+  src: url("../assets/fonts/rajdhani-700.woff2") format("woff2");
+  font-weight: 700 900; font-display: swap;
+}
+[data-theme="warfare"] {
+  color-scheme: dark;
+  --font-display: "Rajdhani", "Arial Narrow", system-ui, sans-serif;
+  --bg: #020805;
+  --bg-grid: rgba(70, 255, 150, .05);
+  --surface: #051309;
+  --surface-2: #0A2113;
+  --ink: #D2FFE0;
+  --ink-2: #8EE5AE;
+  --ink-3: #56A274;
+  --line: #1C5A35;
+  --edge: rgba(0, 0, 0, .65);
+  --gloss: rgba(150, 255, 195, .14);
+  --focus: #E9FF70;
+  --holo: #46FF96;
+  --holo-soft: rgba(70, 255, 150, .45);
+
+  --brand: #46FF96;
+  --brand-2: #1DB75F;
+  --brand-ink: #02110A;
+
+  --c1: #46FF96; --c1-ink: #02110A;   /* vert hologramme */
+  --c2: #3FD8FF; --c2-ink: #02110A;   /* cyan radar */
+  --c3: #E9FF70; --c3-ink: #02110A;   /* jaune viseur */
+  --c4: #FF5A4A; --c4-ink: #02110A;   /* rouge hostile */
+  --c5: #9DFFE0; --c5-ink: #02110A;   /* menthe */
+  --c6: #FFB648; --c6-ink: #02110A;   /* ambre */
+
+  --good: #46FF96;
+  --bad: #FF5A4A;
+  --mid: #FFB648;
+
+  --stage: rgba(2, 10, 5, .82);
+  --stage-2: rgba(3, 22, 11, .9);
+  --stage-grid: rgba(70, 255, 150, .07);
+  --stage-ink: #D2FFE0;
+  --trace: #46FF96;
+  --plank: #0A2113;
+  --plank-edge: #46FF96;
+}

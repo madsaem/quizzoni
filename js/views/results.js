@@ -5,6 +5,7 @@ import { getType } from '../types/index.js';
 import { levelLabel } from '../data.js';
 import { results, startSession } from '../session.js';
 import { sound } from '../audio.js';
+import { music } from '../music.js';
 import { rain, countUp } from '../fx.js';
 import { setMood } from '../themefx.js';
 
@@ -98,7 +99,8 @@ export function renderResults(root) {
   };
   requestAnimationFrame(step);
 
-  setTimeout(() => sound.play('finish', r.pct / 100), 200);
+  // thème musical : victoire à partir de 50 % de réussite, défaite en dessous
+  setTimeout(() => { if (!music.outcome(r.pct >= 50)) sound.play('finish', r.pct / 100); }, 200);
   setMood(r.pct >= 50 ? 'win' : 'lose'); // thème Mayuff : fond rose ou rouge selon le résultat
   if (r.pct >= 70) setTimeout(() => rain(r.pct === 100 ? 200 : 120), 350);
 }

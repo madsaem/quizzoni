@@ -227,7 +227,65 @@ const PACKS = {
     },
     whoosh: () => noise({ f: 400, f2: 2400, dur: 0.6, g: 0.06, type: 'lowpass', q: 0.3 }),
   },
+
+  // Warfare : menus militaires, clics métalliques, radio
+  warfare: {
+    // survol / navigation : petit « tik » numérique, sec et discret
+    click: () => { noise({ f: 3800, dur: 0.018, g: 0.11, q: 1.5 }); tone({ f: 1600, type: 'sine', dur: 0.02, g: 0.035 }); },
+    // validation : « tchk-boum » mécanique, coup grave, résonance métallique, courte queue sourde
+    select: () => {
+      noise({ f: 1800, dur: 0.035, g: 0.18, q: 1.1 });
+      tone({ f: 130, f2: 52, type: 'sine', dur: 0.22, g: 0.38 });
+      tone({ f: 1250, type: 'triangle', t: 0.008, dur: 0.09, g: 0.02 });
+      tone({ f: 1985, type: 'triangle', t: 0.008, dur: 0.07, g: 0.014 });
+      noise({ f: 380, t: 0.02, dur: 0.3, g: 0.05, type: 'lowpass', q: 0.5 });
+    },
+    pop: () => { noise({ f: 3800, dur: 0.03, g: 0.1, type: 'highpass' }); tone({ f: 1250, f2: 700, type: 'triangle', dur: 0.06, g: 0.08 }); },
+    place: () => { noise({ f: 2600, dur: 0.04, g: 0.14, q: 2 }); tone({ f: 1760, type: 'square', dur: 0.025, g: 0.04 }); },
+    correct: () => {
+      // deux impacts secs, puis bip radio montant
+      noise({ f: 4200, dur: 0.03, g: 0.22, type: 'highpass', q: 0.8 });
+      noise({ f: 4200, t: 0.05, dur: 0.03, g: 0.18, type: 'highpass', q: 0.8 });
+      tone({ f: 1320, type: 'square', t: 0.09, dur: 0.07, g: 0.05 });
+      tone({ f: 1760, type: 'square', t: 0.17, dur: 0.11, g: 0.05 });
+    },
+    partial: () => { noise({ f: 4200, dur: 0.03, g: 0.2, type: 'highpass', q: 0.8 }); tone({ f: 1320, type: 'square', t: 0.06, dur: 0.1, g: 0.05 }); },
+    wrong: () => {
+      noise({ f: 1500, dur: 0.32, g: 0.12, q: 0.4 });
+      tone({ f: 110, type: 'sawtooth', dur: 0.3, g: 0.07 });
+      tone({ f: 104, type: 'sawtooth', dur: 0.3, g: 0.05 });
+    },
+    tick: () => { tone({ f: 2100, type: 'square', dur: 0.015, g: 0.035 }); noise({ f: 6000, dur: 0.015, g: 0.05, type: 'highpass' }); },
+    timeup: () => { [0, 0.22].forEach((t) => { tone({ f: 880, type: 'square', t, dur: 0.1, g: 0.06 }); tone({ f: 660, type: 'square', t: t + 0.1, dur: 0.1, g: 0.06 }); }); },
+    streak: (n = 2) => {
+      const base = semis(880, Math.min(n, 8));
+      [0, 0.08, 0.16].forEach((t, i) => tone({ f: semis(base, i * 7), type: 'square', t, dur: 0.06, g: 0.045 }));
+      noise({ f: 4200, dur: 0.03, g: 0.15, type: 'highpass' });
+    },
+    finish: (pct = 1) => {
+      const chord = pct >= 0.5 ? [146.8, 185, 220, 293.7] : [146.8, 174.6, 220];
+      chord.forEach((f) => { tone({ f, type: 'sawtooth', dur: 1.6, a: 0.08, g: 0.05 }); tone({ f: f * 1.005, type: 'sawtooth', dur: 1.6, a: 0.08, g: 0.04 }); });
+      tone({ f: 70, f2: 40, type: 'sine', dur: 0.8, g: 0.4 });
+    },
+    whoosh: () => { noise({ f: 300, f2: 3200, dur: 0.28, g: 0.07, q: 0.6 }); tone({ f: 90, f2: 50, type: 'sine', dur: 0.2, g: 0.2 }); },
+  },
 };
+
+/* Sons enregistrés : un thème peut remplacer un son synthétisé par un fichier
+   (voir assets/audio/<thème>/pistes.json, rubrique "sons"). */
+let samples = {};
+function playSample(buf) {
+  const src = ctx.createBufferSource();
+  src.buffer = buf;
+  src.connect(master);
+  src.start();
+}
+
+/** Contexte audio et sortie principale (pour la musique). null si le son est coupé. */
+export function audioOut() {
+  if (!enabled || !ensure()) return null;
+  return { ctx, master };
+}
 
 export const sound = {
   /** À appeler lors d'un premier geste (clic, touche) pour autoriser le son. */
@@ -235,6 +293,7 @@ export const sound = {
   play(name, ...args) {
     if (!enabled) return;
     if (!ensure()) return;
+    if (samples[name]) { playSample(samples[name]); return; }
     const fn = (PACKS[packName] || PACKS.officine)[name];
     try { fn?.(...args); } catch (e) { console.warn('Son impossible :', name, e); }
   },
@@ -243,6 +302,15 @@ export const sound = {
     volume = v;
     if (master) master.gain.setTargetAtTime(v, ctx.currentTime, 0.02);
   },
-  setPack(name) { packName = PACKS[name] ? name : 'officine'; },
+  setPack(name) { packName = PACKS[name] ? name : 'officine'; samples = {}; },
+  /** name → AudioBuffer, pour le thème en cours */
+  setSamples(map) { samples = map || {}; },
+  /** Décode un fichier audio (pour les sons et musiques des thèmes). */
+  async decode(url) {
+    if (!ensure()) return null;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`${url} : ${res.status}`);
+    return ctx.decodeAudioData(await res.arrayBuffer());
+  },
   get enabled() { return enabled; },
 };

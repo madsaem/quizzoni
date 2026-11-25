@@ -1,0 +1,13 @@
+{
+  "_aide": "Fichiers joués par le thème Warfare. debut = seconde où commencer, duree = secondes à jouer avant le fondu (0 = jusqu'au bout). victoire.mp3 est déjà coupé : Extraction Point de 2:20 à 2:34, fondu sur les 4 dernières secondes. Les originaux sont dans originaux/ (non publiés). Rubrique sons : un fichier par bruitage pour remplacer les sons synthétisés.",
+  "menu": { "fichier": "menu.mp3", "volume": 0.45 },
+  "victoire": { "fichier": "victoire.mp3", "debut": 0, "duree": 0, "volume": 0.8 },
+  "defaite": { "fichier": "defaite.mp3", "debut": 0, "duree": 0, "volume": 0.8 },
+  "sons": {
+    "click": "",
+    "select": "",
+    "correct": "",
+    "wrong": "",
+    "whoosh": ""
+  }
+}
