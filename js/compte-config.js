@@ -20,4 +20,4 @@ export const FIREBASE = {
 
 // Moyens de connexion proposés, dans cet ordre. Chacun doit aussi être activé dans la console
 // (Authentication > Sign-in method). Possibles : google, microsoft, github, facebook, twitter, yahoo, email.
-export const PROVIDERS = ['google', 'email'];
+export const PROVIDERS = ['google', 'microsoft', 'email'];

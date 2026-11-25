@@ -253,7 +253,7 @@ Le dépôt GitHub et le site sont publics : tout fichier poussé dans `assets/au
 
 Le bouton **Compte** en haut à droite permet de se connecter (Google, Microsoft, GitHub, e-mail et mot de passe…) pour retrouver sa progression sur tous ses appareils. Seuls les résultats partent en ligne : records, erreurs à revoir, statistiques, boîtes déjà ouvertes. Les réglages restent propres à chaque appareil.
 
-Projet Firebase : `quizzoni` (configuration dans `js/compte-config.js`, règles de la base dans `firebase/firestore.rules`, déployées avec `firebase deploy --only firestore:rules` depuis le dossier `firebase/`). Pour refaire la configuration dans un nouveau projet :
+Projet Firebase : `quizzoni` (connexion Google, Microsoft et e-mail ; configuration dans `js/compte-config.js`, règles de la base dans `firebase/firestore.rules`, déployées avec `firebase deploy --only firestore:rules` depuis le dossier `firebase/`). Pour refaire la configuration dans un nouveau projet :
 
 1. Sur https://console.firebase.google.com, créer un projet (par exemple `quizzoni`), sans Google Analytics.
 2. **Authentication** > Commencer > Sign-in method : activer **Google** et **Adresse e-mail/Mot de passe**. Microsoft, GitHub, Facebook demandent en plus de créer une application chez eux (la console explique quoi copier).
