@@ -1,19 +1,29 @@
 // Mayuff : les deux puffs du fond, en vrai volume 3D (WebGL, sans bibliothèque).
 // Chaque puff = un corps et un embout, deux boîtes aux arêtes arrondies, fermées :
 // aucun trou quel que soit l'angle. La photo de la puff est projetée sur la face avant
-// et, retournée pour se lire à l'endroit, sur la face arrière ; les flancs prennent
-// la photo floutée. Textures : assets/mayuff/<puff>-corps|embout(-flou).webp
+// et, retournée pour se lire à l'endroit, sur la face arrière ; les flancs sont d'une
+// couleur unie en dégradé (tirée du bord de la photo), le tout cerné de noir comme un dessin.
+// Textures : assets/mayuff/<puff>-corps|embout.webp
 import { prefersReducedMotion } from './utils.js';
 
 const PUFF_H = 640;    // hauteur de référence en px CSS, réduite ensuite selon l'écran
 const DEPTH = 0.58;    // épaisseur rapportée à la largeur
 const CAMERA = 1700;   // distance de la caméra, comme une perspective CSS de 1700px
 // Mesures tirées des photos : demi-largeur du corps (r), de l'embout (rc), hauteur de l'embout,
-// arrondi du corps, largeur réelle de l'embout en bas et en haut (part de sa texture).
+// arrondi du corps, largeur réelle de l'embout en bas et en haut (part de sa texture),
+// couleurs des flancs (haut, bas) du corps et de l'embout.
 const PUFFS = [
-  { name: 'rose', side: -1, r: 100, rc: 62.6, capH: 89.6, corner: 36, cap: [0.94, 0.87], spin: 24, tilt: 7, phase: 0 },
-  { name: 'rouge', side: 1, r: 115.9, rc: 55.4, capH: 85.7, corner: 39, cap: [0.95, 0.92], spin: -28, tilt: -6, phase: 4 },
+  {
+    name: 'rose', side: -1, r: 100, rc: 62.6, capH: 89.6, corner: 36, cap: [0.94, 0.87], spin: 24, tilt: 7, phase: 0,
+    flanc: { corps: ['#F25AB8', '#9A62E0'], embout: ['#F470B2', '#E04E98'] },
+  },
+  {
+    name: 'rouge', side: 1, r: 115.9, rc: 55.4, capH: 85.7, corner: 39, cap: [0.95, 0.92], spin: -28, tilt: -6, phase: 4,
+    flanc: { corps: ['#A61C22', '#6E0E13'], embout: ['#CC444B', '#A3282F'] },
+  },
 ];
+const OUTLINE = 3.2;   // épaisseur du contour noir, en px à l'écran
+const rgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
 
 let canvas = null;
 let gl = null;
@@ -93,12 +103,27 @@ function roundedBox(half, rad, taper, uvOf) {
             }
           }
           const nc = C.length;
+          const tris = [];
           for (let i = 0; i < B.length - 1; i++) {
             for (let j = 0; j < nc - 1; j++) {
               const v = base + i * nc + j;
-              idx.push(v, v + nc, v + 1, v + 1, v + nc, v + nc + 1);
+              tris.push(v, v + nc, v + 1, v + 1, v + nc, v + nc + 1);
             }
           }
+          // triangles tournés vers l'extérieur : sens inverse si besoin, pour tout le morceau
+          for (let t = 0; t < tris.length; t += 3) {
+            const [A, B2, C2] = [tris[t], tris[t + 1], tris[t + 2]].map((k) => pos.slice(k * 3, k * 3 + 3));
+            const u = [B2[0] - A[0], B2[1] - A[1], B2[2] - A[2]], w = [C2[0] - A[0], C2[1] - A[1], C2[2] - A[2]];
+            const cr = [u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0]];
+            const area = Math.hypot(...cr);
+            if (area < 1e-3) continue;
+            const nk = tris[t] * 3;
+            if (cr[0] * nrm[nk] + cr[1] * nrm[nk + 1] + cr[2] * nrm[nk + 2] < 0) {
+              for (let k = 0; k < tris.length; k += 3) [tris[k + 1], tris[k + 2]] = [tris[k + 2], tris[k + 1]];
+            }
+            break;
+          }
+          idx.push(...tris);
         }
       }
     }
@@ -120,38 +145,46 @@ function puffParts(P) {
   const body = roundedBox([P.r, bodyH / 2, P.r * DEPTH], P.corner, 0, planar(P.r, -bodyH / 2, bodyH));
   const cap = roundedBox([capBot, capHH, capBot * DEPTH], capRad, 1 - P.cap[1] / P.cap[0], planar(P.rc, capHH - P.capH, P.capH));
   return [
-    { geo: body, y: -PUFF_H / 2 + bodyH / 2, url: `assets/mayuff/${P.name}-corps` },
-    { geo: cap, y: PUFF_H / 2 - capHH, url: `assets/mayuff/${P.name}-embout` },
+    { geo: body, y: -PUFF_H / 2 + bodyH / 2, url: `assets/mayuff/${P.name}-corps.webp`, flanc: P.flanc.corps },
+    { geo: cap, y: PUFF_H / 2 - capHH, url: `assets/mayuff/${P.name}-embout.webp`, flanc: P.flanc.embout },
   ];
 }
 
 /* --------------------------------------------------------------- WebGL */
 const VS = `
 attribute vec3 aPos; attribute vec3 aNrm; attribute vec2 aUv;
-uniform mat4 uMvp; uniform mat4 uRot;
+uniform mat4 uMvp; uniform mat4 uRot; uniform float uGrow;
 varying vec3 vN; varying vec3 vO; varying vec2 vUv;
 void main() {
   vO = aNrm;
   vN = (uRot * vec4(aNrm, 0.0)).xyz;
   vUv = aUv;
-  gl_Position = uMvp * vec4(aPos, 1.0);
+  gl_Position = uMvp * vec4(aPos + aNrm * uGrow, 1.0);
 }`;
+// précédé de AA(x) : largeur d'un pixel (fwidth si la carte graphique le permet)
 const FS = `
 precision mediump float;
-uniform sampler2D uTex; uniform sampler2D uSide; uniform vec3 uLight;
+uniform sampler2D uTex; uniform vec3 uLight; uniform vec3 uTop; uniform vec3 uBot; uniform float uInk;
 varying vec3 vN; varying vec3 vO; varying vec2 vUv;
 void main() {
+  if (uInk > 0.5) { gl_FragColor = vec4(0.08, 0.02, 0.06, 1.0); return; }   // contour
   vec3 n = normalize(vN);
-  // flancs et dessus : la photo floutée (petite texture à part), plutôt que son bord étiré en stries
-  float side = smoothstep(0.55, 0.85, max(abs(vO.x), abs(vO.y)));
-  vec3 c = mix(texture2D(uTex, vUv).rgb, texture2D(uSide, vUv).rgb, side);
+  // face avant / arrière : la photo ; flancs et dessus : dégradé uni ; trait noir à la jonction
+  float m = max(abs(vO.x), abs(vO.y));
+  float aa = AA(m);
+  float side = smoothstep(0.69 - aa, 0.69 + aa, m);
+  vec3 flat_ = mix(uBot, uTop, clamp(vUv.y, 0.0, 1.0));
+  vec3 c = mix(texture2D(uTex, vUv).rgb, flat_, side);
+  float line = 1.0 - smoothstep(aa * 0.8, aa * 2.2, abs(m - 0.69));
   float d = max(dot(n, uLight), 0.0);
   float spec = pow(max(dot(n, normalize(uLight + vec3(0.0, 0.0, 1.0))), 0.0), 48.0) * 0.32;
-  float rim = pow(1.0 - max(n.z, 0.0), 3.0) * 0.22;
-  gl_FragColor = vec4(c * (0.6 + 0.5 * d) + spec + rim * vec3(1.0, 0.86, 0.95), 1.0);
+  vec3 col = c * (0.6 + 0.5 * d) + spec;
+  gl_FragColor = vec4(mix(col, vec3(0.08, 0.02, 0.06), line), 1.0);
 }`;
 
 function setup() {
+  const deriv = gl.getExtension('OES_standard_derivatives');   // avant de compiler les shaders
+  const fs = (deriv ? '#extension GL_OES_standard_derivatives : enable\n#define AA(x) fwidth(x)\n' : '#define AA(x) 0.015\n') + FS;
   const sh = (type, src) => {
     const s = gl.createShader(type);
     gl.shaderSource(s, src);
@@ -161,49 +194,47 @@ function setup() {
   };
   prog = gl.createProgram();
   gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS));
-  gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
+  gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
   gl.linkProgram(prog);
   gl.useProgram(prog);
-  prog.loc = {
-    aPos: gl.getAttribLocation(prog, 'aPos'), aNrm: gl.getAttribLocation(prog, 'aNrm'), aUv: gl.getAttribLocation(prog, 'aUv'),
-    uMvp: gl.getUniformLocation(prog, 'uMvp'), uRot: gl.getUniformLocation(prog, 'uRot'),
-    uTex: gl.getUniformLocation(prog, 'uTex'), uSide: gl.getUniformLocation(prog, 'uSide'), uLight: gl.getUniformLocation(prog, 'uLight'),
-  };
+  prog.loc = Object.fromEntries([
+    ...['aPos', 'aNrm', 'aUv'].map((n) => [n, gl.getAttribLocation(prog, n)]),
+    ...['uMvp', 'uRot', 'uGrow', 'uTex', 'uLight', 'uTop', 'uBot', 'uInk'].map((n) => [n, gl.getUniformLocation(prog, n)]),
+  ]);
   const L = [-0.45, 0.55, 0.85];
   const l = Math.hypot(...L);
   gl.uniform3f(prog.loc.uLight, L[0] / l, L[1] / l, L[2] / l);
   gl.uniform1i(prog.loc.uTex, 0);
-  gl.uniform1i(prog.loc.uSide, 1);
   gl.enable(gl.DEPTH_TEST);
+  gl.enable(gl.CULL_FACE);
   gl.clearColor(0, 0, 0, 0);
   const aniso = gl.getExtension('EXT_texture_filter_anisotropic');
 
   meshes = PUFFS.map((P) => ({
     P,
-    parts: puffParts(P).map(({ geo, y, url }) => {
+    parts: puffParts(P).map(({ geo, y, url, flanc }) => {
       const buf = (data, target = gl.ARRAY_BUFFER) => { const b = gl.createBuffer(); gl.bindBuffer(target, b); gl.bufferData(target, data, gl.STATIC_DRAW); return b; };
-      const part = { y, pos: buf(geo.pos), nrm: buf(geo.nrm), uv: buf(geo.uv), idx: buf(geo.idx, gl.ELEMENT_ARRAY_BUFFER), count: geo.idx.length, tex: null, side: null };
-      const mine = gl;
-      const load = (src, key, mip) => {
-        const img = new Image();
-        img.onload = () => {
-          if (gl !== mine) return;   // thème changé entre-temps
-          const t = gl.createTexture();
-          gl.bindTexture(gl.TEXTURE_2D, t);
-          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
-          if (mip) gl.generateMipmap(gl.TEXTURE_2D);   // textures en puissances de 2
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, mip ? gl.LINEAR_MIPMAP_LINEAR : gl.LINEAR);
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-          if (mip && aniso) gl.texParameterf(gl.TEXTURE_2D, aniso.TEXTURE_MAX_ANISOTROPY_EXT, 4);
-          part[key] = t;
-          staticDrawn = '';
-        };
-        img.src = src;
+      const part = {
+        y, top: rgb(flanc[0]), bot: rgb(flanc[1]),
+        pos: buf(geo.pos), nrm: buf(geo.nrm), uv: buf(geo.uv), idx: buf(geo.idx, gl.ELEMENT_ARRAY_BUFFER), count: geo.idx.length, tex: null,
       };
-      load(`${url}.webp`, 'tex', true);
-      load(`${url}-flou.webp`, 'side', false);
+      const mine = gl;
+      const img = new Image();
+      img.onload = () => {
+        if (gl !== mine) return;   // thème changé entre-temps
+        const t = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, t);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
+        gl.generateMipmap(gl.TEXTURE_2D);   // textures en puissances de 2
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        if (aniso) gl.texParameterf(gl.TEXTURE_2D, aniso.TEXTURE_MAX_ANISOTROPY_EXT, 4);
+        part.tex = t;
+        staticDrawn = '';
+      };
+      img.src = url;
       return part;
     }),
   }));
@@ -261,20 +292,29 @@ function frame(now) {
     const model = mul(T(x, y, 0), mul(S(k), rot));
     gl.uniformMatrix4fv(L.uRot, false, rot);
     for (const part of parts) {
-      if (!part.tex || !part.side) continue;
+      if (!part.tex) continue;
       gl.uniformMatrix4fv(L.uMvp, false, mul(proj, mul(model, T(0, part.y, 0))));
-      gl.activeTexture(gl.TEXTURE1);
-      gl.bindTexture(gl.TEXTURE_2D, part.side);
       gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, part.tex);
+      gl.uniform3fv(L.uTop, part.top);
+      gl.uniform3fv(L.uBot, part.bot);
       [['aPos', part.pos, 3], ['aNrm', part.nrm, 3], ['aUv', part.uv, 2]].forEach(([name, b, n]) => {
         gl.bindBuffer(gl.ARRAY_BUFFER, b);
         gl.enableVertexAttribArray(L[name]);
         gl.vertexAttribPointer(L[name], n, gl.FLOAT, false, 0, 0);
       });
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, part.idx);
+      // 1. contour : la même forme gonflée, dont on ne garde que l'arrière, en noir
+      gl.cullFace(gl.FRONT);
+      gl.uniform1f(L.uGrow, OUTLINE / k);
+      gl.uniform1f(L.uInk, 1);
+      gl.drawElements(gl.TRIANGLES, part.count, gl.UNSIGNED_SHORT, 0);
+      // 2. la puff elle-même
+      gl.cullFace(gl.BACK);
+      gl.uniform1f(L.uGrow, 0);
+      gl.uniform1f(L.uInk, 0);
       gl.drawElements(gl.TRIANGLES, part.count, gl.UNSIGNED_SHORT, 0);
     }
   }
-  if (reduced && meshes.every((m) => m.parts.every((p) => p.tex && p.side))) staticDrawn = key;
+  if (reduced && meshes.every((m) => m.parts.every((p) => p.tex))) staticDrawn = key;
 }

@@ -261,6 +261,43 @@
   line-height: 1; text-align: center;
   transform: rotate(-10deg);
 }
+/* grand logo du contenu de la boîte, en filigrane */
+.box__logo {
+  position: absolute; z-index: 0;
+  right: -12%; bottom: 4%;
+  width: 62%; height: auto; aspect-ratio: 1;
+  color: var(--c);
+  opacity: .17;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+.box__band, .box__content { position: relative; z-index: 1; }
+/* ruban de chantier : boîte pas finie */
+.box__wip {
+  position: absolute; z-index: 2;
+  left: -12%; right: -12%; bottom: 30%;
+  display: grid; place-items: center;
+  height: 1.7rem;
+  transform: rotate(-9deg);
+  background: repeating-linear-gradient(-45deg, #FFD21F 0 12px, #141414 12px 24px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+  pointer-events: none;
+}
+.box__wip span {
+  padding: .1rem .6rem;
+  background: #FFD21F; color: #141414;
+  font-family: var(--font-display); font-weight: 800; font-size: .8rem;
+  letter-spacing: .08em; text-transform: uppercase;
+  box-shadow: 0 0 0 2px #141414;
+}
+.notice__wip {
+  margin-top: .9rem;
+  padding: .7rem .9rem;
+  border-left: 6px solid #FFD21F;
+  background: color-mix(in srgb, #FFD21F 16%, var(--surface));
+  color: var(--ink);
+  font-size: var(--t-sm); line-height: 1.45;
+}
 .box__stamp small { display: block; font-size: .7rem; font-weight: 700; }
 .box__stamp b { font-size: 1.25rem; }
 

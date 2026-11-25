@@ -27,27 +27,31 @@ export function renderBox(quiz, { href = null, sticker = true } = {}) {
   const prog = store.progressFor(quiz.id);
   const n = quiz.questions.length;
   const tag = href ? 'a' : 'div';
+  // « Nouveau » jusqu'à la première ouverture de la boîte
+  const isNew = sticker && !prog && !store.isSeen(quiz.id);
 
   const front = h('div', { class: 'box__face box__front' },
-    h('div', { class: 'box__band' }, h('span', {}, quiz.ue || ''), h('span', {}, sticker && !prog ? '' : quiz.badge || '')),
+    quiz.icon ? icon(quiz.icon, 'box__logo') : null,
+    h('div', { class: 'box__band' }, h('span', {}, quiz.ue || ''), h('span', {}, isNew ? '' : quiz.badge || '')),
     h('div', { class: 'box__content' },
       h('h3', { class: 'box__title' }, quiz.title),
       quiz.subtitle ? h('p', { class: 'box__sub' }, quiz.subtitle) : null,
       h('p', { class: 'box__dose' }, icon('box'), `Boîte de ${n} question${n > 1 ? 's' : ''}`),
       h('div', { class: 'box__stripes', 'aria-hidden': 'true' })),
-    prog ? h('div', { class: 'box__stamp', 'aria-hidden': 'true' }, h('small', {}, 'Record'), h('b', {}, `${prog.bestPct} %`)) : null);
+    prog ? h('div', { class: 'box__stamp', 'aria-hidden': 'true' }, h('small', {}, 'Record'), h('b', {}, `${prog.bestPct} %`)) : null,
+    quiz.wip ? h('div', { class: 'box__wip', 'aria-hidden': 'true' }, h('span', {}, 'En construction')) : null);
 
   const body = h('div', { class: 'box__body' },
     front,
     h('div', { class: 'box__face box__side', 'aria-hidden': 'true' }, h('span', {}, quiz.short || quiz.title)),
     h('div', { class: 'box__face box__top', 'aria-hidden': 'true' }),
-    sticker && !prog ? h('div', {
+    isNew ? h('div', {
       class: 'sticker',
       style: { clipPath: starburst(), transform: 'translateZ(3px) rotate(-14deg)' },
       'aria-hidden': 'true',
     }, 'Nouveau') : null);
 
-  const label = `${quiz.title}${quiz.ue ? `, ${quiz.ue}` : ''}. ${n} questions.${prog ? ` Record : ${prog.bestPct} %.` : ' Pas encore fait.'}`;
+  const label = `${quiz.title}${quiz.ue ? `, ${quiz.ue}` : ''}. ${n} questions.${quiz.wip ? ' En construction.' : ''}${prog ? ` Record : ${prog.bestPct} %.` : ' Pas encore fait.'}`;
   return h(tag, {
     class: 'box',
     href,

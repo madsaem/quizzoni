@@ -1,13 +1,22 @@
 {
   "title": "Calculs de doses",
   "short": "Calculs",
-  "subtitle": "Débits, dilutions, conversions",
-  "ue": "UE 4.4",
-  "badge": "S4",
-  "shelf": "S4",
+  "subtitle": "Débits, pousse-seringue, dilutions, conversions",
+  "ue": "Spécialisée",
+  "badge": "Calculs",
+  "shelf": "spe",
   "color": "c2",
   "description": "Débits de perfusion, pousse-seringue, dilutions et conversions : les calculs à maîtriser avant le partiel et en stage. Prends un brouillon.",
-  "tags": ["calcul", "débit", "perfusion", "gouttes", "PSE", "dilution", "conversion", "pédiatrie"],
+  "tags": [
+    "calcul",
+    "débit",
+    "perfusion",
+    "gouttes",
+    "PSE",
+    "dilution",
+    "conversion",
+    "pédiatrie"
+  ],
   "time": {"number": 90},
   "questions": [
     {
@@ -120,7 +129,11 @@
       "level": 1,
       "type": "number",
       "prompt": "Convertis 0,25 mg en microgrammes.",
-      "variants": ["0,25 mg, c'est combien de microgrammes ?", "Combien de µg dans 0,25 mg ?", "Exprime 0,25 mg en µg."],
+      "variants": [
+        "0,25 mg, c'est combien de microgrammes ?",
+        "Combien de µg dans 0,25 mg ?",
+        "Exprime 0,25 mg en µg."
+      ],
       "answer": 250,
       "unit": "µg",
       "explain": "1 mg = 1 000 µg, donc 0,25 mg = 250 µg."
@@ -167,5 +180,6 @@
       "unit": "mL/h",
       "explain": "1 500 ÷ 24 = 62,5 mL/h."
     }
-  ]
+  ],
+  "icon": "syringe"
 }

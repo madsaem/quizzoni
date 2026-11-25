@@ -27,6 +27,7 @@ export function renderIntro(root, id) {
     return;
   }
 
+  store.markSeen(quiz.id);
   const prog = store.progressFor(quiz.id);
   const cats = quiz.categories || null;
   const prefs = store.quizPrefs(quiz.id) || {};
@@ -317,6 +318,7 @@ export function renderIntro(root, id) {
     quiz.ue ? h('p', { class: 'notice__ue' }, quiz.ue) : null,
     h('h1', { class: 'notice__title' }, quiz.title),
     quiz.description ? h('p', { class: 'notice__desc' }, quiz.description) : null,
+    quiz.wip ? h('p', { class: 'notice__wip', role: 'note' }, h('b', {}, 'Boîte en construction. '), quiz.wip) : null,
     h('section', { class: 'notice__block' }, h('h2', {}, 'Dans la boîte'), contents),
     h('section', { class: 'notice__block' }, h('h2', {}, 'Ton record'), record),
     catBlock,

@@ -6,6 +6,7 @@ import { allQuestions, findQuestion } from '../data.js';
 import { startSession } from '../session.js';
 import { sound } from '../audio.js';
 import { renderBox } from './box.js';
+import { currentUser } from '../compte.js';
 
 const EXPRESS_COUNT = 10;
 const MISTAKES_MAX = 15;
@@ -66,13 +67,13 @@ export function renderHome(root, catalog) {
       row('Jours d\'affilée', fmt(streak)),
       row('Boîtes ouvertes', `${played} sur ${catalog.quizzes.length}`)),
     h('p', { class: 'receipt__foot' }, st.bestStreak > 1
-      ? `Meilleure série : ${st.bestStreak} bonnes réponses d'affilée. Progression enregistrée sur cet appareil.`
-      : 'Ta progression est enregistrée sur cet appareil, sans compte.'));
+      ? `Meilleure série : ${st.bestStreak} bonnes réponses d'affilée. ${currentUser() ? 'Progression synchronisée avec ton compte.' : 'Progression enregistrée sur cet appareil.'}`
+      : currentUser() ? 'Ta progression est synchronisée avec ton compte.' : 'Ta progression est enregistrée sur cet appareil. Connecte-toi (bouton Compte) pour la retrouver partout.'));
 
   const hero = h('section', { class: 'hero' },
     h('div', {},
       h('h1', { class: 'hero__title' }, 'On révise quoi aujourd\'hui\u00a0?'),
-      h('p', { class: 'hero__lead' }, 'Des quiz courts sur le programme de 2e année : calculs de doses, pharmaco, hygiène, urgences, et les valeurs à connaître par cœur.'),
+      h('p', { class: 'hero__lead' }, 'Des quiz courts sur le programme de 2e année : pharmaco, processus obstructifs, calculs de doses, et les valeurs à connaître par cœur.'),
       quick),
     receipt);
 

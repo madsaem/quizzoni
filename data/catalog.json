@@ -1,26 +1,16 @@
 {
   "shelves": [
+    {"id": "S3", "title": "Semestre 3"},
     {
-      "id": "S3",
-      "title": "Semestre 3"
-    },
-    {
-      "id": "S4",
-      "title": "Semestre 4"
-    },
-    {
-      "id": "fond",
-      "title": "Fondamentaux",
-      "note": "Anatomie et physiologie : à connaître toute l'année. Les valeurs normales sont dans la boîte Pharmacologie."
+      "id": "spe",
+      "title": "Spécialisées",
+      "note": "Une boîte par sujet transversal, à travailler toute l'année."
     }
   ],
   "quizzes": [
     "pharmacologie",
-    "infections",
     "processus-obstructifs",
-    "calculs-de-doses",
-    "hygiene-risques",
-    "soins-urgence",
-    "coeur-circulation"
+    "valeurs-normales",
+    "calculs-de-doses"
   ]
 }

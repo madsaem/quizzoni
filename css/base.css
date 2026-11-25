@@ -350,3 +350,34 @@ html[data-motion="reduced"] *::after {
 .lvl[data-n="1"] span:nth-child(1),
 .lvl[data-n="2"] span:nth-child(-n+2),
 .lvl[data-n="3"] span { opacity: 1; }
+
+/* --------------------------------------------------------------------------
+   Fenêtre Compte
+   -------------------------------------------------------------------------- */
+.account { display: grid; gap: .8rem; margin-top: .4rem; }
+.account__providers { display: grid; gap: .55rem; margin-top: .4rem; }
+.account__provider { justify-content: flex-start; gap: .7rem; width: 100%; }
+.account__logo {
+  display: grid; place-items: center;
+  width: 1.7rem; height: 1.7rem; flex: none;
+  background: var(--surface); color: var(--ink);
+  font-weight: 800; font-size: .95rem;
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+.account__or { display: flex; align-items: center; gap: .7rem; color: var(--ink-3); font-size: var(--t-sm); }
+.account__or::before, .account__or::after { content: ""; flex: 1; border-top: 2px dashed var(--line); }
+.account__form { display: grid; gap: .55rem; }
+.account__row { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; }
+.account__msg { min-height: 1.2em; font-size: var(--t-sm); font-weight: 600; color: var(--ink-2); }
+.account__msg:empty { display: none; }
+.account__msg--bad { color: var(--bad); }
+.account__note { font-size: var(--t-sm); color: var(--ink-3); line-height: 1.45; }
+.account__who { display: flex; align-items: center; gap: .8rem; }
+.account__who small { display: block; color: var(--ink-3); }
+.account__avatar {
+  display: grid; place-items: center;
+  width: 3rem; height: 3rem; flex: none;
+  border-radius: 50%; object-fit: cover;
+  background: var(--brand); color: var(--brand-ink);
+  font-family: var(--font-display); font-weight: 800; font-size: 1.4rem;
+}

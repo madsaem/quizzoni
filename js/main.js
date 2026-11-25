@@ -5,6 +5,7 @@ import { loadCatalog } from './data.js';
 import { applyTheme, applyMotion, openSettings, openThemes, soundIcon, THEMES } from './ui.js';
 import { setMood } from './themefx.js';
 import { music } from './music.js';
+import { initAccount, openAccount, onAccountChange, accountButtonLabel } from './compte.js';
 import { renderHome } from './views/home.js';
 import { renderIntro } from './views/intro.js';
 import { renderPlay } from './views/play.js';
@@ -49,6 +50,9 @@ refreshSoundBtn();
 
 document.getElementById('settings-open').addEventListener('click', () => { sound.play('click'); openSettings(); });
 document.getElementById('themes-open').addEventListener('click', () => { sound.play('click'); openThemes(); });
+document.getElementById('account-open').addEventListener('click', () => { sound.play('click'); openAccount(); });
+onAccountChange(() => { document.getElementById('account-label').textContent = accountButtonLabel(); });
+initAccount();
 
 /* ------------------------------------------------------------ Navigation */
 let catalog = null;
@@ -62,6 +66,7 @@ const routes = [
 ];
 
 function route() {
+  if (!catalog) return;   // le démarrage appellera route() une fois les quiz chargés
   const hash = location.hash || '#/';
   const found = routes.find(([re]) => re.test(hash));
   if (!found) { location.hash = '#/'; return; }

@@ -390,7 +390,7 @@ function holo() {
       ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();
 
       // cibles sur le globe
-      ctx.font = '600 11px Rajdhani, monospace';
+      ctx.font = '600 11px "Warfare Gothic", monospace';
       blips.forEach((b) => {
         const [x, y, z] = proj(b.lat, b.lon);
         if (z <= 0.05) return;
@@ -422,7 +422,7 @@ function holo() {
 
       // texte de télémétrie dans un coin
       ctx.fillStyle = `rgba(${G},.45)`;
-      ctx.font = '600 12px Rajdhani, monospace';
+      ctx.font = '600 12px "Warfare Gothic", monospace';
       const clock = new Date();
       const hh = String(clock.getHours()).padStart(2, '0'), mm = String(clock.getMinutes()).padStart(2, '0'), ss = String(clock.getSeconds()).padStart(2, '0');
       [`T+ ${hh}:${mm}:${ss}`, `LAT 42.70  LON 09.45`, `SIGNAL ${(92 + Math.sin(t) * 6).toFixed(1)} %`].forEach((txt, i) => ctx.fillText(txt, 18, H - 54 + i * 16));

@@ -1,0 +1,781 @@
+{
+  "title": "Valeurs normales",
+  "short": "Normes",
+  "subtitle": "Constantes, bilan sanguin, gaz du sang",
+  "ue": "Spécialisée",
+  "badge": "Normes",
+  "shelf": "spe",
+  "color": "c4",
+  "icon": "vial",
+  "description": "Les valeurs à connaître par cœur pour repérer une anomalie : constantes, ionogramme et biochimie, NFS et hémostase, gaz du sang. Utile dans toutes les UE et en stage.",
+  "tags": [
+    "valeurs normales",
+    "normes",
+    "constantes",
+    "biologie",
+    "bilan sanguin",
+    "ionogramme",
+    "kaliémie",
+    "natrémie",
+    "glycémie",
+    "NFS",
+    "hémoglobine",
+    "plaquettes",
+    "INR",
+    "TP",
+    "gaz du sang",
+    "pH",
+    "Glasgow"
+  ],
+  "categories": [
+    {"id": "constantes", "title": "Constantes et surveillance"},
+    {"id": "bio", "title": "Ionogramme et biochimie"},
+    {"id": "sang", "title": "NFS et hémostase"},
+    {"id": "gaz", "title": "Gaz du sang"}
+  ],
+  "sources": [
+    {"id": "fiche", "title": "Fiche de révisions pharmaco S3"},
+    {
+      "id": "complement",
+      "title": "Repères usuels (les normes peuvent varier légèrement d'un laboratoire à l'autre)"
+    }
+  ],
+  "questions": [
+    {
+      "cat": "bio",
+      "level": 1,
+      "type": "range",
+      "prompt": "Kaliémie normale",
+      "variants": [
+        "Place la fourchette normale de la kaliémie.",
+        "Entre quelles valeurs se situe une kaliémie normale ?",
+        "Potassium sanguin : quelle est la fourchette normale ?"
+      ],
+      "min": 2,
+      "max": 7,
+      "step": 0.1,
+      "answer": [3.5, 5.0],
+      "tolerance": 0.2,
+      "unit": "mmol/L",
+      "explain": "En dessous, hypokaliémie ; au-dessus, hyperkaliémie. Dans les deux cas le risque principal est cardiaque (troubles du rythme) : ECG et surveillance rapprochée."
+    },
+    {
+      "cat": "bio",
+      "level": 1,
+      "type": "range",
+      "prompt": "Natrémie normale",
+      "variants": [
+        "Place la fourchette normale de la natrémie.",
+        "Entre quelles valeurs se situe une natrémie normale ?",
+        "Sodium sanguin : quelle est la fourchette normale ?"
+      ],
+      "min": 120,
+      "max": 160,
+      "step": 1,
+      "answer": [135, 145],
+      "tolerance": 2,
+      "unit": "mmol/L",
+      "explain": "Une hyponatrémie (sous 135) peut donner confusion, nausées, voire convulsions si elle est profonde. Une hypernatrémie (au-dessus de 145) traduit souvent une déshydratation."
+    },
+    {
+      "cat": "bio",
+      "level": 2,
+      "type": "range",
+      "prompt": "Glycémie à jeun normale",
+      "variants": [
+        "Place la fourchette normale de la glycémie à jeun.",
+        "Entre quelles valeurs se situe une glycémie à jeun normale ?",
+        "Glycémie à jeun : quelle est la fourchette normale ?"
+      ],
+      "min": 0.4,
+      "max": 2,
+      "step": 0.01,
+      "answer": [0.7, 1.1],
+      "tolerance": 0.05,
+      "unit": "g/L",
+      "explain": "Soit environ 3,9 à 6,1 mmol/L. Diabète si la glycémie à jeun atteint 1,26 g/L ou plus à deux reprises. Chez le patient diabétique, on parle d'hypoglycémie sous 0,70 g/L."
+    },
+    {
+      "cat": "constantes",
+      "level": 1,
+      "type": "range",
+      "prompt": "Fréquence cardiaque de l'adulte au repos",
+      "variants": [
+        "Place la fourchette normale du pouls d'un adulte au repos.",
+        "Entre quelles valeurs se situe la fréquence cardiaque normale d'un adulte au repos ?",
+        "Adulte au repos : quelle fréquence cardiaque est normale ?"
+      ],
+      "min": 30,
+      "max": 160,
+      "step": 1,
+      "answer": [60, 100],
+      "tolerance": 5,
+      "unit": "bpm",
+      "explain": "Bradycardie sous 60, tachycardie au-dessus de 100 battements par minute, au repos."
+    },
+    {
+      "cat": "constantes",
+      "level": 2,
+      "type": "range",
+      "prompt": "Fréquence respiratoire de l'adulte au repos",
+      "variants": [
+        "Place la fourchette normale de la fréquence respiratoire d'un adulte au repos.",
+        "Entre quelles valeurs se situe la fréquence respiratoire normale d'un adulte au repos ?",
+        "Adulte au repos : combien de cycles respiratoires par minute est normal ?"
+      ],
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "answer": [12, 20],
+      "tolerance": 2,
+      "unit": "/min",
+      "explain": "Une fréquence respiratoire au-dessus de 20 (polypnée) est un signe d'alerte précoce, souvent oublié dans la surveillance."
+    },
+    {
+      "cat": "constantes",
+      "level": 1,
+      "type": "slider",
+      "prompt": "SpO~2~ normale chez l'adulte sain : au moins…",
+      "variants": [
+        "Adulte en bonne santé : quelle SpO~2~ minimale est normale ?",
+        "Place sur le curseur la saturation minimale normale d'un adulte sain.",
+        "Chez l'adulte sain, la SpO~2~ est normale à partir de…"
+      ],
+      "min": 80,
+      "max": 100,
+      "step": 1,
+      "answer": 95,
+      "tolerance": 1,
+      "unit": "%",
+      "explain": "Une SpO2 de 95 % ou plus est normale chez l'adulte sain. Chez un patient insuffisant respiratoire chronique, la cible prescrite est souvent plus basse."
+    },
+    {
+      "cat": "constantes",
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "Chez un patient BPCO à risque d'hypercapnie, la cible de SpO~2~ est souvent de 88 à 92 %.",
+      "variants": [
+        "BPCO avec risque d'hypercapnie : on vise souvent une SpO~2~ entre 88 et 92 %.",
+        "Pour un patient BPCO qui risque l'hypercapnie, la saturation cible est souvent de 88 à 92 %.",
+        "Chez le BPCO à risque d'hypercapnie, une SpO~2~ de 88 à 92 % est souvent l'objectif."
+      ],
+      "answer": true,
+      "explain": "Vrai. Une oxygénation trop généreuse peut aggraver l'hypercapnie chez ces patients. La cible est fixée par le médecin."
+    },
+    {
+      "cat": "sang",
+      "level": 2,
+      "type": "range",
+      "prompt": "Hémoglobine normale chez la femme adulte",
+      "variants": [
+        "Place la fourchette normale de l'hémoglobine chez la femme adulte.",
+        "Femme adulte : entre quelles valeurs se situe une hémoglobine normale ?",
+        "Hémoglobine de la femme adulte : quelle est la fourchette normale ?"
+      ],
+      "min": 8,
+      "max": 20,
+      "step": 0.5,
+      "answer": [12, 16],
+      "tolerance": 0.5,
+      "unit": "g/dL",
+      "explain": "Chez l'homme : environ 13 à 17 g/dL. En dessous, on parle d'anémie."
+    },
+    {
+      "cat": "sang",
+      "level": 2,
+      "type": "range",
+      "prompt": "Plaquettes",
+      "variants": [
+        "Place la fourchette normale des plaquettes.",
+        "Entre quelles valeurs se situe un taux de plaquettes normal ?",
+        "Numération plaquettaire : quelle est la fourchette normale ?"
+      ],
+      "min": 0,
+      "max": 600,
+      "step": 10,
+      "answer": [150, 400],
+      "tolerance": 20,
+      "unit": "G/L",
+      "explain": "150 à 400 G/L, soit 150 000 à 400 000 par mm³. En dessous de 150 G/L, on parle de thrombopénie ; le risque hémorragique devient important sous 50 G/L."
+    },
+    {
+      "cat": "sang",
+      "level": 2,
+      "type": "range",
+      "prompt": "Leucocytes (globules blancs)",
+      "variants": [
+        "Place la fourchette normale des leucocytes.",
+        "Entre quelles valeurs se situe un taux de globules blancs normal ?",
+        "Numération des leucocytes : quelle est la fourchette normale ?"
+      ],
+      "min": 0,
+      "max": 20,
+      "step": 0.5,
+      "answer": [4, 10],
+      "tolerance": 0.5,
+      "unit": "G/L",
+      "explain": "4 à 10 G/L, soit 4 000 à 10 000 par mm³. Hyperleucocytose au-dessus, leucopénie en dessous."
+    },
+    {
+      "cat": "constantes",
+      "level": 1,
+      "type": "range",
+      "prompt": "Température corporelle normale",
+      "variants": [
+        "Place la fourchette normale de la température corporelle.",
+        "Entre quelles valeurs se situe une température corporelle normale ?",
+        "Température du corps : quelle est la fourchette normale ?"
+      ],
+      "min": 34,
+      "max": 42,
+      "step": 0.1,
+      "answer": [36.5, 37.5],
+      "tolerance": 0.3,
+      "unit": "°C",
+      "explain": "Fièvre à partir de 38 °C au repos ; hypothermie sous 35 °C."
+    },
+    {
+      "cat": "sang",
+      "level": 2,
+      "type": "choice",
+      "prompt": "INR cible habituel chez un patient sous AVK pour une fibrillation atriale :",
+      "variants": [
+        "Fibrillation atriale sous AVK : quel INR vise-t-on en général ?",
+        "Patient sous AVK pour une FA : dans quelle zone d'INR doit-il se situer ?",
+        "AVK prescrit pour une fibrillation atriale : quel INR cible habituel ?"
+      ],
+      "options": ["Entre 2 et 3", "Entre 1 et 1,5", "Entre 3 et 4,5", "Inférieur à 1"],
+      "answer": 0,
+      "explain": "Sans traitement, l'INR est proche de 1. Sous AVK la cible est en général de 2 à 3 (2,5 à 3,5 pour certaines valves mécaniques). Au-dessus de la cible, le risque hémorragique augmente."
+    },
+    {
+      "cat": "sang",
+      "level": 2,
+      "type": "range",
+      "prompt": "Hémoglobine normale chez l'homme adulte",
+      "variants": [
+        "Place la fourchette normale de l'hémoglobine chez l'homme adulte.",
+        "Homme adulte : entre quelles valeurs se situe une hémoglobine normale ?",
+        "Hémoglobine de l'homme adulte : quelle est la fourchette normale ?"
+      ],
+      "min": 8,
+      "max": 20,
+      "step": 0.5,
+      "answer": [13, 17],
+      "tolerance": 0.5,
+      "unit": "g/dL",
+      "explain": "Environ 13 à 17 g/dL chez l'homme (12 à 16 chez la femme). En dessous, on parle d'anémie.",
+      "src": "complement"
+    },
+    {
+      "cat": "bio",
+      "level": 3,
+      "type": "range",
+      "prompt": "Calcémie totale normale",
+      "variants": [
+        "Place la fourchette normale de la calcémie totale.",
+        "Entre quelles valeurs se situe une calcémie normale ?",
+        "Calcium sanguin total : quelle est la fourchette normale ?"
+      ],
+      "min": 1.5,
+      "max": 3.5,
+      "step": 0.05,
+      "answer": [2.2, 2.6],
+      "tolerance": 0.05,
+      "unit": "mmol/L",
+      "explain": "Environ 2,20 à 2,60 mmol/L. Elle s'interprète avec l'albumine. Hypocalcémie : fourmillements, crampes, tétanie. Hypercalcémie : fatigue, soif, troubles digestifs et cardiaques.",
+      "src": "complement"
+    },
+    {
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Créatininémie normale chez l'adulte, en ordre de grandeur :",
+      "variants": [
+        "Adulte : quelle créatininémie est habituelle ?",
+        "Quel ordre de grandeur pour une créatinine sanguine normale ?",
+        "Créatinine dans le sang : quelles valeurs sont normales chez l'adulte ?"
+      ],
+      "options": [
+        "Environ 45 à 110 µmol/L",
+        "Environ 4,5 à 11 µmol/L",
+        "Environ 450 à 1 100 µmol/L",
+        "Environ 1 à 2 g/L"
+      ],
+      "answer": 0,
+      "explain": "Environ 45 à 90 µmol/L chez la femme et 60 à 110 µmol/L chez l'homme : elle dépend de la masse musculaire. Pour juger la fonction rénale, on regarde le débit de filtration glomérulaire estimé (DFG).",
+      "src": "complement"
+    },
+    {
+      "cat": "bio",
+      "level": 3,
+      "type": "range",
+      "prompt": "Urée sanguine normale",
+      "variants": [
+        "Place la fourchette normale de l'urée sanguine.",
+        "Entre quelles valeurs se situe une urémie normale ?",
+        "Urée dans le sang : quelle est la fourchette normale ?"
+      ],
+      "min": 0,
+      "max": 20,
+      "step": 0.5,
+      "answer": [2.5, 7.5],
+      "tolerance": 0.5,
+      "unit": "mmol/L",
+      "explain": "Environ 2,5 à 7,5 mmol/L. Elle augmente en cas d'insuffisance rénale, de déshydratation ou d'apport protéique important.",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "On parle d'hypertension artérielle à partir de 140/90 mmHg, mesurée en consultation.",
+      "variants": [
+        "En consultation, l'HTA est définie par une pression de 140/90 mmHg ou plus.",
+        "Le seuil de l'hypertension artérielle mesurée au cabinet est de 140/90 mmHg.",
+        "Une PA de 140/90 mmHg ou plus en consultation définit l'hypertension."
+      ],
+      "answer": true,
+      "explain": "Vrai. Le diagnostic se confirme hors du cabinet (automesure ou MAPA), où les seuils sont plus bas : 135/85 mmHg.",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 2,
+      "type": "number",
+      "prompt": "PA à 130/70 mmHg : calcule la pression artérielle moyenne (PAM).",
+      "variants": [
+        "Un patient a une PA de 130/70 mmHg. Quelle est sa PAM ?",
+        "PAS 130, PAD 70 : combien vaut la pression artérielle moyenne ?",
+        "Calcule la PAM d'une tension à 130/70 mmHg."
+      ],
+      "answer": 90,
+      "tolerance": 1,
+      "unit": "mmHg",
+      "explain": "PAM = (PAS + 2 × PAD) / 3 = (130 + 140) / 3 = 90 mmHg. Une PAM sous 65 mmHg fait craindre une mauvaise perfusion des organes.",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque terme au volume d'urine sur 24 heures.",
+      "variants": [
+        "Relie chaque trouble de la diurèse à sa définition chez l'adulte.",
+        "Oligurie, anurie, polyurie : forme les paires avec le bon volume.",
+        "Quel volume d'urine sur 24 h pour quel terme ?"
+      ],
+      "left": "Terme",
+      "right": "Diurèse sur 24 h",
+      "pairs": [
+        ["Anurie", "Moins de 100 mL"],
+        ["Oligurie", "Moins de 500 mL"],
+        ["Diurèse normale", "Environ 0,8 à 1,5 L"],
+        ["Polyurie", "Plus de 3 L"]
+      ],
+      "explain": "Chez l'adulte : oligurie sous 500 mL/24 h, anurie sous 100 mL/24 h, polyurie au-dessus de 3 L/24 h (certains retiennent 2,5 L). La diurèse normale est d'environ 0,8 à 1,5 L par jour.",
+      "src": "complement"
+    },
+    {
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "À partir de quelle glycémie à jeun parle-t-on de diabète (contrôlée deux fois) ?",
+      "variants": [
+        "Seuil du diabète : quelle glycémie à jeun, retrouvée à deux reprises ?",
+        "Une glycémie à jeun égale ou supérieure à combien, deux fois, signe un diabète ?",
+        "Glycémie à jeun : quel seuil définit le diabète si on le retrouve deux fois ?"
+      ],
+      "options": ["1,26 g/L", "1,10 g/L", "0,70 g/L", "2,50 g/L"],
+      "answer": 0,
+      "explain": "1,26 g/L (7 mmol/L) ou plus à deux reprises. Une glycémie de 2 g/L ou plus à n'importe quel moment, avec des signes cliniques, suffit aussi.",
+      "src": "complement"
+    },
+    {
+      "cat": "bio",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Objectif d'HbA1c le plus souvent fixé chez un diabétique de type 2 :",
+      "variants": [
+        "Diabète de type 2 : quelle hémoglobine glyquée vise-t-on en général ?",
+        "Quelle HbA1c cible pour la plupart des patients diabétiques de type 2 ?",
+        "HbA1c : quel objectif habituel chez le diabétique de type 2 ?"
+      ],
+      "options": ["7 % ou moins", "12 % ou moins", "1 % ou moins", "Entre 15 et 20 %"],
+      "answer": 0,
+      "explain": "En général 7 % ou moins ; l'objectif est adapté à chaque patient (plus souple chez la personne âgée fragile). Sans diabète, l'HbA1c est sous 6 % environ. Elle reflète la glycémie des 3 derniers mois.",
+      "src": "complement"
+    },
+    {
+      "cat": "sang",
+      "level": 2,
+      "type": "range",
+      "prompt": "Taux de prothrombine (TP) normal",
+      "variants": [
+        "Place la fourchette normale du TP.",
+        "Entre quelles valeurs se situe un taux de prothrombine normal ?",
+        "TP sans traitement anticoagulant : quelle est la fourchette normale ?"
+      ],
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "answer": [70, 100],
+      "tolerance": 5,
+      "unit": "%",
+      "explain": "70 à 100 %. Un TP bas fait craindre un trouble de la coagulation (insuffisance hépatique, carence en vitamine K). Sous AVK, on suit l'INR plutôt que le TP.",
+      "src": "complement"
+    },
+    {
+      "cat": "sang",
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "Sans traitement, le rapport TCA patient / témoin est normalement inférieur à 1,2.",
+      "variants": [
+        "Un ratio de TCA sous 1,2 est normal chez un patient sans anticoagulant.",
+        "Hors traitement, le TCA du patient divisé par celui du témoin reste sous 1,2.",
+        "Le ratio TCA patient/témoin normal est inférieur à 1,2."
+      ],
+      "answer": true,
+      "explain": "Vrai. Le TCA s'allonge sous héparine non fractionnée, qui se surveille par le TCA ou l'activité anti-Xa selon le protocole du service.",
+      "src": "complement"
+    },
+    {
+      "cat": "sang",
+      "level": 3,
+      "type": "range",
+      "prompt": "Fibrinogène normal",
+      "variants": [
+        "Place la fourchette normale du fibrinogène.",
+        "Entre quelles valeurs se situe un fibrinogène normal ?",
+        "Fibrinogène sanguin : quelle est la fourchette normale ?"
+      ],
+      "min": 0,
+      "max": 8,
+      "step": 0.1,
+      "answer": [2, 4],
+      "tolerance": 0.2,
+      "unit": "g/L",
+      "explain": "2 à 4 g/L. Il augmente en cas d'inflammation et baisse en cas de consommation (CIVD) ou d'hémorragie grave.",
+      "src": "complement"
+    },
+    {
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "CRP normale :",
+      "variants": [
+        "Quelle valeur de CRP est normale ?",
+        "Protéine C réactive : jusqu'à combien est-elle normale ?",
+        "Une CRP normale est…"
+      ],
+      "options": ["Inférieure à 5 mg/L environ", "Entre 50 et 100 mg/L", "Supérieure à 10 g/L", "Exactement 0"],
+      "answer": 0,
+      "explain": "Inférieure à 5 mg/L environ (le seuil varie un peu selon le laboratoire). Elle monte en quelques heures en cas d'inflammation ou d'infection bactérienne.",
+      "src": "complement"
+    },
+    {
+      "cat": "bio",
+      "level": 3,
+      "type": "range",
+      "prompt": "Albuminémie normale",
+      "variants": [
+        "Place la fourchette normale de l'albumine sanguine.",
+        "Entre quelles valeurs se situe une albuminémie normale ?",
+        "Albumine dans le sang : quelle est la fourchette normale ?"
+      ],
+      "min": 10,
+      "max": 70,
+      "step": 1,
+      "answer": [35, 50],
+      "tolerance": 2,
+      "unit": "g/L",
+      "explain": "35 à 50 g/L environ. Une albuminémie à 35 g/L ou moins oriente vers une dénutrition, sévère sous 30 g/L (à interpréter hors inflammation).",
+      "src": "complement"
+    },
+    {
+      "cat": "gaz",
+      "level": 2,
+      "type": "range",
+      "prompt": "pH du sang artériel normal",
+      "variants": [
+        "Place la fourchette normale du pH artériel.",
+        "Gaz du sang : entre quelles valeurs le pH est-il normal ?",
+        "pH sanguin artériel : quelle est la fourchette normale ?"
+      ],
+      "min": 7.0,
+      "max": 7.8,
+      "step": 0.01,
+      "answer": [7.35, 7.45],
+      "tolerance": 0.03,
+      "explain": "7,35 à 7,45 (certains retiennent 7,38 à 7,42). En dessous : acidose ; au-dessus : alcalose.",
+      "src": "complement"
+    },
+    {
+      "cat": "gaz",
+      "level": 3,
+      "type": "range",
+      "prompt": "PaCO~2~ normale",
+      "variants": [
+        "Place la fourchette normale de la PaCO~2~.",
+        "Gaz du sang : entre quelles valeurs la PaCO~2~ est-elle normale ?",
+        "Pression partielle artérielle en CO~2~ : quelle est la fourchette normale ?"
+      ],
+      "min": 20,
+      "max": 70,
+      "step": 1,
+      "answer": [35, 45],
+      "tolerance": 3,
+      "unit": "mmHg",
+      "explain": "35 à 45 mmHg (4,7 à 6 kPa). Au-dessus, hypercapnie (hypoventilation) ; en dessous, hypocapnie (hyperventilation).",
+      "src": "complement"
+    },
+    {
+      "cat": "gaz",
+      "level": 3,
+      "type": "range",
+      "prompt": "PaO~2~ normale chez l'adulte, en air ambiant",
+      "variants": [
+        "Place la fourchette normale de la PaO~2~ en air ambiant.",
+        "Gaz du sang en air ambiant : entre quelles valeurs la PaO~2~ est-elle normale ?",
+        "Pression partielle artérielle en O~2~, adulte en air ambiant : quelle fourchette ?"
+      ],
+      "min": 40,
+      "max": 130,
+      "step": 1,
+      "answer": [80, 100],
+      "tolerance": 5,
+      "unit": "mmHg",
+      "explain": "80 à 100 mmHg environ ; elle baisse un peu avec l'âge. Sous 60 mmHg, on parle d'insuffisance respiratoire (hypoxémie franche).",
+      "src": "complement"
+    },
+    {
+      "cat": "gaz",
+      "level": 3,
+      "type": "range",
+      "prompt": "Bicarbonates (HCO~3~^-^) normaux",
+      "variants": [
+        "Place la fourchette normale des bicarbonates.",
+        "Gaz du sang : entre quelles valeurs les bicarbonates sont-ils normaux ?",
+        "HCO~3~^-^ artériels : quelle est la fourchette normale ?"
+      ],
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "answer": [22, 26],
+      "tolerance": 2,
+      "unit": "mmol/L",
+      "explain": "22 à 26 mmol/L environ. Bas dans l'acidose métabolique, élevés dans l'alcalose métabolique (ou pour compenser une acidose respiratoire).",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 2,
+      "type": "range",
+      "prompt": "Fréquence cardiaque du nouveau-né au repos",
+      "variants": [
+        "Place la fourchette normale du pouls d'un nouveau-né.",
+        "Nouveau-né au repos : entre quelles valeurs se situe la fréquence cardiaque ?",
+        "Quelle fréquence cardiaque est normale chez un nouveau-né ?"
+      ],
+      "min": 60,
+      "max": 220,
+      "step": 5,
+      "answer": [120, 160],
+      "tolerance": 10,
+      "unit": "bpm",
+      "explain": "Environ 120 à 160 battements par minute. La fréquence cardiaque baisse avec l'âge jusqu'aux valeurs de l'adulte (60 à 100).",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 1,
+      "type": "sort",
+      "prompt": "Classe ces températures (adulte au repos).",
+      "variants": [
+        "Hypothermie, normale ou fièvre ? Range chaque température.",
+        "Trie ces températures corporelles d'adulte.",
+        "Place chaque température dans la bonne famille."
+      ],
+      "groups": [
+        {"name": "Hypothermie", "items": ["34,2 °C", "33,5 °C"]},
+        {"name": "Normale", "items": ["36,6 °C", "37,1 °C"]},
+        {"name": "Fièvre", "items": ["38,4 °C", "39,8 °C"]}
+      ],
+      "explain": "Hypothermie sous 35 °C, température normale entre 36,5 et 37,5 °C, fièvre à partir de 38 °C.",
+      "src": "complement"
+    },
+    {
+      "cat": "bio",
+      "level": 2,
+      "type": "sort",
+      "prompt": "Classe ces kaliémies.",
+      "variants": [
+        "Hypokaliémie, normale ou hyperkaliémie ? Range chaque résultat.",
+        "Trie ces résultats de potassium sanguin.",
+        "Place chaque kaliémie dans la bonne famille."
+      ],
+      "groups": [
+        {"name": "Hypokaliémie", "items": ["2,9 mmol/L", "3,2 mmol/L"]},
+        {"name": "Normale", "items": ["4,0 mmol/L", "4,6 mmol/L"]},
+        {"name": "Hyperkaliémie", "items": ["5,6 mmol/L", "6,4 mmol/L"]}
+      ],
+      "explain": "Normale entre 3,5 et 5,0 mmol/L. Hypo- comme hyperkaliémie exposent à des troubles du rythme cardiaque : ECG et surveillance.",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Score de Glasgow d'un patient conscient, orienté, qui obéit aux ordres :",
+      "variants": [
+        "Patient parfaitement conscient : quel score de Glasgow ?",
+        "Quel est le score de Glasgow normal ?",
+        "Yeux ouverts, réponses orientées, obéit aux ordres : score de Glasgow ?"
+      ],
+      "options": ["15", "10", "20", "12"],
+      "answer": 0,
+      "explain": "15 : ouverture des yeux 4, réponse verbale 5, réponse motrice 6.",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 2,
+      "type": "choice",
+      "prompt": "À partir de quel score de Glasgow parle-t-on de coma ?",
+      "variants": [
+        "Coma : quel score de Glasgow ?",
+        "Score de Glasgow : quel seuil définit le coma ?",
+        "Un coma correspond à un Glasgow…"
+      ],
+      "options": ["8 ou moins", "12 ou moins", "14 ou moins", "3 exactement"],
+      "answer": 0,
+      "explain": "8 ou moins. Le patient ne protège plus ses voies aériennes : position latérale de sécurité, appel du médecin, intubation à discuter.",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Le score de Glasgow le plus bas possible est 0.",
+      "variants": [
+        "Un score de Glasgow peut descendre jusqu'à 0.",
+        "Le minimum du score de Glasgow est 0.",
+        "Une absence totale de réponse donne un Glasgow à 0."
+      ],
+      "answer": false,
+      "explain": "Faux : le minimum est 3 (1 point par item, même sans aucune réponse). Le maximum est 15.",
+      "src": "complement"
+    },
+    {
+      "cat": "sang",
+      "level": 1,
+      "type": "slider",
+      "prompt": "INR d'une personne sans traitement anticoagulant",
+      "variants": [
+        "Place l'INR habituel d'une personne qui ne prend pas d'anticoagulant.",
+        "Sans AVK, quel est l'INR attendu ?",
+        "INR normal, hors traitement :"
+      ],
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "answer": 1,
+      "tolerance": 0.2,
+      "explain": "Environ 1. Sous AVK, la cible est en général de 2 à 3.",
+      "src": "complement"
+    },
+    {
+      "cat": "bio",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque résultat à son unité habituelle.",
+      "variants": [
+        "Relie chaque examen à l'unité dans laquelle il est rendu.",
+        "Quelle unité pour quel résultat ? Forme les paires.",
+        "Fais correspondre chaque valeur biologique avec son unité."
+      ],
+      "left": "Résultat",
+      "right": "Unité",
+      "pairs": [
+        ["Kaliémie", "mmol/L"],
+        ["Plaquettes", "G/L"],
+        ["Hémoglobine", "g/dL"],
+        ["Créatininémie", "µmol/L"],
+        ["PaO₂", "mmHg"]
+      ],
+      "explain": "Les unités changent l'ordre de grandeur : une créatinine en µmol/L (60 à 110) n'a rien à voir avec une kaliémie en mmol/L (3,5 à 5).",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 3,
+      "type": "number",
+      "prompt": "Une glycémie de 1 g/L correspond à combien de mmol/L ?",
+      "variants": [
+        "Convertis 1 g/L de glucose en mmol/L.",
+        "Glycémie à 1 g/L : combien de mmol/L ?",
+        "1 g/L de glucose, c'est combien en mmol/L ?"
+      ],
+      "answer": 5.55,
+      "tolerance": 0.1,
+      "unit": "mmol/L",
+      "explain": "Environ 5,5 mmol/L (on multiplie les g/L par 5,55). Ainsi 1,26 g/L ≈ 7 mmol/L et 0,70 g/L ≈ 3,9 mmol/L.",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 3,
+      "type": "choice",
+      "prompt": "On parle d'hypotension orthostatique quand, dans les 3 minutes après le passage debout…",
+      "variants": [
+        "Définition de l'hypotension orthostatique :",
+        "Hypotension orthostatique : quelle baisse de pression dans les 3 minutes après le lever ?",
+        "Quel critère définit une hypotension orthostatique ?"
+      ],
+      "options": [
+        "La systolique baisse d'au moins 20 mmHg et/ou la diastolique d'au moins 10 mmHg",
+        "La systolique baisse d'au moins 5 mmHg",
+        "La fréquence cardiaque baisse de 20 battements par minute",
+        "La systolique monte d'au moins 20 mmHg"
+      ],
+      "answer": 0,
+      "explain": "Baisse de la systolique d'au moins 20 mmHg et/ou de la diastolique d'au moins 10 mmHg. Risque de chute : lever progressif, surveiller après les médicaments hypotenseurs.",
+      "src": "complement"
+    },
+    {
+      "cat": "gaz",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Lactates sanguins normaux :",
+      "variants": [
+        "Quelle lactatémie est normale ?",
+        "Jusqu'à combien les lactates sont-ils normaux ?",
+        "Une lactatémie normale est…"
+      ],
+      "options": [
+        "Inférieure à 2 mmol/L",
+        "Entre 5 et 10 mmol/L",
+        "Supérieure à 20 mmol/L",
+        "Entre 135 et 145 mmol/L"
+      ],
+      "answer": 0,
+      "explain": "Inférieure à 2 mmol/L. Au-dessus, avec une infection, elle fait craindre un sepsis grave ou un choc : signe de souffrance des tissus.",
+      "src": "complement"
+    },
+    {
+      "cat": "constantes",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Diurèse minimale attendue chez l'adulte :",
+      "variants": [
+        "Quel débit d'urine minimal surveille-t-on chez l'adulte ?",
+        "Sous quel débit urinaire faut-il alerter chez l'adulte ?",
+        "Débit urinaire minimal normal d'un adulte :"
+      ],
+      "options": ["0,5 mL/kg/h", "5 mL/kg/h", "0,05 mL/kg/h", "50 mL/kg/h"],
+      "answer": 0,
+      "explain": "Environ 0,5 mL/kg/h, soit 35 mL/h pour 70 kg. En dessous pendant plusieurs heures : prévenir le médecin (risque d'insuffisance rénale aiguë).",
+      "src": "complement"
+    }
+  ]
+}

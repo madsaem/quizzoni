@@ -76,8 +76,10 @@ export async function loadCatalog() {
 
 export function getQuiz(id) { return catalog?.quizzes.find((q) => q.id === id) || null; }
 
+/** Une question par son identifiant. Si elle a changé de boîte, on la cherche dans les autres. */
 export function findQuestion(quizId, qid) {
-  return getQuiz(quizId)?.questions.find((q) => q.qid === qid) || null;
+  return getQuiz(quizId)?.questions.find((q) => q.qid === qid)
+    || allQuestions().find((q) => q.qid === qid) || null;
 }
 
 /** Catégorie d'une question (objet { id, title }) ou null. */

@@ -136,7 +136,12 @@
         "L'anxiété d'un patient hospitalisé, dans un trifocal, c'est…",
         "Où ranger l'anxiété due à l'hospitalisation dans une démarche trifocale ?"
       ],
-      "options": ["Les réactions humaines", "Les signes et symptômes", "Les risques et complications", "Les traitements"],
+      "options": [
+        "Les réactions humaines",
+        "Les signes et symptômes",
+        "Les risques et complications",
+        "Les traitements"
+      ],
       "answer": 0,
       "explain": "Réactions humaines physiques et psychologiques : anxiété, peur, perte de l'estime de soi, perturbation familiale…"
     },
@@ -374,7 +379,12 @@
         "Voie veineuse chez un patient en AVC : quel soluté choisir ?",
         "AVC : quelle perfusion de base sur la voie veineuse ?"
       ],
-      "options": ["NaCl 0,9 %", "Glucosé 5 %", "Eau pour préparation injectable", "Aucune perfusion n'est autorisée"],
+      "options": [
+        "NaCl 0,9 %",
+        "Glucosé 5 %",
+        "Eau pour préparation injectable",
+        "Aucune perfusion n'est autorisée"
+      ],
       "answer": 0,
       "explain": "Pas de G5 % : une fois le glucose consommé, il se comporte comme de l'eau pure (hypotonique) et peut aggraver l'œdème cérébral."
     },
@@ -778,7 +788,12 @@
         "Quelle image de l'ASP évoque une occlusion intestinale ?",
         "Occlusion : que montre typiquement l'ASP ?"
       ],
-      "options": ["Des niveaux hydro-aériques", "Un pneumothorax", "Un calcul dans la vésicule", "Une fracture de côte"],
+      "options": [
+        "Des niveaux hydro-aériques",
+        "Un pneumothorax",
+        "Un calcul dans la vésicule",
+        "Une fracture de côte"
+      ],
       "answer": 0,
       "explain": "Le scanner abdominal injecté est l'examen de référence ; l'échographie et la biologie (bilan préopératoire, infectieux) complètent."
     },
@@ -1141,15 +1156,7 @@
         {"id": "epi", "label": "l'épigastre", "shape": "rect", "x": 35, "y": 5.4, "w": 30, "h": 38},
         {"id": "hg", "label": "l'hypochondre gauche", "shape": "rect", "x": 65, "y": 5.4, "w": 20.5, "h": 38},
         {"id": "fd", "label": "le flanc droit", "shape": "rect", "x": 14.5, "y": 43.5, "w": 20.5, "h": 30.4},
-        {
-          "id": "omb",
-          "label": "la région ombilicale",
-          "shape": "rect",
-          "x": 35,
-          "y": 43.5,
-          "w": 30,
-          "h": 30.4
-        },
+        {"id": "omb", "label": "la région ombilicale", "shape": "rect", "x": 35, "y": 43.5, "w": 30, "h": 30.4},
         {"id": "fg", "label": "le flanc gauche", "shape": "rect", "x": 65, "y": 43.5, "w": 20.5, "h": 30.4},
         {
           "id": "fid",
@@ -1484,7 +1491,12 @@
         "Quels signes de gravité rechercher dans une colique néphrétique ?",
         "Parmi ces signes, lesquels traduisent une colique néphrétique compliquée ?"
       ],
-      "options": ["Fièvre au-dessus de 38 °C", "Anurie", "Hématurie microscopique", "Douleur qui irradie vers l'aine"],
+      "options": [
+        "Fièvre au-dessus de 38 °C",
+        "Anurie",
+        "Hématurie microscopique",
+        "Douleur qui irradie vers l'aine"
+      ],
       "answer": [0, 1],
       "explain": "Fièvre : infection en amont de l'obstacle, il faut drainer les urines. Anurie : calcul sur un rein unique ou des deux côtés. L'hématurie, elle, est fréquente et attendue."
     },
@@ -1697,7 +1709,14 @@
         "Infarctus du myocarde : quels sont ses facteurs de risque ?",
         "Parmi ces éléments, lesquels sont des facteurs de risque d'infarctus ?"
       ],
-      "options": ["Tabac", "Diabète", "Hypertension artérielle", "Cholestérol élevé", "Sédentarité", "Groupe sanguin A"],
+      "options": [
+        "Tabac",
+        "Diabète",
+        "Hypertension artérielle",
+        "Cholestérol élevé",
+        "Sédentarité",
+        "Groupe sanguin A"
+      ],
       "answer": [0, 1, 2, 3, 4],
       "explain": "Aussi : âge et sexe masculin, antécédents familiaux, surpoids, stress, alcool."
     },
@@ -1757,15 +1776,7 @@
         {"id": "epi", "label": "l'épigastre", "shape": "rect", "x": 35, "y": 5.4, "w": 30, "h": 38},
         {"id": "hg", "label": "l'hypochondre gauche", "shape": "rect", "x": 65, "y": 5.4, "w": 20.5, "h": 38},
         {"id": "fd", "label": "le flanc droit", "shape": "rect", "x": 14.5, "y": 43.5, "w": 20.5, "h": 30.4},
-        {
-          "id": "omb",
-          "label": "la région ombilicale",
-          "shape": "rect",
-          "x": 35,
-          "y": 43.5,
-          "w": 30,
-          "h": 30.4
-        },
+        {"id": "omb", "label": "la région ombilicale", "shape": "rect", "x": 35, "y": 43.5, "w": 30, "h": 30.4},
         {"id": "fg", "label": "le flanc gauche", "shape": "rect", "x": 65, "y": 43.5, "w": 20.5, "h": 30.4},
         {
           "id": "fid",
@@ -1802,7 +1813,10 @@
         "Que montre ce tracé, enregistré chez un patient qui a mal à la poitrine ?",
         "Patient douloureux thoracique : quelle anomalie présente ce tracé ?"
       ],
-      "media": {"src": "assets/schemas/ecg-sus-st.svg", "alt": "Tracé d'ECG de deux battements, segment ST surélevé"},
+      "media": {
+        "src": "assets/schemas/ecg-sus-st.svg",
+        "alt": "Tracé d'ECG de deux battements, segment ST surélevé"
+      },
       "options": [
         "Un sus-décalage du segment ST",
         "Un tracé normal",
@@ -2203,7 +2217,13 @@
         "Quels signes rendent une embolie pulmonaire grave ?",
         "Parmi ces signes, lesquels traduisent une embolie pulmonaire grave ?"
       ],
-      "options": ["Détresse respiratoire aiguë", "Cyanose", "Marbrures", "Hypotension, malaise", "Toux sèche isolée"],
+      "options": [
+        "Détresse respiratoire aiguë",
+        "Cyanose",
+        "Marbrures",
+        "Hypotension, malaise",
+        "Toux sèche isolée"
+      ],
       "answer": [0, 1, 2, 3],
       "explain": "Risques : syncope, arrêt cardio-respiratoire. Scope et matériel d'urgence à proximité."
     },
@@ -3146,5 +3166,6 @@
       "answer": [0, 1, 2, 3],
       "explain": "Le traitement de fond se poursuit même quand tout va bien."
     }
-  ]
+  ],
+  "icon": "lungs"
 }
