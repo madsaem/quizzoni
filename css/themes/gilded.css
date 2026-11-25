@@ -100,11 +100,17 @@ html[data-theme="gilded"] {
     radial-gradient(120% 140% at 30% 0%, rgba(255, 240, 210, .28), transparent 55%),
     linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, .3));
   background-size: 8px 8px, 8px 8px, 8px 8px, 8px 8px, 160px 160px, 100% 100%, 100% 100%;
-  background-position: 7px 7px, calc(100% - 7px) 7px, 7px calc(100% - 7px - var(--k-edge)), calc(100% - 7px) calc(100% - 7px - var(--k-edge)), 0 0, 0 0, 0 0;
+  background-position: 9px 9px, calc(100% - 9px) 9px, 9px calc(100% - 9px - var(--k-edge)), calc(100% - 9px) calc(100% - 9px - var(--k-edge)), 0 0, 0 0, 0 0;
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat, no-repeat, no-repeat;
-  outline: 1.6px dashed rgba(255, 236, 200, .72);
-  outline-offset: -8px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .55);
+}
+/* couture : un cadre en pointillés sur la face visible (le rebord du bas n'en fait pas partie),
+   à mi-chemin entre le bord et les rivets */
+[data-theme="gilded"] .key:not(.key--ghost)::after {
+  content: ""; position: absolute; pointer-events: none;
+  inset: 4px 4px calc(4px + var(--k-edge)) 4px;
+  border: 1.6px dashed rgba(255, 236, 200, .72);
+  border-radius: 10px;
 }
 [data-theme="gilded"] .answer--3 .answer__text { text-shadow: 0 1px 0 rgba(255, 241, 184, .5); }
 [data-theme="gilded"] .key--ghost {

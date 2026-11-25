@@ -40,6 +40,7 @@ const ERRORS = {
   'auth/too-many-requests': 'Trop d\'essais. Réessaie dans quelques minutes.',
   'auth/network-request-failed': 'Pas de connexion internet.',
   'auth/operation-not-allowed': 'Ce moyen de connexion n\'est pas encore activé sur le site.',
+  'auth/configuration-not-found': 'La connexion n\'est pas encore activée sur le site. Réessaie un peu plus tard.',
   'auth/unauthorized-domain': 'Ce site n\'est pas encore autorisé dans Firebase (domaines autorisés).',
   'auth/account-exists-with-different-credential': 'Cet e-mail est déjà lié à un autre moyen de connexion : utilise celui-là.',
 };

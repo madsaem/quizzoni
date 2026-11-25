@@ -287,13 +287,13 @@ function playSample(buf) {
 
 /** Contexte audio et sortie principale (pour la musique). null si le son est coupé. */
 export function audioOut() {
-  if (!enabled || !ensure()) return null;
+  if (!ensure()) return null;   // la musique a sa propre option : elle ne dépend pas des bruitages
   return { ctx, master };
 }
 
 export const sound = {
   /** À appeler lors d'un premier geste (clic, touche) pour autoriser le son. */
-  unlock() { if (enabled) ensure(); },
+  unlock() { ensure(); },
   play(name, ...args) {
     if (!enabled) return;
     if (!ensure()) return;

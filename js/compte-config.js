@@ -11,8 +11,13 @@
 // };
 // Ces valeurs ne sont pas secrètes : elles identifient le projet. La sécurité vient des règles
 // Firestore (chacun ne peut lire et écrire que sa propre progression).
-export const FIREBASE = null;
+export const FIREBASE = {
+  apiKey: 'AIzaSyCeRk9m174pGdA83fRKWVA8_ZAESXi4YOI',
+  authDomain: 'quizzoni.firebaseapp.com',
+  projectId: 'quizzoni',
+  appId: '1:161186753643:web:97a27a5cec6a24c281552e',
+};
 
 // Moyens de connexion proposés, dans cet ordre. Chacun doit aussi être activé dans la console
 // (Authentication > Sign-in method). Possibles : google, microsoft, github, facebook, twitter, yahoo, email.
-export const PROVIDERS = ['google', 'microsoft', 'github', 'email'];
+export const PROVIDERS = ['google', 'email'];

@@ -66,9 +66,13 @@ html[data-theme="automne"] { background: linear-gradient(180deg, #F8CB8C 0%, #F2
   background-size: 8px 9px, 100% 8px, auto, auto, 35px 60px, 35px 60px;
   background-position: 0 0, bottom, 0 0, 0 0, 0 0, 0 0;
   background-repeat: repeat, no-repeat, repeat, repeat, repeat, repeat;
-  outline: 2px dashed rgba(255, 244, 222, .55);
-  outline-offset: -6px;
   text-shadow: 0 1px 2px rgba(42, 22, 11, .55);
+}
+/* point de couture sur la face du bouton, sans le rebord du bas */
+[data-theme="automne"] .key:not(.key--ghost)::after {
+  content: ""; position: absolute; pointer-events: none;
+  inset: 5px 5px calc(5px + var(--k-edge)) 5px;
+  border: 2px dashed rgba(255, 244, 222, .55);
 }
 [data-theme="automne"] .answer--3 .answer__text,
 [data-theme="automne"] .key:not(.key--ghost)[style*="--c3"] { text-shadow: 0 1px 0 rgba(255, 244, 222, .5); }

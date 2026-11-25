@@ -3,11 +3,12 @@ import * as store from './state.js';
 import { sound } from './audio.js';
 import './sons.js';   // packs de sons des thèmes ajoutés
 import { loadCatalog } from './data.js';
-import { applyTheme, applyMotion, openSettings, openThemes, soundIcon, THEMES } from './ui.js';
+import { applyTheme, applyMotion, openSettings, openThemes, soundIcon, audioOn, toggleAllAudio, THEMES } from './ui.js';
 import { setMood } from './themefx.js';
 import { music } from './music.js';
 import { initAccount, openAccount, onAccountChange, accountButtonLabel } from './compte.js';
 import { renderHome } from './views/home.js';
+import { fitBoxText } from './views/box.js';
 import { renderIntro } from './views/intro.js';
 import { renderPlay } from './views/play.js';
 import { renderResults } from './views/results.js';
@@ -22,7 +23,7 @@ const st = store.settings();
 if (!THEMES.some((t) => t.id === st.theme)) store.setSetting('theme', 'officine');
 sound.setEnabled(st.sound);
 sound.setVolume(st.volume);
-music.setEnabled({ music: st.music !== false, sound: st.sound });
+music.setEnabled({ music: st.music !== false });
 applyTheme(store.settings().theme);
 applyMotion(st.reducedMotion);
 
@@ -35,15 +36,11 @@ window.addEventListener('keydown', unlock);
 const soundBtn = document.getElementById('sound-toggle');
 const refreshSoundBtn = () => {
   soundBtn.replaceChildren(soundIcon());
-  soundBtn.setAttribute('aria-pressed', String(store.settings().sound));
-  soundBtn.setAttribute('aria-label', store.settings().sound ? 'Couper le son' : 'Activer le son');
+  soundBtn.setAttribute('aria-pressed', String(audioOn()));
+  soundBtn.setAttribute('aria-label', audioOn() ? 'Couper le son (bruitages et musique)' : 'Remettre le son');
 };
 soundBtn.addEventListener('click', () => {
-  const on = !store.settings().sound;
-  store.setSetting('sound', on);
-  sound.setEnabled(on);
-  music.setEnabled({ sound: on });
-  refreshSoundBtn();
+  toggleAllAudio();
   sound.play('select');
 });
 document.addEventListener('soundchange', refreshSoundBtn);
@@ -54,6 +51,13 @@ document.getElementById('themes-open').addEventListener('click', () => { sound.p
 document.getElementById('account-open').addEventListener('click', () => { sound.play('click'); openAccount(); });
 onAccountChange(() => { document.getElementById('account-label').textContent = accountButtonLabel(); });
 initAccount();
+
+// texte des boîtes ajusté quand la police ou la largeur change (thèmes aux polices larges)
+let fitTimer = 0;
+const refit = () => { clearTimeout(fitTimer); fitTimer = setTimeout(() => fitBoxText(document), 120); };
+document.addEventListener('themechange', refit);
+window.addEventListener('resize', refit);
+document.fonts?.addEventListener?.('loadingdone', refit);
 
 /* ------------------------------------------------------------ Navigation */
 let catalog = null;

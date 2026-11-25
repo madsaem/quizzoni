@@ -227,7 +227,9 @@ Chacun a ses couleurs (`css/themes.css` ou `css/themes/<thème>.css`), parfois u
 
 Pour ajouter un thème : copier un fichier de `css/themes/` et le lier dans `index.html`, ajouter le thème dans la liste `THEMES` de `js/ui.js`, et un pack de sons du même nom dans `js/sons.js`.
 
-Musiques : Warfare (fichiers fournis), David (Hava Nagila, enregistrement du domaine public venant de Wikimedia Commons), Grunge et Bazaar (composées par le navigateur), Scarlet (en attente d'un fichier : le déposer dans `assets/audio/scarlet/` et écrire son nom dans `pistes.json`). Chaque thème musical a son `assets/audio/<thème>/pistes.json`.
+Musiques : Warfare et Scarlet (fichiers fournis), David (Hava Nagila, enregistrement du domaine public venant de Wikimedia Commons), Grunge et Bazaar (composées par le navigateur).
+
+Dans Réglages, **Bruitages** et **Musique** se coupent séparément. Le bouton haut-parleur en haut coupe les deux, puis rétablit les réglages d'avant. Chaque thème musical a son `assets/audio/<thème>/pistes.json`.
 
 ### Musique du thème Warfare
 
@@ -251,7 +253,7 @@ Le dépôt GitHub et le site sont publics : tout fichier poussé dans `assets/au
 
 Le bouton **Compte** en haut à droite permet de se connecter (Google, Microsoft, GitHub, e-mail et mot de passe…) pour retrouver sa progression sur tous ses appareils. Seuls les résultats partent en ligne : records, erreurs à revoir, statistiques, boîtes déjà ouvertes. Les réglages restent propres à chaque appareil.
 
-Tant que les comptes ne sont pas activés, le bouton annonce qu'ils arrivent bientôt. Pour les activer (gratuit, une dizaine de minutes) :
+Projet Firebase : `quizzoni` (configuration dans `js/compte-config.js`, règles de la base dans `firebase/firestore.rules`, déployées avec `firebase deploy --only firestore:rules` depuis le dossier `firebase/`). Pour refaire la configuration dans un nouveau projet :
 
 1. Sur https://console.firebase.google.com, créer un projet (par exemple `quizzoni`), sans Google Analytics.
 2. **Authentication** > Commencer > Sign-in method : activer **Google** et **Adresse e-mail/Mot de passe**. Microsoft, GitHub, Facebook demandent en plus de créer une application chez eux (la console explique quoi copier).

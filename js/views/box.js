@@ -23,6 +23,36 @@ function starburst(points = 18, inner = 0.84) {
   return burstPath;
 }
 
+/**
+ * Texte des boîtes : réduit le titre (et le nom sur la tranche) tant qu'ils dépassent.
+ * Les polices des thèmes n'ont pas toutes la même largeur ; à rappeler quand le thème,
+ * la taille de l'écran ou les polices chargées changent.
+ */
+export function fitBoxText(root = document) {
+  root.querySelectorAll('.box__title').forEach((el) => {
+    el.style.fontSize = '';
+    const content = el.closest('.box__content');
+    let size = parseFloat(getComputedStyle(el).fontSize);
+    const min = size * 0.5;
+    const over = () => el.scrollWidth > el.clientWidth + 1 || (content && content.scrollHeight > content.clientHeight + 1);
+    for (let i = 0; i < 24 && over() && size > min; i++) {
+      size *= 0.94;
+      el.style.fontSize = `${size}px`;
+    }
+  });
+  root.querySelectorAll('.box__side span').forEach((el) => {
+    el.style.fontSize = '';
+    const side = el.parentElement;
+    let size = parseFloat(getComputedStyle(el).fontSize);
+    const min = size * 0.5;
+    const over = () => el.offsetHeight > side.clientHeight - 10 || el.offsetWidth > side.clientWidth - 6;
+    for (let i = 0; i < 20 && over() && size > min; i++) {
+      size *= 0.92;
+      el.style.fontSize = `${size}px`;
+    }
+  });
+}
+
 export function renderBox(quiz, { href = null, sticker = true } = {}) {
   const prog = store.progressFor(quiz.id);
   const n = quiz.questions.length;

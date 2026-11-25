@@ -5,7 +5,7 @@ import * as store from '../state.js';
 import { allQuestions, findQuestion } from '../data.js';
 import { startSession } from '../session.js';
 import { sound } from '../audio.js';
-import { renderBox } from './box.js';
+import { renderBox, fitBoxText } from './box.js';
 import { currentUser } from '../compte.js';
 
 const EXPRESS_COUNT = 10;
@@ -121,6 +121,7 @@ export function renderHome(root, catalog) {
     shelvesEl.replaceChildren(...(sections.length ? sections : [
       h('p', { class: 'shelf__empty' }, `Aucune boîte ne correspond à « ${query} ». Essaie un autre mot, ou un numéro d'UE comme 4.4.`),
     ]));
+    if (shelvesEl.isConnected) fitBoxText(shelvesEl);
   }
   renderShelves();
 
@@ -134,4 +135,5 @@ export function renderHome(root, catalog) {
     h('p', {}, 'Les questions ne remplacent ni les cours ni les protocoles de ton service. En cas de doute, ce sont eux qui font foi.'));
 
   root.replaceChildren(h('div', { class: 'wrap view' }, hero, warning, filters, shelvesEl, footer));
+  fitBoxText(root);
 }

@@ -81,19 +81,16 @@ export function openSettings() {
   }, 'Changer de thème');
 
   const soundSwitch = h('input', {
-    type: 'checkbox', class: 'switch', id: 'set-sound', checked: st.sound,
-    onChange: (e) => {
-      store.setSetting('sound', e.target.checked);
-      sound.setEnabled(e.target.checked);
-      music.setEnabled({ sound: e.target.checked });
-      document.dispatchEvent(new CustomEvent('soundchange'));
-      sound.play('select');
-    },
+    type: 'checkbox', class: 'switch', id: 'set-sound', checked: !!st.sound,
+    onChange: (e) => { setAudio({ sound: e.target.checked }); sound.play('select'); },
   });
   const musicSwitch = h('input', {
     type: 'checkbox', class: 'switch', id: 'set-music', checked: st.music !== false,
-    onChange: (e) => { store.setSetting('music', e.target.checked); music.setEnabled({ music: e.target.checked }); sound.play('select'); },
+    onChange: (e) => { setAudio({ music: e.target.checked }); sound.play('select'); },
   });
+  // le bouton du haut peut tout couper pendant que la fenêtre est ouverte : on suit
+  const syncSwitches = () => { soundSwitch.checked = !!store.settings().sound; musicSwitch.checked = store.settings().music !== false; };
+  document.addEventListener('soundchange', syncSwitches);
   const volume = h('input', {
     type: 'range', class: 'volume', min: 0, max: 1, step: 0.05, value: st.volume,
     'aria-label': 'Volume',
@@ -119,15 +116,15 @@ export function openSettings() {
     },
   }, 'Effacer ma progression');
 
-  const close = () => { dlg.close(); dlg.remove(); };
+  const close = () => { document.removeEventListener('soundchange', syncSwitches); dlg.close(); dlg.remove(); };
   dlg.append(h('div', { class: 'dialog__inner' },
     h('h2', { id: 'set-title' }, 'Réglages'),
     h('p', { class: 'dialog__lead' }, 'Enregistrés sur cet appareil.'),
     h('div', { class: 'setting' },
       h('div', { class: 'switch-row' }, h('span', {}, 'Thème : ', themeName), themeBtn)),
     h('div', { class: 'setting' },
-      h('div', { class: 'switch-row' }, h('label', { for: 'set-sound' }, 'Sons'), soundSwitch),
-      h('div', { class: 'switch-row' }, h('label', { for: 'set-music' }, 'Musique des thèmes', h('small', { class: 'setting__hint', style: { display: 'block', marginTop: 0 } }, `Thèmes ${THEMES.filter((t) => t.music).map((t) => t.name).join(', ')}`)), musicSwitch),
+      h('div', { class: 'switch-row' }, h('label', { for: 'set-sound' }, 'Bruitages', h('small', { class: 'setting__hint', style: { display: 'block', marginTop: 0 } }, 'Clics, bonnes et mauvaises réponses')), soundSwitch),
+      h('div', { class: 'switch-row' }, h('label', { for: 'set-music' }, 'Musique', h('small', { class: 'setting__hint', style: { display: 'block', marginTop: 0 } }, `Thèmes ${THEMES.filter((t) => t.music).map((t) => t.name).join(', ')}`)), musicSwitch),
       h('div', { class: 'switch-row' }, h('span', {}, 'Volume'), h('div', { style: { flex: '0 1 12rem' } }, volume)),
       h('div', { class: 'switch-row' }, h('label', { for: 'set-motion' }, 'Réduire les animations'), motionSwitch)),
     h('div', { class: 'dialog__actions', style: { justifyContent: 'space-between' } },
@@ -181,4 +178,25 @@ export function levelPills(n) {
   return h('span', { class: 'lvl', dataset: { n: String(n) }, 'aria-hidden': 'true' }, h('span'), h('span'), h('span'));
 }
 
-export function soundIcon() { return icon(store.settings().sound ? 'soundOn' : 'soundOff'); }
+/** Le son est-il actif (bruitages ou musique) ? Sert au bouton du haut. */
+export function audioOn() { const st = store.settings(); return !!st.sound || st.music !== false; }
+export function soundIcon() { return icon(audioOn() ? 'soundOn' : 'soundOff'); }
+
+/** Règle les bruitages et/ou la musique, et prévient l'interface. */
+export function setAudio({ sound: fx, music: mu } = {}) {
+  if (fx != null) { store.setSetting('sound', fx); sound.setEnabled(fx); }
+  if (mu != null) { store.setSetting('music', mu); music.setEnabled({ music: mu }); }
+  document.dispatchEvent(new CustomEvent('soundchange'));
+}
+
+/** Bouton du haut : coupe tout, puis rétablit les réglages d'avant. */
+export function toggleAllAudio() {
+  const st = store.settings();
+  if (audioOn()) {
+    store.setSetting('audioBefore', { sound: !!st.sound, music: st.music !== false });
+    setAudio({ sound: false, music: false });
+  } else {
+    const before = st.audioBefore && (st.audioBefore.sound || st.audioBefore.music) ? st.audioBefore : { sound: true, music: true };
+    setAudio(before);
+  }
+}

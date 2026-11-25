@@ -7,7 +7,7 @@ import { getQuiz, typeCounts, LEVELS } from '../data.js';
 import { startSession } from '../session.js';
 import { sound } from '../audio.js';
 import { levelPills } from '../ui.js';
-import { renderBox, quizColorVars } from './box.js';
+import { renderBox, quizColorVars, fitBoxText } from './box.js';
 
 const MODES = [
   { id: 'entrainement', title: 'Entraînement', icon: 'book', desc: 'Sans chrono, à ton rythme. La correction s\'affiche après chaque question.' },
@@ -336,4 +336,5 @@ export function renderIntro(root, id) {
 
   root.replaceChildren(h('div', { class: 'wrap view' }, back, layout,
     h('footer', { class: 'site-footer' }, h('p', {}, 'Raccourcis pendant la partie : touches 1 à 6 pour répondre, Entrée pour valider ou continuer, Échap pour quitter.'))));
+  fitBoxText(root);
 }

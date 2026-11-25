@@ -130,6 +130,7 @@ html[data-theme="ifsi"] {
 [data-theme="ifsi"] .cross3d__layer { background: #C62828; }
 [data-theme="ifsi"] .dialog::backdrop { background: rgba(20, 30, 70, .45); backdrop-filter: none; }
 [data-theme="ifsi"] .field { border-radius: 2px; border: 1px solid #7F8FB8; box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .15); }
+[data-theme="ifsi"] .box__side span { font-family: Verdana, Tahoma, sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0; }
 [data-theme="ifsi"] .box__front { background-image: repeating-linear-gradient(to bottom, transparent 0 15px, rgba(90, 120, 205, .2) 15px 16px); }
 
 .tprev[data-theme="ifsi"] {

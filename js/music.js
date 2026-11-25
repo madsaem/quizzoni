@@ -13,7 +13,6 @@ let manifest = null;
 let wanted = null;        // 'menu' quand l'écran courant veut sa musique
 let unlocked = false;
 let musicOn = true;
-let soundOn = true;
 let current = null;       // { kind, stop(fade) }
 let bus = null;
 let token = 0;
@@ -30,7 +29,7 @@ function out() {
   return { ctx: o.ctx, bus };
 }
 
-const can = () => unlocked && musicOn && soundOn && MUSICAL.has(theme) && manifest;
+const can = () => unlocked && musicOn && MUSICAL.has(theme) && manifest;
 const note = (n) => 440 * Math.pow(2, (n - 69) / 12); // numéro MIDI → Hz
 
 /** Une piste = un gain dédié ; l'arrêter = fondu puis déconnexion. */
@@ -427,8 +426,8 @@ export const music = {
     if (wanted === 'menu') music.menu();
   },
 
-  setEnabled({ music: m = musicOn, sound: s = soundOn } = {}) {
-    musicOn = m; soundOn = s;
+  setEnabled({ music: m = musicOn } = {}) {
+    musicOn = m;
     if (!can()) stopCurrent(0.5);
     else if (wanted === 'menu') music.menu();
   },
