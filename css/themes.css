@@ -30,7 +30,7 @@
    Thèmes
    Chaque thème redéfinit les mêmes variables. Pour en ajouter un :
    1. copier un bloc [data-theme="..."] ci-dessous et changer les couleurs ;
-   2. l'ajouter dans js/themes.js (nom affiché + pack de sons).
+   2. l'ajouter dans la liste THEMES de js/ui.js et un pack de sons dans js/audio.js.
    ========================================================================== */
 :root {
   --font-display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
@@ -131,41 +131,82 @@
   --plank-edge: #050A1C;
 }
 
-/* --- Cap Corse : mer, maquis, soleil de fin de journée --- */
-[data-theme="corse"] {
-  color-scheme: light;
-  --bg: #E4F1F0;
-  --bg-grid: #CFE4E2;
-  --surface: #FFFDF8;
-  --surface-2: #F4F1E6;
-  --ink: #0B3550;
-  --ink-2: #3D6178;
-  --ink-3: #7B97A8;
-  --line: #C3D8DA;
-  --edge: rgba(6, 34, 52, .28);
-  --gloss: rgba(255, 255, 255, .35);
-  --focus: #F2B544;
+/* --- Contraste élevé : noir profond, contours jaunes, blancs et cyan (façon éditeur de code) --- */
+[data-theme="contraste"] {
+  color-scheme: dark;
+  --bg: #000000;
+  --bg-grid: #000000;
+  --surface: #000000;
+  --surface-2: #0F0F0F;
+  --ink: #FFFFFF;
+  --ink-2: #FFFFFF;
+  --ink-3: #C8C8C8;
+  --line: #FFFFFF;
+  --edge: transparent;
+  --gloss: transparent;
+  --focus: #FF9F1C;
+  --hc-accent: #FFE600;
+  --hc-border: #6FC3DF;
 
-  --brand: #E2633A;
-  --brand-2: #B4461F;
-  --brand-ink: #FFFFFF;
+  --brand: #FFE600;
+  --brand-2: #FFE600;
+  --brand-ink: #000000;
 
-  --c1: #E2553B; --c1-ink: #FFFFFF;   /* coucher de soleil */
-  --c2: #0A74B5; --c2-ink: #FFFFFF;   /* mer */
-  --c3: #F2B544; --c3-ink: #0B3550;   /* citron */
-  --c4: #4C8A2C; --c4-ink: #FFFFFF;   /* maquis */
-  --c5: #8B5BB8; --c5-ink: #FFFFFF;   /* bruyère */
-  --c6: #C9822B; --c6-ink: #FFFFFF;   /* granit ocre */
+  --c1: #FF5FA2; --c1-ink: #000000;
+  --c2: #4FD8FF; --c2-ink: #000000;
+  --c3: #FFE600; --c3-ink: #000000;
+  --c4: #3CFF7A; --c4-ink: #000000;
+  --c5: #C69CFF; --c5-ink: #000000;
+  --c6: #FF9F1C; --c6-ink: #000000;
 
-  --good: #3E9B2E;
-  --bad: #D9413A;
-  --mid: #E89B1E;
+  --good: #3CFF7A;
+  --bad: #FF5F5F;
+  --mid: #FFB000;
 
-  --stage: #0A5A86;
-  --stage-2: #07476B;
-  --stage-grid: rgba(255, 255, 255, .07);
+  --stage: #000000;
+  --stage-2: #000000;
+  --stage-grid: rgba(255, 255, 255, 0);
   --stage-ink: #FFFFFF;
-  --trace: #FFE08A;
-  --plank: #E3D3B4;
-  --plank-edge: #0B3550;
+  --trace: #FFE600;
+  --plank: #000000;
+  --plank-edge: #FFFFFF;
+}
+
+/* --- Nuit étoilée : ciel animé, or et nébuleuses --- */
+[data-theme="etoiles"] {
+  color-scheme: dark;
+  --bg: #0A0826;
+  --bg-grid: transparent;
+  --surface: #181646;
+  --surface-2: #221F5A;
+  --ink: #F4F0FF;
+  --ink-2: #C6BEEC;
+  --ink-3: #8F88C2;
+  --line: #3A3680;
+  --edge: rgba(3, 0, 20, .5);
+  --gloss: rgba(255, 255, 255, .22);
+  --focus: #FFD56B;
+
+  --brand: #FFD56B;
+  --brand-2: #D9A53C;
+  --brand-ink: #14103A;
+
+  --c1: #FF6FA8; --c1-ink: #FFFFFF;   /* nébuleuse rose */
+  --c2: #5A8BFF; --c2-ink: #FFFFFF;   /* bleu de minuit */
+  --c3: #FFD56B; --c3-ink: #14103A;   /* or des étoiles */
+  --c4: #2FC7BE; --c4-ink: #06142A;   /* aurore */
+  --c5: #A77BFF; --c5-ink: #FFFFFF;   /* violet */
+  --c6: #FF8F5E; --c6-ink: #FFFFFF;   /* lune rousse */
+
+  --good: #4BE3A6;
+  --bad: #FF5F87;
+  --mid: #FFC15E;
+
+  --stage: rgba(9, 7, 34, .55);
+  --stage-2: rgba(25, 14, 66, .7);
+  --stage-grid: rgba(255, 255, 255, 0);
+  --stage-ink: #F4F0FF;
+  --trace: #B9A3FF;
+  --plank: #221F5A;
+  --plank-edge: #06041A;
 }

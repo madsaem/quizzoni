@@ -136,26 +136,48 @@ const PACKS = {
     whoosh: () => noise({ f: 300, f2: 900, dur: 0.3, g: 0.035, type: 'lowpass', q: 0.5 }),
   },
 
-  // Cap Corse : notes pincées façon marimba, ressac pour les transitions
-  corse: {
-    click: () => pluck({ f: 1175, dur: 0.08, g: 0.08 }),
-    select: () => pluck({ f: 880, dur: 0.18, g: 0.14 }),
-    pop: () => pluck({ f: 1318.5, dur: 0.1, g: 0.12 }),
-    place: () => pluck({ f: 587.3, dur: 0.2, g: 0.16 }),
-    correct: () => [587.3, 740, 880, 1174.7].forEach((f, i) => pluck({ f, t: i * 0.075, dur: 0.45, g: 0.17 })),
-    partial: () => { pluck({ f: 740, dur: 0.3, g: 0.15 }); pluck({ f: 880, t: 0.1, dur: 0.35, g: 0.13 }); },
-    wrong: () => { pluck({ f: 220, dur: 0.5, g: 0.22 }); pluck({ f: 207.7, t: 0.12, dur: 0.6, g: 0.2 }); },
-    tick: () => pluck({ f: 1760, dur: 0.04, g: 0.05 }),
-    timeup: () => { pluck({ f: 293.7, dur: 0.4, g: 0.2 }); pluck({ f: 220, t: 0.16, dur: 0.6, g: 0.2 }); },
+  // Contraste élevé : bips nets et bien distincts, sans fioriture
+  contraste: {
+    click: () => tone({ f: 1000, type: 'square', dur: 0.03, g: 0.05 }),
+    select: () => { tone({ f: 880, type: 'square', dur: 0.05, g: 0.06 }); tone({ f: 1320, type: 'square', t: 0.06, dur: 0.06, g: 0.06 }); },
+    pop: () => tone({ f: 1320, type: 'square', dur: 0.04, g: 0.05 }),
+    place: () => tone({ f: 660, type: 'square', dur: 0.06, g: 0.06 }),
+    correct: () => { tone({ f: 880, type: 'sine', dur: 0.12, g: 0.22 }); tone({ f: 1320, type: 'sine', t: 0.11, dur: 0.22, g: 0.22 }); },
+    partial: () => { tone({ f: 880, type: 'sine', dur: 0.12, g: 0.2 }); tone({ f: 990, type: 'sine', t: 0.11, dur: 0.18, g: 0.18 }); },
+    wrong: () => { tone({ f: 196, type: 'square', dur: 0.16, g: 0.08 }); tone({ f: 196, type: 'square', t: 0.2, dur: 0.22, g: 0.08 }); },
+    tick: () => tone({ f: 1760, type: 'square', dur: 0.02, g: 0.04 }),
+    timeup: () => { [0, 0.18, 0.36].forEach((t) => tone({ f: 440, type: 'square', t, dur: 0.12, g: 0.07 })); },
+    streak: (n = 2) => { const base = semis(880, Math.min(n, 8)); [0, 0.07, 0.14].forEach((t, i) => tone({ f: semis(base, i * 5), type: 'sine', t, dur: 0.08, g: 0.14 })); },
+    finish: (pct = 1) => {
+      const notes = pct >= 0.7 ? [660, 880, 1320, 1760] : [660, 880, 990];
+      notes.forEach((f, i) => tone({ f, type: 'sine', t: i * 0.12, dur: 0.25, g: 0.18 }));
+    },
+    whoosh: () => tone({ f: 600, f2: 1200, type: 'sine', dur: 0.08, g: 0.06 }),
+  },
+
+  // Nuit étoilée : clochettes, carillon, scintillements
+  etoiles: {
+    click: () => bell({ f: 1568, dur: 0.18, g: 0.05 }),
+    select: () => { bell({ f: 1046.5, dur: 0.4, g: 0.09 }); bell({ f: 1568, t: 0.05, dur: 0.35, g: 0.05 }); },
+    pop: () => bell({ f: 2093, dur: 0.2, g: 0.06 }),
+    place: () => bell({ f: 784, dur: 0.35, g: 0.1 }),
+    correct: () => {
+      [1046.5, 1318.5, 1568, 2093].forEach((f, i) => bell({ f, t: i * 0.06, dur: 0.9, g: 0.09 }));
+      [3136, 3520, 4186].forEach((f, i) => tone({ f, type: 'sine', t: 0.28 + i * 0.04, dur: 0.25, g: 0.025 }));
+    },
+    partial: () => { bell({ f: 1046.5, dur: 0.6, g: 0.09 }); bell({ f: 1174.7, t: 0.1, dur: 0.6, g: 0.08 }); },
+    wrong: () => { bell({ f: 233, dur: 1.1, g: 0.16 }); bell({ f: 220, t: 0.04, dur: 1.2, g: 0.12 }); },
+    tick: () => bell({ f: 2637, dur: 0.08, g: 0.04 }),
+    timeup: () => { bell({ f: 392, dur: 0.8, g: 0.14 }); bell({ f: 293.7, t: 0.22, dur: 1, g: 0.14 }); },
     streak: (n = 2) => {
-      const base = semis(587.3, Math.min(n, 10));
-      [0, 4, 7, 12].forEach((s, i) => pluck({ f: semis(base, s), t: i * 0.05, dur: 0.25, g: 0.1 }));
+      const base = semis(1046.5, Math.min(n, 8));
+      [0, 2, 4, 7, 9, 12].forEach((sm, i) => bell({ f: semis(base, sm), t: i * 0.035, dur: 0.35, g: 0.045 }));
     },
     finish: (pct = 1) => {
-      const notes = pct >= 0.7 ? [587.3, 740, 880, 1174.7, 1480, 1760] : [440, 587.3, 740];
-      notes.forEach((f, i) => pluck({ f, t: i * 0.1, dur: 0.6, g: 0.16 }));
+      const notes = pct >= 0.7 ? [523.25, 659.25, 783.99, 1046.5, 1318.5, 1568, 2093] : [440, 523.25, 659.25, 880];
+      notes.forEach((f, i) => bell({ f, t: i * 0.11, dur: 1.4, g: 0.09 }));
     },
-    whoosh: () => noise({ f: 250, f2: 1400, dur: 0.6, g: 0.045, type: 'lowpass', q: 0.4 }),
+    whoosh: () => noise({ f: 2500, f2: 7000, dur: 0.35, g: 0.03, type: 'highpass', q: 0.3 }),
   },
 };
 

@@ -2,7 +2,7 @@
 import * as store from './state.js';
 import { sound } from './audio.js';
 import { loadCatalog } from './data.js';
-import { applyTheme, applyMotion, openSettings, soundIcon } from './ui.js';
+import { applyTheme, applyMotion, openSettings, openThemes, soundIcon, THEMES } from './ui.js';
 import { renderHome } from './views/home.js';
 import { renderIntro } from './views/intro.js';
 import { renderPlay } from './views/play.js';
@@ -14,10 +14,12 @@ const topbar = document.querySelector('.topbar');
 
 /* ------------------------------------------------------------- Réglages */
 const st = store.settings();
-applyTheme(st.theme);
-applyMotion(st.reducedMotion);
+// ancien thème supprimé (Cap Corse) : retour au thème par défaut
+if (!THEMES.some((t) => t.id === st.theme)) store.setSetting('theme', 'officine');
 sound.setEnabled(st.sound);
 sound.setVolume(st.volume);
+applyTheme(store.settings().theme);
+applyMotion(st.reducedMotion);
 
 // le navigateur n'autorise le son qu'après un premier geste
 const unlock = () => { sound.unlock(); window.removeEventListener('pointerdown', unlock); window.removeEventListener('keydown', unlock); };
@@ -42,6 +44,7 @@ document.addEventListener('soundchange', refreshSoundBtn);
 refreshSoundBtn();
 
 document.getElementById('settings-open').addEventListener('click', () => { sound.play('click'); openSettings(); });
+document.getElementById('themes-open').addEventListener('click', () => { sound.play('click'); openThemes(); });
 
 /* ------------------------------------------------------------ Navigation */
 let catalog = null;

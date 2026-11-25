@@ -39,9 +39,8 @@ export default {
     return null;
   },
 
-  hint(q) {
-    return Array.isArray(q.answer) && q.answer.length > 1 ? 'Plusieurs réponses possibles' : null;
-  },
+  // plusieurs bonnes réponses : le nombre est affiché en grand au-dessus des propositions
+  hint() { return null; },
 
   mount(q, api) {
     const multi = Array.isArray(q.answer);
@@ -49,6 +48,16 @@ export default {
     const chosen = new Set();
     const n = q.options.length;
     const grid = h('div', { class: `answers answers--${n}`, role: 'group', 'aria-label': 'Propositions' });
+    const need = multi ? q.answer.length : 1;
+    const countEl = h('span', { class: 'answers-need__count', 'aria-live': 'polite' });
+    const banner = multi ? h('div', { class: 'answers-need' },
+      h('span', { class: 'answers-need__n', 'aria-hidden': 'true' }, String(need)),
+      h('span', { class: 'answers-need__text' },
+        h('b', {}, need > 1 ? `${need} bonnes réponses` : '1 seule bonne réponse'),
+        need > 1 ? ' à cocher' : ' à cocher, même si on peut en cocher plusieurs'),
+      countEl) : null;
+    const setCount = () => { countEl.textContent = `${chosen.size} cochée${chosen.size > 1 ? 's' : ''} sur ${need}`; countEl.classList.toggle('is-full', chosen.size === need); countEl.classList.toggle('is-over', chosen.size > need); };
+    if (multi) setCount();
 
     const tiles = order.map((optIndex, pos) => {
       const tile = answerTile({
@@ -73,11 +82,12 @@ export default {
       if (chosen.has(optIndex)) chosen.delete(optIndex); else chosen.add(optIndex);
       tile.setAttribute('aria-pressed', String(chosen.has(optIndex)));
       api.sound('click');
+      setCount();
       api.setAnswer([...chosen], chosen.size > 0);
     }
 
     return {
-      el: grid,
+      el: banner ? h('div', { class: 'answers-wrap' }, banner, grid) : grid,
       key(k) {
         const i = parseInt(k, 10);
         if (i >= 1 && i <= tiles.length) { tiles[i - 1].click(); return true; }

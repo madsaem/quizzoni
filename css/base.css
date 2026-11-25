@@ -153,6 +153,7 @@ a { color: inherit; }
 }
 .topbar[data-hidden="true"] { display: none; }
 .topbar__actions { display: flex; gap: .5rem; }
+@media (max-width: 520px) { .topbar__label { display: none; } .topbar__actions .key { padding-inline: .7em; } }
 
 .logo {
   display: inline-flex; align-items: center; gap: .6rem;

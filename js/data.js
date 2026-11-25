@@ -42,6 +42,10 @@ export async function loadCatalog() {
       const type = getType(q.type);
       if (!type) { problems.push(`${where} : type « ${q.type} » inconnu.`); return false; }
       if (!q.prompt) { problems.push(`${where} : il manque "prompt".`); return false; }
+      if (q.variants != null && (!Array.isArray(q.variants) || q.variants.some((v) => typeof v !== 'string' || !v.trim()))) {
+        problems.push(`${where} : "variants" doit être une liste d'énoncés (ignorée).`);
+        delete q.variants;
+      }
       const err = type.validate(q);
       if (err) { problems.push(`${where} : ${err}.`); return false; }
       if (q.level == null) q.level = 2;

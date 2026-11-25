@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Ambiances : ce que certains thèmes ajoutent en plus des couleurs
+   (fond animé, contours, lueurs). Les couleurs sont dans themes.css.
+   ========================================================================== */
+
+/* Fond animé (canvas dessiné par js/backdrop.js), derrière tout le contenu */
+#backdrop { position: fixed; inset: 0; z-index: -1; width: 100vw; height: 100dvh; pointer-events: none; }
+[data-theme="etoiles"] body { background-color: transparent; background-image: none; }
+
+/* --------------------------------------------------------------------------
+   Choisir un thème : la fenêtre « Thèmes »
+   -------------------------------------------------------------------------- */
+.dialog--themes { width: min(820px, calc(100vw - 2rem)); }
+.tcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .8rem; margin-top: 1.1rem; }
+.tcard {
+  position: relative;
+  display: grid; gap: .5rem; align-content: start;
+  padding: .55rem .55rem .85rem;
+  border: 3px solid var(--line);
+  background: var(--surface-2); color: var(--ink);
+  text-align: left;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  transition: transform .12s var(--ease-out), border-color .15s;
+}
+@media (hover: hover) { .tcard:hover { transform: translateY(-3px); } }
+.tcard[aria-checked="true"] { border-color: var(--ink); background: var(--surface); }
+.tcard__name { display: flex; align-items: center; justify-content: space-between; gap: .5rem; font-family: var(--font-display); font-weight: 800; font-size: var(--t-lg); line-height: 1.1; }
+.tcard__on {
+  padding: .1rem .45rem;
+  background: var(--ink); color: var(--surface);
+  font-family: var(--font-body); font-size: var(--t-xs); font-weight: 700;
+  visibility: hidden;
+}
+.tcard[aria-checked="true"] .tcard__on { visibility: visible; }
+.tcard__desc { color: var(--ink-2); font-size: var(--t-sm); line-height: 1.35; }
+.tcard__sounds { display: inline-flex; align-items: center; gap: .3rem; color: var(--ink-2); font-size: var(--t-xs); font-weight: 700; }
+.tcard__sounds svg { width: 1rem; height: 1rem; }
+
+/* Aperçu : une mini-partie dessinée avec les couleurs du thème */
+.tprev {
+  position: relative;
+  height: 118px;
+  overflow: hidden;
+  background: var(--stage);
+  background-image:
+    linear-gradient(var(--stage-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--stage-grid) 1px, transparent 1px);
+  background-size: 12px 12px;
+  color: var(--stage-ink);
+}
+.tprev__q {
+  position: absolute; left: 12%; right: 12%; top: 12px;
+  height: 30px;
+  display: grid; place-items: center;
+  background: var(--surface); color: var(--ink);
+  font-family: var(--font-display); font-weight: 800; font-size: .8rem;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+.tprev__grid { position: absolute; left: 12%; right: 12%; bottom: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.tprev__tile {
+  height: 26px;
+  background: var(--t);
+  box-shadow: inset 0 -4px 0 var(--edge);
+  clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+}
+.tprev[data-theme="contraste"] .tprev__q { box-shadow: inset 0 0 0 2px #fff; }
+.tprev[data-theme="contraste"] .tprev__tile { background: #000; box-shadow: inset 0 0 0 2px var(--t); }
+.tprev[data-theme="etoiles"] {
+  background:
+    radial-gradient(1.2px 1.2px at 12% 20%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 30% 70%, #fff 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 78% 30%, #FFE7A8 50%, transparent 51%),
+    radial-gradient(1px 1px at 90% 80%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 55% 50%, #CFC4FF 50%, transparent 51%),
+    radial-gradient(80% 90% at 80% 10%, rgba(167, 123, 255, .45), transparent 70%),
+    radial-gradient(70% 80% at 10% 100%, rgba(255, 111, 168, .3), transparent 70%),
+    #0A0826;
+}
+.tprev[data-theme="etoiles"] .tprev__tile { background-image: var(--astro), linear-gradient(165deg, color-mix(in srgb, var(--t) 75%, #fff), var(--t)); background-size: 60px 60px, 100% 100%; }
+
+/* --------------------------------------------------------------------------
+   Contraste élevé : tout est noir, les contours portent la couleur
+   -------------------------------------------------------------------------- */
+[data-theme="contraste"] body { background-image: none; }
+[data-theme="contraste"] .key {
+  background: #000;
+  color: var(--k-bg);
+  box-shadow: inset 0 0 0 3px var(--k-bg);
+}
+[data-theme="contraste"] .key--ghost,
+[data-theme="contraste"] .key--ink { --k-bg: #FFFFFF; }
+[data-theme="contraste"] .key:active:not(:disabled) { box-shadow: inset 0 0 0 3px var(--k-bg); }
+@media (hover: hover) {
+  [data-theme="contraste"] .key:hover:not(:disabled) { background: var(--k-bg); color: #000; filter: none; }
+  [data-theme="contraste"] .answer:hover:not(:disabled) .answer__sym { color: #000; }
+}
+[data-theme="contraste"] .answer .answer__text { color: #fff; }
+[data-theme="contraste"] .answer:hover:not(:disabled) .answer__text { color: #000; }
+[data-theme="contraste"] .answer__sym { background: transparent !important; color: var(--k-bg); box-shadow: inset 0 0 0 2px var(--k-bg); }
+[data-theme="contraste"] .answer[aria-pressed="true"] { background: var(--k-bg); box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 6px #000; }
+[data-theme="contraste"] .answer[aria-pressed="true"] .answer__text,
+[data-theme="contraste"] .answer[aria-pressed="true"] .answer__sym { color: #000; }
+[data-theme="contraste"] .answer.is-correct { box-shadow: inset 0 0 0 7px var(--good); }
+[data-theme="contraste"] .answer.is-wrong { box-shadow: inset 0 0 0 7px var(--bad); }
+[data-theme="contraste"] :is(.q-card, .match__item, .order__item, .sort__zone, .sort__tag, .sfx__word, .slider, .figure, .rx, .dialog, .receipt, .quick__tile, .mode, .notice, .tcard, .feedback, .answers-need, .streak, .q-type, .q-level, .timer__num, .toast) {
+  outline: 2px solid var(--line);
+  outline-offset: -2px;
+}
+[data-theme="contraste"] .answers-need { background: #000; color: var(--hc-accent); outline-color: var(--hc-accent); }
+[data-theme="contraste"] .answers-need__n { background: var(--hc-accent); color: #000; }
+[data-theme="contraste"] .stage__quit { --k-bg: #fff; }
+[data-theme="contraste"] .q-card-wrap { filter: none; }
+[data-theme="contraste"] .q-prompt { color: #fff; }
+[data-theme="contraste"] .field { border-color: #fff; box-shadow: none; }
+[data-theme="contraste"] .match__item.is-paired { background: #000; color: #fff; box-shadow: inset 0 0 0 4px var(--pc); }
+[data-theme="contraste"] .sort__head { background: #000; color: var(--zc); box-shadow: inset 0 -3px 0 var(--zc); }
+[data-theme="contraste"] .sort__tag.is-selected,
+[data-theme="contraste"] .sort__ghost { background: var(--hc-accent) !important; color: #000 !important; }
+[data-theme="contraste"] *:focus-visible { outline: 3px solid var(--focus) !important; outline-offset: -4px !important; }
+[data-theme="contraste"] .dialog::backdrop { background: rgba(0, 0, 0, .8); backdrop-filter: none; }
+
+/* --------------------------------------------------------------------------
+   Nuit étoilée : ciel animé, constellations qui dérivent sur les touches
+   -------------------------------------------------------------------------- */
+[data-theme="etoiles"] { --astro: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='132' height='132' fill='none' stroke='white' stroke-opacity='.34' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E %3Cpath d='M20 7l2.2 7.3 7.3 2.2-7.3 2.2L20 26l-2.2-7.3-7.3-2.2 7.3-2.2z' fill='white' fill-opacity='.34' stroke='none'/%3E %3Cpath d='M90 12a11 11 0 1 0 10.5 15.6A9 9 0 1 1 90 12z' fill='white' fill-opacity='.24' stroke='none'/%3E %3Cpath d='M58 74c-3-8-12-7-12 0M58 74c3-8 12-7 12 0M58 74v13'/%3E %3Cpath d='M100 64c5 5 5 15 0 20M116 64c-5 5-5 15 0 20M100 74h16'/%3E %3Cpath d='M12 104l15-9 14 12 17-8' stroke-opacity='.26'/%3E %3Ccircle cx='12' cy='104' r='2' fill='white' fill-opacity='.5' stroke='none'/%3E%3Ccircle cx='27' cy='95' r='2.4' fill='white' fill-opacity='.55' stroke='none'/%3E%3Ccircle cx='41' cy='107' r='1.8' fill='white' fill-opacity='.5' stroke='none'/%3E%3Ccircle cx='58' cy='99' r='2.2' fill='white' fill-opacity='.5' stroke='none'/%3E %3Ccircle cx='104' cy='112' r='5'/%3E%3Cellipse cx='104' cy='112' rx='11' ry='3.4' transform='rotate%28-18 104 112%29'/%3E %3Cpath d='M28 44h14M28 60h14M32 44v16M38 44v16'/%3E %3Ccircle cx='66' cy='24' r='1.3' fill='white' fill-opacity='.6' stroke='none'/%3E%3Ccircle cx='122' cy='40' r='1' fill='white' fill-opacity='.6' stroke='none'/%3E%3Ccircle cx='8' cy='70' r='1.1' fill='white' fill-opacity='.6' stroke='none'/%3E%3Ccircle cx='80' cy='124' r='1.2' fill='white' fill-opacity='.6' stroke='none'/%3E %3Cpath d='M76 40l1.2 3.8 3.8 1.2-3.8 1.2L76 50l-1.2-3.8L71 45l3.8-1.2z' fill='white' fill-opacity='.4' stroke='none'/%3E %3C/svg%3E"); }
+[data-theme="etoiles"] .key:not(.key--ghost),
+[data-theme="etoiles"] .sort__head {
+  background-image:
+    var(--astro),
+    linear-gradient(165deg, color-mix(in srgb, var(--k-bg, var(--zc)) 86%, #fff) 0%, var(--k-bg, var(--zc)) 45%, color-mix(in srgb, var(--k-bg, var(--zc)) 70%, #0A0826) 100%);
+  background-size: 132px 132px, 100% 100%;
+  animation: astro-drift 38s linear infinite;
+}
+[data-theme="etoiles"] .answer { animation-duration: 30s; }
+[data-theme="etoiles"] .answer:nth-child(2n) { animation-direction: reverse; }
+@keyframes astro-drift { to { background-position: 132px -132px, 0 0; } }
+[data-theme="etoiles"] .q-card,
+[data-theme="etoiles"] .rx,
+[data-theme="etoiles"] .dialog {
+  background: linear-gradient(170deg, #221E5E 0%, #16133F 60%, #120F36 100%);
+}
+[data-theme="etoiles"] .q-prompt { text-shadow: 0 0 22px rgba(167, 123, 255, .35); }
+[data-theme="etoiles"] .cross3d__layer { background: var(--brand-2); }
+[data-theme="etoiles"] .cross3d { filter: drop-shadow(0 0 8px rgba(255, 213, 107, .55)); }
+[data-theme="etoiles"] .topbar { background: color-mix(in srgb, var(--bg) 62%, transparent); }
+[data-theme="etoiles"] .dialog::backdrop { background: rgba(5, 3, 24, .6); }
+
+/* Nuit étoilée : le texte blanc reste lisible sur les touches claires */
+[data-theme="etoiles"] .answer .answer__text { text-shadow: 0 1px 2px rgba(10, 6, 40, .35); }
+[data-theme="etoiles"] .answer--3 .answer__text { text-shadow: none; }

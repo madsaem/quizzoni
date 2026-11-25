@@ -1,5 +1,5 @@
 // La partie : une question à la fois, chrono en Défi, correction après chaque réponse.
-import { h, md, fmt } from '../utils.js';
+import { h, md, fmt, prefersReducedMotion } from '../utils.js';
 import { icon } from '../icons.js';
 import * as store from '../state.js';
 import { getType } from '../types/index.js';
@@ -42,7 +42,7 @@ export function renderPlay(root) {
 
   /* ----------------------------------------------------------------- État */
   let q, type, comp, answer, ready, phase, limit;
-  let cardWrap, validateBtn, actionsEl, timerEl, timerNum, timerFill;
+  let cardWrap, block, validateBtn, actionsEl, timerEl, timerNum, timerFill;
   let tStart = 0, tPaused = 0, tPauseAt = null, tRaf = 0, lastWhole = null;
   let destroyed = false;
 
@@ -102,8 +102,8 @@ export function renderPlay(root) {
     }
 
     const hint = q.hint || type.hint?.(q);
-    const card = h('div', { class: 'q-card' },
-      h('h1', { class: 'q-prompt', html: md(q.prompt) }),
+    const card = h('div', { class: `q-card q-card--${q.type}` },
+      h('h1', { class: 'q-prompt', html: md(q.shown || q.prompt) }),
       hint ? h('p', { class: 'q-hint' }, hint) : null,
       q.media ? h('figure', { class: 'q-media' }, h('img', { src: q.media.src, alt: q.media.alt || '' })) : null);
     cardWrap = h('div', { class: 'q-card-wrap' }, card);
@@ -126,15 +126,15 @@ export function renderPlay(root) {
       validateBtn = h('button', { type: 'button', class: 'key q-validate', disabled: !ready, onClick: () => finish(validateBtn) }, icon('check'), 'Valider');
       actionsEl.append(validateBtn);
     }
-    if (!defi) {
-      actionsEl.append(h('button', { type: 'button', class: 'key q-skip', onClick: () => finish(null, { skipped: true }) }, 'Je ne sais pas'));
-    }
+    actionsEl.hidden = !actionsEl.childElementCount;
 
+    // la question (énoncé + réponses) est centrée dans l'écran, sous le compteur
+    block = h('div', { class: 'q-block', dataset: { type: q.type } }, cardWrap, h('div', { class: 'q-answer' }, comp.el), actionsEl);
     main.classList.remove('has-feedback');
-    main.replaceChildren(...[meta, timerBlock, cardWrap, h('div', { class: 'q-answer' }, comp.el), actionsEl].filter(Boolean));
+    main.replaceChildren(...[meta, timerBlock, block].filter(Boolean));
     stage.scrollTo({ top: 0 });
 
-    if (q.type === 'text' || q.type === 'number') comp.focus?.();
+    if (['text', 'number', 'suffix', 'cite'].includes(q.type)) comp.focus?.();
 
     tStart = performance.now(); tPaused = 0; tPauseAt = null; lastWhole = null;
     monitor.setBpm(68);
@@ -142,15 +142,15 @@ export function renderPlay(root) {
   }
 
   /* ------------------------------------------------------------ Correction */
-  function finish(origin, { timeout = false, skipped = false } = {}) {
+  function finish(origin, { timeout = false } = {}) {
     if (phase !== 'answer') return;
-    if (!timeout && !skipped && !ready && answer == null) return;
+    if (!timeout && !ready && answer == null) return;
     phase = 'feedback';
     cancelAnimationFrame(tRaf);
     const spent = elapsed();
     comp.lock();
 
-    const given = timeout || skipped ? null : answer;
+    const given = timeout ? null : answer;
     const res = type.grade(q, given, comp) || { score: 0 };
     const score = Math.max(0, Math.min(1, res.score || 0));
     const correct = score >= 0.999;
@@ -161,7 +161,7 @@ export function renderPlay(root) {
     const pts = pointsFor({ score, mode: ses.mode, elapsed: spent, limit, streak: ses.streak, level: q.level });
     const before = ses.points;
     ses.points += pts;
-    ses.results.push({ q, answer: given, score, correct, pts, timeout, skipped, note: res.note });
+    ses.results.push({ q, answer: given, score, correct, pts, timeout, note: res.note });
     store.recordAnswer(q.quizId, q.qid, correct);
 
     comp.reveal(res, given);
@@ -194,12 +194,12 @@ export function renderPlay(root) {
       : '');
 
     actionsEl.hidden = true;
-    showFeedback({ kind, pts, res, timeout, skipped });
+    showFeedback({ kind, pts, res, timeout });
   }
 
-  function showFeedback({ kind, pts, res, timeout, skipped }) {
+  function showFeedback({ kind, pts, res, timeout }) {
     const last = ses.index === total - 1;
-    const title = timeout ? 'Temps écoulé' : skipped ? 'Voici la réponse' : pick(TITLES[kind]);
+    const title = timeout ? 'Temps écoulé' : pick(TITLES[kind]);
     const iconName = kind === 'good' ? 'check' : kind === 'mid' ? 'tilde' : 'x';
     const goBtn = h('button', { type: 'button', class: 'key feedback__go', onClick: next }, last ? 'Voir le résultat' : 'Question suivante');
 
@@ -220,7 +220,13 @@ export function renderPlay(root) {
     feedback.inert = false;
     void feedback.offsetWidth;
     feedback.classList.add('is-open');
+    // la question remonte pour laisser la place à la correction (sans saut brusque)
+    const top0 = block.getBoundingClientRect().top;
     main.classList.add('has-feedback');
+    const dy = top0 - block.getBoundingClientRect().top;
+    if (dy && block.animate && !prefersReducedMotion()) {
+      block.animate([{ transform: `translateY(${dy}px)` }, { transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.8,.2,1)' });
+    }
     setTimeout(() => { if (!destroyed) goBtn.focus({ preventScroll: true }); }, 120);
   }
 
@@ -254,7 +260,7 @@ export function renderPlay(root) {
       bestStreak: ses.bestStreak,
       isRecord,
       firstTime: ses.source === 'quiz' && store.progressFor(ses.quizId)?.plays === 1,
-      items: ses.results.map((r) => ({ q: r.q, correct: r.correct, score: r.score, timeout: r.timeout, skipped: r.skipped })),
+      items: ses.results.map((r) => ({ q: r.q, correct: r.correct, score: r.score, timeout: r.timeout })),
     });
     location.hash = '#/resultats';
   }

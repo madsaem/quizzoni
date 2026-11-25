@@ -5,6 +5,32 @@ import { getType } from './types/index.js';
 let current = null;
 let lastResults = null;
 
+/* ------------------------------------------------- Formulations variables
+   Une question peut avoir plusieurs énoncés ("variants") : c'est la même
+   question (même identifiant, mêmes records), seule la formulation change.
+   On évite de reproposer la formulation vue la dernière fois. */
+const SEEN_KEY = 'quizzoni:formulations';
+let seen = {};
+try { seen = JSON.parse(localStorage.getItem(SEEN_KEY)) || {}; } catch { seen = {}; }
+
+export function promptsOf(q) {
+  return [q.prompt, ...(Array.isArray(q.variants) ? q.variants : [])].filter((p) => typeof p === 'string' && p.trim());
+}
+
+function pickPrompt(q) {
+  const all = promptsOf(q);
+  if (all.length < 2) return q.prompt;
+  const key = `${q.quizId}/${q.qid}`;
+  const last = seen[key];
+  let i = Math.floor(Math.random() * all.length);
+  if (i === last) i = (i + 1 + Math.floor(Math.random() * (all.length - 1))) % all.length;
+  seen[key] = i;
+  return all[i];
+}
+function saveSeen() {
+  try { localStorage.setItem(SEEN_KEY, JSON.stringify(seen)); } catch { /* stockage plein ou privé */ }
+}
+
 /**
  * @param {object} o
  * @param {Array} o.questions   questions (avec quizId)
@@ -22,13 +48,15 @@ export function startSession({ questions, mode, title, quizId = null, quiz = nul
     quiz,
     mode,
     source: source || (quizId ? 'quiz' : 'mix'),
-    questions: shuffleQuestions ? shuffle(questions) : questions.slice(),
+    // copie de chaque question avec l'énoncé tiré au sort pour cette partie
+    questions: (shuffleQuestions ? shuffle(questions) : questions.slice()).map((q) => ({ ...q, shown: pickPrompt(q) })),
     index: 0,
     points: 0,
     streak: 0,
     bestStreak: 0,
     results: [],
   };
+  saveSeen();
   return current;
 }
 

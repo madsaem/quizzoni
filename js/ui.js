@@ -3,17 +3,20 @@ import { h } from './utils.js';
 import { icon } from './icons.js';
 import * as store from './state.js';
 import { sound } from './audio.js';
+import { setBackdrop } from './backdrop.js';
 
 export const THEMES = [
-  { id: 'officine', name: 'Officine' },
-  { id: 'nuit', name: 'Garde de nuit' },
-  { id: 'corse', name: 'Cap Corse' },
+  { id: 'officine', name: 'Officine', desc: 'Clair, les couleurs franches de la pharmacie.', sounds: 'Sons d\'arcade' },
+  { id: 'nuit', name: 'Garde de nuit', desc: 'Sombre et doux, pour réviser tard sans s\'abîmer les yeux.', sounds: 'Sons feutrés' },
+  { id: 'contraste', name: 'Contraste élevé', desc: 'Noir profond, contours jaunes, blancs et cyan. Lisibilité maximale.', sounds: 'Bips nets' },
+  { id: 'etoiles', name: 'Nuit étoilée', desc: 'Ciel animé, étoiles filantes, constellations qui dérivent sur les touches.', sounds: 'Carillons' },
 ];
 
 export function applyTheme(id) {
   const theme = THEMES.find((t) => t.id === id) ? id : 'officine';
   document.documentElement.dataset.theme = theme;
   sound.setPack(theme);
+  setBackdrop(theme);
   const bg = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', bg);
   document.dispatchEvent(new CustomEvent('themechange', { detail: theme }));
@@ -59,28 +62,11 @@ export function openSettings() {
   const st = store.settings();
   const dlg = h('dialog', { class: 'dialog', 'aria-labelledby': 'set-title' });
 
-  const themeBtns = THEMES.map((t) => {
-    const b = h('button', {
-      type: 'button',
-      class: 'theme-pick__opt',
-      role: 'radio',
-      'aria-checked': String(st.theme === t.id),
-      onClick: () => {
-        store.setSetting('theme', t.id);
-        applyTheme(t.id);
-        themeBtns.forEach((x) => x.setAttribute('aria-checked', String(x === b)));
-        sound.play('select');
-      },
-    },
-    h('span', { class: 'theme-pick__swatch', 'data-theme': t.id, 'aria-hidden': 'true' },
-      h('span', { style: { background: 'var(--stage)' } }),
-      h('span', { style: { background: 'var(--c1)' } }),
-      h('span', { style: { background: 'var(--c2)' } }),
-      h('span', { style: { background: 'var(--c3)' } }),
-      h('span', { style: { background: 'var(--c4)' } })),
-    h('span', { class: 'theme-pick__name' }, t.name));
-    return b;
-  });
+  const themeName = h('b', {}, THEMES.find((t) => t.id === st.theme)?.name || 'Officine');
+  const themeBtn = h('button', {
+    type: 'button', class: 'key key--ghost key--sm',
+    onClick: () => { sound.play('click'); close(); openThemes(); },
+  }, 'Changer de thème');
 
   const soundSwitch = h('input', {
     type: 'checkbox', class: 'switch', id: 'set-sound', checked: st.sound,
@@ -121,9 +107,7 @@ export function openSettings() {
     h('h2', { id: 'set-title' }, 'Réglages'),
     h('p', { class: 'dialog__lead' }, 'Enregistrés sur cet appareil.'),
     h('div', { class: 'setting' },
-      h('span', { class: 'setting__label', id: 'theme-label' }, 'Thème'),
-      h('div', { class: 'theme-pick', role: 'radiogroup', 'aria-labelledby': 'theme-label' }, themeBtns),
-      h('p', { class: 'setting__hint' }, 'Chaque thème a ses propres couleurs et ses propres sons.')),
+      h('div', { class: 'switch-row' }, h('span', {}, 'Thème : ', themeName), themeBtn)),
     h('div', { class: 'setting' },
       h('div', { class: 'switch-row' }, h('label', { for: 'set-sound' }, 'Sons'), soundSwitch),
       h('div', { class: 'switch-row' }, h('span', {}, 'Volume'), h('div', { style: { flex: '0 1 12rem' } }, volume)),
@@ -135,6 +119,43 @@ export function openSettings() {
   dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); });
   document.body.append(dlg);
   dlg.showModal();
+}
+
+/** Fenêtre « Thèmes » : un aperçu par thème, appliqué dès qu'on le touche. */
+export function openThemes() {
+  const st = store.settings();
+  const dlg = h('dialog', { class: 'dialog dialog--themes', 'aria-labelledby': 'th-title' });
+  const close = () => { dlg.close(); dlg.remove(); };
+  const cards = THEMES.map((t) => {
+    const card = h('button', {
+      type: 'button', class: 'tcard', role: 'radio',
+      'aria-checked': String(st.theme === t.id),
+      onClick: () => {
+        store.setSetting('theme', t.id);
+        applyTheme(t.id);
+        cards.forEach((c) => c.setAttribute('aria-checked', String(c === card)));
+        sound.play('select');
+      },
+    },
+    h('span', { class: 'tprev', 'data-theme': t.id, 'aria-hidden': 'true' },
+      h('span', { class: 'tprev__q' }, 'Antidote des AVK ?'),
+      h('span', { class: 'tprev__grid' }, ['--c1', '--c2', '--c3', '--c4'].map((c) => h('span', { class: 'tprev__tile', style: { '--t': `var(${c})` } })))),
+    h('span', { class: 'tcard__name' }, t.name, h('span', { class: 'tcard__on' }, 'Actif')),
+    h('span', { class: 'tcard__desc' }, t.desc),
+    h('span', { class: 'tcard__sounds' }, icon('soundOn'), t.sounds));
+    return card;
+  });
+  dlg.append(h('div', { class: 'dialog__inner' },
+    h('h2', { id: 'th-title' }, 'Thèmes'),
+    h('p', { class: 'dialog__lead' }, 'Chaque thème change les couleurs, les sons et parfois le fond. Il s\'applique tout de suite.'),
+    h('div', { class: 'tcards', role: 'radiogroup', 'aria-labelledby': 'th-title' }, cards),
+    h('div', { class: 'dialog__actions' },
+      h('button', { type: 'button', class: 'key', onClick: () => { sound.play('click'); close(); } }, 'Fermer'))));
+  dlg.addEventListener('cancel', (e) => { e.preventDefault(); close(); });
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); });
+  document.body.append(dlg);
+  dlg.showModal();
+  cards.find((c) => c.getAttribute('aria-checked') === 'true')?.focus();
 }
 
 /** Pastilles de difficulté (1 à 3 gélules pleines). */

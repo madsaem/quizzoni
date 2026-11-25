@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/play.css">
+  <link rel="stylesheet" href="css/ambiances.css">
 </head>
 <body>
   <a class="skip" href="#main">Aller au contenu</a>
@@ -34,9 +35,13 @@
     </a>
     <div class="topbar__actions">
       <button type="button" class="key key--ghost key--sm key--icon" id="sound-toggle" aria-label="Couper le son"></button>
-      <button type="button" class="key key--ghost key--sm" id="settings-open">
+      <button type="button" class="key key--ghost key--sm" id="themes-open" aria-label="Thèmes">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0 0 19c1.4 0 2.2-.9 2.2-2 0-.6-.3-1-.6-1.4-.3-.4-.6-.8-.6-1.4 0-1.1.9-1.9 2-1.9h2.3a5.2 5.2 0 0 0 5.2-5.2C22.5 6 17.8 2.5 12 2.5zM6.6 12.6a1.6 1.6 0 1 1 0-3.2 1.6 1.6 0 0 1 0 3.2zm3-4.2a1.6 1.6 0 1 1 0-3.2 1.6 1.6 0 0 1 0 3.2zm4.8 0a1.6 1.6 0 1 1 0-3.2 1.6 1.6 0 0 1 0 3.2zm3 4.2a1.6 1.6 0 1 1 0-3.2 1.6 1.6 0 0 1 0 3.2z"/></svg>
+        <span class="topbar__label">Thèmes</span>
+      </button>
+      <button type="button" class="key key--ghost key--sm" id="settings-open" aria-label="Réglages">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" d="M3 6.5h10M19 6.5h2M3 17.5h2M11 17.5h10"/><rect x="13" y="3.5" width="6" height="6" fill="currentColor"/><rect x="5" y="14.5" width="6" height="6" fill="currentColor"/></svg>
-        Réglages
+        <span class="topbar__label">Réglages</span>
       </button>
     </div>
   </header>

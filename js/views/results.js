@@ -36,7 +36,7 @@ export function renderResults(root) {
     return h('li', { class: `rx__item is-${kind}` },
       h('span', { class: 'rx__mark', 'aria-label': it.correct ? 'Réussie' : it.score > 0 ? 'En partie réussie' : 'Ratée' },
         icon(kind === 'good' ? 'check' : kind === 'mid' ? 'tilde' : 'x')),
-      h('span', { class: 'rx__q', html: `${i + 1}. ${md(it.q.prompt)}` }),
+      h('span', { class: 'rx__q', html: `${i + 1}. ${md(it.q.shown || it.q.prompt)}` }),
       !it.correct ? h('span', { class: 'rx__a' }, it.timeout ? 'Temps écoulé. ' : '', 'Réponse\u00a0: ', h('b', { html: md(type.answerText(it.q)) })) : null);
   }));
 

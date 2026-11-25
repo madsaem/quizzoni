@@ -18,7 +18,10 @@ import hotspot from './hotspot.js';
 import label from './label.js';
 import order from './order.js';
 import match from './match.js';
+import suffix from './suffix.js';
+import cite from './cite.js';
+import sort from './sort.js';
 
-export const TYPES = { choice, truefalse, text, number, slider, range, hotspot, label, order, match };
+export const TYPES = { choice, truefalse, text, number, slider, range, hotspot, label, order, match, suffix, cite, sort };
 
 export function getType(name) { return TYPES[name] || null; }

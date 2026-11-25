@@ -28,59 +28,19 @@
     "asthme",
     "morphine titrée"
   ],
-  "sources": [
-    {
-      "id": "memo",
-      "title": "Mémo UE 2.8, IFSI de Bastia, 2026"
-    }
-  ],
-  "time": {
-    "number": 90,
-    "match": 75,
-    "order": 60,
-    "label": 75
-  },
+  "sources": [{"id": "memo", "title": "Mémo UE 2.8, IFSI de Bastia, 2026"}],
+  "time": {"number": 90, "match": 75, "order": 60, "label": 75},
   "categories": [
-    {
-      "id": "bases",
-      "title": "Bases et anatomie"
-    },
-    {
-      "id": "avc",
-      "title": "AVC"
-    },
-    {
-      "id": "occlusion",
-      "title": "Occlusion et sonde gastrique"
-    },
-    {
-      "id": "biliaire",
-      "title": "Coliques hépatiques"
-    },
-    {
-      "id": "nephretique",
-      "title": "Coliques néphrétiques"
-    },
-    {
-      "id": "idm",
-      "title": "Infarctus"
-    },
-    {
-      "id": "ep",
-      "title": "Embolie pulmonaire"
-    },
-    {
-      "id": "oap",
-      "title": "OAP"
-    },
-    {
-      "id": "bpco",
-      "title": "BPCO"
-    },
-    {
-      "id": "asthme",
-      "title": "Asthme"
-    }
+    {"id": "bases", "title": "Bases et anatomie"},
+    {"id": "avc", "title": "AVC"},
+    {"id": "occlusion", "title": "Occlusion et sonde gastrique"},
+    {"id": "biliaire", "title": "Coliques hépatiques"},
+    {"id": "nephretique", "title": "Coliques néphrétiques"},
+    {"id": "idm", "title": "Infarctus"},
+    {"id": "ep", "title": "Embolie pulmonaire"},
+    {"id": "oap", "title": "OAP"},
+    {"id": "bpco", "title": "BPCO"},
+    {"id": "asthme", "title": "Asthme"}
   ],
   "questions": [
     {
@@ -90,29 +50,19 @@
       "level": 1,
       "type": "match",
       "prompt": "Associe chaque sigle à sa signification.",
+      "variants": [
+        "Que veut dire chaque sigle ? Forme les paires.",
+        "Relie chaque abréviation du dossier de soins à sa signification.",
+        "Sigles courants : fais correspondre chacun avec sa forme complète."
+      ],
       "left": "Sigle",
       "right": "Signification",
       "pairs": [
-        [
-          "ASP",
-          "Abdomen sans préparation"
-        ],
-        [
-          "ECBU",
-          "Examen cytobactériologique des urines"
-        ],
-        [
-          "SNG",
-          "Sonde nasogastrique"
-        ],
-        [
-          "VNI",
-          "Ventilation non invasive"
-        ],
-        [
-          "OAP",
-          "Œdème aigu du poumon"
-        ]
+        ["ASP", "Abdomen sans préparation"],
+        ["ECBU", "Examen cytobactériologique des urines"],
+        ["SNG", "Sonde nasogastrique"],
+        ["VNI", "Ventilation non invasive"],
+        ["OAP", "Œdème aigu du poumon"]
       ],
       "explain": "Sigles à connaître pour lire un dossier de soins ou une prescription."
     },
@@ -123,6 +73,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Évaluation de la douleur : que signifie TILT ?",
+      "variants": [
+        "Que veut dire l'acronyme TILT, utilisé pour évaluer la douleur ?",
+        "Douleur : à quoi correspondent les lettres de TILT ?",
+        "TILT, pour décrire une douleur : que signifient ces quatre lettres ?"
+      ],
       "options": [
         "Temps, Intensité, Localisation, Type",
         "Température, Inspection, Localisation, Traitement",
@@ -139,6 +94,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Démarche trifocale : quelles sont les trois colonnes ?",
+      "variants": [
+        "Quelles colonnes composent un trifocal ?",
+        "Démarche de soins trifocale : comment s'appellent ses trois colonnes ?",
+        "Un trifocal s'organise en trois colonnes. Lesquelles ?"
+      ],
       "options": [
         "Signes et symptômes, risques et complications, réactions humaines",
         "Diagnostic, traitement, surveillance",
@@ -155,12 +115,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Dans le trifocal d'un AVC, lequel de ces éléments est un **risque**, et non un symptôme ?",
-      "options": [
-        "Le risque de fausse route",
-        "L'hémiplégie",
-        "La céphalée",
-        "Le trouble de la vision"
+      "variants": [
+        "Trifocal d'un patient victime d'un AVC : quel élément se range dans les **risques** et non dans les symptômes ?",
+        "AVC, démarche trifocale : lequel de ces éléments est un **risque** ?",
+        "Parmi ces éléments du trifocal d'un AVC, lequel est un **risque** et pas un signe ?"
       ],
+      "options": ["Le risque de fausse route", "L'hémiplégie", "La céphalée", "Le trouble de la vision"],
       "answer": 0,
       "explain": "L'hémiplégie, la céphalée et les troubles visuels sont des signes présents. Le risque de fausse route est ce qu'il faut prévenir."
     },
@@ -171,12 +131,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Dans un trifocal, l'anxiété liée à l'hospitalisation se range dans…",
-      "options": [
-        "Les réactions humaines",
-        "Les signes et symptômes",
-        "Les risques et complications",
-        "Les traitements"
+      "variants": [
+        "Trifocal : dans quelle colonne places-tu l'anxiété liée à l'hospitalisation ?",
+        "L'anxiété d'un patient hospitalisé, dans un trifocal, c'est…",
+        "Où ranger l'anxiété due à l'hospitalisation dans une démarche trifocale ?"
       ],
+      "options": ["Les réactions humaines", "Les signes et symptômes", "Les risques et complications", "Les traitements"],
       "answer": 0,
       "explain": "Réactions humaines physiques et psychologiques : anxiété, peur, perte de l'estime de soi, perturbation familiale…"
     },
@@ -187,44 +147,22 @@
       "level": 2,
       "type": "label",
       "prompt": "Légende les régions de l'abdomen (patient vu de face).",
+      "variants": [
+        "Place les noms des régions de l'abdomen (patient vu de face).",
+        "Abdomen vu de face : nomme chaque région.",
+        "Retrouve le nom de chaque région abdominale sur le schéma (patient vu de face)."
+      ],
       "image": "assets/schemas/abdomen.svg",
       "alt": "Abdomen vu de face, découpé en 9 régions, avec six repères numérotés",
       "pins": [
-        {
-          "x": 24.5,
-          "y": 26,
-          "answer": "Hypochondre droit"
-        },
-        {
-          "x": 50,
-          "y": 26,
-          "answer": "Épigastre"
-        },
-        {
-          "x": 75.5,
-          "y": 26,
-          "answer": "Hypochondre gauche"
-        },
-        {
-          "x": 50,
-          "y": 53,
-          "answer": "Région ombilicale"
-        },
-        {
-          "x": 24.5,
-          "y": 86,
-          "answer": "Fosse iliaque droite"
-        },
-        {
-          "x": 50,
-          "y": 87,
-          "answer": "Hypogastre"
-        }
+        {"x": 24.5, "y": 26, "answer": "Hypochondre droit"},
+        {"x": 50, "y": 26, "answer": "Épigastre"},
+        {"x": 75.5, "y": 26, "answer": "Hypochondre gauche"},
+        {"x": 50, "y": 53, "answer": "Région ombilicale"},
+        {"x": 24.5, "y": 86, "answer": "Fosse iliaque droite"},
+        {"x": 50, "y": 87, "answer": "Hypogastre"}
       ],
-      "distractors": [
-        "Flanc gauche",
-        "Fosse lombaire"
-      ],
+      "distractors": ["Flanc gauche", "Fosse lombaire"],
       "explain": "Sur un patient vu de face, sa droite est à ta gauche. Hypochondre droit : foie et vésicule. Épigastre : estomac. Fosse iliaque droite : appendice."
     },
     {
@@ -234,6 +172,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Selon la HAS, un AVC correspond à…",
+      "variants": [
+        "Quelle est la définition de l'AVC selon la HAS ?",
+        "Pour la HAS, qu'est-ce qu'un AVC ?",
+        "AVC : quelle définition donne la HAS ?"
+      ],
       "options": [
         "L'arrêt brutal de la circulation sanguine dans une partie du cerveau",
         "Une infection des méninges",
@@ -250,6 +193,11 @@
       "level": 2,
       "type": "slider",
       "prompt": "Quelle part des AVC sont ischémiques ?",
+      "variants": [
+        "Place sur le curseur la proportion d'AVC d'origine ischémique.",
+        "Parmi tous les AVC, quel pourcentage est ischémique ?",
+        "AVC ischémiques : quelle part de l'ensemble des AVC représentent-ils ?"
+      ],
       "min": 0,
       "max": 100,
       "step": 5,
@@ -265,17 +213,16 @@
       "level": 1,
       "type": "match",
       "prompt": "Associe chaque forme d'AVC à son mécanisme.",
+      "variants": [
+        "Relie chaque type d'AVC à son mécanisme.",
+        "Ischémique ou hémorragique : quel mécanisme pour chaque forme d'AVC ?",
+        "Fais correspondre chaque forme d'AVC avec ce qui la provoque."
+      ],
       "left": "Forme",
       "right": "Mécanisme",
       "pairs": [
-        [
-          "AVC ischémique",
-          "Artère cérébrale bouchée par un caillot"
-        ],
-        [
-          "AVC hémorragique",
-          "Rupture d'une artère cérébrale, saignement"
-        ],
+        ["AVC ischémique", "Artère cérébrale bouchée par un caillot"],
+        ["AVC hémorragique", "Rupture d'une artère cérébrale, saignement"],
         [
           "AIT (accident ischémique transitoire)",
           "Signes qui disparaissent, le plus souvent en quelques minutes"
@@ -290,6 +237,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "Un AIT dont les signes ont disparu ne nécessite pas de prise en charge urgente.",
+      "variants": [
+        "Quand les signes d'un AIT ont régressé, rien ne presse.",
+        "Un AIT résolu peut attendre une consultation programmée.",
+        "Les signes de l'AIT ont disparu : la prise en charge n'a plus besoin d'être urgente."
+      ],
       "answer": false,
       "explain": "Faux. Le risque d'AVC constitué est élevé dans les jours qui suivent un AIT : bilan en urgence."
     },
@@ -300,19 +252,13 @@
       "level": 1,
       "type": "choice",
       "prompt": "Quels sont des facteurs de risque d'AVC ?",
-      "options": [
-        "Hypertension artérielle",
-        "Fibrillation atriale",
-        "Tabac",
-        "Diabète",
-        "Groupe sanguin O"
+      "variants": [
+        "Quels facteurs augmentent le risque d'AVC ?",
+        "AVC : quels sont ses facteurs de risque ?",
+        "Parmi ces éléments, lesquels sont des facteurs de risque d'AVC ?"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "options": ["Hypertension artérielle", "Fibrillation atriale", "Tabac", "Diabète", "Groupe sanguin O"],
+      "answer": [0, 1, 2, 3],
       "explain": "Aussi : cholestérol, alcool, surpoids, pilule contraceptive, apnée du sommeil."
     },
     {
@@ -322,6 +268,11 @@
       "level": 1,
       "type": "order",
       "prompt": "Remets dans l'ordre les lettres du FAST.",
+      "variants": [
+        "FAST : remets ses lettres dans le bon ordre.",
+        "Dans quel ordre se lisent les lettres de l'acronyme FAST ?",
+        "Ordonne les étapes du FAST, de la première à la dernière lettre."
+      ],
       "items": [
         "F (Face) : demander de sourire",
         "A (Arm) : lever les deux bras",
@@ -337,6 +288,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels sont les signes d'alerte d'un AVC (American Stroke Association) ?",
+      "variants": [
+        "Selon l'American Stroke Association, quels signes doivent faire penser à un AVC ?",
+        "AVC : quels sont les signes d'alerte de l'American Stroke Association ?",
+        "Quels signes d'alerte de l'AVC l'American Stroke Association retient-elle ?"
+      ],
       "options": [
         "Faiblesse ou paralysie d'un côté du corps ou du visage",
         "Baisse ou perte de la vision",
@@ -345,13 +301,7 @@
         "Mal de tête brutal et inhabituel",
         "Douleur au mollet en marchant"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
+      "answer": [0, 1, 2, 3, 4],
       "explain": "Les 5 signes : atteinte d'un hémicorps ou d'une hémiface, trouble visuel, difficulté à parler, trouble de l'équilibre, céphalée brutale inhabituelle."
     },
     {
@@ -361,6 +311,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Patient suspect d'AVC : quelle information l'IDE doit-elle absolument recueillir et noter ?",
+      "variants": [
+        "Suspicion d'AVC : quelle donnée l'IDE doit-elle impérativement relever et tracer ?",
+        "Face à un AVC possible, quelle information est indispensable à recueillir ?",
+        "Patient avec des signes d'AVC : que dois-tu absolument noter dans le dossier ?"
+      ],
       "options": [
         "L'heure d'apparition des symptômes",
         "Le groupe sanguin",
@@ -377,12 +332,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Troubles neurologiques brutaux : quel examen simple fais-tu tout de suite au lit ?",
-      "options": [
-        "Une glycémie capillaire",
-        "Une gazométrie",
-        "Une bandelette urinaire",
-        "Un ECBU"
+      "variants": [
+        "Signes neurologiques d'apparition brutale : quel geste simple réalises-tu immédiatement au lit du patient ?",
+        "Avant de conclure à un AVC, quel examen simple fais-tu au lit ?",
+        "Déficit neurologique brutal : quel premier examen de chevet ?"
       ],
+      "options": ["Une glycémie capillaire", "Une gazométrie", "Une bandelette urinaire", "Un ECBU"],
       "answer": 0,
       "explain": "Une hypoglycémie peut imiter un AVC. Autres diagnostics à écarter : alcool, toxiques, déshydratation."
     },
@@ -393,6 +348,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Pourquoi faire un ECG devant un AVC ?",
+      "variants": [
+        "AVC : qu'est-ce qu'on cherche sur l'ECG ?",
+        "Quel est l'intérêt de l'ECG chez un patient victime d'un AVC ?",
+        "Devant un AVC, l'ECG sert à rechercher…"
+      ],
       "options": [
         "Rechercher une fibrillation atriale",
         "Mesurer la glycémie",
@@ -409,12 +369,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "AVC : quel soluté pour la voie veineuse ?",
-      "options": [
-        "NaCl 0,9 %",
-        "Glucosé 5 %",
-        "Eau pour préparation injectable",
-        "Aucune perfusion n'est autorisée"
+      "variants": [
+        "Quel soluté passe-t-on sur la voie veineuse d'un patient victime d'un AVC ?",
+        "Voie veineuse chez un patient en AVC : quel soluté choisir ?",
+        "AVC : quelle perfusion de base sur la voie veineuse ?"
       ],
+      "options": ["NaCl 0,9 %", "Glucosé 5 %", "Eau pour préparation injectable", "Aucune perfusion n'est autorisée"],
       "answer": 0,
       "explain": "Pas de G5 % : une fois le glucose consommé, il se comporte comme de l'eau pure (hypotonique) et peut aggraver l'œdème cérébral."
     },
@@ -425,6 +385,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Quel examen d'imagerie en urgence devant une suspicion d'AVC ?",
+      "variants": [
+        "Suspicion d'AVC : quelle imagerie demande-t-on en urgence ?",
+        "Quel examen d'imagerie confirme un AVC en urgence ?",
+        "AVC suspecté : quelle imagerie cérébrale en urgence ?"
+      ],
       "options": [
         "Scanner cérébral ou IRM",
         "Radiographie du thorax",
@@ -441,10 +406,12 @@
       "level": 2,
       "type": "text",
       "prompt": "Quel autre nom porte l'artère cérébrale moyenne, la plus souvent touchée dans l'AVC ?",
-      "answers": [
-        "artère sylvienne",
-        "sylvienne"
+      "variants": [
+        "L'artère cérébrale moyenne, la plus touchée dans l'AVC, a un autre nom. Lequel ?",
+        "Comment appelle-t-on aussi l'artère cérébrale moyenne ?",
+        "Artère cérébrale moyenne : quel est son autre nom ?"
       ],
+      "answers": ["artère sylvienne", "sylvienne"],
       "explain": "Artère sylvienne = artère cérébrale moyenne. Elle fait partie du polygone de Willis."
     },
     {
@@ -454,17 +421,18 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels éléments signent un AVC grave ?",
+      "variants": [
+        "Quels critères définissent un AVC grave ?",
+        "AVC : quels éléments traduisent la gravité ?",
+        "Parmi ces éléments, lesquels signent un AVC grave ?"
+      ],
       "options": [
         "Score NIHSS supérieur à 11",
         "Score de Glasgow inférieur à 8",
         "Coma aréactif",
         "Pression artérielle à 150 mmHg"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "answer": [0, 1, 2],
       "explain": "Un score de Glasgow bas impose de protéger les voies aériennes (préparation de l'intubation)."
     },
     {
@@ -474,6 +442,11 @@
       "level": 3,
       "type": "number",
       "prompt": "Thrombolyse d'un AVC par altéplase (Actilyse) à 0,9 mg/kg. Patient de 60 kg : quelle dose totale ?",
+      "variants": [
+        "Altéplase (Actilyse) à 0,9 mg/kg pour un AVC, patient de 60 kg : dose totale ?",
+        "Patient de 60 kg, thrombolyse par Actilyse à 0,9 mg/kg : combien de mg au total ?",
+        "Thrombolyse d'AVC : 0,9 mg/kg d'altéplase chez un patient de 60 kg. Quelle dose totale ?"
+      ],
       "answer": 54,
       "unit": "mg",
       "explain": "0,9 × 60 = 54 mg (dose maximale : 90 mg). 10 % en bolus IV sur 1 min, puis 90 % au pousse-seringue sur 1 heure."
@@ -485,6 +458,11 @@
       "level": 3,
       "type": "number",
       "prompt": "Altéplase : dose totale de 54 mg, dont 10 % en bolus. Combien de mg en bolus ?",
+      "variants": [
+        "Dose totale d'altéplase : 54 mg. Le bolus représente 10 % de cette dose. Combien de mg ?",
+        "Actilyse 54 mg au total, dont un bolus de 10 % : quelle dose pour le bolus ?",
+        "Thrombolyse : 10 % des 54 mg d'altéplase sont donnés en bolus. Combien de mg ?"
+      ],
       "answer": 5.4,
       "tolerance": 0.5,
       "unit": "mg",
@@ -498,17 +476,18 @@
       "level": 2,
       "type": "choice",
       "prompt": "Thrombolyse : quelle installation et quelle surveillance ?",
+      "variants": [
+        "Patient thrombolysé : comment l'installes-tu et que surveilles-tu ?",
+        "Thrombolyse en cours : quelle installation, quelle surveillance ?",
+        "Quelles mesures d'installation et de surveillance pendant une thrombolyse ?"
+      ],
       "options": [
         "Voie veineuse dédiée, de gros calibre",
         "Monitorage complet et ECG",
         "Noter l'heure de l'injection",
         "Injection IM préalable d'un antalgique"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "answer": [0, 1, 2],
       "explain": "Principal risque : l'hémorragie, notamment intracérébrale. Surveillance neurologique rapprochée, pas d'injection IM."
     },
     {
@@ -518,6 +497,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Après la phase aiguë d'un AVC, quels risques prévenir en priorité ?",
+      "variants": [
+        "Une fois passée la phase aiguë d'un AVC, quels risques faut-il prévenir en priorité ?",
+        "AVC, après la phase aiguë : quelles complications prévenir d'abord ?",
+        "Quels risques prioritaires après la phase aiguë d'un AVC ?"
+      ],
       "options": [
         "Fausses routes",
         "Complications de décubitus (escarres, phlébite)",
@@ -525,12 +509,7 @@
         "Douleur et raideur du côté hémiplégique",
         "Hyperthyroïdie"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Aussi : chute, aggravation neurologique, saignement sous anticoagulant."
     },
     {
@@ -540,6 +519,11 @@
       "level": 1,
       "type": "truefalse",
       "prompt": "Avant de faire manger un patient après un AVC, il faut s'assurer qu'il avale sans risque de fausse route.",
+      "variants": [
+        "Après un AVC, on vérifie la déglutition avant de donner à manger.",
+        "Un patient victime d'un AVC ne mange qu'une fois sa déglutition évaluée.",
+        "Avant le premier repas après un AVC, il faut vérifier que le patient avale sans fausse route."
+      ],
       "answer": true,
       "explain": "Vrai : test de déglutition selon le protocole, textures adaptées, patient bien assis."
     },
@@ -550,6 +534,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Patient aphasique après un AVC : comment faciliter la communication ?",
+      "variants": [
+        "Après un AVC, ton patient est aphasique. Comment l'aider à communiquer ?",
+        "Aphasie après un AVC : quels moyens pour faciliter les échanges ?",
+        "Comment communiquer avec un patient devenu aphasique après un AVC ?"
+      ],
       "options": [
         "Ardoise, pictogrammes, questions fermées",
         "Parler plus fort",
@@ -566,12 +555,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Patient qui ne peut pas communiquer après un AVC : quelle échelle de douleur ?",
-      "options": [
-        "Algoplus",
-        "Échelle visuelle analogique (EVA)",
-        "Échelle numérique",
-        "Score de Glasgow"
+      "variants": [
+        "Patient non communicant après un AVC : quelle échelle utilises-tu pour évaluer la douleur ?",
+        "AVC, patient qui ne peut pas s'exprimer : quelle échelle de douleur choisir ?",
+        "Quelle échelle de douleur pour un patient incapable de communiquer après un AVC ?"
       ],
+      "options": ["Algoplus", "Échelle visuelle analogique (EVA)", "Échelle numérique", "Score de Glasgow"],
       "answer": 0,
       "explain": "Algoplus est une échelle d'hétéro-évaluation, faite par le soignant, adaptée aux patients non communicants."
     },
@@ -582,6 +571,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Membre supérieur hémiplégique : que fais-tu ?",
+      "variants": [
+        "Bras hémiplégique après un AVC : comment l'installes-tu ?",
+        "Que fais-tu du membre supérieur paralysé d'un patient hémiplégique ?",
+        "Hémiplégie : quelle installation pour le membre supérieur atteint ?"
+      ],
       "options": [
         "Le surélever sur un coussin, en bonne position",
         "Le laisser pendre hors du lit",
@@ -598,6 +592,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "À moyen terme après un AVC, quel est le rôle éducatif de l'IDE ?",
+      "variants": [
+        "Après un AVC, quel est le rôle éducatif de l'IDE à moyen terme ?",
+        "Éducation du patient à distance d'un AVC : quel objectif pour l'IDE ?",
+        "Quel rôle éducatif l'IDE a-t-elle à moyen terme après un AVC ?"
+      ],
       "options": [
         "Agir sur les facteurs de risque pour éviter une récidive",
         "Arrêter tous les traitements",
@@ -614,6 +613,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "L'occlusion intestinale est…",
+      "variants": [
+        "Quelle est la définition de l'occlusion intestinale ?",
+        "Qu'est-ce qu'une occlusion intestinale ?",
+        "Occlusion intestinale : de quoi s'agit-il ?"
+      ],
       "options": [
         "Un blocage partiel ou complet de l'intestin grêle ou du côlon",
         "Une inflammation de la vésicule biliaire",
@@ -630,6 +634,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Carré de Mondor : quels sont les quatre signes de l'occlusion ?",
+      "variants": [
+        "Quels sont les quatre signes du carré de Mondor ?",
+        "Occlusion : quels signes forment le carré de Mondor ?",
+        "Carré de Mondor de l'occlusion : quels sont ses quatre éléments ?"
+      ],
       "options": [
         "Douleurs abdominales",
         "Vomissements",
@@ -637,12 +646,7 @@
         "Météorisme (ventre distendu)",
         "Diarrhée profuse"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Douleur abdominale, vomissements (parfois fécaloïdes), arrêt des matières et des gaz, météorisme."
     },
     {
@@ -652,21 +656,17 @@
       "level": 2,
       "type": "match",
       "prompt": "Associe chaque type d'occlusion à un exemple.",
+      "variants": [
+        "Relie chaque type d'occlusion à un exemple.",
+        "Quel exemple pour quel type d'occlusion ? Forme les paires.",
+        "Fais correspondre chaque mécanisme d'occlusion avec un exemple."
+      ],
       "left": "Type",
       "right": "Exemple",
       "pairs": [
-        [
-          "Mécanique par obstacle",
-          "Tumeur, fécalome, adhérences après chirurgie"
-        ],
-        [
-          "Mécanique par strangulation",
-          "Volvulus (torsion d'une anse)"
-        ],
-        [
-          "Fonctionnelle (iléus paralytique)",
-          "Arrêt du péristaltisme après une chirurgie abdominale"
-        ]
+        ["Mécanique par obstacle", "Tumeur, fécalome, adhérences après chirurgie"],
+        ["Mécanique par strangulation", "Volvulus (torsion d'une anse)"],
+        ["Fonctionnelle (iléus paralytique)", "Arrêt du péristaltisme après une chirurgie abdominale"]
       ],
       "explain": "Mécanique : un obstacle ou une torsion. Fonctionnelle : l'intestin ne se contracte plus (stress péritonéal)."
     },
@@ -677,6 +677,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "Un volvulus intestinal est une urgence chirurgicale.",
+      "variants": [
+        "Le volvulus intestinal impose une chirurgie en urgence.",
+        "Un volvulus de l'intestin relève de la chirurgie urgente.",
+        "Volvulus intestinal : c'est une urgence chirurgicale."
+      ],
       "answer": true,
       "explain": "Vrai : la torsion coupe la vascularisation, d'où une nécrose rapide et un risque de choc septique."
     },
@@ -687,19 +692,13 @@
       "level": 3,
       "type": "choice",
       "prompt": "Quelles situations peuvent provoquer un iléus paralytique ?",
-      "options": [
-        "Chirurgie abdominale",
-        "Hypokaliémie",
-        "Morphiniques",
-        "Pancréatite",
-        "Hyperthyroïdie"
+      "variants": [
+        "Qu'est-ce qui peut entraîner un iléus paralytique ?",
+        "Iléus paralytique : quelles causes possibles ?",
+        "Quelles situations peuvent paralyser l'intestin (iléus paralytique) ?"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "options": ["Chirurgie abdominale", "Hypokaliémie", "Morphiniques", "Pancréatite", "Hyperthyroïdie"],
+      "answer": [0, 1, 2, 3],
       "explain": "Aussi : appendicite, péritonite, fractures de côtes, traumatisme abdominal, colique néphrétique."
     },
     {
@@ -709,6 +708,11 @@
       "level": 3,
       "type": "order",
       "prompt": "Occlusion : remets dans l'ordre l'enchaînement des conséquences.",
+      "variants": [
+        "Ordonne les conséquences de l'occlusion, de la première à la dernière.",
+        "Comment s'enchaînent les conséquences d'une occlusion ? Classe-les.",
+        "Occlusion intestinale : remets la cascade de conséquences dans l'ordre."
+      ],
       "items": [
         "Obstacle sur le tube digestif",
         "Stase des liquides en amont",
@@ -726,6 +730,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Qu'est-ce que le « 3e secteur » dans une occlusion ?",
+      "variants": [
+        "Occlusion : que désigne le « 3e secteur » ?",
+        "Que signifie l'expression « troisième secteur » dans une occlusion intestinale ?",
+        "Dans l'occlusion, qu'appelle-t-on le 3e secteur ?"
+      ],
       "options": [
         "Du liquide piégé dans l'intestin, perdu pour la circulation",
         "Le liquide à l'intérieur des cellules",
@@ -742,6 +751,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels sont des signes de gravité d'une occlusion ?",
+      "variants": [
+        "Occlusion : quels signes doivent t'alerter sur sa gravité ?",
+        "Quels signes rendent une occlusion grave ?",
+        "Parmi ces signes, lesquels traduisent une occlusion grave ?"
+      ],
       "options": [
         "Vomissements fécaloïdes",
         "Fièvre",
@@ -749,12 +763,7 @@
         "Marbrures, oligurie",
         "Ventre souple et indolore"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Aussi : altération de l'état général, défense abdominale, insuffisance rénale."
     },
     {
@@ -764,12 +773,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Sur un ASP, quel aspect évoque une occlusion ?",
-      "options": [
-        "Des niveaux hydro-aériques",
-        "Un pneumothorax",
-        "Un calcul dans la vésicule",
-        "Une fracture de côte"
+      "variants": [
+        "Abdomen sans préparation : quel aspect fait penser à une occlusion ?",
+        "Quelle image de l'ASP évoque une occlusion intestinale ?",
+        "Occlusion : que montre typiquement l'ASP ?"
       ],
+      "options": ["Des niveaux hydro-aériques", "Un pneumothorax", "Un calcul dans la vésicule", "Une fracture de côte"],
       "answer": 0,
       "explain": "Le scanner abdominal injecté est l'examen de référence ; l'échographie et la biologie (bilan préopératoire, infectieux) complètent."
     },
@@ -780,6 +789,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Occlusion : à quoi sert la sonde nasogastrique ?",
+      "variants": [
+        "Quel est le rôle de la sonde nasogastrique dans une occlusion ?",
+        "Pourquoi pose-t-on une sonde nasogastrique dans une occlusion ?",
+        "Occlusion intestinale : à quoi sert la SNG ?"
+      ],
       "options": [
         "Aspirer le contenu de l'estomac et décomprimer le tube digestif",
         "Alimenter le patient",
@@ -796,6 +810,11 @@
       "level": 3,
       "type": "truefalse",
       "prompt": "Les laxatifs sont contre-indiqués en cas d'occlusion mécanique.",
+      "variants": [
+        "On ne donne pas de laxatif dans une occlusion mécanique.",
+        "Une occlusion mécanique contre-indique les laxatifs.",
+        "En cas d'obstacle mécanique sur l'intestin, les laxatifs sont interdits."
+      ],
       "answer": true,
       "explain": "Vrai : ils aggraveraient la distension en amont de l'obstacle, avec un risque de perforation. Les lavements ne se discutent que dans certaines situations, comme un fécalome, sur prescription."
     },
@@ -806,6 +825,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Pourquoi éviter si possible les morphiniques dans l'occlusion ?",
+      "variants": [
+        "Occlusion : pourquoi limiter les morphiniques quand c'est possible ?",
+        "Quel est l'inconvénient des morphiniques chez un patient en occlusion ?",
+        "Pourquoi les morphiniques sont-ils à éviter si possible en cas d'occlusion ?"
+      ],
       "options": [
         "Ils ralentissent encore le transit",
         "Ils font monter la température",
@@ -822,6 +846,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Après une chirurgie pour occlusion, que surveilles-tu ?",
+      "variants": [
+        "Opéré d'une occlusion : quelles surveillances postopératoires ?",
+        "Que surveilles-tu après l'intervention pour une occlusion ?",
+        "Postopératoire d'une occlusion : quels éléments surveiller ?"
+      ],
       "options": [
         "La reprise du transit (gaz, selles)",
         "La douleur",
@@ -829,12 +858,7 @@
         "Le liquide de la sonde nasogastrique",
         "L'acuité visuelle"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Ainsi que la voie veineuse, l'hydratation et les signes infectieux."
     },
     {
@@ -844,6 +868,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Patient porteur d'une nouvelle stomie : avec qui l'IDE collabore-t-elle en priorité ?",
+      "variants": [
+        "Nouvelle stomie : quel professionnel l'IDE sollicite-t-elle en premier ?",
+        "Patient récemment stomisé : avec quel professionnel travailles-tu en priorité ?",
+        "Stomie toute récente : qui est le partenaire privilégié de l'IDE ?"
+      ],
       "options": [
         "Le stomathérapeute (et le psychologue si besoin)",
         "Le kinésithérapeute respiratoire",
@@ -860,6 +889,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "La pose d'une sonde gastrique relève…",
+      "variants": [
+        "Sonde gastrique : la pose est-elle sur prescription ou du rôle propre ?",
+        "De quel cadre relève la pose d'une sonde gastrique ?",
+        "Poser une sonde gastrique, c'est…"
+      ],
       "options": [
         "De la prescription médicale ; sa surveillance relève du rôle propre",
         "Du rôle propre infirmier",
@@ -876,21 +910,17 @@
       "level": 2,
       "type": "match",
       "prompt": "Sonde gastrique : associe chaque indication à son but.",
+      "variants": [
+        "Relie chaque indication de la sonde gastrique à son but.",
+        "Pourquoi pose-t-on une sonde gastrique ? Associe chaque indication à son objectif.",
+        "Fais correspondre chaque indication de SNG avec ce qu'elle permet."
+      ],
       "left": "Indication",
       "right": "But",
       "pairs": [
-        [
-          "Thérapeutique",
-          "Drainer l'estomac ou faire un lavage"
-        ],
-        [
-          "Nutritionnelle",
-          "Alimentation entérale"
-        ],
-        [
-          "Diagnostique",
-          "Rechercher un saignement, faire un prélèvement"
-        ]
+        ["Thérapeutique", "Drainer l'estomac ou faire un lavage"],
+        ["Nutritionnelle", "Alimentation entérale"],
+        ["Diagnostique", "Rechercher un saignement, faire un prélèvement"]
       ],
       "explain": "À chaque indication sa sonde : on choisit le modèle adapté."
     },
@@ -901,17 +931,18 @@
       "level": 2,
       "type": "choice",
       "prompt": "Pose de sonde gastrique : quels gestes facilitent le passage ?",
+      "variants": [
+        "Comment faciliter la descente de la sonde gastrique lors de la pose ?",
+        "Pose de SNG : quels gestes aident la sonde à passer ?",
+        "Quelles mesures facilitent la pose d'une sonde gastrique ?"
+      ],
       "options": [
         "Patient demi-assis",
         "Tête penchée en avant, menton vers le thorax",
         "Demander au patient de déglutir au passage du larynx",
         "Tête en hyperextension vers l'arrière"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "answer": [0, 1, 2],
       "explain": "Repère de longueur : nez, lobe de l'oreille, appendice xiphoïde. Fixer la sonde sans appui sur l'aile du nez."
     },
     {
@@ -921,6 +952,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Quelles sont des contre-indications à la pose d'une sonde gastrique par l'IDE ?",
+      "variants": [
+        "Dans quels cas l'IDE ne doit-elle pas poser de sonde gastrique ?",
+        "Sonde gastrique : quelles situations contre-indiquent la pose par l'IDE ?",
+        "Quelles contre-indications à la pose de SNG par l'infirmière ?"
+      ],
       "options": [
         "Traumatisme crânio-facial",
         "Chirurgie ORL de moins de 6 semaines",
@@ -928,12 +964,7 @@
         "Varices œsophagiennes connues",
         "Occlusion intestinale"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Et pendant la pose : douleur intense, résistance anormale ou saignement, on arrête immédiatement."
     },
     {
@@ -943,6 +974,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Pourquoi ne jamais poser de sonde par le nez après un traumatisme crânio-facial ?",
+      "variants": [
+        "Traumatisme crânio-facial : pourquoi la voie nasale est-elle interdite pour la sonde ?",
+        "Pourquoi pas de sonde nasogastrique chez un traumatisé crânio-facial ?",
+        "Quel est le danger d'une sonde passée par le nez après un traumatisme crânio-facial ?"
+      ],
       "options": [
         "Risque de faire passer la sonde dans le crâne",
         "Risque d'hypoglycémie",
@@ -959,6 +995,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Sonde gastrique en place : quelles surveillances quotidiennes ?",
+      "variants": [
+        "Quelles surveillances quotidiennes pour une sonde gastrique en place ?",
+        "Patient porteur d'une SNG : que surveilles-tu chaque jour ?",
+        "Sonde nasogastrique : quelles vérifications au quotidien ?"
+      ],
       "options": [
         "Vérifier et tracer le repère à chaque prise de poste",
         "Noter quantité et aspect du liquide recueilli",
@@ -966,12 +1007,7 @@
         "Soins de bouche et de narines",
         "Changer la sonde chaque jour"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "La sonde ne se change pas tous les jours ; c'est la fixation qui se change toutes les 24 h."
     },
     {
@@ -981,6 +1017,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels sont des risques liés à la sonde gastrique ?",
+      "variants": [
+        "Quels risques fait courir une sonde gastrique ?",
+        "Sonde gastrique : quelles complications possibles ?",
+        "Patient porteur d'une SNG : quels risques connaître ?"
+      ],
       "options": [
         "Fausse route respiratoire si elle est mal positionnée",
         "Escarre de l'aile du nez",
@@ -988,12 +1029,7 @@
         "Obstruction de la sonde",
         "Hyperthermie maligne"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "La fausse route respiratoire, si la sonde est dans les bronches, est le risque le plus grave."
     },
     {
@@ -1003,6 +1039,11 @@
       "level": 3,
       "type": "truefalse",
       "prompt": "Le test au stéthoscope (injection d'air) suffit à confirmer la position d'une sonde avant de l'utiliser pour alimenter.",
+      "variants": [
+        "Injecter de l'air en écoutant au stéthoscope suffit pour vérifier la position d'une sonde avant de l'utiliser pour nourrir.",
+        "Le bruit entendu au stéthoscope après injection d'air prouve que la sonde est bien dans l'estomac.",
+        "Avant une nutrition par sonde, le test à l'air au stéthoscope suffit à confirmer sa position."
+      ],
       "answer": false,
       "explain": "Faux : ce test n'est pas fiable à lui seul. Avant une alimentation, la position se confirme selon le protocole du service, en général par une radiographie."
     },
@@ -1013,6 +1054,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Qu'est-ce qu'une colique hépatique ?",
+      "variants": [
+        "Comment définir une colique hépatique ?",
+        "Colique hépatique : de quoi s'agit-il ?",
+        "Qu'appelle-t-on colique hépatique ?"
+      ],
       "options": [
         "Une douleur due à un calcul biliaire, sans fièvre ni ictère",
         "Une infection du foie",
@@ -1029,25 +1075,18 @@
       "level": 2,
       "type": "match",
       "prompt": "Associe la position du calcul à la maladie qu'il provoque.",
+      "variants": [
+        "Selon l'endroit où se bloque le calcul, quelle maladie ? Forme les paires.",
+        "Relie chaque position du calcul biliaire à la maladie qu'elle entraîne.",
+        "Fais correspondre la localisation du calcul et la pathologie provoquée."
+      ],
       "left": "Calcul",
       "right": "Maladie",
       "pairs": [
-        [
-          "Dans la vésicule, sans complication",
-          "Colique hépatique"
-        ],
-        [
-          "Canal cystique obstrué",
-          "Cholécystite aiguë"
-        ],
-        [
-          "Cholédoque (voie biliaire principale)",
-          "Angiocholite"
-        ],
-        [
-          "Ampoule de Vater, canal de Wirsung",
-          "Pancréatite aiguë biliaire"
-        ]
+        ["Dans la vésicule, sans complication", "Colique hépatique"],
+        ["Canal cystique obstrué", "Cholécystite aiguë"],
+        ["Cholédoque (voie biliaire principale)", "Angiocholite"],
+        ["Ampoule de Vater, canal de Wirsung", "Pancréatite aiguë biliaire"]
       ],
       "explain": "Plus le calcul descend vers le cholédoque et le pancréas, plus c'est grave."
     },
@@ -1058,17 +1097,13 @@
       "level": 1,
       "type": "choice",
       "prompt": "Triade de Charcot : quels sont les trois signes ?",
-      "options": [
-        "Douleur",
-        "Fièvre",
-        "Ictère",
-        "Diarrhée"
+      "variants": [
+        "Quels signes composent la triade de Charcot ?",
+        "Triade de Charcot de l'angiocholite : quels sont ses trois signes ?",
+        "Quels sont les trois éléments de la triade de Charcot ?"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "options": ["Douleur", "Fièvre", "Ictère", "Diarrhée"],
+      "answer": [0, 1, 2],
       "explain": "Douleur, fièvre, ictère = angiocholite, urgence vitale (infection de la bile bloquée, risque de choc septique)."
     },
     {
@@ -1078,9 +1113,12 @@
       "level": 2,
       "type": "text",
       "prompt": "Douleur, fièvre puis ictère chez un patient qui a des calculs biliaires : quel diagnostic évoquer ?",
-      "answers": [
-        "angiocholite"
+      "variants": [
+        "Patient porteur de calculs biliaires : il a mal, puis de la fièvre, puis un ictère. Quel diagnostic ?",
+        "Douleur, puis fièvre, puis jaunisse chez un patient lithiasique : à quoi penses-tu ?",
+        "Quel diagnostic évoque la succession douleur, fièvre, ictère chez un patient qui a des calculs biliaires ?"
       ],
+      "answers": ["angiocholite"],
       "explain": "Angiocholite : calcul bloqué dans le cholédoque, bile infectée. C'est une urgence."
     },
     {
@@ -1090,46 +1128,19 @@
       "level": 2,
       "type": "hotspot",
       "prompt": "Colique hépatique : clique sur la région où siège typiquement la douleur.",
+      "variants": [
+        "Où siège typiquement la douleur d'une colique hépatique ? Place ton repère.",
+        "Montre sur le schéma la région douloureuse dans une colique hépatique.",
+        "Colique hépatique : touche la zone où le patient a mal, en général."
+      ],
       "image": "assets/schemas/abdomen.svg",
       "alt": "Abdomen vu de face, découpé en 9 régions, sans légende",
       "caption": "Patient vu de face",
       "zones": [
-        {
-          "id": "hd",
-          "label": "l'hypochondre droit",
-          "shape": "rect",
-          "x": 14.5,
-          "y": 5.4,
-          "w": 20.5,
-          "h": 38
-        },
-        {
-          "id": "epi",
-          "label": "l'épigastre",
-          "shape": "rect",
-          "x": 35,
-          "y": 5.4,
-          "w": 30,
-          "h": 38
-        },
-        {
-          "id": "hg",
-          "label": "l'hypochondre gauche",
-          "shape": "rect",
-          "x": 65,
-          "y": 5.4,
-          "w": 20.5,
-          "h": 38
-        },
-        {
-          "id": "fd",
-          "label": "le flanc droit",
-          "shape": "rect",
-          "x": 14.5,
-          "y": 43.5,
-          "w": 20.5,
-          "h": 30.4
-        },
+        {"id": "hd", "label": "l'hypochondre droit", "shape": "rect", "x": 14.5, "y": 5.4, "w": 20.5, "h": 38},
+        {"id": "epi", "label": "l'épigastre", "shape": "rect", "x": 35, "y": 5.4, "w": 30, "h": 38},
+        {"id": "hg", "label": "l'hypochondre gauche", "shape": "rect", "x": 65, "y": 5.4, "w": 20.5, "h": 38},
+        {"id": "fd", "label": "le flanc droit", "shape": "rect", "x": 14.5, "y": 43.5, "w": 20.5, "h": 30.4},
         {
           "id": "omb",
           "label": "la région ombilicale",
@@ -1139,15 +1150,7 @@
           "w": 30,
           "h": 30.4
         },
-        {
-          "id": "fg",
-          "label": "le flanc gauche",
-          "shape": "rect",
-          "x": 65,
-          "y": 43.5,
-          "w": 20.5,
-          "h": 30.4
-        },
+        {"id": "fg", "label": "le flanc gauche", "shape": "rect", "x": 65, "y": 43.5, "w": 20.5, "h": 30.4},
         {
           "id": "fid",
           "label": "la fosse iliaque droite",
@@ -1157,15 +1160,7 @@
           "w": 20.5,
           "h": 25
         },
-        {
-          "id": "hypo",
-          "label": "l'hypogastre",
-          "shape": "rect",
-          "x": 35,
-          "y": 73.9,
-          "w": 30,
-          "h": 25
-        },
+        {"id": "hypo", "label": "l'hypogastre", "shape": "rect", "x": 35, "y": 73.9, "w": 30, "h": 25},
         {
           "id": "fig",
           "label": "la fosse iliaque gauche",
@@ -1186,6 +1181,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Qu'est-ce que le signe de Murphy ?",
+      "variants": [
+        "Que recherche le signe de Murphy ?",
+        "Signe de Murphy positif : qu'observe-t-on ?",
+        "Comment se manifeste le signe de Murphy ?"
+      ],
       "options": [
         "La palpation de l'hypochondre droit bloque l'inspiration à cause de la douleur",
         "Une douleur à la décompression de la fosse iliaque droite",
@@ -1202,17 +1202,13 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels signes évoquent un blocage de la voie biliaire principale ?",
-      "options": [
-        "Ictère",
-        "Selles décolorées, blanchâtres",
-        "Urines foncées",
-        "Selles noires"
+      "variants": [
+        "Quels signes font penser à une obstruction de la voie biliaire principale ?",
+        "Voie biliaire principale bouchée : quels signes l'évoquent ?",
+        "Calcul bloqué dans la voie biliaire principale : quels signes ?"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "options": ["Ictère", "Selles décolorées, blanchâtres", "Urines foncées", "Selles noires"],
+      "answer": [0, 1, 2],
       "explain": "La bile n'arrive plus dans l'intestin (selles décolorées) et passe dans le sang puis les urines (urines foncées). Des selles noires évoquent plutôt un saignement digestif."
     },
     {
@@ -1222,12 +1218,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quel examen d'imagerie en première intention devant une lithiase biliaire ?",
-      "options": [
-        "L'échographie abdominale",
-        "La radiographie du thorax",
-        "L'IRM cérébrale",
-        "L'ECG"
+      "variants": [
+        "Lithiase biliaire : quelle imagerie en premier ?",
+        "Quel examen d'imagerie demande-t-on d'abord devant des calculs biliaires ?",
+        "Suspicion de lithiase biliaire : quelle imagerie de première intention ?"
       ],
+      "options": ["L'échographie abdominale", "La radiographie du thorax", "L'IRM cérébrale", "L'ECG"],
       "answer": 0,
       "explain": "Avec un bilan sanguin : bilan hépatique, bilirubine, lipase (recherche de pancréatite)."
     },
@@ -1238,6 +1234,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Colique hépatique en attente de chirurgie : que fais-tu sur prescription ?",
+      "variants": [
+        "Patient en colique hépatique qui attend son opération : que fais-tu sur prescription ?",
+        "Colique hépatique, chirurgie prévue : quels soins sur prescription ?",
+        "En attendant la cholécystectomie, quels soins réalises-tu sur prescription ?"
+      ],
       "options": [
         "Laisser le patient à jeun",
         "Bilan préopératoire avec bilan hépatique",
@@ -1245,12 +1246,7 @@
         "Administrer les antalgiques et antibiotiques prescrits",
         "Proposer un repas riche en graisses"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Le traitement est la cholécystectomie, le plus souvent sous cœlioscopie."
     },
     {
@@ -1260,6 +1256,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Après une cholécystectomie sous cœlioscopie, le patient a mal à l'épaule. Pourquoi ?",
+      "variants": [
+        "Cholécystectomie sous cœlioscopie : pourquoi le patient se plaint-il de l'épaule ?",
+        "Douleur d'épaule après une cœlioscopie biliaire : quelle explication ?",
+        "Pourquoi une douleur à l'épaule après l'ablation de la vésicule sous cœlioscopie ?"
+      ],
       "options": [
         "Le gaz insufflé dans l'abdomen irrite le diaphragme",
         "Une luxation pendant l'installation",
@@ -1276,6 +1277,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Quels traitements utilise-t-on dans la colique hépatique ?",
+      "variants": [
+        "Colique hépatique : quels traitements sont utilisés ?",
+        "Quels médicaments soulagent et traitent une colique hépatique ?",
+        "Prise en charge médicamenteuse de la colique hépatique : lesquels ?"
+      ],
       "options": [
         "Antalgiques, jusqu'à la morphine titrée",
         "Antispasmodiques (Spasfon, Débridat)",
@@ -1283,12 +1289,7 @@
         "Antibiotiques en cas d'infection",
         "Laxatifs stimulants"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Antibiotiques possibles : Tazocilline, Rocéphine, Ciflox, selon la prescription."
     },
     {
@@ -1298,6 +1299,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Ceftriaxone (Rocéphine) 1 g en perfusion : comment l'administrer ?",
+      "variants": [
+        "Rocéphine 1 g en perfusion : comment la passer ?",
+        "Comment administres-tu 1 g de ceftriaxone en perfusion ?",
+        "Ceftriaxone 1 g IV : quelle dilution et quelle durée ?"
+      ],
       "options": [
         "Dans 100 mL de NaCl 0,9 %, sur 30 minutes",
         "Pure, en IV directe en quelques secondes",
@@ -1314,6 +1320,11 @@
       "level": 2,
       "type": "number",
       "prompt": "Morphine titrée : ampoule de 10 mg/1 mL complétée à 10 mL avec du NaCl 0,9 %. Quelle concentration obtiens-tu ?",
+      "variants": [
+        "Ampoule de morphine 10 mg/1 mL diluée à 10 mL avec du NaCl 0,9 % : concentration obtenue ?",
+        "Tu complètes une ampoule de 10 mg/1 mL de morphine à 10 mL de NaCl 0,9 %. Combien de mg par mL ?",
+        "Morphine 10 mg/1 mL portée à 10 mL avec du sérum physiologique : quelle concentration ?"
+      ],
       "answer": 1,
       "unit": "mg/mL",
       "explain": "10 mg dans 10 mL = 1 mg/mL : 1 mL correspond à 1 mg, ce qui simplifie les bolus."
@@ -1325,6 +1336,11 @@
       "level": 1,
       "type": "number",
       "prompt": "Morphine diluée à 1 mg/mL. Patient de 75 kg : bolus de 3 mg. Quel volume injecter ?",
+      "variants": [
+        "Morphine à 1 mg/mL, bolus prescrit de 3 mg chez un patient de 75 kg : combien de mL ?",
+        "Seringue de morphine à 1 mg/mL. Pour un bolus de 3 mg, quel volume injectes-tu ?",
+        "Bolus de 3 mg de morphine diluée à 1 mg/mL (patient de 75 kg) : volume à injecter ?"
+      ],
       "answer": 3,
       "unit": "mL",
       "explain": "3 mL. Repères de titration : 2 mg si le patient pèse 60 kg ou moins, 3 mg au-dessus, selon la prescription."
@@ -1336,6 +1352,11 @@
       "level": 2,
       "type": "number",
       "prompt": "Titration de morphine : toutes les combien de minutes réévalue-t-on la douleur avant un nouveau bolus ?",
+      "variants": [
+        "Titration de morphine : quel délai entre deux évaluations de la douleur avant de réinjecter ?",
+        "Morphine titrée : tous les combien de minutes évalue-t-on de nouveau la douleur ?",
+        "Combien de minutes attendre entre deux bolus de titration pour réévaluer la douleur ?"
+      ],
       "answer": 5,
       "unit": "min",
       "explain": "Toutes les 5 minutes, tant que l'EN reste au-dessus de 3, dans la limite prescrite. On informe le médecin si la douleur persiste."
@@ -1347,17 +1368,18 @@
       "level": 2,
       "type": "choice",
       "prompt": "Titration de morphine : quand faut-il arrêter ?",
+      "variants": [
+        "Titration de morphine : quels critères imposent d'arrêter ?",
+        "Quand faut-il stopper une titration de morphine ?",
+        "Morphine titrée : quels signes font interrompre les bolus ?"
+      ],
       "options": [
         "Fréquence respiratoire inférieure à 10/min",
         "SpO~2~ inférieure à 90 %",
         "Somnolence excessive",
         "Douleur encore à 6/10"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "answer": [0, 1, 2],
       "explain": "Surveillance : SpO2, fréquence respiratoire, score de sédation. Matériel de réanimation à proximité."
     },
     {
@@ -1367,12 +1389,12 @@
       "level": 1,
       "type": "choice",
       "prompt": "Quel antidote prépares-tu avant une titration de morphine ?",
-      "options": [
-        "Naloxone (Narcan)",
-        "Flumazénil",
-        "Vitamine K",
-        "Protamine"
+      "variants": [
+        "Titration de morphine : quel antidote dois-tu avoir sous la main ?",
+        "Avant de titrer la morphine, quel antidote prévois-tu ?",
+        "Quel antidote préparer avant de commencer une titration morphinique ?"
       ],
+      "options": ["Naloxone (Narcan)", "Flumazénil", "Vitamine K", "Protamine"],
       "answer": 0,
       "explain": "La naloxone (Narcan) antagonise les effets de la morphine, dont la dépression respiratoire."
     },
@@ -1383,6 +1405,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "La morphine est un stupéfiant : son administration doit être tracée.",
+      "variants": [
+        "La morphine est classée comme stupéfiant et son administration se trace.",
+        "Comme tout stupéfiant, la morphine administrée doit être tracée.",
+        "Stupéfiant : chaque administration de morphine fait l'objet d'une traçabilité."
+      ],
       "answer": true,
       "explain": "Vrai : traçabilité obligatoire des stupéfiants. En urgence, on préfère la voie IV en titration aux voies IM ou SC."
     },
@@ -1393,6 +1420,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "La colique néphrétique est due le plus souvent à…",
+      "variants": [
+        "Quelle est la cause la plus fréquente de la colique néphrétique ?",
+        "Colique néphrétique : qu'est-ce qui la provoque le plus souvent ?",
+        "Le plus souvent, une colique néphrétique est causée par…"
+      ],
       "options": [
         "Un calcul qui bloque les voies urinaires",
         "Une infection de la vessie",
@@ -1409,12 +1441,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "De quoi sont faits la plupart des calculs rénaux ?",
-      "options": [
-        "D'oxalate de calcium",
-        "D'acide urique",
-        "De cystine",
-        "De cholestérol"
+      "variants": [
+        "Quelle est la composition la plus fréquente des calculs rénaux ?",
+        "Calculs urinaires : de quoi sont-ils le plus souvent composés ?",
+        "La majorité des calculs rénaux sont faits…"
       ],
+      "options": ["D'oxalate de calcium", "D'acide urique", "De cystine", "De cholestérol"],
       "answer": 0,
       "explain": "Plus rarement : acide urique ou cystine. Le calcul se forme par cristallisation de substances normalement dissoutes dans l'urine."
     },
@@ -1425,6 +1457,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Colique néphrétique : quels signes cliniques ?",
+      "variants": [
+        "Quels signes cliniques évoquent une colique néphrétique ?",
+        "Colique néphrétique : comment se présente-t-elle ?",
+        "Quels sont les signes typiques d'une colique néphrétique ?"
+      ],
       "options": [
         "Douleur lombaire d'un seul côté, brutale et violente",
         "Irradiation vers l'aine et les organes génitaux",
@@ -1432,12 +1469,7 @@
         "Nausées, vomissements",
         "Fièvre élevée constante"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Souvent sans fièvre. Aussi : brûlures urinaires (dysurie), envies fréquentes (pollakiurie)."
     },
     {
@@ -1447,16 +1479,13 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels sont les signes de gravité d'une colique néphrétique ?",
-      "options": [
-        "Fièvre au-dessus de 38 °C",
-        "Anurie",
-        "Hématurie microscopique",
-        "Douleur qui irradie vers l'aine"
+      "variants": [
+        "Colique néphrétique : quels signes la rendent grave ?",
+        "Quels signes de gravité rechercher dans une colique néphrétique ?",
+        "Parmi ces signes, lesquels traduisent une colique néphrétique compliquée ?"
       ],
-      "answer": [
-        0,
-        1
-      ],
+      "options": ["Fièvre au-dessus de 38 °C", "Anurie", "Hématurie microscopique", "Douleur qui irradie vers l'aine"],
+      "answer": [0, 1],
       "explain": "Fièvre : infection en amont de l'obstacle, il faut drainer les urines. Anurie : calcul sur un rein unique ou des deux côtés. L'hématurie, elle, est fréquente et attendue."
     },
     {
@@ -1466,12 +1495,12 @@
       "level": 1,
       "type": "choice",
       "prompt": "Quel examen simple, du rôle propre, réalises-tu à l'arrivée ?",
-      "options": [
-        "Une bandelette urinaire",
-        "Un uroscanner",
-        "Une échographie",
-        "Une gazométrie"
+      "variants": [
+        "Colique néphrétique : quel examen simple de ton rôle propre fais-tu à l'arrivée ?",
+        "Dès l'accueil d'un patient en colique néphrétique, quel examen simple réalises-tu ?",
+        "Quel examen relevant du rôle propre fais-tu en premier chez un patient en colique néphrétique ?"
       ],
+      "options": ["Une bandelette urinaire", "Un uroscanner", "Une échographie", "Une gazométrie"],
       "answer": 0,
       "explain": "La bandelette urinaire retrouve souvent une hématurie. C'est un acte du rôle propre (article R. 4311-5 du Code de la santé publique)."
     },
@@ -1482,6 +1511,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Pourquoi filtrer toutes les urines du patient ?",
+      "variants": [
+        "Colique néphrétique : à quoi sert de filtrer les urines ?",
+        "Pourquoi tamise-t-on toutes les urines d'un patient en colique néphrétique ?",
+        "Quel est le but du filtrage systématique des urines ?"
+      ],
       "options": [
         "Récupérer le calcul pour l'analyser",
         "Mesurer la glycémie",
@@ -1498,6 +1532,11 @@
       "level": 3,
       "type": "truefalse",
       "prompt": "En pleine crise de colique néphrétique, on fait boire abondamment le patient pour chasser le calcul.",
+      "variants": [
+        "Pendant la crise de colique néphrétique, il faut faire boire beaucoup le patient pour évacuer le calcul.",
+        "Boire abondamment en pleine crise aide à expulser le calcul et soulage la colique néphrétique.",
+        "En phase douloureuse de colique néphrétique, on conseille de boire au moins 2 litres pour chasser le calcul."
+      ],
       "answer": false,
       "explain": "Faux : restriction hydrique en phase aiguë. Boire beaucoup augmente la pression dans les voies urinaires bloquées, donc la douleur."
     },
@@ -1508,6 +1547,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Kétoprofène (Profenid) IV dans la colique néphrétique : comment l'administrer ?",
+      "variants": [
+        "Comment administrer le Profenid IV dans une colique néphrétique ?",
+        "Kétoprofène IV pour une colique néphrétique : quelle dilution et quelle durée ?",
+        "Profenid en perfusion : comment le passer ?"
+      ],
       "options": [
         "100 mg dans 100 mL de NaCl 0,9 %, en 20 minutes",
         "100 mg en IV directe en 30 secondes",
@@ -1524,6 +1568,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Kétoprofène : quelles contre-indications ?",
+      "variants": [
+        "Quelles sont les contre-indications du kétoprofène ?",
+        "Profenid : dans quelles situations est-il contre-indiqué ?",
+        "Avant de donner du kétoprofène, quelles contre-indications rechercher ?"
+      ],
       "options": [
         "Ulcère gastroduodénal évolutif",
         "Insuffisance rénale sévère",
@@ -1531,12 +1580,7 @@
         "Hémorragie en cours",
         "Hypertension bien équilibrée"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Aussi : insuffisance hépatique sévère, maladie inflammatoire chronique de l'intestin, allergie."
     },
     {
@@ -1546,12 +1590,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quel examen d'imagerie confirme le mieux le calcul et l'obstacle ?",
-      "options": [
-        "L'uroscanner",
-        "La radiographie du thorax",
-        "L'IRM cérébrale",
-        "L'électroencéphalogramme"
+      "variants": [
+        "Quelle imagerie montre le mieux le calcul et l'obstacle sur les voies urinaires ?",
+        "Colique néphrétique : quel examen d'imagerie confirme le calcul ?",
+        "Pour visualiser le calcul et son retentissement, quel examen d'imagerie ?"
       ],
+      "options": ["L'uroscanner", "La radiographie du thorax", "L'IRM cérébrale", "L'électroencéphalogramme"],
       "answer": 0,
       "explain": "L'ASP ne montre que les calculs radio-opaques ; l'échographie montre la dilatation des cavités du rein."
     },
@@ -1562,6 +1606,11 @@
       "level": 2,
       "type": "order",
       "prompt": "ECBU : remets les étapes du prélèvement dans l'ordre.",
+      "variants": [
+        "Ordonne les étapes d'un prélèvement d'ECBU.",
+        "ECBU : dans quel ordre réaliser le prélèvement ?",
+        "Classe les étapes du recueil d'un ECBU, de la première à la dernière."
+      ],
       "items": [
         "Hygiène des mains, gants",
         "Toilette soigneuse du méat urinaire",
@@ -1579,6 +1628,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Pourquoi élimine-t-on le premier jet lors d'un ECBU ?",
+      "variants": [
+        "ECBU : pourquoi jeter le premier jet ?",
+        "Quel est l'intérêt d'éliminer le premier jet d'urine pour un ECBU ?",
+        "Pourquoi ne recueille-t-on pas le premier jet lors d'un ECBU ?"
+      ],
       "options": [
         "Il contient les germes de l'urètre, qui fausseraient le résultat",
         "Il est trop concentré",
@@ -1595,6 +1649,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Colique néphrétique : que surveilles-tu ?",
+      "variants": [
+        "Quelles surveillances chez un patient en colique néphrétique ?",
+        "Patient en colique néphrétique : que surveiller ?",
+        "Colique néphrétique : quels paramètres suivre ?"
+      ],
       "options": [
         "La douleur",
         "La température",
@@ -1602,12 +1661,7 @@
         "Les effets indésirables des AINS (douleur épigastrique)",
         "Les réflexes ostéotendineux"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Et on rassure le patient et son entourage : la douleur est très impressionnante."
     },
     {
@@ -1617,6 +1671,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Infarctus du myocarde : définition ?",
+      "variants": [
+        "Comment définir l'infarctus du myocarde ?",
+        "Qu'est-ce qu'un infarctus du myocarde ?",
+        "Infarctus du myocarde : de quoi s'agit-il ?"
+      ],
       "options": [
         "Destruction d'une partie du muscle cardiaque par obstruction d'une artère coronaire",
         "Inflammation du péricarde",
@@ -1633,21 +1692,13 @@
       "level": 1,
       "type": "choice",
       "prompt": "Quels sont des facteurs de risque d'infarctus ?",
-      "options": [
-        "Tabac",
-        "Diabète",
-        "Hypertension artérielle",
-        "Cholestérol élevé",
-        "Sédentarité",
-        "Groupe sanguin A"
+      "variants": [
+        "Quels facteurs augmentent le risque d'infarctus ?",
+        "Infarctus du myocarde : quels sont ses facteurs de risque ?",
+        "Parmi ces éléments, lesquels sont des facteurs de risque d'infarctus ?"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
+      "options": ["Tabac", "Diabète", "Hypertension artérielle", "Cholestérol élevé", "Sédentarité", "Groupe sanguin A"],
+      "answer": [0, 1, 2, 3, 4],
       "explain": "Aussi : âge et sexe masculin, antécédents familiaux, surpoids, stress, alcool."
     },
     {
@@ -1657,6 +1708,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Quelle douleur est typique d'un infarctus ?",
+      "variants": [
+        "Comment décrire la douleur typique d'un infarctus ?",
+        "Infarctus : quelle douleur est caractéristique ?",
+        "Quelle est la douleur thoracique typique de l'infarctus ?"
+      ],
       "options": [
         "Rétrosternale, en étau, prolongée, irradiant vers le bras gauche et la mâchoire",
         "Augmentée à l'inspiration, calmée en se penchant en avant",
@@ -1673,6 +1729,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "Chez le patient diabétique, un infarctus peut se manifester par une simple douleur à l'estomac.",
+      "variants": [
+        "Chez un diabétique, l'infarctus peut ne donner qu'une douleur épigastrique.",
+        "Un patient diabétique peut faire un infarctus qui ressemble à un simple mal d'estomac.",
+        "Douleur épigastrique isolée chez un diabétique : cela peut être un infarctus."
+      ],
       "answer": true,
       "explain": "Vrai : les signes sont souvent atypiques (douleur épigastrique, malaise, essoufflement), parfois absents."
     },
@@ -1683,46 +1744,19 @@
       "level": 1,
       "type": "hotspot",
       "prompt": "Clique sur l'épigastre.",
+      "variants": [
+        "Montre l'épigastre sur le schéma.",
+        "Où se trouve l'épigastre ? Place ton repère.",
+        "Touche la région épigastrique."
+      ],
       "image": "assets/schemas/abdomen.svg",
       "alt": "Abdomen vu de face, découpé en 9 régions, sans légende",
       "caption": "Patient vu de face",
       "zones": [
-        {
-          "id": "hd",
-          "label": "l'hypochondre droit",
-          "shape": "rect",
-          "x": 14.5,
-          "y": 5.4,
-          "w": 20.5,
-          "h": 38
-        },
-        {
-          "id": "epi",
-          "label": "l'épigastre",
-          "shape": "rect",
-          "x": 35,
-          "y": 5.4,
-          "w": 30,
-          "h": 38
-        },
-        {
-          "id": "hg",
-          "label": "l'hypochondre gauche",
-          "shape": "rect",
-          "x": 65,
-          "y": 5.4,
-          "w": 20.5,
-          "h": 38
-        },
-        {
-          "id": "fd",
-          "label": "le flanc droit",
-          "shape": "rect",
-          "x": 14.5,
-          "y": 43.5,
-          "w": 20.5,
-          "h": 30.4
-        },
+        {"id": "hd", "label": "l'hypochondre droit", "shape": "rect", "x": 14.5, "y": 5.4, "w": 20.5, "h": 38},
+        {"id": "epi", "label": "l'épigastre", "shape": "rect", "x": 35, "y": 5.4, "w": 30, "h": 38},
+        {"id": "hg", "label": "l'hypochondre gauche", "shape": "rect", "x": 65, "y": 5.4, "w": 20.5, "h": 38},
+        {"id": "fd", "label": "le flanc droit", "shape": "rect", "x": 14.5, "y": 43.5, "w": 20.5, "h": 30.4},
         {
           "id": "omb",
           "label": "la région ombilicale",
@@ -1732,15 +1766,7 @@
           "w": 30,
           "h": 30.4
         },
-        {
-          "id": "fg",
-          "label": "le flanc gauche",
-          "shape": "rect",
-          "x": 65,
-          "y": 43.5,
-          "w": 20.5,
-          "h": 30.4
-        },
+        {"id": "fg", "label": "le flanc gauche", "shape": "rect", "x": 65, "y": 43.5, "w": 20.5, "h": 30.4},
         {
           "id": "fid",
           "label": "la fosse iliaque droite",
@@ -1750,15 +1776,7 @@
           "w": 20.5,
           "h": 25
         },
-        {
-          "id": "hypo",
-          "label": "l'hypogastre",
-          "shape": "rect",
-          "x": 35,
-          "y": 73.9,
-          "w": 30,
-          "h": 25
-        },
+        {"id": "hypo", "label": "l'hypogastre", "shape": "rect", "x": 35, "y": 73.9, "w": 30, "h": 25},
         {
           "id": "fig",
           "label": "la fosse iliaque gauche",
@@ -1779,10 +1797,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Patient qui a une douleur thoracique : que montre ce tracé ?",
-      "media": {
-        "src": "assets/schemas/ecg-sus-st.svg",
-        "alt": "Tracé d'ECG de deux battements, segment ST surélevé"
-      },
+      "variants": [
+        "Douleur thoracique : quelle anomalie vois-tu sur cet ECG ?",
+        "Que montre ce tracé, enregistré chez un patient qui a mal à la poitrine ?",
+        "Patient douloureux thoracique : quelle anomalie présente ce tracé ?"
+      ],
+      "media": {"src": "assets/schemas/ecg-sus-st.svg", "alt": "Tracé d'ECG de deux battements, segment ST surélevé"},
       "options": [
         "Un sus-décalage du segment ST",
         "Un tracé normal",
@@ -1799,21 +1819,17 @@
       "level": 2,
       "type": "match",
       "prompt": "Douleur thoracique : associe chaque diagnostic à écarter au geste simple qui l'oriente.",
+      "variants": [
+        "Douleur thoracique : relie chaque diagnostic à éliminer au geste simple qui l'oriente.",
+        "Quel geste simple pour orienter vers quel diagnostic ? Forme les paires.",
+        "Fais correspondre chaque diagnostic différentiel de la douleur thoracique et le geste qui l'oriente."
+      ],
       "left": "Diagnostic",
       "right": "Geste",
       "pairs": [
-        [
-          "Péricardite",
-          "Prendre la température"
-        ],
-        [
-          "Embolie pulmonaire",
-          "SpO~2~ et fréquence respiratoire"
-        ],
-        [
-          "Dissection aortique",
-          "Pression artérielle aux deux bras"
-        ]
+        ["Péricardite", "Prendre la température"],
+        ["Embolie pulmonaire", "SpO~2~ et fréquence respiratoire"],
+        ["Dissection aortique", "Pression artérielle aux deux bras"]
       ],
       "explain": "Ces diagnostics donnent des signes très proches de l'infarctus."
     },
@@ -1824,12 +1840,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quel marqueur biologique signe la souffrance du muscle cardiaque ?",
-      "options": [
-        "La troponine",
-        "La CRP",
-        "Les D-dimères",
-        "La lipase"
+      "variants": [
+        "Quel dosage sanguin traduit une souffrance du myocarde ?",
+        "Quel marqueur biologique s'élève quand le muscle cardiaque souffre ?",
+        "Infarctus : quel marqueur biologique signe l'atteinte du myocarde ?"
       ],
+      "options": ["La troponine", "La CRP", "Les D-dimères", "La lipase"],
       "answer": 0,
       "explain": "La troponine est dosée à l'arrivée puis répétée pour suivre sa cinétique. Les CPK-MB sont aussi spécifiques du muscle cardiaque."
     },
@@ -1840,25 +1856,18 @@
       "level": 2,
       "type": "match",
       "prompt": "Associe chaque marqueur biologique à ce qu'il oriente.",
+      "variants": [
+        "Relie chaque marqueur biologique au diagnostic qu'il oriente.",
+        "Quel marqueur pour quelle orientation ? Forme les paires.",
+        "Fais correspondre chaque dosage sanguin à ce qu'il oriente."
+      ],
       "left": "Marqueur",
       "right": "Oriente vers",
       "pairs": [
-        [
-          "Troponine",
-          "Infarctus"
-        ],
-        [
-          "D-dimères",
-          "Embolie pulmonaire"
-        ],
-        [
-          "CRP",
-          "Inflammation, infection (péricardite)"
-        ],
-        [
-          "ProBNP",
-          "Insuffisance cardiaque"
-        ]
+        ["Troponine", "Infarctus"],
+        ["D-dimères", "Embolie pulmonaire"],
+        ["CRP", "Inflammation, infection (péricardite)"],
+        ["ProBNP", "Insuffisance cardiaque"]
       ],
       "explain": "Le bilan aide à confirmer l'infarctus et à écarter les autres causes de douleur thoracique."
     },
@@ -1869,17 +1878,18 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels sont des signes de gravité d'un infarctus ?",
+      "variants": [
+        "Infarctus : quels signes doivent t'alerter sur sa gravité ?",
+        "Quels signes rendent un infarctus grave ?",
+        "Parmi ces signes, lesquels traduisent un infarctus grave ?"
+      ],
       "options": [
         "Hypotension avec tachycardie (choc cardiogénique)",
         "Perte de connaissance",
         "Troubles du rythme",
         "Douleur qui cède sous trinitrine"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "answer": [0, 1, 2],
       "explain": "Le choc cardiogénique associe hypotension et accélération du cœur : le cœur ne pompe plus assez."
     },
     {
@@ -1889,6 +1899,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Infarctus aux urgences : pourquoi poser la voie veineuse au pli du coude **gauche** ?",
+      "variants": [
+        "Pourquoi poser la voie veineuse au pli du coude **gauche** chez un patient en infarctus ?",
+        "Infarctus : quelle est la raison de choisir le pli du coude **gauche** pour la perfusion ?",
+        "Voie veineuse au bras **gauche** chez un patient qui fait un infarctus : pourquoi ?"
+      ],
       "options": [
         "Pour laisser libre le poignet droit, souvent utilisé pour la coronarographie",
         "Parce que le cœur est à gauche",
@@ -1905,6 +1920,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Avant une coronarographie, que vérifies-tu ?",
+      "variants": [
+        "Que contrôles-tu avant une coronarographie ?",
+        "Coronarographie prévue : quelles vérifications faire ?",
+        "Préparation d'une coronarographie : que vérifies-tu ?"
+      ],
       "options": [
         "Patient à jeun",
         "Allergies, notamment à l'iode",
@@ -1912,12 +1932,7 @@
         "Retrait des bijoux et prothèses",
         "Acuité visuelle"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Aussi : rasage des deux poignets (voire de l'accès fémoral), information du patient, soin relationnel (examen anxiogène)."
     },
     {
@@ -1927,6 +1942,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Après une coronarographie par voie radiale, à quoi sert le bracelet TR Band ?",
+      "variants": [
+        "Coronarographie par l'artère radiale : quel est le rôle du TR Band ?",
+        "Pourquoi pose-t-on un bracelet TR Band après une coronarographie radiale ?",
+        "Bracelet TR Band après coronarographie : à quoi sert-il ?"
+      ],
       "options": [
         "Comprimer l'artère radiale pour éviter le saignement",
         "Mesurer la pression artérielle",
@@ -1943,6 +1963,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "Après une coronarographie par voie radiale, on prend la SpO~2~ aux deux mains.",
+      "variants": [
+        "Après une coronarographie radiale, la SpO~2~ se mesure aux deux mains.",
+        "Coronarographie par voie radiale : on surveille la saturation sur les deux mains.",
+        "On compare la SpO~2~ des deux mains après une coronarographie par le poignet."
+      ],
       "answer": true,
       "explain": "Vrai : une différence peut révéler une compression trop forte ou une complication de l'artère radiale."
     },
@@ -1953,6 +1978,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Après une coronarographie, pourquoi hydrater le patient et surveiller sa diurèse ?",
+      "variants": [
+        "Pourquoi faire boire le patient et surveiller sa diurèse après une coronarographie ?",
+        "Après une coronarographie, quel est le but de l'hydratation et de la surveillance des urines ?",
+        "Coronarographie : pourquoi hydrater et suivre la diurèse ensuite ?"
+      ],
       "options": [
         "Pour éliminer le produit de contraste",
         "Pour faire baisser la troponine",
@@ -1969,6 +1999,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Après une angioplastie, quels risques surveilles-tu ?",
+      "variants": [
+        "Angioplastie coronaire : quels risques surveiller ensuite ?",
+        "Quels risques guettent un patient après une angioplastie ?",
+        "Après la pose d'un stent, quelles complications surveilles-tu ?"
+      ],
       "options": [
         "Récidive de douleur thoracique (resténose)",
         "Troubles du rythme",
@@ -1976,12 +2011,7 @@
         "Compression excessive de la main par le bracelet",
         "Hyperthyroïdie"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Aussi : OAP, choc cardiogénique, arrêt cardio-respiratoire. ECG à l'arrivée en soins intensifs, puis selon le protocole."
     },
     {
@@ -1991,6 +2021,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels traitements utilise-t-on dans l'infarctus ?",
+      "variants": [
+        "Quels médicaments utilise-t-on pour traiter un infarctus ?",
+        "Infarctus : quels traitements sont utilisés ?",
+        "Parmi ces traitements, lesquels sont utilisés dans l'infarctus ?"
+      ],
       "options": [
         "Antiagrégant plaquettaire (aspirine)",
         "Anticoagulant (énoxaparine)",
@@ -1998,12 +2033,7 @@
         "Dérivé nitré, si la tension le permet",
         "Laxatif systématique"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Et des antiarythmiques en cas de trouble du rythme ; parfois une thrombolyse (Actilyse)."
     },
     {
@@ -2013,6 +2043,11 @@
       "level": 3,
       "type": "number",
       "prompt": "Aspirine injectable : flacon de 500 mg reconstitué dans 5 mL. Prescription : 250 mg en IVD. Quel volume injecter ?",
+      "variants": [
+        "Aspirine IV : 500 mg dans 5 mL après reconstitution. Pour 250 mg en IVD, quel volume ?",
+        "Flacon d'aspirine de 500 mg reconstitué dans 5 mL. Combien de mL pour injecter 250 mg en IVD ?",
+        "Prescription : 250 mg d'aspirine en IVD. Le flacon de 500 mg est dilué dans 5 mL. Volume à prélever ?"
+      ],
       "answer": 2.5,
       "unit": "mL",
       "explain": "500 mg dans 5 mL = 100 mg/mL. Pour 250 mg : 2,5 mL."
@@ -2024,6 +2059,11 @@
       "level": 3,
       "type": "number",
       "prompt": "SCA ST+, patient de 80 kg, moins de 75 ans : énoxaparine 1 mg/kg en SC, solution à 100 mg/mL. Quel volume ?",
+      "variants": [
+        "Énoxaparine 1 mg/kg en SC (SCA ST+, 80 kg, moins de 75 ans), solution à 100 mg/mL : quel volume injectes-tu ?",
+        "Patient de 80 kg en SCA ST+, moins de 75 ans : 1 mg/kg d'énoxaparine à 100 mg/mL. Combien de mL ?",
+        "SCA ST+ : énoxaparine à 1 mg/kg pour 80 kg (patient de moins de 75 ans), concentration 100 mg/mL. Volume à injecter ?"
+      ],
       "answer": 0.8,
       "unit": "mL",
       "explain": "80 mg = 0,8 mL (soit 0,01 mL/kg). Avant 75 ans, on injecte aussi 30 mg en IV. Après 75 ans : 0,75 mg/kg en SC, sans bolus IV."
@@ -2035,6 +2075,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Isosorbide dinitrate (Risordan) au pousse-seringue : quand faut-il l'arrêter ?",
+      "variants": [
+        "Risordan au pousse-seringue : quel critère impose de l'arrêter ?",
+        "Quand interrompre l'isosorbide dinitrate (Risordan) au pousse-seringue ?",
+        "Isosorbide dinitrate en continu : à partir de quelle valeur l'arrêter ?"
+      ],
       "options": [
         "Si la pression systolique descend sous 100 mmHg",
         "Si la fréquence cardiaque dépasse 80/min",
@@ -2051,6 +2096,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "L'embolie pulmonaire, c'est…",
+      "variants": [
+        "Qu'est-ce qu'une embolie pulmonaire ?",
+        "Comment définir l'embolie pulmonaire ?",
+        "Embolie pulmonaire : de quoi s'agit-il ?"
+      ],
       "options": [
         "Un caillot, souvent venu des veines des jambes, bloqué dans une artère pulmonaire",
         "Du liquide dans les alvéoles",
@@ -2067,6 +2117,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Quels sont des facteurs de risque d'embolie pulmonaire ?",
+      "variants": [
+        "Quels facteurs favorisent une embolie pulmonaire ?",
+        "Embolie pulmonaire : quels sont ses facteurs de risque ?",
+        "Parmi ces situations, lesquelles exposent à une embolie pulmonaire ?"
+      ],
       "options": [
         "Phlébite",
         "Alitement ou immobilisation prolongés",
@@ -2075,13 +2130,7 @@
         "Cancer",
         "Pratique régulière du vélo"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
+      "answer": [0, 1, 2, 3, 4],
       "explain": "Aussi : troubles héréditaires de la coagulation, fibrillation atriale, chimiothérapie."
     },
     {
@@ -2091,6 +2140,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels signes évoquent une embolie pulmonaire ?",
+      "variants": [
+        "Quels signes cliniques font penser à une embolie pulmonaire ?",
+        "Embolie pulmonaire : quels signes l'évoquent ?",
+        "Parmi ces signes, lesquels orientent vers une embolie pulmonaire ?"
+      ],
       "options": [
         "Douleur thoracique majorée à l'inspiration",
         "Essoufflement brutal, angoisse",
@@ -2098,12 +2152,7 @@
         "Crachats teintés de sang",
         "Bradycardie isolée"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Aussi : sueurs, fatigue, douleur dorsale, cyanose dans les formes aiguës."
     },
     {
@@ -2113,6 +2162,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quel examen confirme une embolie pulmonaire ?",
+      "variants": [
+        "Quel examen permet d'affirmer une embolie pulmonaire ?",
+        "Embolie pulmonaire : quel examen la confirme ?",
+        "Pour confirmer une embolie pulmonaire, quel examen demande-t-on ?"
+      ],
       "options": [
         "L'angioscanner thoracique",
         "La radiographie de l'abdomen",
@@ -2129,6 +2183,11 @@
       "level": 3,
       "type": "truefalse",
       "prompt": "Des D-dimères normaux permettent d'écarter une embolie pulmonaire quand la probabilité clinique est faible.",
+      "variants": [
+        "Si la probabilité clinique est faible, des D-dimères normaux écartent l'embolie pulmonaire.",
+        "Probabilité clinique faible et D-dimères négatifs : on peut exclure une embolie pulmonaire.",
+        "Un dosage de D-dimères normal élimine l'embolie pulmonaire lorsque la suspicion clinique est faible."
+      ],
       "answer": true,
       "explain": "Vrai. Ils sont très sensibles mais peu spécifiques : élevés, ils ne prouvent rien (âge, chirurgie, cancer…) ; normaux, ils rassurent."
     },
@@ -2139,19 +2198,13 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels sont des signes de gravité d'une embolie pulmonaire ?",
-      "options": [
-        "Détresse respiratoire aiguë",
-        "Cyanose",
-        "Marbrures",
-        "Hypotension, malaise",
-        "Toux sèche isolée"
+      "variants": [
+        "Embolie pulmonaire : quels signes doivent t'alerter sur sa gravité ?",
+        "Quels signes rendent une embolie pulmonaire grave ?",
+        "Parmi ces signes, lesquels traduisent une embolie pulmonaire grave ?"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "options": ["Détresse respiratoire aiguë", "Cyanose", "Marbrures", "Hypotension, malaise", "Toux sèche isolée"],
+      "answer": [0, 1, 2, 3],
       "explain": "Risques : syncope, arrêt cardio-respiratoire. Scope et matériel d'urgence à proximité."
     },
     {
@@ -2161,6 +2214,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Embolie pulmonaire : comment installer le patient ?",
+      "variants": [
+        "Comment installes-tu un patient qui fait une embolie pulmonaire ?",
+        "Embolie pulmonaire : quelle installation pour le patient ?",
+        "Patient en embolie pulmonaire : quelle position et quelle mobilisation ?"
+      ],
       "options": [
         "Au lit strict, en position demi-assise",
         "Debout pour mieux respirer",
@@ -2177,6 +2235,11 @@
       "level": 3,
       "type": "number",
       "prompt": "Embolie pulmonaire, patient de 70 kg : bolus d'héparine de 80 UI/kg. Combien d'UI ?",
+      "variants": [
+        "Patient de 70 kg en embolie pulmonaire : bolus d'héparine à 80 UI/kg. Combien d'UI ?",
+        "Bolus d'héparine de 80 UI/kg pour une embolie pulmonaire, patient de 70 kg : quelle dose ?",
+        "Embolie pulmonaire : 80 UI/kg d'héparine en bolus pour 70 kg. Combien d'unités ?"
+      ],
       "answer": 5600,
       "unit": "UI",
       "explain": "80 × 70 = 5 600 UI. Puis entretien au pousse-seringue à 18 UI/kg/h."
@@ -2188,6 +2251,11 @@
       "level": 3,
       "type": "number",
       "prompt": "Héparine : flacon de 25 000 UI/5 mL complété à 50 mL. Quelle concentration obtiens-tu ?",
+      "variants": [
+        "Flacon d'héparine de 25 000 UI/5 mL dilué à 50 mL : quelle concentration ?",
+        "Tu complètes 25 000 UI d'héparine (5 mL) à 50 mL. Combien d'UI par mL ?",
+        "Héparine 25 000 UI/5 mL portée à 50 mL : concentration obtenue ?"
+      ],
       "answer": 500,
       "unit": "UI/mL",
       "explain": "25 000 UI dans 50 mL = 500 UI/mL."
@@ -2199,6 +2267,11 @@
       "level": 3,
       "type": "number",
       "prompt": "Héparine à 500 UI/mL. Prescription : 1 250 UI/h. Quel débit pour le pousse-seringue ?",
+      "variants": [
+        "Seringue d'héparine à 500 UI/mL, prescription de 1 250 UI/h : quel débit en mL/h ?",
+        "Pousse-seringue d'héparine à 500 UI/mL. Pour 1 250 UI/h, quel débit régler ?",
+        "Héparine prescrite à 1 250 UI/h, seringue à 500 UI/mL : vitesse du pousse-seringue ?"
+      ],
       "answer": 2.5,
       "unit": "mL/h",
       "explain": "1 250 ÷ 500 = 2,5 mL/h."
@@ -2210,17 +2283,18 @@
       "level": 2,
       "type": "choice",
       "prompt": "Patient sous héparine non fractionnée : que surveilles-tu ?",
+      "variants": [
+        "Quelles surveillances chez un patient sous HNF ?",
+        "Héparine non fractionnée : que surveilles-tu ?",
+        "Patient sous héparine à la seringue électrique : quelles surveillances ?"
+      ],
       "options": [
         "Signes de saignement (hématurie, épistaxis, hématomes)",
         "Activité anti-Xa ou héparinémie",
         "Plaquettes",
         "Glycémie toutes les heures"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "answer": [0, 1, 2],
       "explain": "Les plaquettes dépistent une thrombopénie induite par l'héparine (TIH)."
     },
     {
@@ -2230,21 +2304,17 @@
       "level": 1,
       "type": "match",
       "prompt": "Oxygénothérapie : associe chaque dispositif à son débit.",
+      "variants": [
+        "Relie chaque dispositif d'oxygénothérapie à son débit.",
+        "Quel débit d'oxygène pour quel dispositif ? Forme les paires.",
+        "Fais correspondre chaque matériel d'oxygénothérapie avec sa plage de débit."
+      ],
       "left": "Dispositif",
       "right": "Débit",
       "pairs": [
-        [
-          "Lunettes à oxygène",
-          "0,5 à 6 L/min"
-        ],
-        [
-          "Masque simple",
-          "4 à 8 L/min"
-        ],
-        [
-          "Masque à haute concentration",
-          "Plus de 8 L/min"
-        ]
+        ["Lunettes à oxygène", "0,5 à 6 L/min"],
+        ["Masque simple", "4 à 8 L/min"],
+        ["Masque à haute concentration", "Plus de 8 L/min"]
       ],
       "explain": "Le masque à haute concentration a un réservoir qui concentre l'oxygène et une valve anti-retour."
     },
@@ -2255,6 +2325,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "On peut utiliser un masque à oxygène simple avec un débit de 2 L/min.",
+      "variants": [
+        "Un masque à oxygène simple peut fonctionner à 2 L/min.",
+        "Avec un masque simple, un débit de 2 L/min d'oxygène convient.",
+        "Régler 2 L/min sur un masque à oxygène simple ne pose pas de problème."
+      ],
       "answer": false,
       "explain": "Faux : jamais moins de 4 L/min au masque, sinon le patient respire à nouveau son propre CO~2~."
     },
@@ -2265,13 +2340,15 @@
       "level": 2,
       "type": "range",
       "prompt": "pH artériel normal",
+      "variants": [
+        "Place la fourchette normale du pH artériel.",
+        "Gaz du sang : entre quelles valeurs se situe un pH artériel normal ?",
+        "Quelle est la plage normale du pH du sang artériel ?"
+      ],
       "min": 7.0,
       "max": 7.8,
       "step": 0.01,
-      "answer": [
-        7.35,
-        7.45
-      ],
+      "answer": [7.35, 7.45],
       "tolerance": 0.02,
       "explain": "En dessous de 7,35 : acidose. Au-dessus de 7,45 : alcalose."
     },
@@ -2282,13 +2359,15 @@
       "level": 2,
       "type": "range",
       "prompt": "PaCO~2~ artérielle normale",
+      "variants": [
+        "Place la fourchette normale de la PaCO~2~ artérielle.",
+        "Gaz du sang : entre quelles valeurs se situe une PaCO~2~ normale ?",
+        "Quelle est la plage normale de la PaCO~2~ ?"
+      ],
       "min": 20,
       "max": 70,
       "step": 1,
-      "answer": [
-        35,
-        45
-      ],
+      "answer": [35, 45],
       "tolerance": 2,
       "unit": "mmHg",
       "explain": "Au-dessus : hypercapnie (le CO2 n'est pas assez éliminé). En dessous : hypocapnie (hyperventilation)."
@@ -2300,13 +2379,15 @@
       "level": 3,
       "type": "range",
       "prompt": "Bicarbonates (HCO~3~^-^) artériels normaux",
+      "variants": [
+        "Place la fourchette normale des bicarbonates artériels.",
+        "Gaz du sang : entre quelles valeurs se situent des bicarbonates normaux ?",
+        "Quelle est la plage normale des HCO~3~^-^ artériels ?"
+      ],
       "min": 10,
       "max": 40,
       "step": 1,
-      "answer": [
-        22,
-        26
-      ],
+      "answer": [22, 26],
       "tolerance": 1,
       "unit": "mmol/L",
       "explain": "Les bicarbonates forment la réserve alcaline : ils renseignent sur la part métabolique d'un trouble acido-basique."
@@ -2318,13 +2399,15 @@
       "level": 3,
       "type": "range",
       "prompt": "PaO~2~ artérielle normale chez l'adulte",
+      "variants": [
+        "Place la fourchette normale de la PaO~2~ artérielle chez l'adulte.",
+        "Gaz du sang de l'adulte : entre quelles valeurs se situe une PaO~2~ normale ?",
+        "Quelle est la plage normale de la PaO~2~ chez l'adulte ?"
+      ],
       "min": 40,
       "max": 130,
       "step": 1,
-      "answer": [
-        80,
-        100
-      ],
+      "answer": [80, 100],
       "tolerance": 10,
       "unit": "mmHg",
       "explain": "Environ 80 à 100 mmHg selon les références ; elle baisse un peu avec l'âge. SaO2 normale : 95 à 100 %."
@@ -2336,6 +2419,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Que vérifie le test d'Allen avant une gazométrie radiale ?",
+      "variants": [
+        "Gazométrie radiale : à quoi sert le test d'Allen ?",
+        "Pourquoi réaliser un test d'Allen avant de piquer l'artère radiale ?",
+        "Test d'Allen avant une gazométrie : que contrôle-t-il ?"
+      ],
       "options": [
         "Que l'artère cubitale peut irriguer la main si l'artère radiale est lésée",
         "Que le patient n'est pas allergique",
@@ -2352,6 +2440,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Gazométrie d'une embolie pulmonaire : quel profil est le plus fréquent ?",
+      "variants": [
+        "Embolie pulmonaire : quel résultat de gazométrie retrouve-t-on le plus souvent ?",
+        "Quels gaz du sang sont typiques d'une embolie pulmonaire ?",
+        "Gazométrie artérielle dans l'embolie pulmonaire : quel profil habituel ?"
+      ],
       "options": [
         "Hypoxémie avec hypocapnie",
         "Hyperoxie avec hypercapnie",
@@ -2368,6 +2461,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "L'OAP, c'est…",
+      "variants": [
+        "Qu'est-ce qu'un OAP ?",
+        "Comment définir l'œdème aigu du poumon ?",
+        "Œdème aigu du poumon : de quoi s'agit-il ?"
+      ],
       "options": [
         "L'envahissement des alvéoles par du plasma, le plus souvent par insuffisance cardiaque gauche",
         "Un caillot dans l'artère pulmonaire",
@@ -2384,6 +2482,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels facteurs peuvent déclencher un OAP chez un insuffisant cardiaque ?",
+      "variants": [
+        "Insuffisant cardiaque : qu'est-ce qui peut déclencher un OAP ?",
+        "Quels facteurs déclenchants d'OAP rechercher chez un insuffisant cardiaque ?",
+        "Parmi ces situations, lesquelles peuvent provoquer un OAP chez un insuffisant cardiaque ?"
+      ],
       "options": [
         "Poussée hypertensive",
         "Trouble du rythme",
@@ -2392,13 +2495,7 @@
         "Perfusion ou transfusion trop rapide",
         "Régime pauvre en sel bien suivi"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
+      "answer": [0, 1, 2, 3, 4],
       "explain": "Les écarts de régime et l'arrêt du traitement sont des causes fréquentes : d'où l'éducation du patient."
     },
     {
@@ -2408,6 +2505,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Quels signes évoquent un OAP ?",
+      "variants": [
+        "Quels signes cliniques font penser à un OAP ?",
+        "OAP : comment se présente le patient ?",
+        "Parmi ces signes, lesquels évoquent un œdème aigu du poumon ?"
+      ],
       "options": [
         "Essoufflement intense, le patient refuse de s'allonger",
         "Crachats mousseux rosés",
@@ -2415,12 +2517,7 @@
         "Sueurs, cyanose",
         "Douleur lombaire"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Aussi : grésillement laryngé, polypnée (au-dessus de 25/min), désaturation, tension souvent élevée."
     },
     {
@@ -2430,6 +2527,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Comment installer un patient en OAP ?",
+      "variants": [
+        "OAP : quelle installation pour le patient ?",
+        "Dans quelle position mets-tu un patient en œdème aigu du poumon ?",
+        "Comment positionner un patient qui fait un OAP ?"
+      ],
       "options": [
         "Demi-assis, voire assis jambes pendantes",
         "À plat",
@@ -2446,6 +2548,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "OAP en phase aiguë : que fais-tu en priorité ?",
+      "variants": [
+        "OAP aigu : quelles sont tes priorités ?",
+        "Patient en OAP : que fais-tu en premier ?",
+        "Phase aiguë d'un œdème aigu du poumon : quelles actions prioritaires ?"
+      ],
       "options": [
         "Appeler à l'aide, chariot d'urgence",
         "Oxygène au masque à haute concentration",
@@ -2453,12 +2560,7 @@
         "Préparer le traitement prescrit",
         "Faire boire un litre d'eau"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Objectif : SpO2 de 95 % ou plus. On reste près du patient pour le rassurer et le surveiller."
     },
     {
@@ -2468,6 +2570,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Pourquoi pas de sérum physiologique sur la voie veineuse d'un patient en OAP ?",
+      "variants": [
+        "OAP : pourquoi éviter le NaCl 0,9 % sur la voie veineuse ?",
+        "Pourquoi pas de sérum physiologique pour garder la veine d'un patient en OAP ?",
+        "Patient en OAP : quel est le problème du sérum physiologique en garde-veine ?"
+      ],
       "options": [
         "Le sel et le volume apportés aggraveraient la surcharge",
         "Il est incompatible avec le furosémide",
@@ -2484,12 +2591,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Furosémide (Lasilix) dans l'OAP : quels risques surveiller ?",
-      "options": [
-        "Hypokaliémie et hypovolémie",
-        "Hyperglycémie",
-        "Thrombopénie",
-        "Constipation"
+      "variants": [
+        "Lasilix dans un OAP : quels risques surveilles-tu ?",
+        "OAP traité par furosémide : quels effets indésirables guetter ?",
+        "Quels risques surveiller sous furosémide IV dans l'OAP ?"
       ],
+      "options": ["Hypokaliémie et hypovolémie", "Hyperglycémie", "Thrombopénie", "Constipation"],
       "answer": 0,
       "explain": "Surveillance : ionogramme, ECG, tension, diurèse."
     },
@@ -2500,6 +2607,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Dans quelle situation utilise-t-on le Risordan (dérivé nitré) dans l'OAP ?",
+      "variants": [
+        "OAP : quand le Risordan est-il indiqué ?",
+        "Dans l'OAP, quelle situation justifie un dérivé nitré comme le Risordan ?",
+        "Risordan dans l'OAP : dans quel cas l'utilise-t-on ?"
+      ],
       "options": [
         "Quand la pression artérielle est élevée",
         "Quand la pression artérielle est basse",
@@ -2516,6 +2628,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quel aspect sur la radio du thorax évoque un OAP ?",
+      "variants": [
+        "Radiographie thoracique : quel aspect évoque un OAP ?",
+        "Que montre typiquement la radio du thorax dans un OAP ?",
+        "OAP : quelle image retrouve-t-on à la radio pulmonaire ?"
+      ],
       "options": [
         "Des opacités floconneuses des deux côtés",
         "Un poumon noir sans trame (pneumothorax)",
@@ -2532,6 +2649,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Après la phase aiguë d'un OAP, pourquoi peut-on poser une sonde urinaire ?",
+      "variants": [
+        "OAP : pourquoi une sonde urinaire peut-elle être posée après la phase aiguë ?",
+        "Quel est l'intérêt d'une sonde urinaire chez un patient sorti de la phase aiguë d'un OAP ?",
+        "Sonde urinaire après un OAP : dans quel but ?"
+      ],
       "options": [
         "Pour mesurer précisément la diurèse",
         "Pour prévenir une infection",
@@ -2548,17 +2670,18 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quelles mesures évitent une récidive d'OAP ?",
+      "variants": [
+        "Comment éviter qu'un OAP ne récidive ?",
+        "Prévention des récidives d'OAP : quelles mesures ?",
+        "Quelles mesures limitent le risque d'un nouvel OAP ?"
+      ],
       "options": [
         "Régime pauvre en sel",
         "Bonne prise du traitement (diurétiques)",
         "Surveillance du poids et de la tension",
         "Repos strict au lit à vie"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "answer": [0, 1, 2],
       "explain": "On agit sur le facteur déclenchant : tension, trouble du rythme, infection, observance."
     },
     {
@@ -2568,6 +2691,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "Un OAP peut avoir une cause non cardiaque, comme une transfusion trop rapide ou une noyade.",
+      "variants": [
+        "Un OAP n'est pas toujours d'origine cardiaque : une transfusion trop rapide ou une noyade peuvent en donner un.",
+        "Une noyade ou une transfusion trop rapide peuvent provoquer un OAP non cardiaque.",
+        "L'OAP peut avoir une origine non cardiaque, par exemple une transfusion trop rapide."
+      ],
       "answer": true,
       "explain": "Vrai : aussi une atteinte virale des alvéoles (comme le Covid) ou certains cancers."
     },
@@ -2578,6 +2706,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Pourquoi une anticoagulation préventive (HBPM) chez un patient hospitalisé pour OAP ?",
+      "variants": [
+        "OAP hospitalisé : pourquoi une HBPM préventive ?",
+        "Quelle est la raison de l'anticoagulation préventive chez un patient hospitalisé pour OAP ?",
+        "Patient hospitalisé pour un OAP : pourquoi une HBPM à dose préventive ?"
+      ],
       "options": [
         "L'alitement et la stase veineuse favorisent la phlébite",
         "Pour traiter l'OAP",
@@ -2594,6 +2727,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "La BPCO se caractérise par…",
+      "variants": [
+        "Comment se définit la BPCO ?",
+        "Qu'est-ce qui caractérise la BPCO ?",
+        "BPCO : quelle est sa caractéristique principale ?"
+      ],
       "options": [
         "Une obstruction permanente et progressive des bronches",
         "Des crises entrecoupées de périodes normales",
@@ -2610,6 +2748,11 @@
       "level": 2,
       "type": "slider",
       "prompt": "Quelle part des BPCO est liée au tabac (actif ou passif) ?",
+      "variants": [
+        "Place sur le curseur la part des BPCO dues au tabac (actif ou passif).",
+        "Quel pourcentage des BPCO est attribuable au tabagisme, actif ou passif ?",
+        "BPCO et tabac : quelle proportion des cas lui est liée ?"
+      ],
       "min": 0,
       "max": 100,
       "step": 5,
@@ -2625,6 +2768,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "BPCO : quels signes ?",
+      "variants": [
+        "Quels signes cliniques évoquent une BPCO ?",
+        "BPCO : comment se manifeste-t-elle ?",
+        "Parmi ces signes, lesquels font penser à une BPCO ?"
+      ],
       "options": [
         "Toux et crachats chroniques",
         "Essoufflement progressif à l'effort",
@@ -2632,12 +2780,7 @@
         "Diminution du périmètre de marche",
         "Douleur lombaire"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "À l'auscultation : sifflements et râles bronchiques. SpO2 souvent sous 95 %."
     },
     {
@@ -2647,12 +2790,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quel examen confirme une BPCO ?",
-      "options": [
-        "La spirométrie (EFR)",
-        "L'ECG",
-        "La radiographie de l'abdomen",
-        "La glycémie"
+      "variants": [
+        "Quel examen permet d'affirmer une BPCO ?",
+        "BPCO : quel examen la confirme ?",
+        "Pour confirmer une BPCO, quel examen demande-t-on ?"
       ],
+      "options": ["La spirométrie (EFR)", "L'ECG", "La radiographie de l'abdomen", "La glycémie"],
       "answer": 0,
       "explain": "La spirométrie montre une obstruction qui ne se corrige pas complètement après un bronchodilatateur."
     },
@@ -2663,6 +2806,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "Chez un patient BPCO, l'aérosol se fait souvent à l'air plutôt qu'à l'oxygène.",
+      "variants": [
+        "Chez un patient BPCO, on nébulise souvent avec de l'air plutôt qu'avec de l'oxygène.",
+        "Pour les aérosols d'un patient BPCO, l'air est souvent préféré à l'oxygène.",
+        "Un aérosol chez un BPCO se fait souvent à l'air, pas à l'oxygène."
+      ],
       "answer": true,
       "explain": "Vrai : trop d'oxygène peut aggraver l'hypercapnie. Chez l'asthmatique, l'aérosol se fait sous O~2~, à 6 à 8 L/min, pendant 15 à 20 minutes."
     },
@@ -2673,25 +2821,18 @@
       "level": 2,
       "type": "match",
       "prompt": "Associe chaque médicament à sa famille.",
+      "variants": [
+        "Relie chaque médicament de la BPCO à sa famille.",
+        "À quelle famille appartient chaque médicament ? Forme les paires.",
+        "Fais correspondre chaque médicament avec sa classe."
+      ],
       "left": "Médicament",
       "right": "Famille",
       "pairs": [
-        [
-          "Terbutaline (Bricanyl)",
-          "Bronchodilatateur bêta-2 mimétique"
-        ],
-        [
-          "Ipratropium (Atrovent)",
-          "Bronchodilatateur anticholinergique"
-        ],
-        [
-          "Budésonide (Pulmicort)",
-          "Corticoïde inhalé"
-        ],
-        [
-          "Bétaméthasone (Célestène)",
-          "Corticoïde oral ou injectable"
-        ]
+        ["Terbutaline (Bricanyl)", "Bronchodilatateur bêta-2 mimétique"],
+        ["Ipratropium (Atrovent)", "Bronchodilatateur anticholinergique"],
+        ["Budésonide (Pulmicort)", "Corticoïde inhalé"],
+        ["Bétaméthasone (Célestène)", "Corticoïde oral ou injectable"]
       ],
       "explain": "Les bronchodilatateurs ouvrent les bronches ; les corticoïdes calment l'inflammation."
     },
@@ -2702,17 +2843,18 @@
       "level": 3,
       "type": "choice",
       "prompt": "Ipratropium (Atrovent) en nébulisation : quels effets indésirables ?",
+      "variants": [
+        "Atrovent en aérosol : quels effets indésirables connaître ?",
+        "Quels effets indésirables peut provoquer l'ipratropium nébulisé ?",
+        "Nébulisation d'ipratropium : quels effets indésirables surveiller ?"
+      ],
       "options": [
         "Sécheresse de la bouche",
         "Tachycardie",
         "Crise de glaucome par fermeture de l'angle, mydriase",
         "Hypoglycémie"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "answer": [0, 1, 2],
       "explain": "Bien ajuster le masque pour éviter que l'aérosol n'atteigne les yeux."
     },
     {
@@ -2722,19 +2864,13 @@
       "level": 2,
       "type": "choice",
       "prompt": "Aérosols de terbutaline répétés : que surveilles-tu ?",
-      "options": [
-        "Fréquence cardiaque",
-        "Kaliémie",
-        "Glycémie",
-        "Tremblements",
-        "INR"
+      "variants": [
+        "Patient qui reçoit plusieurs aérosols de terbutaline : quelles surveillances ?",
+        "Terbutaline en nébulisations répétées : que surveiller ?",
+        "Quels paramètres suivre lors d'aérosols répétés de terbutaline ?"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "options": ["Fréquence cardiaque", "Kaliémie", "Glycémie", "Tremblements", "INR"],
+      "answer": [0, 1, 2, 3],
       "explain": "Effets : tremblements, tachycardie, palpitations, hypokaliémie, modification de la glycémie."
     },
     {
@@ -2744,6 +2880,11 @@
       "level": 3,
       "type": "truefalse",
       "prompt": "La terbutaline en nébulisation peut servir à faire baisser une hyperkaliémie.",
+      "variants": [
+        "Nébulisée, la terbutaline peut aider à corriger une hyperkaliémie.",
+        "Un aérosol de terbutaline fait baisser la kaliémie et peut servir dans une hyperkaliémie.",
+        "La terbutaline en aérosol peut être utilisée pour faire baisser le potassium."
+      ],
       "answer": true,
       "explain": "Vrai : à forte dose (10 à 20 mg, sous air), elle fait entrer le potassium dans les cellules. Baisse d'environ 1 mmol/L en 1 heure."
     },
@@ -2754,6 +2895,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Rôle préventif de l'IDE auprès d'un patient BPCO ?",
+      "variants": [
+        "Patient BPCO : quel est le rôle de prévention de l'IDE ?",
+        "Que fait l'IDE en prévention auprès d'un patient BPCO ?",
+        "BPCO : quelles actions préventives relèvent de l'IDE ?"
+      ],
       "options": [
         "Aide à l'arrêt du tabac",
         "Vaccination contre la grippe",
@@ -2761,12 +2907,7 @@
         "Équilibre alimentaire, activité adaptée",
         "Arrêt de toute activité physique"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Les rôles de l'IDE : préventif, curatif (aérosols, soins, antibiotiques si surinfection) et relationnel."
     },
     {
@@ -2776,6 +2917,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Patient BPCO qui interrompt son traitement et se montre agressif : quelle attitude ?",
+      "variants": [
+        "Ton patient BPCO arrête son traitement et devient agressif. Comment réagis-tu ?",
+        "BPCO, patient agressif qui refuse son traitement : quelle attitude adopter ?",
+        "Patient BPCO agressif qui abandonne son traitement : que fais-tu ?"
+      ],
       "options": [
         "Écoute active et négociation",
         "Menacer d'arrêter les soins",
@@ -2792,6 +2938,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "L'asthme est une maladie respiratoire chronique dite…",
+      "variants": [
+        "L'asthme est une maladie respiratoire chronique : est-elle inspiratoire ou expiratoire ?",
+        "Asthme : comment qualifie-t-on la gêne respiratoire ?",
+        "Dans l'asthme, quel temps de la respiration est gêné ?"
+      ],
       "options": [
         "Expiratoire : l'air a du mal à sortir",
         "Inspiratoire : l'air a du mal à entrer",
@@ -2808,12 +2959,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Combien de personnes environ sont touchées par l'asthme en France ?",
-      "options": [
-        "Plus de 4 millions",
-        "Environ 10 000",
-        "Environ 100 000",
-        "Plus de 30 millions"
+      "variants": [
+        "Environ combien de Français sont asthmatiques ?",
+        "Asthme en France : combien de personnes sont concernées ?",
+        "Quelle est, à peu près, la population asthmatique en France ?"
       ],
+      "options": ["Plus de 4 millions", "Environ 10 000", "Environ 100 000", "Plus de 30 millions"],
       "answer": 0,
       "shuffle": false,
       "explain": "Plus de 4 millions : c'est une maladie chronique très fréquente."
@@ -2825,17 +2976,18 @@
       "level": 2,
       "type": "choice",
       "prompt": "Pendant une crise d'asthme, que se passe-t-il dans les bronches ?",
+      "variants": [
+        "Que se passe-t-il au niveau des bronches lors d'une crise d'asthme ?",
+        "Crise d'asthme : quels phénomènes touchent les bronches ?",
+        "Quels mécanismes rétrécissent les bronches pendant une crise d'asthme ?"
+      ],
       "options": [
         "Contraction des muscles lisses (bronchoconstriction)",
         "Inflammation de la muqueuse",
         "Production de mucus",
         "Dilatation des bronches"
       ],
-      "answer": [
-        0,
-        1,
-        2
-      ],
+      "answer": [0, 1, 2],
       "explain": "Contraction des muscles lisses + inflammation de la muqueuse + mucus = passage de l'air difficile."
     },
     {
@@ -2845,6 +2997,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Quels signes évoquent une crise d'asthme ?",
+      "variants": [
+        "Quels signes cliniques évoquent une crise d'asthme ?",
+        "Crise d'asthme : comment se manifeste-t-elle ?",
+        "Parmi ces signes, lesquels font penser à une crise d'asthme ?"
+      ],
       "options": [
         "Essoufflement",
         "Respiration sifflante",
@@ -2852,12 +3009,7 @@
         "Sensation d'oppression",
         "Crachats mousseux rosés"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Les crachats mousseux rosés évoquent plutôt un OAP."
     },
     {
@@ -2867,6 +3019,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Quels sont des facteurs déclenchants d'une crise d'asthme ?",
+      "variants": [
+        "Qu'est-ce qui peut déclencher une crise d'asthme ?",
+        "Crise d'asthme : quels facteurs déclenchants ?",
+        "Parmi ces facteurs, lesquels peuvent provoquer une crise d'asthme ?"
+      ],
       "options": [
         "Infection virale",
         "Allergènes (pollens, acariens…)",
@@ -2875,13 +3032,7 @@
         "Bêtabloquants, même en collyre",
         "Le sommeil"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
+      "answer": [0, 1, 2, 3, 4],
       "explain": "Aussi : stress, variations hormonales, mauvaise connaissance de la maladie."
     },
     {
@@ -2891,6 +3042,11 @@
       "level": 3,
       "type": "choice",
       "prompt": "Quels signes font d'une crise d'asthme une crise grave ?",
+      "variants": [
+        "Crise d'asthme : quels signes doivent t'alerter sur sa gravité ?",
+        "Quels critères font qu'une crise d'asthme est grave ?",
+        "Parmi ces signes, lesquels traduisent une crise d'asthme grave ?"
+      ],
       "options": [
         "Difficulté à parler ou à tousser",
         "Fréquence respiratoire de 30/min ou plus",
@@ -2898,12 +3054,7 @@
         "Agitation, sueurs, cyanose",
         "Toux sèche isolée"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Aussi : crise inhabituelle ou qui s'aggrave vite, orthopnée, signes de lutte (tirage)."
     },
     {
@@ -2913,6 +3064,11 @@
       "level": 3,
       "type": "truefalse",
       "prompt": "Pendant une crise d'asthme, une PaCO~2~ normale est un signe rassurant.",
+      "variants": [
+        "Une PaCO~2~ normale pendant une crise d'asthme est rassurante.",
+        "Crise d'asthme : avec une PaCO~2~ normale, on peut être serein.",
+        "Si la PaCO~2~ est normale en pleine crise d'asthme, la situation n'est pas grave."
+      ],
       "answer": false,
       "explain": "Faux : en crise, le patient hyperventile et sa PaCO2 devrait être basse. Normale ou élevée, elle traduit un épuisement : signe de gravité."
     },
@@ -2923,6 +3079,11 @@
       "level": 1,
       "type": "choice",
       "prompt": "Crise d'asthme grave : quelle prise en charge immédiate ?",
+      "variants": [
+        "Asthme aigu grave : que fais-tu tout de suite ?",
+        "Crise d'asthme grave : quels soins immédiats ?",
+        "Quelle prise en charge immédiate devant une crise d'asthme grave ?"
+      ],
       "options": [
         "Demi-assis, oxygène, bêta-2 mimétiques en nébulisation, corticoïdes",
         "Allongé à plat, sédatif",
@@ -2939,6 +3100,11 @@
       "level": 2,
       "type": "number",
       "prompt": "Asthme aigu grave : un aérosol de terbutaline toutes les 20 minutes. Combien d'aérosols dans la première heure ?",
+      "variants": [
+        "Asthme aigu grave, terbutaline nébulisée toutes les 20 minutes : combien d'aérosols en une heure ?",
+        "Un aérosol de terbutaline toutes les 20 minutes la première heure : combien en tout ?",
+        "Combien d'aérosols de terbutaline fais-tu dans la première heure, s'ils sont espacés de 20 minutes ?"
+      ],
       "answer": 3,
       "explain": "3 nébulisations dans l'heure. Dose chez l'adulte : 5 mg de terbutaline par aérosol."
     },
@@ -2949,12 +3115,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Asthme aigu grave : à quoi associe-t-on la terbutaline dans le premier aérosol ?",
-      "options": [
-        "L'ipratropium (Atrovent)",
-        "Le furosémide",
-        "L'héparine",
-        "La morphine"
+      "variants": [
+        "Premier aérosol d'un asthme aigu grave : quel médicament associe-t-on à la terbutaline ?",
+        "Asthme aigu grave : la terbutaline du premier aérosol est associée à quoi ?",
+        "Avec quoi mélange-t-on la terbutaline dans le premier aérosol d'un asthme aigu grave ?"
       ],
+      "options": ["L'ipratropium (Atrovent)", "Le furosémide", "L'héparine", "La morphine"],
       "answer": 0,
       "explain": "Ipratropium dans le premier aérosol seulement, puis terbutaline seule dans les suivants."
     },
@@ -2965,6 +3131,11 @@
       "level": 2,
       "type": "choice",
       "prompt": "Éducation thérapeutique de l'asthmatique : sur quoi porte-t-elle ?",
+      "variants": [
+        "Sur quoi porte l'éducation thérapeutique d'un patient asthmatique ?",
+        "Asthme : quels thèmes aborder en éducation thérapeutique ?",
+        "Éducation du patient asthmatique : quels objectifs ?"
+      ],
       "options": [
         "Comprendre la maladie",
         "Distinguer traitement de fond et traitement de crise",
@@ -2972,12 +3143,7 @@
         "Garder une activité physique adaptée",
         "Arrêter le traitement de fond quand tout va bien"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "answer": [0, 1, 2, 3],
       "explain": "Le traitement de fond se poursuit même quand tout va bien."
     }
   ]

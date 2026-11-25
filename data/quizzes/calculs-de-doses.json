@@ -7,24 +7,18 @@
   "shelf": "S4",
   "color": "c2",
   "description": "Débits de perfusion, pousse-seringue, dilutions et conversions : les calculs à maîtriser avant le partiel et en stage. Prends un brouillon.",
-  "tags": [
-    "calcul",
-    "débit",
-    "perfusion",
-    "gouttes",
-    "PSE",
-    "dilution",
-    "conversion",
-    "pédiatrie"
-  ],
-  "time": {
-    "number": 90
-  },
+  "tags": ["calcul", "débit", "perfusion", "gouttes", "PSE", "dilution", "conversion", "pédiatrie"],
+  "time": {"number": 90},
   "questions": [
     {
       "level": 2,
       "type": "number",
       "prompt": "Prescription : 1 000 mL de NaCl 0,9 % à passer en 8 h, avec un perfuseur standard (1 mL = 20 gouttes). Quel débit en gouttes par minute ?",
+      "variants": [
+        "Perfuseur standard (1 mL = 20 gouttes) : 1 000 mL de NaCl 0,9 % sur 8 h. Combien de gouttes par minute ?",
+        "Tu dois passer 1 000 mL de NaCl 0,9 % en 8 heures avec un perfuseur classique (20 gouttes/mL). Débit en gouttes/min ?",
+        "NaCl 0,9 % : 1 L en 8 h, perfuseur à 20 gouttes par mL. Quel débit régler, en gouttes par minute ?"
+      ],
       "answer": 41.67,
       "tolerance": 1,
       "unit": "gouttes/min",
@@ -35,6 +29,11 @@
       "level": 1,
       "type": "number",
       "prompt": "Prescription : 1 000 mL de NaCl 0,9 % à passer en 8 h, avec une pompe volumétrique. Quel débit en mL/h ?",
+      "variants": [
+        "Pompe volumétrique : 1 000 mL de NaCl 0,9 % sur 8 h. Combien de mL par heure ?",
+        "Tu passes 1 000 mL de NaCl 0,9 % en 8 heures à la pompe. Quel débit programmer ?",
+        "NaCl 0,9 % : 1 L en 8 h sur pompe volumétrique. Débit en mL/h ?"
+      ],
       "answer": 125,
       "unit": "mL/h",
       "explain": "1 000 ÷ 8 = 125 mL/h."
@@ -43,6 +42,11 @@
       "level": 2,
       "type": "number",
       "prompt": "Amoxicilline : 750 mg prescrits. Flacon de 1 g à reconstituer dans 20 mL (on considère que la poudre ne change pas le volume). Quel volume prélever ?",
+      "variants": [
+        "Flacon d'amoxicilline de 1 g dilué dans 20 mL (la poudre ne change pas le volume). Pour 750 mg, combien de mL prélever ?",
+        "Prescription : amoxicilline 750 mg. Tu reconstitues un flacon de 1 g dans 20 mL. Quel volume prélèves-tu ?",
+        "Amoxicilline 1 g dans 20 mL après reconstitution (volume de la poudre négligé) : volume pour 750 mg ?"
+      ],
       "answer": 15,
       "unit": "mL",
       "explain": "1 g = 1 000 mg dans 20 mL, soit 50 mg/mL. 750 ÷ 50 = 15 mL."
@@ -51,6 +55,11 @@
       "level": 1,
       "type": "number",
       "prompt": "Combien de grammes de NaCl contient une poche de 500 mL de NaCl 0,9 % ?",
+      "variants": [
+        "Poche de NaCl 0,9 % de 500 mL : combien de grammes de sel contient-elle ?",
+        "Quelle quantité de NaCl, en grammes, dans 500 mL de sérum physiologique à 0,9 % ?",
+        "NaCl 0,9 %, poche de 500 mL : masse de NaCl en grammes ?"
+      ],
       "answer": 4.5,
       "unit": "g",
       "explain": "0,9 % = 0,9 g pour 100 mL. Pour 500 mL : 0,9 × 5 = 4,5 g."
@@ -59,6 +68,11 @@
       "level": 2,
       "type": "number",
       "prompt": "Une ampoule de 10 mL de KCl à 10 % contient combien de grammes de KCl ?",
+      "variants": [
+        "KCl à 10 %, ampoule de 10 mL : combien de grammes de KCl ?",
+        "Quelle quantité de chlorure de potassium contient une ampoule de 10 mL de KCl à 10 % ?",
+        "Ampoule de 10 mL de KCl à 10 % : masse de KCl en grammes ?"
+      ],
       "answer": 1,
       "unit": "g",
       "explain": "10 % = 10 g pour 100 mL, donc 1 g dans 10 mL. Rappel : le KCl ne s'injecte jamais en IV directe, il est toujours dilué."
@@ -67,12 +81,12 @@
       "level": 1,
       "type": "choice",
       "prompt": "Une poche de 500 mL de G5 % contient :",
-      "options": [
-        "25 g de glucose",
-        "5 g de glucose",
-        "50 g de glucose",
-        "2,5 g de glucose"
+      "variants": [
+        "Combien de glucose y a-t-il dans 500 mL de G5 % ?",
+        "Poche de glucosé à 5 % de 500 mL : quelle quantité de glucose ?",
+        "Quelle masse de glucose apporte une poche de 500 mL de G5 % ?"
       ],
+      "options": ["25 g de glucose", "5 g de glucose", "50 g de glucose", "2,5 g de glucose"],
       "answer": 0,
       "explain": "5 % = 5 g pour 100 mL, donc 25 g dans 500 mL."
     },
@@ -80,6 +94,11 @@
       "level": 2,
       "type": "number",
       "prompt": "Seringue de 50 mL contenant 50 mg de furosémide (complétée avec du NaCl 0,9 %). Prescription : 5 mg/h. Quel débit pour le pousse-seringue ?",
+      "variants": [
+        "Pousse-seringue : 50 mg de furosémide dans une seringue de 50 mL (complétée au NaCl 0,9 %). Pour 5 mg/h, quel débit ?",
+        "Furosémide 50 mg dans 50 mL, prescription de 5 mg/h : vitesse du pousse-seringue en mL/h ?",
+        "Seringue de furosémide à 50 mg pour 50 mL. Prescrit : 5 mg par heure. Débit à régler ?"
+      ],
       "answer": 5,
       "unit": "mL/h",
       "explain": "Concentration : 50 mg ÷ 50 mL = 1 mg/mL. Pour 5 mg/h, il faut 5 mL/h."
@@ -88,6 +107,11 @@
       "level": 1,
       "type": "number",
       "prompt": "Enfant de 18 kg. Paracétamol prescrit à 15 mg/kg par prise. Quelle dose par prise ?",
+      "variants": [
+        "Paracétamol à 15 mg/kg par prise chez un enfant de 18 kg : quelle dose par prise ?",
+        "Enfant de 18 kg, paracétamol 15 mg/kg : combien de mg par prise ?",
+        "Quelle dose de paracétamol par prise pour un enfant de 18 kg, à raison de 15 mg/kg ?"
+      ],
       "answer": 270,
       "unit": "mg",
       "explain": "18 × 15 = 270 mg par prise. Dose usuelle : 15 mg/kg toutes les 6 h, sans dépasser 60 mg/kg par jour."
@@ -96,6 +120,7 @@
       "level": 1,
       "type": "number",
       "prompt": "Convertis 0,25 mg en microgrammes.",
+      "variants": ["0,25 mg, c'est combien de microgrammes ?", "Combien de µg dans 0,25 mg ?", "Exprime 0,25 mg en µg."],
       "answer": 250,
       "unit": "µg",
       "explain": "1 mg = 1 000 µg, donc 0,25 mg = 250 µg."
@@ -104,6 +129,11 @@
       "level": 2,
       "type": "number",
       "prompt": "Héparine : flacon de 25 000 UI dans 5 mL. Quel volume prélever pour 5 000 UI ?",
+      "variants": [
+        "Pour 5 000 UI d'héparine, combien de mL prélever dans un flacon de 25 000 UI/5 mL ?",
+        "Flacon d'héparine à 25 000 UI pour 5 mL. Quel volume pour 5 000 UI ?",
+        "Héparine 25 000 UI/5 mL : volume correspondant à 5 000 UI ?"
+      ],
       "answer": 1,
       "unit": "mL",
       "explain": "25 000 UI ÷ 5 mL = 5 000 UI/mL, donc 1 mL."
@@ -112,6 +142,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "Avec un perfuseur de précision (microgouttes), 1 mL correspond à 60 gouttes.",
+      "variants": [
+        "Un perfuseur de précision délivre 60 gouttes par mL.",
+        "Avec un perfuseur à microgouttes, il faut 60 gouttes pour faire 1 mL.",
+        "Perfuseur de précision : 1 mL = 60 gouttes."
+      ],
       "answer": true,
       "explain": "Vrai. Perfuseur standard : 20 gouttes/mL. Perfuseur de précision : 60 microgouttes/mL. Astuce : avec 60 microgouttes/mL, le débit en microgouttes/min est égal au débit en mL/h."
     },
@@ -119,6 +154,11 @@
       "level": 1,
       "type": "slider",
       "prompt": "Quel débit pour passer 1 500 mL en 24 h ?",
+      "variants": [
+        "Place sur le curseur le débit pour perfuser 1 500 mL en 24 heures.",
+        "1 500 mL à passer sur 24 h : combien de mL par heure ?",
+        "Quel débit horaire pour une perfusion de 1 500 mL sur 24 h ?"
+      ],
       "min": 0,
       "max": 150,
       "step": 0.5,

@@ -7,29 +7,21 @@
   "shelf": "fond",
   "color": "c5",
   "description": "Place les bornes sur le curseur : constantes vitales et valeurs biologiques à connaître pour repérer une anomalie. Les seuils peuvent varier légèrement selon les laboratoires.",
-  "tags": [
-    "constantes",
-    "biologie",
-    "kaliémie",
-    "natrémie",
-    "glycémie",
-    "SpO2",
-    "plaquettes",
-    "INR",
-    "normes"
-  ],
+  "tags": ["constantes", "biologie", "kaliémie", "natrémie", "glycémie", "SpO2", "plaquettes", "INR", "normes"],
   "questions": [
     {
       "level": 1,
       "type": "range",
       "prompt": "Kaliémie normale",
+      "variants": [
+        "Place la fourchette normale de la kaliémie.",
+        "Entre quelles valeurs se situe une kaliémie normale ?",
+        "Potassium sanguin : quelle est la fourchette normale ?"
+      ],
       "min": 2,
       "max": 7,
       "step": 0.1,
-      "answer": [
-        3.5,
-        5.0
-      ],
+      "answer": [3.5, 5.0],
       "tolerance": 0.2,
       "unit": "mmol/L",
       "explain": "En dessous, hypokaliémie ; au-dessus, hyperkaliémie. Dans les deux cas le risque principal est cardiaque (troubles du rythme) : ECG et surveillance rapprochée."
@@ -38,13 +30,15 @@
       "level": 1,
       "type": "range",
       "prompt": "Natrémie normale",
+      "variants": [
+        "Place la fourchette normale de la natrémie.",
+        "Entre quelles valeurs se situe une natrémie normale ?",
+        "Sodium sanguin : quelle est la fourchette normale ?"
+      ],
       "min": 120,
       "max": 160,
       "step": 1,
-      "answer": [
-        135,
-        145
-      ],
+      "answer": [135, 145],
       "tolerance": 2,
       "unit": "mmol/L",
       "explain": "Une hyponatrémie (sous 135) peut donner confusion, nausées, voire convulsions si elle est profonde. Une hypernatrémie (au-dessus de 145) traduit souvent une déshydratation."
@@ -53,13 +47,15 @@
       "level": 2,
       "type": "range",
       "prompt": "Glycémie à jeun normale",
+      "variants": [
+        "Place la fourchette normale de la glycémie à jeun.",
+        "Entre quelles valeurs se situe une glycémie à jeun normale ?",
+        "Glycémie à jeun : quelle est la fourchette normale ?"
+      ],
       "min": 0.4,
       "max": 2,
       "step": 0.01,
-      "answer": [
-        0.7,
-        1.1
-      ],
+      "answer": [0.7, 1.1],
       "tolerance": 0.05,
       "unit": "g/L",
       "explain": "Soit environ 3,9 à 6,1 mmol/L. Diabète si la glycémie à jeun atteint 1,26 g/L ou plus à deux reprises. Chez le patient diabétique, on parle d'hypoglycémie sous 0,70 g/L."
@@ -68,13 +64,15 @@
       "level": 1,
       "type": "range",
       "prompt": "Fréquence cardiaque de l'adulte au repos",
+      "variants": [
+        "Place la fourchette normale du pouls d'un adulte au repos.",
+        "Entre quelles valeurs se situe la fréquence cardiaque normale d'un adulte au repos ?",
+        "Adulte au repos : quelle fréquence cardiaque est normale ?"
+      ],
       "min": 30,
       "max": 160,
       "step": 1,
-      "answer": [
-        60,
-        100
-      ],
+      "answer": [60, 100],
       "tolerance": 5,
       "unit": "bpm",
       "explain": "Bradycardie sous 60, tachycardie au-dessus de 100 battements par minute, au repos."
@@ -83,13 +81,15 @@
       "level": 2,
       "type": "range",
       "prompt": "Fréquence respiratoire de l'adulte au repos",
+      "variants": [
+        "Place la fourchette normale de la fréquence respiratoire d'un adulte au repos.",
+        "Entre quelles valeurs se situe la fréquence respiratoire normale d'un adulte au repos ?",
+        "Adulte au repos : combien de cycles respiratoires par minute est normal ?"
+      ],
       "min": 5,
       "max": 40,
       "step": 1,
-      "answer": [
-        12,
-        20
-      ],
+      "answer": [12, 20],
       "tolerance": 2,
       "unit": "/min",
       "explain": "Une fréquence respiratoire au-dessus de 20 (polypnée) est un signe d'alerte précoce, souvent oublié dans la surveillance."
@@ -98,6 +98,11 @@
       "level": 1,
       "type": "slider",
       "prompt": "SpO~2~ normale chez l'adulte sain : au moins…",
+      "variants": [
+        "Adulte en bonne santé : quelle SpO~2~ minimale est normale ?",
+        "Place sur le curseur la saturation minimale normale d'un adulte sain.",
+        "Chez l'adulte sain, la SpO~2~ est normale à partir de…"
+      ],
       "min": 80,
       "max": 100,
       "step": 1,
@@ -110,6 +115,11 @@
       "level": 3,
       "type": "truefalse",
       "prompt": "Chez un patient BPCO à risque d'hypercapnie, la cible de SpO~2~ est souvent de 88 à 92 %.",
+      "variants": [
+        "BPCO avec risque d'hypercapnie : on vise souvent une SpO~2~ entre 88 et 92 %.",
+        "Pour un patient BPCO qui risque l'hypercapnie, la saturation cible est souvent de 88 à 92 %.",
+        "Chez le BPCO à risque d'hypercapnie, une SpO~2~ de 88 à 92 % est souvent l'objectif."
+      ],
       "answer": true,
       "explain": "Vrai. Une oxygénation trop généreuse peut aggraver l'hypercapnie chez ces patients. La cible est fixée par le médecin."
     },
@@ -117,13 +127,15 @@
       "level": 2,
       "type": "range",
       "prompt": "Hémoglobine normale chez la femme adulte",
+      "variants": [
+        "Place la fourchette normale de l'hémoglobine chez la femme adulte.",
+        "Femme adulte : entre quelles valeurs se situe une hémoglobine normale ?",
+        "Hémoglobine de la femme adulte : quelle est la fourchette normale ?"
+      ],
       "min": 8,
       "max": 20,
       "step": 0.5,
-      "answer": [
-        12,
-        16
-      ],
+      "answer": [12, 16],
       "tolerance": 0.5,
       "unit": "g/dL",
       "explain": "Chez l'homme : environ 13 à 17 g/dL. En dessous, on parle d'anémie."
@@ -132,13 +144,15 @@
       "level": 2,
       "type": "range",
       "prompt": "Plaquettes",
+      "variants": [
+        "Place la fourchette normale des plaquettes.",
+        "Entre quelles valeurs se situe un taux de plaquettes normal ?",
+        "Numération plaquettaire : quelle est la fourchette normale ?"
+      ],
       "min": 0,
       "max": 600,
       "step": 10,
-      "answer": [
-        150,
-        400
-      ],
+      "answer": [150, 400],
       "tolerance": 20,
       "unit": "G/L",
       "explain": "150 à 400 G/L, soit 150 000 à 400 000 par mm³. En dessous de 150 G/L, on parle de thrombopénie ; le risque hémorragique devient important sous 50 G/L."
@@ -147,13 +161,15 @@
       "level": 2,
       "type": "range",
       "prompt": "Leucocytes (globules blancs)",
+      "variants": [
+        "Place la fourchette normale des leucocytes.",
+        "Entre quelles valeurs se situe un taux de globules blancs normal ?",
+        "Numération des leucocytes : quelle est la fourchette normale ?"
+      ],
       "min": 0,
       "max": 20,
       "step": 0.5,
-      "answer": [
-        4,
-        10
-      ],
+      "answer": [4, 10],
       "tolerance": 0.5,
       "unit": "G/L",
       "explain": "4 à 10 G/L, soit 4 000 à 10 000 par mm³. Hyperleucocytose au-dessus, leucopénie en dessous."
@@ -162,13 +178,15 @@
       "level": 1,
       "type": "range",
       "prompt": "Température corporelle normale",
+      "variants": [
+        "Place la fourchette normale de la température corporelle.",
+        "Entre quelles valeurs se situe une température corporelle normale ?",
+        "Température du corps : quelle est la fourchette normale ?"
+      ],
       "min": 34,
       "max": 42,
       "step": 0.1,
-      "answer": [
-        36.5,
-        37.5
-      ],
+      "answer": [36.5, 37.5],
       "tolerance": 0.3,
       "unit": "°C",
       "explain": "Fièvre à partir de 38 °C au repos ; hypothermie sous 35 °C."
@@ -177,12 +195,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "INR cible habituel chez un patient sous AVK pour une fibrillation atriale :",
-      "options": [
-        "Entre 2 et 3",
-        "Entre 1 et 1,5",
-        "Entre 3 et 4,5",
-        "Inférieur à 1"
+      "variants": [
+        "Fibrillation atriale sous AVK : quel INR vise-t-on en général ?",
+        "Patient sous AVK pour une FA : dans quelle zone d'INR doit-il se situer ?",
+        "AVK prescrit pour une fibrillation atriale : quel INR cible habituel ?"
       ],
+      "options": ["Entre 2 et 3", "Entre 1 et 1,5", "Entre 3 et 4,5", "Inférieur à 1"],
       "answer": 0,
       "explain": "Sans traitement, l'INR est proche de 1. Sous AVK la cible est en général de 2 à 3 (2,5 à 3,5 pour certaines valves mécaniques). Au-dessus de la cible, le risque hémorragique augmente."
     }

@@ -7,39 +7,30 @@
   "shelf": "S3",
   "color": "c5",
   "description": "De la réaction inflammatoire au sepsis : reconnaître, prélever, surveiller.",
-  "tags": [
-    "inflammation",
-    "infection",
-    "CRP",
-    "sepsis",
-    "hémoculture",
-    "vaccin",
-    "antibiotique"
-  ],
+  "tags": ["inflammation", "infection", "CRP", "sepsis", "hémoculture", "vaccin", "antibiotique"],
   "questions": [
     {
       "level": 1,
       "type": "choice",
       "prompt": "Quels sont les signes cardinaux de l'inflammation ?",
-      "options": [
-        "Rougeur",
-        "Chaleur",
-        "Douleur",
-        "Œdème (tuméfaction)",
-        "Cyanose"
+      "variants": [
+        "Quels signes caractérisent l'inflammation ?",
+        "Inflammation : quels sont ses signes cardinaux ?",
+        "Parmi ces signes, lesquels sont les signes cardinaux de l'inflammation ?"
       ],
-      "answer": [
-        0,
-        1,
-        2,
-        3
-      ],
+      "options": ["Rougeur", "Chaleur", "Douleur", "Œdème (tuméfaction)", "Cyanose"],
+      "answer": [0, 1, 2, 3],
       "explain": "Rougeur, chaleur, douleur et tuméfaction (les 4 signes de Celse), auxquels on ajoute souvent l'impotence fonctionnelle. Ils s'expliquent par la vasodilatation et l'augmentation de la perméabilité des capillaires."
     },
     {
       "level": 2,
       "type": "order",
       "prompt": "Remets dans l'ordre les étapes de la réaction inflammatoire aiguë.",
+      "variants": [
+        "Classe les étapes de la réaction inflammatoire aiguë dans l'ordre.",
+        "Comment se déroule la réaction inflammatoire aiguë ? Ordonne les étapes.",
+        "Réaction inflammatoire aiguë : remets ses étapes dans le bon ordre."
+      ],
       "items": [
         "Vasodilatation locale",
         "Augmentation de la perméabilité des capillaires (œdème)",
@@ -53,25 +44,18 @@
       "level": 1,
       "type": "match",
       "prompt": "Associe chaque micro-organisme à sa catégorie.",
+      "variants": [
+        "Relie chaque micro-organisme à sa catégorie.",
+        "Bactérie, virus, champignon ou parasite ? Forme les paires.",
+        "Fais correspondre chaque micro-organisme avec son type."
+      ],
       "left": "Micro-organisme",
       "right": "Catégorie",
       "pairs": [
-        [
-          "*Staphylococcus aureus*",
-          "Bactérie"
-        ],
-        [
-          "*Candida albicans*",
-          "Champignon (levure)"
-        ],
-        [
-          "Virus de la grippe",
-          "Virus"
-        ],
-        [
-          "*Plasmodium* (paludisme)",
-          "Parasite"
-        ]
+        ["*Staphylococcus aureus*", "Bactérie"],
+        ["*Candida albicans*", "Champignon (levure)"],
+        ["Virus de la grippe", "Virus"],
+        ["*Plasmodium* (paludisme)", "Parasite"]
       ],
       "explain": "Ça compte pour le traitement : les antibiotiques n'agissent que sur les bactéries. Pour les autres, on utilise des antifongiques, des antiviraux ou des antiparasitaires."
     },
@@ -79,12 +63,12 @@
       "level": 1,
       "type": "choice",
       "prompt": "Les antibiotiques sont efficaces contre :",
-      "options": [
-        "Les bactéries",
-        "Les virus",
-        "Les bactéries et les virus",
-        "Tous les micro-organismes"
+      "variants": [
+        "Contre quoi les antibiotiques agissent-ils ?",
+        "Sur quel type de germe les antibiotiques sont-ils efficaces ?",
+        "Un antibiotique est actif contre…"
       ],
+      "options": ["Les bactéries", "Les virus", "Les bactéries et les virus", "Tous les micro-organismes"],
       "answer": 0,
       "explain": "Inutiles contre une infection virale (rhume, grippe), ils favorisent alors l'apparition de bactéries résistantes."
     },
@@ -92,6 +76,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "La CRP est un marqueur d'inflammation non spécifique : elle augmente quelle que soit la cause de l'inflammation.",
+      "variants": [
+        "La CRP s'élève dans toute inflammation, quelle qu'en soit la cause.",
+        "Marqueur non spécifique, la CRP augmente quelle que soit l'origine de l'inflammation.",
+        "Une CRP élevée signale une inflammation sans en indiquer la cause."
+      ],
       "answer": true,
       "explain": "Vrai. La CRP monte en quelques heures (pic vers 48 h). Elle aide à suivre l'évolution d'une infection sous traitement, mais n'en indique pas la cause."
     },
@@ -99,12 +88,12 @@
       "level": 2,
       "type": "choice",
       "prompt": "Une CRP normale est en général :",
-      "options": [
-        "Inférieure à 5 mg/L",
-        "Inférieure à 50 mg/L",
-        "Entre 50 et 100 mg/L",
-        "Supérieure à 100 mg/L"
+      "variants": [
+        "Quelle est la valeur habituelle d'une CRP normale ?",
+        "CRP normale : en dessous de quelle valeur ?",
+        "En général, une CRP est normale quand elle est…"
       ],
+      "options": ["Inférieure à 5 mg/L", "Inférieure à 50 mg/L", "Entre 50 et 100 mg/L", "Supérieure à 100 mg/L"],
       "answer": 0,
       "shuffle": false,
       "explain": "Le seuil varie un peu selon les laboratoires (de 5 à 10 mg/L)."
@@ -113,6 +102,11 @@
       "level": 1,
       "type": "slider",
       "prompt": "À partir de quelle température parle-t-on de fièvre chez l'adulte au repos ?",
+      "variants": [
+        "Adulte au repos : à partir de quelle température parle-t-on de fièvre ?",
+        "Place sur le curseur le seuil de la fièvre chez l'adulte au repos.",
+        "Quel est le seuil de température qui définit la fièvre chez l'adulte au repos ?"
+      ],
       "min": 36,
       "max": 41,
       "step": 0.1,
@@ -125,15 +119,23 @@
       "level": 2,
       "type": "text",
       "prompt": "Dysfonction d'organe menaçant la vie, causée par une réponse inappropriée de l'organisme à une infection : c'est le…",
-      "answers": [
-        "sepsis"
+      "variants": [
+        "Réponse inadaptée de l'organisme à une infection, avec une dysfonction d'organe menaçant la vie : comment l'appelle-t-on ?",
+        "Comment nomme-t-on une infection qui entraîne une défaillance d'organe menaçant la vie ?",
+        "Infection + réponse inappropriée de l'organisme + dysfonction d'organe menaçant la vie = ?"
       ],
+      "answers": ["sepsis"],
       "explain": "Le sepsis est une urgence : chaque heure de retard d'antibiothérapie aggrave le pronostic. On parle de choc septique quand l'hypotension persiste malgré le remplissage et nécessite des vasopresseurs, avec des lactates au-dessus de 2 mmol/L."
     },
     {
       "level": 2,
       "type": "choice",
       "prompt": "Quand prélever des hémocultures ?",
+      "variants": [
+        "À quel moment faut-il prélever les hémocultures ?",
+        "Hémocultures : quand les réaliser ?",
+        "Quel est le bon moment pour prélever des hémocultures ?"
+      ],
       "options": [
         "Avant toute antibiothérapie, idéalement lors d'un pic de fièvre ou de frissons",
         "Juste après la première dose d'antibiotique",
@@ -147,6 +149,11 @@
       "level": 2,
       "type": "truefalse",
       "prompt": "Un vaccin apporte une immunité active, alors qu'un sérum (immunoglobulines) apporte une immunité passive.",
+      "variants": [
+        "Le vaccin donne une immunité active ; le sérum (immunoglobulines), une immunité passive.",
+        "Immunité active avec un vaccin, immunité passive avec un sérum.",
+        "Un sérum apporte une immunité passive, un vaccin une immunité active."
+      ],
       "answer": true,
       "explain": "Vrai. Le vaccin fait fabriquer ses propres anticorps : protection durable, mais pas immédiate. Le sérum apporte des anticorps tout faits : protection immédiate, mais temporaire."
     }

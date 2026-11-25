@@ -1,7 +1,7 @@
 # Quizzoni
 
 Site de révision pour les étudiants infirmiers de 2e année (IFSI de Bastia).
-Quiz courts, 10 types de questions, 3 thèmes avec leurs propres sons, progression enregistrée dans le navigateur.
+Quiz courts, 13 types de questions, 4 thèmes avec leurs propres sons, progression enregistrée dans le navigateur.
 
 Aucune installation, aucun framework : HTML, CSS et JavaScript.
 
@@ -35,14 +35,16 @@ La progression des étudiants est enregistrée dans leur navigateur : une mise �
 
 ```
 index.html            page unique
-css/themes.css        polices + couleurs des 3 thèmes
+css/themes.css        polices + couleurs des thèmes
 css/base.css          touches en relief, champs, dialogues
 css/home.css          accueil, boîtes 3D, page d'un quiz
 css/play.css          partie, types de questions, résultats
+css/ambiances.css     fonds animés, contours et lueurs propres à certains thèmes
 js/main.js            démarrage et navigation
 js/views/             écrans : accueil, notice, partie, résultats
 js/types/             un fichier par type de question
 js/audio.js           sons synthétisés (un pack par thème)
+js/backdrop.js        fonds animés (ciel étoilé)
 js/fx.js              confettis, secousse, tracé d'ECG
 js/state.js           sauvegarde locale (records, erreurs, réglages)
 data/catalog.json     rayons et liste des quiz
@@ -84,6 +86,15 @@ Si une question est mal écrite, elle est ignorée et un bandeau jaune l'indique
 
 Champs communs à toutes les questions : `type`, `prompt` (l'énoncé), `explain` (la correction, facultative mais conseillée), `time` (secondes en mode Défi, facultatif), `media` (une image au-dessus de l'énoncé : `{ "src": "assets/schemas/x.png", "alt": "description" }`).
 
+`variants` : d'autres façons de poser **la même** question. À chaque tirage, le site choisit au hasard entre `prompt` et ses variantes (jamais deux fois de suite la même), pour qu'on ne reconnaisse pas une question à sa formulation. Ce n'est pas une nouvelle question : le compteur, les records et « Mes erreurs » ne changent pas. Chaque variante doit garder les mêmes données et la même réponse (pour un vrai/faux, la même vérité).
+
+```json
+{ "type": "truefalse", "prompt": "La théophylline a une marge thérapeutique étroite.",
+  "variants": ["La zone thérapeutique de la théophylline est étroite.",
+               "Entre dose efficace et dose toxique, la théophylline laisse peu de marge."],
+  "answer": true }
+```
+
 Deux champs servent aux réglages de partie :
 - `level` : difficulté, `1` (facile), `2` (moyen) ou `3` (difficile). Sans ce champ, la question est « moyenne ». Les questions moyennes rapportent 25 % de points en plus, les difficiles 50 %.
 - `cat` : l'`id` d'une des `categories` du quiz. Obligatoire si le quiz a des catégories, sinon la question est ignorée.
@@ -112,6 +123,9 @@ Mise en forme possible dans les textes : `**gras**`, `*italique*`, `O~2~` (indic
 | `label` | Légender un schéma |
 | `order` | Remettre des étapes dans l'ordre |
 | `match` | Associer deux colonnes |
+| `suffix` | Des noms sans leur fin : écrire le suffixe commun (-pril, -olol…) |
+| `cite` | Citer plusieurs éléments (« Cite 3 HBPM »), dans n'importe quel ordre |
+| `sort` | Glisser des étiquettes dans 2 à 5 familles |
 
 ```json
 { "type": "choice", "prompt": "…", "options": ["A", "B", "C", "D"], "answer": 0 }
@@ -128,6 +142,12 @@ Mise en forme possible dans les textes : `**gras**`, `*italique*`, `O~2~` (indic
 { "type": "order", "prompt": "…", "items": ["Étape 1", "Étape 2", "Étape 3"] }
 { "type": "match", "prompt": "…", "left": "Médicament", "right": "Antidote",
   "pairs": [["AVK", "Vitamine K"], ["Morphine", "Naloxone"]] }
+{ "type": "suffix", "prompt": "…", "words": ["Ramipril", "Périndopril", "Énalapril"], "suffix": "pril" }
+{ "type": "cite", "prompt": "Cite 3 HBPM.", "need": 3,
+  "answers": [["énoxaparine", "Lovenox"], ["tinzaparine", "Innohep"], "daltéparine"] }
+{ "type": "sort", "prompt": "…", "groups": [
+    { "name": "IEC", "items": ["Ramipril", "Périndopril"] },
+    { "name": "ARA II", "items": ["Losartan", "Valsartan"] } ] }
 ```
 
 Remarques :
@@ -135,6 +155,10 @@ Remarques :
 - `choice` mélange les propositions ; `"shuffle": false` garde l'ordre (utile pour « Palier 1, 2, 3 »).
 - `order` : écrire les étapes **dans le bon ordre**, le site les mélange.
 - `slider` et `range` donnent une partie des points quand on est proche sans être dans la marge.
+- `suffix` : chaque mot de `words` doit finir par `suffix` ; le site affiche le début du mot et l'étudiant écrit la fin.
+- `cite` : un élément peut avoir des synonymes (`["énoxaparine", "Lovenox"]`) qui ne comptent qu'une fois. Sans `need`, il faut tout citer. Les fautes de frappe sont tolérées, sauf sur la première lettre.
+- `sort` : on glisse les étiquettes à la souris ou au doigt, ou on touche une étiquette puis sa zone (au clavier : chiffres 1 à 5). Entre 4 et 24 étiquettes.
+- QCM à plusieurs réponses : le nombre de bonnes réponses s'affiche au-dessus des propositions.
 
 ### Questions sur image
 
@@ -172,7 +196,7 @@ Pour trouver les coordonnées d'un point : ouvrir l'image dans un logiciel qui a
 
 ## Thèmes et sons
 
-Trois thèmes : Officine (clair), Garde de nuit (sombre), Cap Corse. Chacun a ses couleurs (`css/themes.css`) et son pack de sons (`js/audio.js`), générés par le navigateur, sans fichier audio.
+Quatre thèmes, choisis avec le bouton **Thèmes** en haut à droite : Officine (clair), Garde de nuit (sombre), Contraste élevé (noir, contours jaunes et blancs) et Nuit étoilée (ciel animé). Chacun a ses couleurs (`css/themes.css`), parfois un décor (`css/ambiances.css`, `js/backdrop.js`) et son pack de sons (`js/audio.js`), générés par le navigateur, sans fichier audio.
 
 Pour ajouter un thème : copier un bloc `[data-theme="…"]` dans `css/themes.css`, ajouter le thème dans la liste `THEMES` de `js/ui.js`, et un pack du même nom dans `PACKS` de `js/audio.js`.
 
@@ -185,11 +209,11 @@ Copier un fichier de `js/types/` (par exemple `truefalse.js`), l'adapter, puis l
 Sur la page d'un quiz (la « notice »), avant de commencer :
 - **Catégories** (si le quiz en a) : on coche les chapitres à réviser ;
 - **Difficulté** : tous niveaux, facile, moyen ou difficile ;
-- **Nombre de questions** : 10, 20, 30 ou toutes, tirées au hasard ;
+- **Nombre de questions** : 10, 20, 30, toutes, ou un nombre au choix (« Autre »), tirées au hasard ;
 - **Mode** : Entraînement ou Défi.
 
 Le nombre de questions disponibles s'affiche à chaque choix, et les réglages sont mémorisés pour chaque quiz.
 
 ## Contenu
 
-La boîte Pharmacologie reprend la fiche de révision pharmaco S3 (anticoagulants, anti-infectieux, cardio, asthme et BPCO, digestif, anti-inflammatoires, urologie, vaccins). Les questions ont été rédigées à partir des repères usuels de la formation (référentiel 2009, numéros d'UE indicatifs). Elles doivent être relues par des étudiants ou des formateurs avant une diffusion large : certaines valeurs varient selon les laboratoires et les protocoles des services.
+La boîte Pharmacologie reprend la fiche de révision pharmaco S3 (anticoagulants, anti-infectieux, cardio, asthme et BPCO, digestif, anti-inflammatoires, urologie, vaccins). Quelques questions vont au-delà de la fiche (statines, antifongiques, types de vaccins) : elles portent `"src": "complement"`. Les questions ont été rédigées à partir des repères usuels de la formation (référentiel 2009, numéros d'UE indicatifs). Elles doivent être relues par des étudiants ou des formateurs avant une diffusion large : certaines valeurs varient selon les laboratoires et les protocoles des services.
