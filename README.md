@@ -295,6 +295,6 @@ Le nombre de questions disponibles s'affiche à chaque choix, et les réglages s
 
 ## Contenu
 
-Rayon **Semestre 3** : Pharmacologie (UE 2.11), Processus obstructifs (UE 2.8), Processus infectieux (UE 2.5, en construction : VIH pour l'instant), Soins éducatifs et préventifs (UE 4.6, en construction : éducation thérapeutique pour l'instant). Rayon **Spécialisées** : Valeurs normales et Calculs de doses.
+Rayon **Semestre 3** : Pharmacologie (UE 2.11), Processus obstructifs (UE 2.8), Processus infectieux (UE 2.5 : fiches de révision du partiel, IAS, hygiène et isolements, sepsis, bilan bio, méningite, TVP, appendicite), Soins éducatifs et préventifs (UE 4.6, en construction : éducation thérapeutique pour l'instant). Rayon **Spécialisées** : Valeurs normales et Calculs de doses.
 
 La boîte Pharmacologie reprend la fiche de révision pharmaco S3 (anticoagulants, anti-infectieux, cardio, asthme et BPCO, digestif, anti-inflammatoires, urologie, vaccins). Quelques questions vont au-delà de la fiche (statines, antifongiques, types de vaccins) : elles portent `"src": "complement"`. Les questions ont été rédigées à partir des repères usuels de la formation (référentiel 2009, numéros d'UE indicatifs). Elles doivent être relues par des étudiants ou des formateurs avant une diffusion large : certaines valeurs varient selon les laboratoires et les protocoles des services.

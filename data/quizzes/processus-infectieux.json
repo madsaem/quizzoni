@@ -1,1140 +1,3969 @@
 {
   "title": "Processus infectieux",
   "short": "Infectieux",
-  "subtitle": "Infection par le VIH : du virus au sida",
+  "subtitle": "IAS, hygiène et isolements, sepsis, bilan bio",
   "ue": "UE 2.5",
   "badge": "S3",
   "shelf": "S3",
   "color": "c5",
   "icon": "virus",
-  "wip": "Pour l'instant, seul le cours sur le VIH est en questions. Les autres cours de l'UE 2.5 seront ajoutés au fur et à mesure.",
-  "description": "Processus inflammatoires et infectieux. Le VIH : le virus et ses cibles, la transmission et la prévention (PrEP, TPE, I = I), l'évolution jusqu'au sida, le dépistage et le traitement antirétroviral.",
+  "description": "Processus inflammatoires et infectieux, d'après les fiches de révision du partiel : infections associées aux soins, précautions standard et hygiène des mains, isolements (contact, gouttelettes, air, protecteur), inflammation, sepsis et choc septique, bilan biologique et prélèvements, méningite, thrombose veineuse profonde, appendicite, plaie opératoire.",
   "tags": [
     "UE 2.5",
     "infectieux",
     "inflammatoire",
-    "VIH",
-    "sida",
-    "CD4",
-    "charge virale",
-    "PrEP",
-    "TPE",
-    "AES",
-    "antirétroviraux",
-    "infection opportuniste",
-    "zona",
-    "candidose",
-    "TROD"
+    "IAS",
+    "ISO",
+    "nosocomiale",
+    "précautions standard",
+    "hygiène des mains",
+    "SHA",
+    "isolement",
+    "contact",
+    "gouttelettes",
+    "air",
+    "FFP2",
+    "Clostridium",
+    "sepsis",
+    "choc septique",
+    "SRIS",
+    "CRP",
+    "PCT",
+    "procalcitonine",
+    "NFS",
+    "hémocultures",
+    "ECBU",
+    "méningite",
+    "LCR",
+    "TVP",
+    "Virchow",
+    "Homans",
+    "appendicite",
+    "cœlioscopie",
+    "Redon",
+    "tétanos"
   ],
   "sources": [
     {
-      "id": "vih",
-      "title": "Cours « Infection par le VIH : de l'infection au sida », A. Falchi, UE 2.5, 2026-2027"
+      "id": "revisions",
+      "title": "Fiche « Révisions » UE 2.5"
     },
-    {"id": "complement", "title": "Compléments hors cours (conduite à tenir après un AES)"}
+    {
+      "id": "fiche",
+      "title": "Fiche partiel UE 2.5 (avec le QCM à connaître et le tableau des isolements)"
+    },
+    {
+      "id": "bilan",
+      "title": "Fiche « Bilan bio »"
+    },
+    {
+      "id": "complement",
+      "title": "Compléments hors fiches (définitions, recommandations actuelles)"
+    }
   ],
-  "time": {"match": 60, "order": 60, "sort": 75},
+  "time": {
+    "match": 60,
+    "order": 60,
+    "sort": 75,
+    "cite": 75
+  },
   "categories": [
-    {"id": "virus", "title": "Le virus"},
-    {"id": "transmission", "title": "Transmission et prévention"},
-    {"id": "evolution", "title": "Évolution et clinique"},
-    {"id": "diagnostic", "title": "Dépistage et suivi"},
-    {"id": "traitement", "title": "Traitement"}
+    {
+      "id": "ias",
+      "title": "Infections associées aux soins"
+    },
+    {
+      "id": "hygiene",
+      "title": "Précautions standard et hygiène des mains"
+    },
+    {
+      "id": "isolement",
+      "title": "Isolements et précautions complémentaires"
+    },
+    {
+      "id": "inflammation",
+      "title": "Inflammation, sepsis et choc septique"
+    },
+    {
+      "id": "bio",
+      "title": "Bilan biologique et prélèvements"
+    },
+    {
+      "id": "meningite",
+      "title": "Méningite"
+    },
+    {
+      "id": "tvp",
+      "title": "Thrombose veineuse profonde"
+    },
+    {
+      "id": "appendicite",
+      "title": "Appendicite et chirurgie"
+    },
+    {
+      "id": "plaie",
+      "title": "Plaie opératoire, immunité, os de la jambe"
+    }
   ],
   "questions": [
     {
-      "id": "25-virus-01",
-      "cat": "virus",
+      "id": "25-ias-01",
+      "cat": "ias",
       "level": 1,
       "type": "choice",
-      "prompt": "VIH et sida : quelle différence ?",
+      "prompt": "Qu'est-ce qu'une infection associée aux soins (IAS) ?",
       "variants": [
-        "Quelle est la différence entre le VIH et le sida ?",
-        "VIH, sida : est-ce la même chose ?",
-        "Distingue le VIH du sida."
+        "Donne la définition d'une infection associée aux soins.",
+        "IAS : de quoi parle-t-on ?",
+        "Quelle infection appelle-t-on « associée aux soins » ?"
       ],
       "options": [
-        "Le VIH est le virus ; le sida est le stade avancé d'une infection à VIH non contrôlée",
-        "Ce sont deux noms du même virus",
-        "Le sida est le virus ; le VIH est la maladie",
-        "Le VIH touche les enfants, le sida les adultes"
+        "Une infection qui survient au cours ou à la suite d'une prise en charge, absente et non en incubation au début",
+        "Toute infection d'un patient hospitalisé, même présente à son arrivée",
+        "Une infection transmise uniquement par les mains d'un soignant",
+        "Une infection qui n'existe qu'à l'hôpital"
       ],
       "answer": 0,
-      "explain": "Une personne vivant avec le VIH n'est pas forcément au stade sida. Traitée tôt, elle n'y arrive le plus souvent jamais.",
-      "src": "vih"
+      "explain": "Elle ne se limite pas à l'hôpital : elle concerne tous les soins d'une prise en charge, y compris en ville. On parlait avant d'infection nosocomiale.",
+      "src": "fiche"
     },
     {
-      "id": "25-virus-02",
-      "cat": "virus",
+      "id": "25-ias-02",
+      "cat": "ias",
       "level": 1,
-      "type": "truefalse",
-      "prompt": "Une personne vivant avec le VIH est forcément au stade sida.",
-      "variants": [
-        "Être séropositif au VIH, c'est être au stade sida.",
-        "Toute personne infectée par le VIH a le sida.",
-        "VIH positif = sida."
-      ],
-      "answer": false,
-      "explain": "Faux. Le sida est le stade le plus avancé, défini par une pathologie classant sida. Le traitement antirétroviral précoce l'évite le plus souvent.",
-      "src": "vih"
-    },
-    {
-      "id": "25-virus-03",
-      "cat": "virus",
-      "level": 1,
-      "type": "text",
-      "prompt": "Que signifie le sigle VIH ?",
-      "variants": [
-        "VIH : que veulent dire ces trois lettres ?",
-        "Écris la signification de VIH.",
-        "Développe le sigle VIH."
-      ],
-      "answers": ["virus de l'immunodéficience humaine", "virus de l immunodeficience humaine"],
-      "explain": "Virus de l'immunodéficience humaine (HIV en anglais).",
-      "src": "vih"
-    },
-    {
-      "id": "25-virus-04",
-      "cat": "virus",
-      "level": 1,
-      "type": "text",
-      "prompt": "Que signifie le sigle SIDA ?",
-      "variants": [
-        "SIDA : que veulent dire ces lettres ?",
-        "Écris la signification de SIDA.",
-        "Développe le sigle SIDA."
-      ],
-      "answers": [
-        "syndrome d'immunodéficience acquise",
-        "syndrome d immunodeficience acquise",
-        "syndrome de l'immunodéficience acquise"
-      ],
-      "explain": "Syndrome d'immunodéficience acquise : un stade clinique, pas un virus.",
-      "src": "vih"
-    },
-    {
-      "id": "25-virus-05",
-      "cat": "virus",
-      "level": 2,
       "type": "choice",
-      "prompt": "Le VIH est…",
+      "prompt": "Délai habituellement retenu pour parler d'IAS quand on ne sait pas si l'infection était présente au début de la prise en charge :",
       "variants": [
-        "De quel type de micro-organisme s'agit-il avec le VIH ?",
-        "Classe le VIH : quel type de virus ?",
-        "VIH : quelle nature ?"
+        "IAS : au bout de combien de temps après le début de la prise en charge une infection est-elle considérée comme associée aux soins ?",
+        "Quel délai minimal après le début des soins fait classer une infection en IAS ?",
+        "Une infection apparaît après l'admission. À partir de quel délai parle-t-on d'IAS ?"
       ],
       "options": [
-        "Un rétrovirus enveloppé à ARN (genre Lentivirus)",
-        "Une bactérie intracellulaire",
-        "Un virus à ADN sans enveloppe",
-        "Un champignon microscopique"
+        "48 heures",
+        "6 heures",
+        "7 jours",
+        "1 mois"
       ],
       "answer": 0,
-      "explain": "Rétrovirus : il transforme son ARN en ADN grâce à la transcriptase inverse, puis l'intègre dans l'ADN de la cellule. Deux types : VIH-1 et VIH-2.",
-      "src": "vih"
+      "explain": "48 heures ou plus après le début de la prise en charge. Avant, l'infection était probablement déjà en incubation.",
+      "src": "fiche"
     },
     {
-      "id": "25-virus-06",
-      "cat": "virus",
-      "level": 1,
-      "type": "choice",
-      "prompt": "Quelles sont les cellules cibles principales du VIH ?",
-      "variants": [
-        "Quelles cellules le VIH infecte-t-il surtout ?",
-        "Le VIH détruit surtout quelles cellules ?",
-        "Cellules cibles du VIH ?"
-      ],
-      "options": ["Les lymphocytes T CD4", "Les globules rouges", "Les plaquettes", "Les neurones"],
-      "answer": 0,
-      "explain": "Surtout les lymphocytes T CD4, mais aussi les macrophages et certaines cellules dendritiques.",
-      "src": "vih"
-    },
-    {
-      "id": "25-virus-07",
-      "cat": "virus",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Pourquoi les lymphocytes T CD4 sont-ils si importants ?",
-      "variants": [
-        "Quel est le rôle des lymphocytes T CD4 ?",
-        "Lymphocytes T CD4 : à quoi servent-ils ?",
-        "Pourquoi perdre ses CD4 affaiblit-il toute l'immunité ?"
-      ],
-      "options": [
-        "Ils coordonnent la réponse immunitaire acquise : ils activent les lymphocytes B (anticorps) et les T CD8",
-        "Ils transportent l'oxygène",
-        "Ils fabriquent les plaquettes",
-        "Ils produisent l'insuline"
-      ],
-      "answer": 0,
-      "explain": "Sans CD4, les autres cellules de l'immunité ne sont plus activées correctement : les infections opportunistes apparaissent.",
-      "src": "vih"
-    },
-    {
-      "id": "25-virus-08",
-      "cat": "virus",
-      "level": 2,
-      "type": "match",
-      "prompt": "Associe chaque enzyme du VIH à son rôle.",
-      "variants": [
-        "Enzymes du VIH : qui fait quoi ?",
-        "Relie chaque enzyme virale à sa fonction.",
-        "VIH : forme les paires enzyme / rôle."
-      ],
-      "left": "Enzyme",
-      "right": "Rôle",
-      "pairs": [
-        ["Transcriptase inverse", "Transforme l'ARN viral en ADN"],
-        ["Intégrase", "Insère l'ADN viral dans l'ADN de la cellule"],
-        ["Protéase", "Découpe les protéines virales lors de la maturation"]
-      ],
-      "explain": "Ces trois enzymes sont les cibles principales des antirétroviraux.",
-      "src": "vih"
-    },
-    {
-      "id": "25-virus-09",
-      "cat": "virus",
-      "level": 3,
-      "type": "match",
-      "prompt": "Structure du VIH : associe chaque protéine à sa place.",
-      "variants": [
-        "Protéines du VIH : où se trouve chacune ?",
-        "Relie chaque protéine du VIH à sa localisation.",
-        "gp120, p17, p24 : où sont-elles ?"
-      ],
-      "left": "Protéine",
-      "right": "Place et rôle",
-      "pairs": [
-        ["gp120 et gp41", "Enveloppe : fixation au CD4 et fusion"],
-        ["p17", "Matrice, sous l'enveloppe"],
-        ["p24", "Capside, détectable tôt par les tests combinés"]
-      ],
-      "explain": "L'antigène p24 est recherché par les tests combinés de 4e génération : il apparaît avant les anticorps.",
-      "src": "vih"
-    },
-    {
-      "id": "25-virus-10",
-      "cat": "virus",
-      "level": 1,
-      "type": "choice",
-      "prompt": "Qu'est-ce qu'une infection opportuniste ?",
-      "variants": [
-        "Infection opportuniste : définition ?",
-        "Que veut dire « opportuniste » pour une infection ?",
-        "Comment définir une infection opportuniste ?"
-      ],
-      "options": [
-        "Une infection par un microbe habituellement contrôlé par l'immunité, qui devient grave quand l'immunité est très affaiblie",
-        "Une infection attrapée à l'hôpital",
-        "Une infection qui touche plusieurs personnes en même temps",
-        "Une infection due à un vaccin"
-      ],
-      "answer": 0,
-      "explain": "Le microbe « profite de l'occasion » : candidose, toxoplasmose, zona, herpès, pneumocystose…",
-      "src": "vih"
-    },
-    {
-      "id": "25-virus-11",
-      "cat": "virus",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Quels sont des exemples d'infections opportunistes ?",
-      "variants": [
-        "Repère les infections opportunistes.",
-        "Infections opportunistes : lesquelles ?",
-        "Coche les infections dites opportunistes."
-      ],
-      "options": [
-        "Candidose",
-        "Toxoplasmose",
-        "Zona",
-        "Pneumocystose",
-        "Angine à streptocoque",
-        "Grippe saisonnière"
-      ],
-      "answer": [0, 1, 2, 3],
-      "explain": "Ces infections sont maîtrisées par une immunité normale et deviennent graves quand les CD4 sont bas.",
-      "src": "vih"
-    },
-    {
-      "id": "25-virus-12",
-      "cat": "virus",
-      "level": 3,
-      "type": "order",
-      "prompt": "Remets dans l'ordre les étapes du cycle du VIH.",
-      "variants": [
-        "Cycle de réplication du VIH : dans quel ordre ?",
-        "Ordonne les étapes de la multiplication du VIH.",
-        "Du virus qui se fixe au nouveau virus : remets les étapes en ordre."
-      ],
-      "items": [
-        "Fixation au CD4 et fusion",
-        "Entrée de l'ARN viral dans la cellule",
-        "Transcription inverse : l'ARN devient de l'ADN",
-        "Intégration de l'ADN viral dans l'ADN de la cellule",
-        "Production et assemblage des composants viraux",
-        "Bourgeonnement puis maturation par la protéase"
-      ],
-      "explain": "Les antirétroviraux bloquent plusieurs de ces étapes, ce qui empêche la production de nouveaux virus.",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-01",
-      "cat": "transmission",
-      "level": 1,
-      "type": "choice",
-      "prompt": "Par quelles voies le VIH se transmet-il ?",
-      "variants": [
-        "Comment se transmet le VIH ?",
-        "VIH : quelles sont les voies de transmission ?",
-        "Repère les modes de transmission du VIH."
-      ],
-      "options": [
-        "Sexuelle",
-        "Sanguine",
-        "De la mère à l'enfant",
-        "Par la salive (baiser)",
-        "Par les piqûres de moustique",
-        "Par les toilettes ou la vaisselle"
-      ],
-      "answer": [0, 1, 2],
-      "explain": "Voie sexuelle (environ 90 % des contaminations), sanguine (seringues partagées, accident d'exposition au sang) et mère-enfant (grossesse, accouchement, allaitement).",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-02",
-      "cat": "transmission",
-      "level": 1,
-      "type": "choice",
-      "prompt": "Quels liquides biologiques peuvent transmettre le VIH ?",
-      "variants": [
-        "Repère les liquides contaminants pour le VIH.",
-        "Quels liquides du corps transmettent le VIH ?",
-        "VIH : quels liquides biologiques sont à risque ?"
-      ],
-      "options": ["Sang", "Sperme", "Sécrétions vaginales", "Lait maternel", "Salive", "Larmes"],
-      "answer": [0, 1, 2, 3],
-      "explain": "La salive, les larmes, la sueur et l'urine ne transmettent pas le VIH.",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-03",
-      "cat": "transmission",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Quel est le facteur qui détermine le plus le risque de transmission ?",
-      "variants": [
-        "De quoi dépend surtout le risque de transmettre le VIH ?",
-        "Transmission du VIH : quel est le facteur déterminant ?",
-        "Qu'est-ce qui fait varier le plus le risque de contamination ?"
-      ],
-      "options": [
-        "La charge virale du liquide contaminant",
-        "L'âge de la personne",
-        "Le groupe sanguin",
-        "La saison"
-      ],
-      "answer": 0,
-      "explain": "Plus la charge virale est élevée (primo-infection, absence de traitement), plus le risque est grand. Une IST associée l'augmente aussi.",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-04",
-      "cat": "transmission",
-      "level": 1,
-      "type": "choice",
-      "prompt": "Que veut dire « I = I » ?",
-      "variants": [
-        "I = I : de quoi parle-t-on ?",
-        "Le message « I = I » signifie…",
-        "Que résume la formule I = I ?"
-      ],
-      "options": [
-        "Indétectable = intransmissible : charge virale durablement indétectable sous traitement, pas de transmission sexuelle",
-        "Infection = immunité",
-        "Injection = infection",
-        "Il faut deux tests identiques"
-      ],
-      "answer": 0,
-      "explain": "Le traitement protège la santé de la personne et empêche la transmission sexuelle du virus.",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-05",
-      "cat": "transmission",
-      "level": 3,
-      "type": "slider",
-      "prompt": "Risque de contamination par le VIH après une piqûre avec une aiguille contaminée, sans traitement",
-      "variants": [
-        "Place le risque de transmission du VIH après un accident avec une aiguille contaminée.",
-        "AES par piqûre, source VIH+, sans traitement : quel risque ?",
-        "Piqûre avec une aiguille souillée par du sang VIH+ : quel risque de contamination ?"
-      ],
-      "min": 0,
-      "max": 5,
-      "step": 0.1,
-      "answer": 0.3,
-      "tolerance": 0.2,
-      "unit": "%",
-      "explain": "Environ 0,3 % par piqûre, ce qui justifie l'évaluation urgente d'un traitement post-exposition.",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-06",
-      "cat": "transmission",
+      "id": "25-ias-03",
+      "cat": "ias",
       "level": 1,
       "type": "truefalse",
-      "prompt": "Le VIH peut se transmettre par une piqûre de moustique.",
+      "prompt": "Une IAS peut survenir après des soins faits en ville, pas seulement à l'hôpital.",
       "variants": [
-        "Un moustique peut transmettre le VIH.",
-        "Les moustiques sont un vecteur du VIH.",
-        "On peut attraper le VIH par une piqûre de moustique."
-      ],
-      "answer": false,
-      "explain": "Faux. Ni les moustiques, ni la salive, ni les contacts de la vie courante, ni la vaisselle, ni les toilettes.",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-07",
-      "cat": "transmission",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Comment réduit-on la transmission du VIH de la mère à l'enfant ?",
-      "variants": [
-        "Grossesse et VIH : quelles mesures protègent le bébé ?",
-        "Prévenir la transmission mère-enfant du VIH : que fait-on ?",
-        "Mère séropositive : comment éviter de transmettre le VIH à l'enfant ?"
-      ],
-      "options": [
-        "Traitement antirétroviral de la mère pour une charge virale indétectable",
-        "Traitement préventif du nouveau-né et suivi",
-        "Lait artificiel, sauf décision partagée avec l'équipe",
-        "Mode d'accouchement adapté à la charge virale",
-        "Césarienne systématique pour toutes, quelle que soit la charge virale"
-      ],
-      "answer": [0, 1, 2, 3],
-      "explain": "Accouchement par voie basse possible si la charge virale est < 50 copies/mL. Avec ces mesures, le risque devient extrêmement faible (environ 0,3 %).",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-08",
-      "cat": "transmission",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Grossesse : quand propose-t-on la sérologie VIH ?",
-      "variants": [
-        "À quel moment de la grossesse fait-on le dépistage du VIH ?",
-        "Dépistage du VIH chez la femme enceinte : quand ?",
-        "Sérologie VIH pendant la grossesse : à quel moment la propose-t-on ?"
-      ],
-      "options": [
-        "En début de grossesse (premier trimestre)",
-        "Seulement à l'accouchement",
-        "Uniquement si la femme le demande au 9e mois",
-        "Jamais pendant la grossesse"
-      ],
-      "answer": 0,
-      "explain": "Dépistage proposé en début de grossesse, refait si l'exposition persiste. Le dépistage du partenaire est aussi recommandé.",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-09",
-      "cat": "transmission",
-      "level": 1,
-      "type": "choice",
-      "prompt": "Qu'est-ce que la PrEP ?",
-      "variants": [
-        "PrEP : de quoi s'agit-il ?",
-        "À quoi sert la PrEP ?",
-        "La PrEP, c'est…"
-      ],
-      "options": [
-        "Un traitement préventif pris par une personne séronégative exposée à un risque, avant l'exposition",
-        "Le traitement d'une personne séropositive",
-        "Un vaccin contre le VIH",
-        "Le traitement d'urgence après un accident d'exposition"
-      ],
-      "answer": 0,
-      "explain": "Prophylaxie pré-exposition : comprimés de ténofovir/emtricitabine en continu ou à la demande, ou injection de cabotégravir. Suivi VIH, rénal et IST. Tout médecin peut la prescrire en France.",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-10",
-      "cat": "transmission",
-      "level": 1,
-      "type": "choice",
-      "prompt": "Après une exposition à risque (accident d'exposition au sang, rapport non protégé), quand débuter le traitement post-exposition ?",
-      "variants": [
-        "Traitement post-exposition (TPE) : dans quel délai ?",
-        "Exposition récente au VIH : jusqu'à quand peut-on débuter un TPE ?",
-        "AES ou rapport à risque : quel délai pour le traitement post-exposition ?"
-      ],
-      "options": [
-        "Idéalement dans les 4 heures, au plus tard dans les 48 heures",
-        "Dans la semaine",
-        "Après le résultat de la sérologie à 6 semaines",
-        "Dans le mois"
-      ],
-      "answer": 0,
-      "explain": "C'est une urgence : aux urgences, dans un service qui prend en charge le VIH ou un CeGIDD. Efficacité de plus de 90 % s'il est débuté à temps.",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-11",
-      "cat": "transmission",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Traitement post-exposition : combien de temps dure-t-il ?",
-      "variants": [
-        "TPE : quelle durée ?",
-        "Combien de temps prend-on le traitement post-exposition ?",
-        "Durée du traitement après une exposition au VIH ?"
-      ],
-      "options": ["Environ un mois", "48 heures", "Une semaine", "Toute la vie"],
-      "answer": 0,
-      "explain": "Association de 3 antirétroviraux pendant environ un mois, avec un bilan initial (VIH, VHB, VHC, IST, fonction rénale) et un contrôle à distance.",
-      "src": "vih"
-    },
-    {
-      "id": "25-transmission-12",
-      "cat": "transmission",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Accident d'exposition au sang (piqûre) chez un soignant : quel est le premier geste ?",
-      "variants": [
-        "Tu te piques avec une aiguille souillée : que fais-tu en premier ?",
-        "AES par piqûre : premiers soins locaux ?",
-        "Piqûre accidentelle en soins : quel geste immédiat ?"
-      ],
-      "options": [
-        "Ne pas faire saigner, nettoyer à l'eau et au savon, rincer, puis désinfecter au moins 5 minutes (Dakin ou alcool à 70°)",
-        "Faire saigner fort en pressant la plaie",
-        "Mettre un pansement et finir le soin",
-        "Attendre la fin de la garde pour en parler"
-      ],
-      "answer": 0,
-      "explain": "Puis appeler le médecin référent ou les urgences pour évaluer un traitement post-exposition (moins de 48 h, idéalement 4 h), et déclarer l'accident du travail.",
-      "src": "complement"
-    },
-    {
-      "id": "25-transmission-13",
-      "cat": "transmission",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Prévention combinée du VIH : quels outils existent ?",
-      "variants": [
-        "Quels moyens permettent de se protéger du VIH ?",
-        "Repère les outils de la prévention combinée.",
-        "VIH : quels outils de prévention ?"
-      ],
-      "options": [
-        "Préservatifs",
-        "Dépistage régulier",
-        "PrEP",
-        "Traitement post-exposition",
-        "Matériel d'injection stérile",
-        "Vaccin contre le VIH"
-      ],
-      "answer": [0, 1, 2, 3, 4],
-      "explain": "Il n'existe pas de vaccin contre le VIH. Le traitement des personnes séropositives (I = I) fait aussi partie de la prévention.",
-      "src": "vih"
-    },
-    {
-      "id": "25-evolution-01",
-      "cat": "evolution",
-      "level": 1,
-      "type": "order",
-      "prompt": "Sans traitement, remets dans l'ordre l'évolution de l'infection à VIH.",
-      "variants": [
-        "Histoire naturelle du VIH : dans quel ordre se succèdent ces phases ?",
-        "VIH non traité : ordonne les étapes.",
-        "Remets les phases de l'infection à VIH dans l'ordre."
-      ],
-      "items": ["Contamination", "Primo-infection", "Phase chronique souvent sans symptômes", "Stade sida"],
-      "explain": "Sans traitement, le stade sida survenait en moyenne 8 à 10 ans après la contamination, avec de grandes variations.",
-      "src": "vih"
-    },
-    {
-      "id": "25-evolution-02",
-      "cat": "evolution",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Quand apparaissent les signes de primo-infection ?",
-      "variants": [
-        "Primo-infection VIH : combien de temps après l'exposition ?",
-        "Délai d'apparition de la primo-infection après la contamination ?",
-        "Les premiers signes du VIH apparaissent au bout de combien de temps ?"
-      ],
-      "options": ["2 à 4 semaines après l'exposition", "Le jour même", "6 mois après", "10 ans après"],
-      "answer": 0,
-      "explain": "Elle dure environ 2 semaines, n'est pas toujours symptomatique, et passe souvent pour une grippe.",
-      "src": "vih"
-    },
-    {
-      "id": "25-evolution-03",
-      "cat": "evolution",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Quels signes peut donner une primo-infection par le VIH ?",
-      "variants": [
-        "Primo-infection VIH : quels symptômes ?",
-        "Repère les signes possibles de primo-infection.",
-        "Quels signes doivent faire penser à une primo-infection VIH ?"
-      ],
-      "options": [
-        "Fièvre et syndrome pseudo-grippal",
-        "Angine ou pharyngite",
-        "Éruption cutanée",
-        "Ganglions dans plusieurs aires",
-        "Ulcérations buccales ou génitales",
-        "Ictère franc"
-      ],
-      "answer": [0, 1, 2, 3, 4],
-      "explain": "Signes fréquents mais non constants. La biologie peut montrer une thrombopénie et une leucopénie. Toute fièvre avec éruption ou angine après une exposition doit faire tester.",
-      "src": "vih"
-    },
-    {
-      "id": "25-evolution-04",
-      "cat": "evolution",
-      "level": 2,
-      "type": "truefalse",
-      "prompt": "Pendant la primo-infection, la charge virale est très élevée et la personne est très contagieuse.",
-      "variants": [
-        "En primo-infection, le virus est abondant dans le sang et le risque de transmission est fort.",
-        "La primo-infection est une période de forte contagiosité.",
-        "Charge virale élevée et contagiosité importante : c'est la primo-infection."
+        "Les infections associées aux soins concernent aussi les soins de ville.",
+        "Un soin réalisé à domicile peut être à l'origine d'une IAS.",
+        "L'IAS ne s'arrête pas aux murs de l'hôpital."
       ],
       "answer": true,
-      "explain": "Vrai. Et une sérologie peut encore être négative : on demande un test combiné de 4e génération, voire l'ARN du VIH.",
-      "src": "vih"
+      "explain": "Vrai. L'IAS concerne tous les soins d'une prise en charge, à l'hôpital comme en ville (cabinet, domicile, EHPAD).",
+      "src": "fiche"
     },
     {
-      "id": "25-evolution-05",
-      "cat": "evolution",
+      "id": "25-ias-04",
+      "cat": "ias",
+      "level": 1,
+      "type": "text",
+      "prompt": "Comment appelait-on autrefois l'infection contractée à l'hôpital ?",
+      "variants": [
+        "Avant le terme d'IAS, on parlait d'infection…",
+        "Ancien nom de l'infection associée aux soins à l'hôpital ?",
+        "Infection acquise à l'hôpital : quel est l'ancien terme ?"
+      ],
+      "answers": [
+        "nosocomiale",
+        "infection nosocomiale",
+        "infections nosocomiales"
+      ],
+      "explain": "Infection nosocomiale (du grec nosokomeion, hôpital). Le terme d'IAS, plus large, l'a remplacé.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-ias-05",
+      "cat": "ias",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Infection du site opératoire (ISO) : dans quel délai après l'intervention ?",
+      "variants": [
+        "Jusqu'à quand une infection de la cicatrice est-elle une ISO ?",
+        "ISO : quel délai après l'opération retient-on ?",
+        "Une infection du site opératoire se définit par un délai. Lequel ?"
+      ],
+      "options": [
+        "30 jours, ou 1 an si un implant ou une prothèse a été posé",
+        "48 heures dans tous les cas",
+        "1 an dans tous les cas, même sans matériel",
+        "7 jours, ou 30 jours si une prothèse a été posée"
+      ],
+      "answer": 0,
+      "explain": "30 jours après l'intervention, ou 1 an si un implant, une prothèse ou du matériel a été posé (ostéosynthèse par exemple).",
+      "src": "fiche"
+    },
+    {
+      "id": "25-ias-06",
+      "cat": "ias",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque infection au délai qui la définit.",
+      "variants": [
+        "IAS, ISO : relie chaque cas à son délai.",
+        "Forme les paires infection / délai.",
+        "Quel délai pour quelle infection ? Associe."
+      ],
+      "left": "Infection",
+      "right": "Délai",
+      "pairs": [
+        [
+          "IAS (état au début inconnu)",
+          "Au moins 48 h après le début de la prise en charge"
+        ],
+        [
+          "ISO sans matériel posé",
+          "Dans les 30 jours après l'intervention"
+        ],
+        [
+          "ISO avec prothèse ou implant",
+          "Dans l'année après l'intervention"
+        ]
+      ],
+      "explain": "Retiens 48 h pour l'IAS, 30 jours pour l'ISO, 1 an s'il y a du matériel.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-ias-07",
+      "cat": "ias",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont les 3 grands facteurs de risque d'IAS ?",
+      "variants": [
+        "IAS : quelles sont les 3 familles de facteurs de risque ?",
+        "Qu'est-ce qui expose un patient à une infection associée aux soins ?",
+        "Facteurs de risque d'IAS : lesquels sont décrits dans le cours ?"
+      ],
+      "options": [
+        "L'environnement de soins",
+        "Les actes de soins",
+        "L'état pathologique du patient",
+        "Le sexe du patient",
+        "La saison"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "L'environnement (être présent dans un lieu de soins), l'acte de soin lui-même, et l'état pathologique du patient (maladie infectieuse ou maladie préexistante).",
+      "src": "fiche"
+    },
+    {
+      "id": "25-ias-08",
+      "cat": "ias",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Patient opéré d'une fracture ouverte de cheville, diabétique. Qu'est-ce qui favorise une infection du site opératoire ?",
+      "variants": [
+        "Fracture ouverte opérée chez un diabétique : quels facteurs favorisent l'infection ?",
+        "Quels éléments de ce dossier (fracture ouverte de cheville opérée, diabète) augmentent le risque d'ISO ?",
+        "Fracture ouverte, ostéosynthèse, diabète : lesquels favorisent l'infection ?"
+      ],
+      "options": [
+        "La fracture ouverte",
+        "La pose de matériel (ostéosynthèse)",
+        "Un diabète déséquilibré",
+        "Le groupe sanguin O"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "La fracture ouverte (plaie en contact avec l'extérieur), le matériel posé et le diabète déséquilibré (retard de cicatrisation, sensibilité aux infections).",
+      "src": "revisions"
+    },
+    {
+      "id": "25-ias-09",
+      "cat": "ias",
       "level": 1,
       "type": "truefalse",
-      "prompt": "En phase chronique, l'absence de symptômes signifie que le virus ne se multiplie plus.",
+      "prompt": "Un diabète déséquilibré retarde la cicatrisation et rend plus sensible aux infections.",
       "variants": [
-        "Phase chronique sans symptôme = virus au repos.",
-        "Pas de symptômes en phase chronique : le VIH ne se réplique pas.",
-        "Une personne en phase chronique asymptomatique n'a plus de réplication virale."
+        "Le déséquilibre du diabète favorise l'infection d'une plaie.",
+        "Chez un diabétique mal équilibré, la plaie cicatrise moins bien et s'infecte plus facilement.",
+        "Hyperglycémie mal contrôlée = cicatrisation plus lente et risque infectieux accru."
       ],
-      "answer": false,
-      "explain": "Faux. Le virus continue de se répliquer et de détruire les CD4, à bas bruit. La personne peut transmettre le virus sans traitement.",
-      "src": "vih"
+      "answer": true,
+      "explain": "Vrai. D'où la glycémie capillaire et le rééquilibrage du diabète (insuline sur prescription si besoin) chez un patient opéré.",
+      "src": "revisions"
     },
     {
-      "id": "25-evolution-06",
-      "cat": "evolution",
-      "level": 2,
-      "type": "sort",
-      "prompt": "Classe ces taux de lymphocytes T CD4.",
-      "variants": [
-        "Range chaque résultat de CD4 dans la bonne catégorie.",
-        "CD4 : repère normal, déficit ou immunodépression sévère ?",
-        "Classe ces numérations de CD4."
-      ],
-      "groups": [
-        {"name": "Repère habituel (> 500/mm³)", "items": ["CD4 à 850/mm³", "CD4 à 620/mm³"]},
-        {"name": "Déficit immunitaire (200 à 500/mm³)", "items": ["CD4 à 420/mm³", "CD4 à 260/mm³"]},
-        {"name": "Immunodépression sévère (< 200/mm³)", "items": ["CD4 à 150/mm³", "CD4 à 40/mm³"]}
-      ],
-      "explain": "Le diagnostic de sida repose sur une pathologie classante, pas seulement sur le taux de CD4.",
-      "src": "vih"
-    },
-    {
-      "id": "25-evolution-07",
-      "cat": "evolution",
-      "level": 1,
-      "type": "choice",
-      "prompt": "En dessous de quel taux de CD4 parle-t-on d'immunodépression sévère ?",
-      "variants": [
-        "Immunodépression sévère : sous quel taux de CD4 ?",
-        "Quel seuil de CD4 marque une immunodépression sévère ?",
-        "CD4 : à partir de quelle valeur l'immunodépression est-elle sévère ?"
-      ],
-      "options": ["200/mm³", "1 000/mm³", "500/mm³", "50/mm³"],
-      "answer": 0,
-      "explain": "Sous 200/mm³, le risque d'infections opportunistes est important et des traitements préventifs (prophylaxies) se discutent.",
-      "src": "vih"
-    },
-    {
-      "id": "25-evolution-08",
-      "cat": "evolution",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Phase chronique : quels signes doivent alerter ?",
-      "variants": [
-        "Infection à VIH en phase chronique : quels signes d'alerte ?",
-        "Repère les signes qui doivent faire réévaluer une personne vivant avec le VIH.",
-        "Quels symptômes signalent que l'immunité baisse ?"
-      ],
-      "options": [
-        "Perte de poids",
-        "Fièvre prolongée et sueurs nocturnes",
-        "Diarrhée qui dure",
-        "Zona",
-        "Candidose buccale à répétition",
-        "Hypertension artérielle"
-      ],
-      "answer": [0, 1, 2, 3, 4],
-      "explain": "Aussi : tuberculose, pneumonies à répétition. Ces signes justifient un bilan clinique, immunologique (CD4) et virologique (charge virale).",
-      "src": "vih"
-    },
-    {
-      "id": "25-evolution-09",
-      "cat": "evolution",
-      "level": 1,
-      "type": "choice",
-      "prompt": "Candidose oropharyngée : quel aspect ?",
-      "variants": [
-        "À quoi ressemble une candidose de la bouche ?",
-        "Muguet (candidose buccale) : comment le reconnaître ?",
-        "Candidose oropharyngée : quels signes visibles ?"
-      ],
-      "options": [
-        "Plaques blanches crémeuses sur la langue et les muqueuses, qui se détachent au grattage",
-        "Vésicules groupées sur un trajet nerveux",
-        "Taches violacées en relief",
-        "Ulcère unique et induré"
-      ],
-      "answer": 0,
-      "explain": "Due à une levure, Candida albicans. Fréquente quand les CD4 sont bas. Prévention : soins de bouche.",
-      "src": "vih"
-    },
-    {
-      "id": "25-evolution-10",
-      "cat": "evolution",
+      "id": "25-ias-10",
+      "cat": "ias",
       "level": 3,
+      "type": "choice",
+      "prompt": "Quel est le critère principal qui définit une IAS ?",
+      "variants": [
+        "Sans quel élément ne peut-on pas parler d'IAS ?",
+        "IAS : quel critère est indispensable ?",
+        "Pour classer une infection en IAS, qu'est-ce qui compte avant tout ?"
+      ],
+      "options": [
+        "La délivrance d'un acte ou d'une prise en charge de soins par un professionnel de santé",
+        "La présence d'une bactérie multirésistante",
+        "Un séjour de plus de 7 jours à l'hôpital",
+        "Une fièvre au-dessus de 38,5 °C"
+      ],
+      "answer": 0,
+      "explain": "Un acte ou une prise en charge de soins, au sens large, par un professionnel de santé. Le lieu (hôpital ou ville) et le germe n'entrent pas en compte.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-ias-11",
+      "cat": "ias",
+      "level": 2,
       "type": "truefalse",
-      "prompt": "Une candidose buccale isolée suffit à classer l'infection au stade sida.",
+      "prompt": "Une infection déjà en incubation à l'arrivée du patient est une IAS.",
       "variants": [
-        "Une candidose de la bouche seule définit le stade sida.",
-        "Muguet isolé chez une personne séropositive = stade sida.",
-        "Candidose buccale seule : pathologie classant sida."
+        "Si l'infection incubait déjà à l'admission, c'est quand même une IAS.",
+        "Un patient arrive en incubation d'une grippe et la déclare le lendemain : c'est une IAS.",
+        "Une infection présente ou en incubation au début de la prise en charge compte comme IAS."
       ],
       "answer": false,
-      "explain": "Faux. C'est la candidose œsophagienne (douleur ou gêne à la déglutition) qui est classante, pas la candidose buccale isolée.",
-      "src": "vih"
+      "explain": "Faux. L'IAS n'était ni présente, ni en incubation au début de la prise en charge.",
+      "src": "fiche"
     },
     {
-      "id": "25-evolution-11",
-      "cat": "evolution",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Le zona, c'est…",
+      "id": "25-hygiene-01",
+      "cat": "hygiene",
+      "level": 3,
+      "type": "cite",
+      "prompt": "Cite 5 des 7 mesures des précautions standard.",
       "variants": [
-        "Qu'est-ce que le zona ?",
-        "Zona : quel mécanisme ?",
-        "D'où vient un zona ?"
+        "Précautions standard : cite 5 de leurs 7 mesures.",
+        "Quelles sont les mesures des précautions standard ? Cites-en 5.",
+        "Les premières mesures barrières : donne 5 des 7 mesures."
+      ],
+      "need": 5,
+      "answers": [
+        [
+          "hygiène des mains",
+          "hygiène mains",
+          "friction hydroalcoolique",
+          "friction",
+          "SHA",
+          "lavage des mains",
+          "mains"
+        ],
+        [
+          "protection individuelle",
+          "équipements de protection individuelle",
+          "EPI",
+          "tenue professionnelle",
+          "gants",
+          "masque",
+          "surblouse"
+        ],
+        [
+          "hygiène respiratoire",
+          "respiratoire",
+          "hygiène respi"
+        ],
+        [
+          "prévention des AES",
+          "prévention AES",
+          "AES",
+          "accidents d'exposition au sang",
+          "accident d'exposition au sang"
+        ],
+        [
+          "gestion des excreta",
+          "excreta",
+          "gestion excreta"
+        ],
+        [
+          "gestion de l'environnement",
+          "environnement",
+          "gestion environnement",
+          "bionettoyage"
+        ],
+        [
+          "circuit des déchets",
+          "déchets",
+          "gestion des déchets"
+        ]
+      ],
+      "explain": "Hygiène des mains, protection individuelle (tenue, gants, surblouse, lunettes, masque), hygiène respiratoire, prévention des AES, gestion des excreta, gestion de l'environnement, circuit des déchets.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-hygiene-02",
+      "cat": "hygiene",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Lesquelles font partie des précautions standard ?",
+      "variants": [
+        "Précautions standard : quelles mesures en font partie ?",
+        "Quelles mesures appartiennent aux précautions standard ?",
+        "Repère les mesures des précautions standard."
       ],
       "options": [
-        "La réactivation du virus de la varicelle, resté au repos dans les ganglions nerveux",
-        "Une infection par un champignon",
-        "Une allergie de la peau",
-        "Une bactérie transmise par les moustiques"
+        "Hygiène des mains",
+        "Gestion des excreta",
+        "Prévention des AES",
+        "Masque FFP2 pour tous les soins",
+        "Antibiotique préventif pour chaque patient"
       ],
-      "answer": 0,
-      "explain": "Plus fréquent, récidivant ou étendu en cas d'immunodépression. Traitement : valaciclovir ou aciclovir, le plus tôt possible.",
-      "src": "vih"
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Les 7 mesures : hygiène des mains, protection individuelle, hygiène respiratoire, prévention des AES, gestion des excreta, gestion de l'environnement, circuit des déchets. Le FFP2 relève des précautions air.",
+      "src": "fiche"
     },
     {
-      "id": "25-evolution-12",
-      "cat": "evolution",
-      "level": 2,
+      "id": "25-hygiene-03",
+      "cat": "hygiene",
+      "level": 1,
       "type": "choice",
-      "prompt": "Zona typique : quel aspect ?",
+      "prompt": "À quoi servent les précautions standard ?",
       "variants": [
-        "À quoi ressemble un zona ?",
-        "Comment reconnaître un zona ?",
-        "Zona : quels signes ?"
+        "Quel est le but des précautions standard ?",
+        "Précautions standard : pourquoi les applique-t-on ?",
+        "Que cherche-t-on à éviter avec les précautions standard ?"
       ],
       "options": [
-        "Douleurs ou brûlures, puis vésicules groupées sur un seul dermatome, d'un seul côté",
-        "Plaques blanches dans la bouche",
-        "Boutons sur tout le corps des deux côtés",
-        "Rougeur diffuse sans douleur"
+        "Réduire la transmission croisée des agents infectieux entre soignant, soigné et environnement",
+        "Traiter une infection déclarée",
+        "Protéger uniquement les patients immunodéprimés",
+        "Remplacer l'isolement d'un patient contagieux"
       ],
       "answer": 0,
-      "explain": "Un zona ophtalmique, disséminé ou avec déficit neurologique demande un avis spécialisé urgent.",
-      "src": "vih"
+      "explain": "Ce sont les premières mesures barrières : elles réduisent la transmission croisée entre soignant, soigné et environnement, ou par exposition à un produit biologique d'origine humaine. Elles protègent patients et personnel.",
+      "src": "fiche"
     },
     {
-      "id": "25-evolution-13",
-      "cat": "evolution",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Comment se définit le stade sida ?",
+      "id": "25-hygiene-04",
+      "cat": "hygiene",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Les précautions standard s'appliquent à tous les patients, quel que soit leur statut infectieux.",
       "variants": [
-        "Stade sida : quelle définition ?",
-        "Qu'est-ce qui fait passer au stade sida ?",
-        "À quoi reconnaît-on le stade sida ?"
+        "On applique les précautions standard pour chaque patient, infecté ou non.",
+        "Même sans infection connue, le patient bénéficie des précautions standard.",
+        "Les précautions standard concernent tous les patients et tous les soignants."
+      ],
+      "answer": true,
+      "explain": "Vrai. C'est la première stratégie de prévention, pour tous. Les précautions complémentaires s'y ajoutent pour certains patients.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-hygiene-05",
+      "cat": "hygiene",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "L'hygiène des mains par friction hydro-alcoolique diminue le nombre d'infections associées aux soins.",
+      "variants": [
+        "La friction hydro-alcoolique fait baisser les IAS.",
+        "Les IAS diminuent quand les soignants pratiquent la friction hydro-alcoolique.",
+        "Friction hydro-alcoolique des mains = moins d'infections associées aux soins."
+      ],
+      "answer": true,
+      "explain": "Vrai. Les mains sont le premier vecteur de transmission croisée.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-hygiene-06",
+      "cat": "hygiene",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Le port d'une alliance ne diminue pas l'efficacité de la friction hydro-alcoolique.",
+      "variants": [
+        "Garder son alliance pendant les soins n'empêche pas une friction efficace.",
+        "Une alliance ne gêne pas la friction hydro-alcoolique.",
+        "Avec une alliance, la friction hydro-alcoolique reste aussi efficace."
+      ],
+      "answer": false,
+      "explain": "Faux. Sous la bague, la peau n'est pas frictionnée et les germes restent. Aucun bijou aux mains ni aux avant-bras.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-hygiene-07",
+      "cat": "hygiene",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Après avoir retiré mes gants, je réalise une friction hydro-alcoolique des mains.",
+      "variants": [
+        "Le retrait des gants est suivi d'une friction hydro-alcoolique.",
+        "Je fais une friction hydro-alcoolique systématiquement après le port de gants.",
+        "Gants retirés : friction hydro-alcoolique."
+      ],
+      "answer": true,
+      "explain": "Vrai. Les gants ne sont pas parfaitement étanches et les mains se contaminent en les retirant.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-hygiene-08",
+      "cat": "hygiene",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Les produits hydro-alcooliques peuvent contenir des perturbateurs endocriniens.",
+      "variants": [
+        "Les solutions hydro-alcooliques contiennent des perturbateurs endocriniens.",
+        "Il faut se méfier des SHA à cause des perturbateurs endocriniens.",
+        "Les SHA exposent les soignants à des perturbateurs endocriniens."
+      ],
+      "answer": false,
+      "explain": "Faux, selon ton cours. La friction hydro-alcoolique reste la méthode de référence pour l'hygiène des mains.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-hygiene-09",
+      "cat": "hygiene",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Je mets des gants quand je risque d'être en contact avec une muqueuse ou un liquide biologique.",
+      "variants": [
+        "Risque de contact avec du sang ou une muqueuse : je porte des gants.",
+        "Les gants sont indiqués en cas de contact possible avec un liquide biologique ou une muqueuse.",
+        "Contact prévisible avec une muqueuse ou un liquide biologique = gants."
+      ],
+      "answer": true,
+      "explain": "Vrai (ou avec une peau lésée). Un soin, une paire de gants : on les change entre deux patients.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-hygiene-10",
+      "cat": "hygiene",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels sont les prérequis à toute hygiène des mains ?",
+      "variants": [
+        "Avant toute hygiène des mains, que faut-il respecter ?",
+        "Hygiène des mains : quelles sont les recommandations générales ?",
+        "Quelles conditions faut-il réunir pour une hygiène des mains efficace ?"
       ],
       "options": [
-        "Par l'apparition d'une pathologie classant sida, quel que soit le taux de CD4",
-        "Par un taux de CD4 supérieur à 500/mm³",
-        "Par une charge virale indétectable",
-        "Par la première prise de traitement"
+        "Aucun bijou aux mains et aux avant-bras",
+        "Manches courtes",
+        "Ongles courts, sans vernis ni faux ongles",
+        "Enfiler ses gants avant la friction",
+        "Mouiller ses mains avant la friction"
       ],
-      "answer": 0,
-      "explain": "Infections opportunistes graves ou certains cancers. Le dépistage et le traitement précoces évitent le plus souvent ce stade.",
-      "src": "vih"
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Pas de bijoux (montre, bagues, bracelets), manches courtes, ongles courts sans vernis ni faux ongles. On frictionne des mains sèches.",
+      "src": "fiche"
     },
     {
-      "id": "25-evolution-14",
-      "cat": "evolution",
+      "id": "25-hygiene-11",
+      "cat": "hygiene",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quand puis-je utiliser une solution hydro-alcoolique (SHA) ?",
+      "variants": [
+        "SHA : dans quelles situations est-elle adaptée ?",
+        "Friction hydro-alcoolique : sur quelles mains et à quel moment ?",
+        "Dans quels cas la SHA convient-elle ?"
+      ],
+      "options": [
+        "Après le retrait des gants",
+        "Sur des mains sèches",
+        "Sur des mains visiblement non souillées",
+        "Sur des mains visiblement souillées",
+        "Sur des mains encore mouillées"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Sur des mains sèches et visiblement propres, après les gants. Mains souillées ou mouillées : lavage au savon doux puis séchage. Et aussi après le café ou le téléphone en salle de pause !",
+      "src": "fiche"
+    },
+    {
+      "id": "25-hygiene-12",
+      "cat": "hygiene",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Après avoir bu mon café ou consulté mon téléphone en salle de pause, je fais une friction hydro-alcoolique avant de reprendre les soins.",
+      "variants": [
+        "Retour de pause (café, téléphone) : friction hydro-alcoolique avant les soins.",
+        "Le téléphone et la tasse de café contaminent les mains : friction avant de retourner aux soins.",
+        "Une friction hydro-alcoolique s'impose après la pause, avant de toucher un patient."
+      ],
+      "answer": true,
+      "explain": "Vrai : téléphone, tasse, poignées sont couverts de germes.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-hygiene-13",
+      "cat": "hygiene",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Combien de temps frictionne-t-on avec la solution hydro-alcoolique ?",
+      "variants": [
+        "Friction hydro-alcoolique : quand peut-on s'arrêter ?",
+        "Jusqu'à quand dure une friction hydro-alcoolique ?",
+        "SHA : quelle durée de friction ?"
+      ],
+      "options": [
+        "Jusqu'au séchage complet des mains",
+        "5 secondes suffisent",
+        "Jusqu'à ce que le produit mousse",
+        "On essuie avec une compresse au bout de 10 secondes"
+      ],
+      "answer": 0,
+      "explain": "Jusqu'à ce que les mains soient complètement sèches (en pratique 20 à 30 secondes), sans essuyer ni rincer.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-hygiene-14",
+      "cat": "hygiene",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Comment les mains d'un soignant peuvent-elles se contaminer ?",
+      "variants": [
+        "Dans quelles situations les mains du soignant se contaminent-elles ?",
+        "Mains du personnel : quand se chargent-elles de germes ?",
+        "Repère les situations où les mains se contaminent."
+      ],
+      "options": [
+        "Pendant les soins de nursing",
+        "Au contact de l'environnement d'un patient infecté",
+        "En touchant les poignées de porte",
+        "En allant aux toilettes",
+        "Seulement lors des soins invasifs"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Pendant les soins et le nursing, mais aussi par l'environnement du patient, les poignées de porte, les toilettes et tous les gestes simples. D'où l'hygiène des mains à chaque étape.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-01",
+      "cat": "isolement",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce que l'isolement septique ?",
+      "variants": [
+        "Isolement septique : quelle définition ?",
+        "À quoi sert l'isolement septique ?",
+        "Définis l'isolement septique."
+      ],
+      "options": [
+        "Empêcher qu'un agent infectieux passe d'un patient infecté ou porteur à d'autres personnes",
+        "Protéger un patient immunodéprimé des germes extérieurs",
+        "Interdire toute visite au patient",
+        "Donner un antibiotique en chambre seule"
+      ],
+      "answer": 0,
+      "explain": "Il empêche qu'un agent infectieux connu ou présumé passe d'un patient infecté ou porteur à des personnes réceptives. Il s'ajoute aux précautions standard : contact, gouttelettes ou air.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-02",
+      "cat": "isolement",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce que l'isolement protecteur ?",
+      "variants": [
+        "Isolement protecteur : quelle définition ?",
+        "À quoi sert l'isolement protecteur ?",
+        "Quel est le but de l'isolement protecteur ?"
+      ],
+      "options": [
+        "Protéger un patient immunodéprimé de tout agent infectieux venant de l'environnement, des autres patients ou du personnel",
+        "Protéger le personnel d'un patient contagieux",
+        "Empêcher un patient contagieux de sortir",
+        "Protéger la famille du patient"
+      ],
+      "answer": 0,
+      "explain": "Il protège un patient immunodéprimé de tout agent infectieux venant de l'environnement, des autres patients ou du personnel.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-03",
+      "cat": "isolement",
+      "level": 1,
+      "type": "cite",
+      "prompt": "Cite les 3 types de précautions complémentaires (isolement septique).",
+      "variants": [
+        "Isolement septique : quels sont les 3 types de précautions ?",
+        "Précautions complémentaires : nomme les 3 types.",
+        "Les 3 précautions complémentaires de l'isolement septique ?"
+      ],
+      "answers": [
+        [
+          "contact",
+          "précautions contact"
+        ],
+        [
+          "gouttelettes",
+          "gouttelette",
+          "précautions gouttelettes"
+        ],
+        [
+          "air",
+          "aérien",
+          "aérienne",
+          "précautions air"
+        ]
+      ],
+      "explain": "Contact (C), gouttelettes (G) et air (A), selon le mode de transmission du germe.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-04",
+      "cat": "isolement",
       "level": 3,
       "type": "sort",
-      "prompt": "Classant sida ou non ? Range chaque affection.",
+      "prompt": "Range chaque pathologie selon les précautions à prendre.",
       "variants": [
-        "Ces affections définissent-elles le stade sida ?",
-        "Pathologie classant sida ou simplement fréquente ? Classe-les.",
-        "Range ces affections : classantes sida ou non."
+        "Contact, gouttelettes, air ou protecteur ? Classe ces pathologies.",
+        "Quelles précautions pour chaque pathologie ? Range-les.",
+        "Classe ces situations selon l'isolement qu'elles demandent."
       ],
       "groups": [
         {
-          "name": "Classe au stade sida",
+          "name": "Contact",
           "items": [
-            "Pneumocystose",
-            "Candidose œsophagienne",
-            "Toxoplasmose cérébrale",
-            "Sarcome de Kaposi",
-            "Tuberculose"
+            "Hépatite A",
+            "Herpès généralisé",
+            "SARM",
+            "Salmonellose",
+            "Entérobactérie BLSE"
           ]
         },
         {
-          "name": "Fréquente mais pas classante",
-          "items": ["Candidose buccale isolée", "Zona localisé", "Pneumonie bactérienne isolée"]
+          "name": "Gouttelettes",
+          "items": [
+            "Méningite à méningocoque",
+            "Coqueluche"
+          ]
+        },
+        {
+          "name": "Air",
+          "items": [
+            "Tuberculose pulmonaire",
+            "Rougeole"
+          ]
+        },
+        {
+          "name": "Isolement protecteur",
+          "items": [
+            "Aplasie après chimiothérapie"
+          ]
         }
       ],
-      "explain": "Le stade sida est défini par une affection classante. Les autres peuvent révéler ou accompagner le VIH sans définir le stade sida.",
-      "src": "vih"
+      "explain": "Contact : transmission par les mains et l'environnement. Gouttelettes : postillons à courte distance. Air : fines particules qui restent en suspension. Protecteur : patient immunodéprimé à protéger.",
+      "src": "fiche"
     },
     {
-      "id": "25-evolution-15",
-      "cat": "evolution",
-      "level": 3,
+      "id": "25-isolement-05",
+      "cat": "isolement",
+      "level": 2,
       "type": "match",
-      "prompt": "Associe le taux de CD4 aux infections qu'il expose à faire.",
+      "prompt": "Associe chaque pathologie à son isolement.",
       "variants": [
-        "CD4 et infections : quel risque à quel niveau ?",
-        "Relie chaque taux de CD4 aux infections typiques.",
-        "Infections selon le niveau d'immunodépression : forme les paires."
+        "Quel isolement pour quelle pathologie ? Forme les paires.",
+        "Relie chaque pathologie aux précautions qu'elle impose.",
+        "Pathologie et isolement : associe."
       ],
-      "left": "CD4",
-      "right": "Infections typiques",
+      "left": "Pathologie",
+      "right": "Isolement",
       "pairs": [
-        ["Entre 200 et 500/mm³", "Zona récidivant, candidose buccale"],
-        ["Moins de 200/mm³", "Pneumocystose, candidose œsophagienne"],
-        ["Moins de 100/mm³", "Toxoplasmose cérébrale, cryptococcose"]
+        [
+          "Rougeole",
+          "Précautions air"
+        ],
+        [
+          "Coqueluche",
+          "Précautions gouttelettes"
+        ],
+        [
+          "Salmonellose",
+          "Précautions contact"
+        ],
+        [
+          "Aplasie après chimiothérapie",
+          "Isolement protecteur"
+        ]
       ],
-      "explain": "Toujours interpréter avec la charge virale, les symptômes et les traitements. La tuberculose peut survenir quel que soit le taux de CD4.",
-      "src": "vih"
+      "explain": "Rougeole : air (FFP2). Coqueluche : gouttelettes (masque chirurgical). Salmonellose : contact. Aplasie : isolement protecteur.",
+      "src": "fiche"
     },
     {
-      "id": "25-diagnostic-01",
-      "cat": "diagnostic",
+      "id": "25-isolement-06",
+      "cat": "isolement",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Patient porteur d'un staphylocoque doré résistant à la méticilline (SARM) : quelles précautions ?",
+      "variants": [
+        "SARM : quel isolement ?",
+        "Quelles précautions complémentaires pour un patient porteur de SARM ?",
+        "Staphylococcus aureus résistant à la méticilline : quelles précautions ?"
+      ],
+      "options": [
+        "Contact",
+        "Gouttelettes",
+        "Air",
+        "Isolement protecteur"
+      ],
+      "answer": 0,
+      "explain": "Précautions contact : il se transmet par les mains et l'environnement. Même chose pour les entérobactéries BLSE (bêta-lactamases à spectre élargi).",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-07",
+      "cat": "isolement",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Tuberculose pulmonaire : quelles précautions complémentaires ?",
+      "variants": [
+        "Quel isolement pour une tuberculose pulmonaire ?",
+        "Patient tuberculeux bacillifère : quelles précautions ?",
+        "Tuberculose pulmonaire : contact, gouttelettes ou air ?"
+      ],
+      "options": [
+        "Air",
+        "Contact",
+        "Gouttelettes",
+        "Isolement protecteur"
+      ],
+      "answer": 0,
+      "explain": "Précautions air : masque FFP2 pour le soignant, porte fermée. Même chose pour la rougeole et la varicelle.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-08",
+      "cat": "isolement",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Méningite à méningocoque : quelles précautions complémentaires ?",
+      "variants": [
+        "Quel isolement pour une méningite à méningocoque ?",
+        "Méningocoque : contact, gouttelettes ou air ?",
+        "Patient atteint d'une méningite à méningocoque : quelles précautions ?"
+      ],
+      "options": [
+        "Gouttelettes",
+        "Air",
+        "Contact",
+        "Isolement protecteur"
+      ],
+      "answer": 0,
+      "explain": "Précautions gouttelettes : masque chirurgical. Même chose pour la coqueluche.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-09",
+      "cat": "isolement",
+      "level": 2,
+      "type": "cite",
+      "prompt": "Cite 3 maladies qui imposent des précautions air (masque FFP2).",
+      "variants": [
+        "Précautions air : donne 3 maladies concernées.",
+        "Masque FFP2 obligatoire : cite 3 maladies en cause.",
+        "Quelles maladies relèvent des précautions air ? Cites-en 3."
+      ],
+      "need": 3,
+      "answers": [
+        [
+          "tuberculose",
+          "tuberculose pulmonaire",
+          "BK"
+        ],
+        [
+          "rougeole"
+        ],
+        [
+          "varicelle"
+        ],
+        [
+          "covid",
+          "covid 19",
+          "covid-19"
+        ]
+      ],
+      "explain": "Tuberculose pulmonaire, rougeole, varicelle (et le Covid-19 dans le tableau du cours).",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-10",
+      "cat": "isolement",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Covid-19 : quel masque le soignant porte-t-il, selon ton cours ?",
+      "variants": [
+        "Patient atteint de Covid-19 : quel masque pour entrer dans la chambre ?",
+        "Selon le cours, quel masque protège le soignant d'un patient Covid ?",
+        "Covid-19 : masque chirurgical ou FFP2 pour le soignant ?"
+      ],
+      "options": [
+        "FFP2",
+        "Masque chirurgical",
+        "Aucun masque",
+        "Masque en tissu"
+      ],
+      "answer": 0,
+      "explain": "FFP2, avec un test d'étanchéité. Le tableau du cours associe précautions contact et air pour le Covid-19.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-11",
+      "cat": "isolement",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Je veux me protéger d'un patient contagieux par voie aérienne : quel masque je porte ?",
+      "variants": [
+        "Quel masque protège le soignant d'une transmission aérienne ?",
+        "Me protéger, moi, d'un germe aéroporté : quel masque ?",
+        "Transmission par l'air : quel masque pour le soignant ?"
+      ],
+      "options": [
+        "FFP2",
+        "Masque chirurgical",
+        "Une visière seule",
+        "Aucun si je reste moins de 5 minutes"
+      ],
+      "answer": 0,
+      "explain": "« Je veux me protéger : FFP2. Je veux protéger les autres de celui qui le porte : masque chirurgical. »",
+      "src": "revisions"
+    },
+    {
+      "id": "25-isolement-12",
+      "cat": "isolement",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Pourquoi un patient contagieux porte-t-il un masque chirurgical quand il sort de sa chambre ?",
+      "variants": [
+        "Patient contagieux qui quitte sa chambre : à quoi sert son masque chirurgical ?",
+        "Le masque chirurgical du patient qui sort de sa chambre protège qui ?",
+        "Masque chirurgical sur le patient en déplacement : quel intérêt ?"
+      ],
+      "options": [
+        "Pour protéger les autres de ses gouttelettes",
+        "Pour le protéger des germes du couloir",
+        "Pour filtrer l'air qu'il respire comme un FFP2",
+        "Par simple confort"
+      ],
+      "answer": 0,
+      "explain": "Le masque chirurgical retient les gouttelettes de celui qui le porte : il protège les autres.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-13",
+      "cat": "isolement",
+      "level": 3,
+      "type": "truefalse",
+      "prompt": "Un patient en précautions air qui doit sortir de sa chambre porte un masque FFP2.",
+      "variants": [
+        "Pour sortir de sa chambre, un patient en précautions air met un FFP2.",
+        "Le patient tuberculeux qui quitte sa chambre porte un masque FFP2.",
+        "Précautions air : le patient sort de sa chambre avec un FFP2."
+      ],
+      "answer": false,
+      "explain": "Faux : il porte un masque chirurgical, qui retient ses propres sécrétions. Le FFP2 protège celui qui le porte de l'air contaminé : c'est le masque du soignant.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-14",
+      "cat": "isolement",
       "level": 3,
       "type": "order",
-      "prompt": "Après une contamination, dans quel ordre ces marqueurs deviennent-ils positifs ?",
+      "prompt": "Précautions contact : remets dans l'ordre, de l'entrée dans la chambre à la sortie.",
       "variants": [
-        "Marqueurs du VIH : lequel apparaît en premier ?",
-        "Ordonne ces marqueurs selon leur délai de positivité.",
-        "Du plus précoce au plus tardif : quand chaque marqueur se positive-t-il ?"
+        "Précautions contact : dans quel ordre s'équiper puis se déséquiper ?",
+        "Ordonne les étapes d'un soin en précautions contact.",
+        "Entrée et sortie de chambre en précautions contact : remets les étapes en ordre."
       ],
-      "items": ["ARN du VIH (charge virale)", "Antigène p24", "Anticorps anti-VIH"],
-      "explain": "ARN du VIH vers J10, antigène p24 vers J15, anticorps vers J20 à J28. D'où la fenêtre où une sérologie peut être négative.",
-      "src": "vih"
+      "items": [
+        "Friction hydro-alcoolique avant d'entrer",
+        "Surblouse à usage unique",
+        "Gants à usage unique",
+        "Soin auprès du patient",
+        "Retrait des gants, jetés dans la chambre",
+        "Retrait de la surblouse, jetée dans la chambre",
+        "Friction hydro-alcoolique en sortant"
+      ],
+      "explain": "On retire d'abord les gants (le plus contaminé), puis la surblouse, jetés dans le sac jaune à l'intérieur de la chambre, et friction à chaque étape.",
+      "src": "fiche"
     },
     {
-      "id": "25-diagnostic-02",
-      "cat": "diagnostic",
+      "id": "25-isolement-15",
+      "cat": "isolement",
+      "level": 3,
+      "type": "order",
+      "prompt": "Précautions air : remets dans l'ordre l'habillage avant d'entrer dans la chambre.",
+      "variants": [
+        "Précautions air : dans quel ordre t'équipes-tu ?",
+        "Avant d'entrer en précautions air : ordonne les étapes.",
+        "Habillage en précautions air : remets les étapes en ordre."
+      ],
+      "items": [
+        "Friction hydro-alcoolique",
+        "Masque FFP2 et test d'étanchéité",
+        "Nouvelle friction hydro-alcoolique",
+        "Blouse à usage unique",
+        "Gants à usage unique"
+      ],
+      "explain": "Le masque FFP2 se met en premier, avant d'entrer, avec un test d'étanchéité.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-16",
+      "cat": "isolement",
+      "level": 3,
+      "type": "order",
+      "prompt": "Précautions air : remets dans l'ordre la sortie de chambre.",
+      "variants": [
+        "Précautions air : comment sortir de la chambre ? Ordonne les étapes.",
+        "Sortie de chambre en précautions air : quel ordre ?",
+        "Déshabillage en précautions air : remets les étapes en ordre."
+      ],
+      "items": [
+        "Retirer les gants",
+        "Retirer la blouse et la jeter dans le sac jaune de la chambre",
+        "Friction hydro-alcoolique",
+        "Sortir et fermer la porte",
+        "Retirer le masque FFP2 hors de la chambre",
+        "Jeter le masque et refaire une friction"
+      ],
+      "explain": "Le FFP2 se retire en dernier, hors de la chambre, porte fermée : à l'intérieur, l'air est contaminé.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-17",
+      "cat": "isolement",
       "level": 2,
       "type": "choice",
-      "prompt": "Test de laboratoire de 4e génération : que détecte-t-il ?",
+      "prompt": "Précautions air : où retires-tu ton masque FFP2 ?",
       "variants": [
-        "Test combiné VIH : que recherche-t-il ?",
-        "Sérologie VIH de 4e génération : qu'est-ce qu'elle cherche ?",
-        "Le test combiné du laboratoire détecte…"
+        "En précautions air, à quel moment enlèves-tu le FFP2 ?",
+        "FFP2 en précautions air : où l'ôter ?",
+        "Quand le soignant retire-t-il son masque FFP2 en précautions air ?"
       ],
       "options": [
-        "Les anticorps anti-VIH et l'antigène p24",
-        "Uniquement l'ARN du virus",
-        "Les lymphocytes CD4",
-        "Les plaquettes"
+        "Hors de la chambre, porte fermée",
+        "Dans la chambre, juste avant de sortir",
+        "Sur le pas de la porte ouverte",
+        "Je le garde pour le patient suivant"
       ],
       "answer": 0,
-      "explain": "C'est l'examen de référence du dépistage en laboratoire.",
-      "src": "vih"
+      "explain": "Une fois sorti, porte fermée, puis il le jette dans un sac jaune et fait une friction.",
+      "src": "fiche"
     },
     {
-      "id": "25-diagnostic-03",
-      "cat": "diagnostic",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Test combiné de 4e génération négatif : à partir de quel délai après la dernière exposition est-il fiable ?",
-      "variants": [
-        "Test VIH de laboratoire : délai après lequel un résultat négatif est fiable ?",
-        "Sérologie VIH de 4e génération négative : fiable au bout de combien de temps ?",
-        "Combien de temps après une prise de risque un test combiné négatif rassure-t-il ?"
-      ],
-      "options": ["6 semaines", "48 heures", "1 semaine", "1 an"],
-      "answer": 0,
-      "explain": "En cas d'exposition très récente ou de symptômes, on demande l'ARN du VIH selon le contexte.",
-      "src": "vih"
-    },
-    {
-      "id": "25-diagnostic-04",
-      "cat": "diagnostic",
-      "level": 2,
-      "type": "choice",
-      "prompt": "TROD ou autotest VIH négatif : à partir de quel délai est-il fiable ?",
-      "variants": [
-        "Autotest VIH : délai de fiabilité d'un résultat négatif ?",
-        "Un TROD VIH négatif rassure à partir de quand ?",
-        "Test rapide VIH négatif : fiable combien de temps après l'exposition ?"
-      ],
-      "options": ["3 mois après la dernière exposition", "6 semaines", "2 jours", "15 jours"],
-      "answer": 0,
-      "explain": "Le TROD et l'autotest ne détectent que les anticorps, qui apparaissent plus tard que l'antigène p24.",
-      "src": "vih"
-    },
-    {
-      "id": "25-diagnostic-05",
-      "cat": "diagnostic",
-      "level": 1,
-      "type": "truefalse",
-      "prompt": "Un TROD VIH positif suffit à poser le diagnostic.",
-      "variants": [
-        "Un test rapide VIH réactif vaut diagnostic.",
-        "Autotest positif = diagnostic d'infection à VIH.",
-        "Un TROD réactif suffit pour annoncer une séropositivité."
-      ],
-      "answer": false,
-      "explain": "Faux. Tout test réactif doit être confirmé au laboratoire, sur un second prélèvement, avant l'annonce.",
-      "src": "vih"
-    },
-    {
-      "id": "25-diagnostic-06",
-      "cat": "diagnostic",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Dépistage du VIH : quelles règles s'appliquent ?",
-      "variants": [
-        "Dépister le VIH : que faut-il respecter ?",
-        "Quelles règles encadrent le test et l'annonce du VIH ?",
-        "Dépistage et annonce du VIH : repère les règles."
-      ],
-      "options": [
-        "Consentement du patient",
-        "Annonce d'un résultat positif par le médecin, accompagnée",
-        "Déclaration obligatoire anonymisée",
-        "Prise en charge à 100 % (ALD)",
-        "Résultat communiqué à l'employeur"
-      ],
-      "answer": [0, 1, 2, 3],
-      "explain": "Le dépistage est confidentiel. L'annonce est suivie d'un bilan initial et d'un traitement rapide.",
-      "src": "vih"
-    },
-    {
-      "id": "25-diagnostic-07",
-      "cat": "diagnostic",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Que mesure la charge virale ?",
-      "variants": [
-        "Charge virale VIH : qu'évalue-t-elle ?",
-        "À quoi sert la charge virale ?",
-        "Charge virale : que nous apprend-elle ?"
-      ],
-      "options": [
-        "La quantité d'ARN du VIH dans le plasma : l'activité du virus et l'efficacité du traitement",
-        "Le nombre de lymphocytes CD4",
-        "La présence d'anticorps",
-        "Le risque d'allergie au traitement"
-      ],
-      "answer": 0,
-      "explain": "Charge virale = contrôle du virus (en copies/mL). CD4 = état de l'immunité et risque d'infections opportunistes.",
-      "src": "vih"
-    },
-    {
-      "id": "25-diagnostic-08",
-      "cat": "diagnostic",
-      "level": 1,
-      "type": "choice",
-      "prompt": "Sous traitement, quel objectif de charge virale ?",
-      "variants": [
-        "Charge virale visée sous antirétroviraux ?",
-        "Traitement efficace : quelle charge virale attend-on ?",
-        "Quel résultat de charge virale montre un traitement efficace ?"
-      ],
-      "options": [
-        "Indétectable, en général moins de 50 copies/mL",
-        "Plus de 100 000 copies/mL",
-        "Exactement 500 copies/mL",
-        "La charge virale ne se mesure pas sous traitement"
-      ],
-      "answer": 0,
-      "explain": "Durablement indétectable : la personne ne transmet pas le virus par voie sexuelle (I = I).",
-      "src": "vih"
-    },
-    {
-      "id": "25-traitement-01",
-      "cat": "traitement",
-      "level": 1,
-      "type": "choice",
-      "prompt": "Quand débuter le traitement antirétroviral ?",
-      "variants": [
-        "Personne qui découvre sa séropositivité : quand commencer le traitement ?",
-        "Antirétroviraux : à quel moment les débuter ?",
-        "Quand démarrer les ARV après le diagnostic ?"
-      ],
-      "options": [
-        "Dès que possible après le diagnostic, chez toutes les personnes, quel que soit le stade",
-        "Seulement au stade sida",
-        "Quand les CD4 passent sous 200/mm³",
-        "Jamais avant 5 ans d'infection"
-      ],
-      "answer": 0,
-      "explain": "Souvent dans les 14 jours, sans délai en primo-infection. Objectifs : charge virale indétectable, CD4 restaurés, prévention de la transmission.",
-      "src": "vih"
-    },
-    {
-      "id": "25-traitement-02",
-      "cat": "traitement",
-      "level": 2,
-      "type": "choice",
-      "prompt": "Pourquoi associer plusieurs antirétroviraux ?",
-      "variants": [
-        "Pourquoi ne donne-t-on pas un seul antirétroviral ?",
-        "Trithérapie : pourquoi associer plusieurs molécules ?",
-        "Quel est l'intérêt d'une association d'antirétroviraux ?"
-      ],
-      "options": [
-        "Pour bloquer plusieurs étapes du cycle et éviter l'apparition de virus résistants",
-        "Pour réduire le prix",
-        "Parce qu'un seul médicament est toxique",
-        "Pour pouvoir arrêter plus vite"
-      ],
-      "answer": 0,
-      "explain": "Aujourd'hui, souvent un inhibiteur de l'intégrase et deux INTI, parfois en un seul comprimé par jour.",
-      "src": "vih"
-    },
-    {
-      "id": "25-traitement-03",
-      "cat": "traitement",
-      "level": 1,
-      "type": "truefalse",
-      "prompt": "On peut arrêter le traitement antirétroviral quand la charge virale est indétectable.",
-      "variants": [
-        "Charge virale indétectable : le traitement peut s'arrêter.",
-        "Une fois le virus indétectable, les ARV ne sont plus utiles.",
-        "Le traitement du VIH s'arrête quand la charge virale devient indétectable."
-      ],
-      "answer": false,
-      "explain": "Faux. Le traitement contrôle le virus sans l'éliminer : le provirus persiste dans des réservoirs. Le traitement est pris à vie, sans interruption.",
-      "src": "vih"
-    },
-    {
-      "id": "25-traitement-04",
-      "cat": "traitement",
+      "id": "25-isolement-18",
+      "cat": "isolement",
       "level": 2,
       "type": "truefalse",
-      "prompt": "Les antirétroviraux éliminent définitivement le VIH de l'organisme.",
+      "prompt": "Avant d'entrer en précautions air, je vérifie l'étanchéité de mon masque FFP2.",
       "variants": [
-        "Les ARV guérissent l'infection à VIH.",
-        "Sous traitement, le VIH disparaît complètement du corps.",
-        "Le traitement antirétroviral éradique le virus."
+        "Le FFP2 se met avec un test d'étanchéité (fit-check).",
+        "Masque FFP2 : je contrôle qu'il est bien étanche avant d'entrer.",
+        "Un FFP2 mal ajusté ne protège pas : je teste son étanchéité."
       ],
-      "answer": false,
-      "explain": "Faux. Ils bloquent la réplication mais n'éliminent pas les réservoirs viraux. À l'arrêt, le virus se remet à se multiplier.",
-      "src": "vih"
+      "answer": true,
+      "explain": "Vrai. Un FFP2 qui fuit sur les côtés ne filtre plus l'air inspiré.",
+      "src": "fiche"
     },
     {
-      "id": "25-traitement-05",
-      "cat": "traitement",
-      "level": 1,
+      "id": "25-isolement-19",
+      "cat": "isolement",
+      "level": 2,
       "type": "choice",
-      "prompt": "Quelles sont les conditions d'efficacité du traitement ?",
+      "prompt": "Précautions gouttelettes : quel masque pour le soignant ?",
       "variants": [
-        "Traitement antirétroviral : qu'est-ce qui le rend efficace ?",
-        "Repère les conditions pour que le traitement du VIH marche.",
-        "Que faut-il pour qu'une trithérapie reste efficace ?"
+        "En précautions gouttelettes, quel masque porte le soignant ?",
+        "Gouttelettes : masque chirurgical ou FFP2 ?",
+        "Quel masque pour entrer chez un patient en précautions gouttelettes ?"
       ],
       "options": [
-        "Prises régulières, sans interruption (observance)",
-        "Repérer et traiter les effets indésirables",
-        "Vérifier les interactions (automédication, plantes, compléments)",
-        "Suivi régulier de la charge virale et des CD4",
-        "Sauter les prises le week-end"
+        "Masque chirurgical (FFP2 si Covid)",
+        "FFP2 dans tous les cas",
+        "Aucun masque",
+        "Un masque seulement pour le patient"
       ],
-      "answer": [0, 1, 2, 3],
-      "explain": "Une observance insuffisante laisse le virus se répliquer et sélectionne des virus résistants : échec du traitement. Accompagner les difficultés sans jugement.",
-      "src": "vih"
+      "answer": 0,
+      "explain": "Masque chirurgical (FFP2 si Covid, selon ton cours). Le patient qui sort porte lui aussi un masque chirurgical.",
+      "src": "fiche"
     },
     {
-      "id": "25-traitement-06",
-      "cat": "traitement",
+      "id": "25-isolement-20",
+      "cat": "isolement",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Diarrhée à Clostridium difficile : quelle hygiène des mains en sortant de la chambre ?",
+      "variants": [
+        "Clostridium difficile : comment te laves-tu les mains en sortant ?",
+        "Isolement pour diarrhée à Clostridium difficile : quelle hygiène des mains ?",
+        "En sortant de chez un patient à Clostridium difficile, que fais-tu pour tes mains ?"
+      ],
+      "options": [
+        "Lavage simple au savon doux, puis friction hydro-alcoolique sur mains sèches",
+        "Friction hydro-alcoolique seule",
+        "Rinçage à l'eau seule",
+        "Rien si j'ai porté des gants"
+      ],
+      "answer": 0,
+      "explain": "Le Clostridium difficile forme des spores et la SHA n'est pas sporicide : le lavage au savon élimine les spores mécaniquement, la friction complète sur mains bien sèches.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-21",
+      "cat": "isolement",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "La solution hydro-alcoolique détruit les spores de Clostridium difficile.",
+      "variants": [
+        "La SHA est sporicide.",
+        "Une friction hydro-alcoolique suffit contre les spores de Clostridium difficile.",
+        "Les spores de Clostridium difficile sont éliminées par la SHA."
+      ],
+      "answer": false,
+      "explain": "Faux. La SHA n'est pas sporicide : il faut un lavage au savon doux avant la friction.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-22",
+      "cat": "isolement",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Je débute mes soins par le patient en isolement protecteur.",
+      "variants": [
+        "Le patient en isolement protecteur est soigné en premier.",
+        "Je commence ma tournée par le patient immunodéprimé en isolement protecteur.",
+        "Isolement protecteur : ce patient passe en premier."
+      ],
+      "answer": true,
+      "explain": "Vrai : c'est le plus fragile. Je termine au contraire par le patient en isolement septique, porteur d'un germe. Ainsi je limite la transmission croisée.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-23",
+      "cat": "isolement",
+      "level": 2,
+      "type": "order",
+      "prompt": "Dans quel ordre organises-tu tes soins ?",
+      "variants": [
+        "Ordonne ta tournée selon le type de patient.",
+        "Quel patient soigner en premier, lequel en dernier ?",
+        "Remets ta tournée dans l'ordre pour éviter la transmission croisée."
+      ],
+      "items": [
+        "Patient en isolement protecteur",
+        "Patient sans isolement",
+        "Patient en isolement septique"
+      ],
+      "explain": "Du plus fragile au plus contaminant : isolement protecteur, puis patients sans isolement, puis isolement septique.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-24",
+      "cat": "isolement",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qui décide de la mise en place et de la levée d'un isolement ?",
+      "variants": [
+        "Isolement : qui le prescrit et qui le lève ?",
+        "Mise en place et levée d'un isolement : de qui est-ce la décision ?",
+        "Qui est responsable de la décision d'isoler un patient ?"
+      ],
+      "options": [
+        "Le médecin (prescription médicale)",
+        "L'infirmier seul",
+        "La famille du patient",
+        "L'aide-soignant"
+      ],
+      "answer": 0,
+      "explain": "Le médecin, sur prescription, en s'appuyant sur les prélèvements bactériologiques.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-25",
+      "cat": "isolement",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Sur quoi repose la levée d'un isolement ?",
+      "variants": [
+        "Quand peut-on lever un isolement ?",
+        "Levée d'isolement : quel critère ?",
+        "Qu'est-ce qui permet d'arrêter un isolement ?"
+      ],
+      "options": [
+        "Les résultats des prélèvements bactériologiques",
+        "La disparition de la fièvre",
+        "La demande du patient",
+        "Une durée fixe de 7 jours"
+      ],
+      "answer": 0,
+      "explain": "Le résultat des prélèvements bactériologiques, et la décision médicale.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-isolement-26",
+      "cat": "isolement",
+      "level": 2,
+      "type": "cite",
+      "prompt": "Cite les 3 principes pour bien mettre en place un isolement.",
+      "variants": [
+        "Mettre en place un isolement : quels sont les 3 principes ?",
+        "Comment faire respecter un isolement ? Cite les 3 principes.",
+        "Isolement : que faut-il faire pour qu'il soit respecté ? Donne 3 principes."
+      ],
+      "answers": [
+        [
+          "prévenir le personnel",
+          "personnel",
+          "équipe",
+          "informer le personnel",
+          "prévenir l'équipe",
+          "informer l'équipe"
+        ],
+        [
+          "prévenir le patient et sa famille",
+          "famille",
+          "patient",
+          "prévenir la famille",
+          "informer la famille",
+          "patient et famille",
+          "informer le patient"
+        ],
+        [
+          "signalisation",
+          "panneau",
+          "UMI",
+          "chariot",
+          "matériel devant la chambre",
+          "affiche",
+          "prévoir la signalisation"
+        ]
+      ],
+      "explain": "Prévenir tout le personnel, prévenir le patient et sa famille, prévoir la signalisation et l'UMI (unité mobile d'isolement : chariot de matériel) devant la chambre.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-isolement-27",
+      "cat": "isolement",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Que trouve-t-on devant la porte d'un patient en précautions contact ?",
+      "variants": [
+        "Précautions contact : que prévoit-on devant la chambre ?",
+        "UMI devant la chambre : qu'y met-on pour des précautions contact ?",
+        "Devant la chambre en précautions contact, qu'y a-t-il ?"
+      ],
+      "options": [
+        "Une signalisation (panneau)",
+        "De la SHA",
+        "Des surblouses",
+        "Des gants",
+        "Les déchets du patient"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Une signalisation et l'UMI (unité mobile d'isolement) avec le matériel nécessaire : SHA, surblouses, gants. Les déchets ne restent pas devant la porte.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-28",
+      "cat": "isolement",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Isolement protecteur : quelles mesures ?",
+      "variants": [
+        "Quelles mesures pour un isolement protecteur ?",
+        "Patient en isolement protecteur : comment organiser sa chambre ?",
+        "Isolement protecteur : lesquelles sont justes ?"
+      ],
+      "options": [
+        "Chambre individuelle",
+        "Porte fermée",
+        "Double porte d'entrée (sas)",
+        "Chambre près d'une zone de passage",
+        "Soins de ce patient en dernier"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Chambre individuelle, double porte (sas), porte fermée, loin des zones de passage. On commence les soins par ce patient.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-29",
+      "cat": "isolement",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Mesures organisationnelles d'un isolement : lesquelles sont justes ?",
+      "variants": [
+        "Isolement : quelles sont les bonnes mesures d'organisation ?",
+        "Organisation autour d'un patient isolé : que fais-tu ?",
+        "Repère les mesures organisationnelles d'un isolement."
+      ],
+      "options": [
+        "Regrouper les soins",
+        "Informer rigoureusement visiteurs et prestataires",
+        "Ne pas stocker de déchets dans la chambre",
+        "Contrôler régulièrement le stock de matériel propre",
+        "Stocker beaucoup de matériel dans la chambre pour éviter les allers-retours"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Regrouper les soins, informer visiteurs et prestataires, ne pas stocker de déchets dans la chambre, contrôler régulièrement le stock de matériel propre (le minimum dans la chambre).",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-30",
+      "cat": "isolement",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Isolement protecteur d'un patient en aplasie : quelles mesures techniques ?",
+      "variants": [
+        "Patient en aplasie, isolement protecteur : quelles mesures techniques ?",
+        "Mesures techniques pour protéger un patient très immunodéprimé : lesquelles ?",
+        "Aplasie après chimiothérapie : que prévois-tu dans la chambre ?"
+      ],
+      "options": [
+        "Matériel à usage unique ou individualisé dans la chambre",
+        "Linge stérile",
+        "Alimentation décontaminée",
+        "Signalisation spécifique",
+        "Plantes et fleurs pour le moral"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Signalisation, matériel à usage unique ou individualisé, linge stérile, alimentation décontaminée. Pas de plantes ni de fleurs : elles apportent des germes (champignons).",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-31",
+      "cat": "isolement",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Les précautions complémentaires s'ajoutent aux précautions standard, elles ne les remplacent pas.",
+      "variants": [
+        "En isolement septique, on applique aussi les précautions standard.",
+        "Précautions complémentaires = précautions standard + mesures en plus.",
+        "Les précautions standard restent en place pendant un isolement."
+      ],
+      "answer": true,
+      "explain": "Vrai. L'isolement septique s'applique en complément des précautions standard.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-32",
+      "cat": "isolement",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Les précautions complémentaires relèvent de la prescription médicale.",
+      "variants": [
+        "Un isolement septique se met en place sur prescription médicale.",
+        "Les précautions complémentaires sont prescrites par le médecin.",
+        "Isolement = prescription médicale."
+      ],
+      "answer": true,
+      "explain": "Vrai : l'isolement se fait toujours sur prescription médicale, à partir des prélèvements bactériologiques.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-isolement-33",
+      "cat": "isolement",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Selon ton cours, l'isolement géographique (chambre individuelle) s'applique quel que soit le type d'isolement.",
+      "variants": [
+        "La chambre individuelle fait partie de tous les isolements.",
+        "Quel que soit l'isolement, le patient est en chambre seule.",
+        "L'isolement géographique est commun à tous les types d'isolement."
+      ],
+      "answer": true,
+      "explain": "Vrai. C'est l'une des mesures phares des isolements dans la lutte contre les IAS.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-inflammation-01",
+      "cat": "inflammation",
+      "level": 1,
+      "type": "cite",
+      "prompt": "Cite les 4 signes locaux de l'inflammation.",
+      "variants": [
+        "Inflammation : quels sont les 4 signes locaux ?",
+        "Quels signes voit-on au niveau d'une zone enflammée ? Cite les 4.",
+        "Les 4 signes cardinaux de l'inflammation ?"
+      ],
+      "answers": [
+        [
+          "rougeur",
+          "érythème",
+          "rouge"
+        ],
+        [
+          "chaleur",
+          "chaud"
+        ],
+        [
+          "œdème",
+          "oedeme",
+          "gonflement",
+          "tuméfaction"
+        ],
+        [
+          "douleur",
+          "douloureux"
+        ]
+      ],
+      "explain": "Rougeur, chaleur, œdème (gonflement), douleur.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-inflammation-02",
+      "cat": "inflammation",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque signe de l'inflammation à son mécanisme.",
+      "variants": [
+        "Inflammation : d'où vient chaque signe ? Associe.",
+        "Relie chaque signe inflammatoire à son explication.",
+        "Pourquoi rougeur, œdème et douleur ? Forme les paires."
+      ],
+      "left": "Signe",
+      "right": "Mécanisme",
+      "pairs": [
+        [
+          "Rougeur et chaleur",
+          "Afflux de sang : vasodilatation, débit sanguin augmenté"
+        ],
+        [
+          "Œdème",
+          "Liquide qui sort de vaisseaux plus perméables"
+        ],
+        [
+          "Douleur",
+          "Fibres nerveuses comprimées par l'œdème"
+        ]
+      ],
+      "explain": "Vasodilatation et afflux de sang, puis fuite de plasma riche en fibrine à travers des vaisseaux plus perméables : l'œdème comprime les fibres nerveuses.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-inflammation-03",
+      "cat": "inflammation",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels sont des signes généraux de l'inflammation ?",
+      "variants": [
+        "Inflammation : quels signes généraux peut-on observer ?",
+        "Signes généraux d'un syndrome inflammatoire : lesquels ?",
+        "Au-delà des signes locaux, quels signes généraux donne l'inflammation ?"
+      ],
+      "options": [
+        "Fièvre",
+        "Asthénie",
+        "Anorexie",
+        "Amaigrissement",
+        "Troubles du sommeil",
+        "Bradycardie"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explain": "Fièvre, asthénie, anorexie, amaigrissement, troubles du sommeil. Ce sont des signes cliniques ; les signes paracliniques sont les examens (CRP, leucocytes…).",
+      "src": "fiche"
+    },
+    {
+      "id": "25-inflammation-04",
+      "cat": "inflammation",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "Une inflammation est toujours due à une infection.",
+      "variants": [
+        "Pas d'inflammation sans infection.",
+        "Toute inflammation signe une infection.",
+        "Inflammation et infection, c'est la même chose."
+      ],
+      "answer": false,
+      "explain": "Faux. Une inflammation peut venir d'un traumatisme, d'une brûlure, d'une maladie auto-immune… L'infection n'est qu'une de ses causes.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-inflammation-05",
+      "cat": "inflammation",
+      "level": 1,
+      "type": "order",
+      "prompt": "Remets les états septiques dans l'ordre de gravité, du moins grave au plus grave.",
+      "variants": [
+        "États septiques : du moins grave au plus grave.",
+        "Ordonne ces états selon leur gravité croissante.",
+        "SRIS, sepsis, sepsis sévère, choc septique : remets-les dans l'ordre."
+      ],
+      "items": [
+        "SRIS",
+        "Sepsis",
+        "Sepsis sévère",
+        "Choc septique"
+      ],
+      "explain": "SRIS, puis sepsis (SRIS + infection), puis sepsis sévère (+ dysfonction d'organe), puis choc septique (hypotension persistante malgré le remplissage).",
+      "src": "revisions"
+    },
+    {
+      "id": "25-inflammation-06",
+      "cat": "inflammation",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Quels sont des critères de SRIS (syndrome de réponse inflammatoire systémique) ?",
+      "variants": [
+        "SRIS : quels critères ?",
+        "Repère les critères du SRIS.",
+        "Syndrome de réponse inflammatoire systémique : lesquels en sont des critères ?"
+      ],
+      "options": [
+        "Température > 38 °C ou < 36 °C",
+        "Fréquence cardiaque > 90/min",
+        "Leucocytes > 12 000 ou < 4 000/mm³",
+        "Fréquence respiratoire > 20/min ou PaCO~2~ < 32 mmHg",
+        "Glycémie > 2 g/L",
+        "Plaquettes > 400 000/mm³"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Il en faut au moins 2. La diapo du cours indique FR > 30/min, mais la définition classique du SRIS retient FR > 20/min (ou PaCO~2~ < 32 mmHg).",
+      "src": "revisions"
+    },
+    {
+      "id": "25-inflammation-07",
+      "cat": "inflammation",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qu'est-ce qu'un sepsis (classification de ton cours) ?",
+      "variants": [
+        "Sepsis : quelle définition dans ton cours ?",
+        "Définis le sepsis.",
+        "Le sepsis, c'est…"
+      ],
+      "options": [
+        "Au moins 2 critères de SRIS + une infection confirmée ou suspectée",
+        "Une infection sans aucun signe général",
+        "Un SRIS sans infection",
+        "Une hypotension persistante malgré le remplissage"
+      ],
+      "answer": 0,
+      "explain": "Au moins 2 critères de SRIS avec une infection confirmée ou suspectée.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-inflammation-08",
+      "cat": "inflammation",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Sepsis sévère (classification de ton cours) : quelle définition ?",
+      "variants": [
+        "Qu'est-ce qu'un sepsis sévère ?",
+        "Sepsis sévère : qu'est-ce qui s'ajoute au sepsis ?",
+        "Définis le sepsis sévère."
+      ],
+      "options": [
+        "Sepsis + au moins une dysfonction d'organe",
+        "SRIS sans infection",
+        "Sepsis avec hypotension qui persiste malgré un remplissage adapté",
+        "Infection localisée sans signe général"
+      ],
+      "answer": 0,
+      "explain": "Sepsis + une dysfonction d'organe, avec hypotension (PAS < 90 mmHg) et parfois lactates > 4 mmol/L. Depuis 2016 (Sepsis-3), les réanimateurs n'utilisent plus ce terme, mais c'est la classification de ton cours.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-inflammation-09",
+      "cat": "inflammation",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qu'est-ce qui distingue le choc septique du sepsis sévère ?",
+      "variants": [
+        "Choc septique : qu'est-ce qui s'ajoute au sepsis sévère ?",
+        "Sepsis sévère ou choc septique : quel critère les sépare ?",
+        "Quand un sepsis sévère devient-il un choc septique ?"
+      ],
+      "options": [
+        "Une hypotension qui persiste malgré un remplissage vasculaire adapté",
+        "La présence de fièvre",
+        "Une infection confirmée",
+        "Une fréquence cardiaque > 90/min"
+      ],
+      "answer": 0,
+      "explain": "L'hypotension persiste malgré un remplissage vasculaire adapté (± hypoperfusion, lactates > 4 mmol/L). Depuis 2016 (Sepsis-3), on le définit par le besoin de vasopresseurs pour garder une PAM ≥ 65 mmHg, avec des lactates > 2 mmol/L malgré le remplissage.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-inflammation-10",
+      "cat": "inflammation",
       "level": 3,
       "type": "match",
-      "prompt": "Associe chaque classe d'antirétroviraux à l'étape qu'elle bloque.",
+      "prompt": "Associe chaque état septique à sa définition (classification de ton cours).",
       "variants": [
-        "Antirétroviraux : quelle classe bloque quelle étape ?",
-        "Relie chaque famille d'ARV à sa cible dans le cycle du VIH.",
-        "ARV et cycle viral : forme les paires."
+        "SRIS, sepsis, sepsis sévère, choc septique : relie chacun à sa définition.",
+        "États septiques : forme les paires état / définition.",
+        "Quelle définition pour quel état septique ?"
       ],
-      "left": "Classe",
-      "right": "Étape bloquée",
+      "left": "État",
+      "right": "Définition",
       "pairs": [
-        ["Inhibiteurs de l'intégrase (dolutégravir, bictégravir)", "Insertion de l'ADN viral dans le génome"],
-        ["Inhibiteurs de transcriptase inverse (ténofovir, emtricitabine)", "Transformation de l'ARN en ADN"],
-        ["Inhibiteurs de protéase (darunavir)", "Maturation des nouveaux virus"],
-        ["Inhibiteur de fusion (enfuvirtide)", "Entrée du virus dans la cellule"]
+        [
+          "SRIS",
+          "Au moins 2 signes parmi T°, FC, FR, leucocytes"
+        ],
+        [
+          "Sepsis",
+          "SRIS + infection confirmée ou suspectée"
+        ],
+        [
+          "Sepsis sévère",
+          "Sepsis + dysfonction d'organe"
+        ],
+        [
+          "Choc septique",
+          "Hypotension persistante malgré le remplissage"
+        ]
       ],
-      "explain": "En pratique, le traitement associe des molécules qui agissent à des étapes différentes.",
-      "src": "vih"
+      "explain": "Chaque état contient le précédent : SRIS ⊂ sepsis ⊂ sepsis sévère ⊂ choc septique.",
+      "src": "revisions"
     },
     {
-      "id": "25-traitement-07",
-      "cat": "traitement",
+      "id": "25-inflammation-11",
+      "cat": "inflammation",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce qu'un choc septique ?",
+      "variants": [
+        "Choc septique : quelle définition ?",
+        "Définis le choc septique.",
+        "Le choc septique, c'est…"
+      ],
+      "options": [
+        "Un état de choc d'origine infectieuse : les cellules manquent d'oxygène et d'énergie (ATP), les organes défaillent",
+        "Une allergie grave à un antibiotique",
+        "Une infection localisée de la plaie",
+        "Une fièvre isolée"
+      ],
+      "answer": 0,
+      "explain": "Un état de choc d'origine infectieuse : souffrance cellulaire par manque d'oxygène et défaut de production d'ATP, qui entraîne la défaillance des organes.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-inflammation-12",
+      "cat": "inflammation",
       "level": 2,
       "type": "choice",
-      "prompt": "Personne vivant avec le VIH : quel vaccin est contre-indiqué ?",
+      "prompt": "Quels signes évoquent un choc septique ?",
       "variants": [
-        "VIH et vaccination : quel vaccin ne faut-il pas faire ?",
-        "Quel vaccin est toujours contre-indiqué en cas d'infection à VIH ?",
-        "Vaccins et VIH : lequel est interdit ?"
+        "Choc septique : quels signes cliniques ?",
+        "Repère les signes d'un choc septique.",
+        "À quels signes reconnais-tu un choc septique ?"
       ],
       "options": [
-        "Le BCG (vaccin vivant atténué)",
-        "Le vaccin contre la grippe",
-        "Le vaccin contre l'hépatite B",
-        "Le vaccin contre le papillomavirus (HPV)"
+        "Tachycardie",
+        "PAS < 90 mmHg",
+        "Marbrures (genoux)",
+        "Oligo-anurie",
+        "Polypnée",
+        "Bradycardie avec hypertension"
       ],
-      "answer": 0,
-      "explain": "Vaccins recommandés : hépatites B et A, grippe, HPV, de préférence quand les CD4 sont > 200/mm³ et la charge virale indétectable.",
-      "src": "vih"
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explain": "Aussi : hyper ou hypothermie, cyanose des extrémités, peau froide, pouls filant, détresse respiratoire, agitation.",
+      "src": "fiche"
     },
     {
-      "id": "25-traitement-08",
-      "cat": "traitement",
-      "level": 3,
+      "id": "25-inflammation-13",
+      "cat": "inflammation",
+      "level": 2,
       "type": "choice",
-      "prompt": "Au stade sida, quelle prévention médicamenteuse met-on en place selon les CD4 ?",
+      "prompt": "Choc septique : quels signes de gravité cite ton cours ?",
       "variants": [
-        "CD4 bas : quelle prophylaxie prescrit-on ?",
-        "Immunodépression sévère : quelles infections prévient-on par un traitement ?",
-        "Stade sida : quelle prophylaxie selon le taux de CD4 ?"
+        "Signes de gravité d'un choc septique : lesquels ?",
+        "Choc septique : quels signes font craindre le pire ?",
+        "Quels sont les signes de gravité du choc septique ?"
       ],
       "options": [
-        "Prévention de la pneumocystose, et de la toxoplasmose selon la sérologie",
-        "Antibiotiques contre l'angine",
-        "Vaccin BCG",
-        "Aucune, le traitement antirétroviral suffit toujours"
+        "Troubles de la conscience",
+        "Anomalie à l'ECG",
+        "Rougeur de la cicatrice",
+        "Douleur cotée à 3/10"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "explain": "Les troubles de la conscience et les anomalies de l'ECG.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-inflammation-14",
+      "cat": "inflammation",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Un purpura et des saignements aux points de ponction peuvent faire partie d'un choc septique.",
+      "variants": [
+        "Au cours d'un choc septique, le patient peut saigner aux points de ponction et faire un purpura.",
+        "Hématomes, purpura, saignement du pansement : ces signes peuvent accompagner un choc septique.",
+        "Le choc septique peut s'accompagner de troubles de la coagulation (purpura, saignements)."
+      ],
+      "answer": true,
+      "explain": "Vrai. Le choc septique peut déclencher une coagulation intravasculaire disséminée (CIVD) : les facteurs de coagulation s'épuisent et le patient saigne.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-inflammation-15",
+      "cat": "inflammation",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Choc septique : pourquoi poser une sonde à demeure et suivre la diurèse horaire ?",
+      "variants": [
+        "Quel est l'intérêt de la sonde à demeure chez un patient en choc septique ?",
+        "Diurèse horaire en choc septique : pourquoi ?",
+        "Sonde urinaire et diurèse horaire chez un patient en choc : à quoi ça sert ?"
+      ],
+      "options": [
+        "Suivre les entrées et sorties d'un patient qui reçoit un remplissage important",
+        "Repérer une oligo-anurie, signe d'hypoperfusion",
+        "Empêcher tout lever",
+        "Prévenir une infection urinaire"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "explain": "La diurèse horaire quantifie précisément ce qui sort, chez un patient qui reçoit un remplissage important. Une oligo-anurie signe une mauvaise perfusion des reins.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-inflammation-16",
+      "cat": "inflammation",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Sur la diapo des états septiques, quel taux de lactates signe une hypoperfusion ?",
+      "variants": [
+        "Lactates : à partir de quel seuil parle-t-on d'hypoperfusion dans ton cours ?",
+        "Sepsis sévère ou choc : quel taux de lactates est retenu sur la diapo ?",
+        "Hypoperfusion : quel seuil de lactates ?"
+      ],
+      "options": [
+        "> 4 mmol/L",
+        "> 0,5 mmol/L",
+        "> 20 mmol/L",
+        "< 1 mmol/L"
       ],
       "answer": 0,
-      "explain": "Prophylaxies réévaluées après la remontée des CD4. On surveille aussi le syndrome inflammatoire de restauration immunitaire après l'introduction des ARV.",
-      "src": "vih"
+      "explain": "Lactates > 4 mmol/L sur la diapo (la normale est < 2 mmol/L). Les cellules mal oxygénées produisent de l'acide lactique.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-01",
+      "cat": "bio",
+      "level": 1,
+      "type": "choice",
+      "prompt": "La CRP augmente surtout en cas de…",
+      "variants": [
+        "Une CRP élevée oriente vers…",
+        "À quoi sert le dosage de la CRP ?",
+        "CRP (protéine C réactive) haute : qu'est-ce que ça évoque ?"
+      ],
+      "options": [
+        "Inflammation aiguë",
+        "Anémie",
+        "Déshydratation",
+        "Hypoglycémie"
+      ],
+      "answer": 0,
+      "explain": "Inflammation aiguë. Normale < 5 mg/L.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-bio-02",
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "La procalcitonine (PCT) oriente surtout vers…",
+      "variants": [
+        "Une PCT élevée fait penser à…",
+        "À quoi sert le dosage de la procalcitonine ?",
+        "PCT haute : quelle orientation ?"
+      ],
+      "options": [
+        "Une infection bactérienne",
+        "Une infection virale",
+        "Une allergie",
+        "Une anémie"
+      ],
+      "answer": 0,
+      "explain": "Une infection bactérienne : la PCT est plus spécifique que la CRP, qui monte dans toute inflammation. Normale < 0,05 ng/mL.",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-03",
+      "cat": "bio",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Procalcitonine (PCT) normale :",
+      "variants": [
+        "Quelle est la valeur normale de la PCT ?",
+        "PCT : sous quel seuil est-elle normale ?",
+        "Norme de la procalcitonine ?"
+      ],
+      "options": [
+        "< 0,05 ng/mL",
+        "< 0,005 ng/L",
+        "< 5 mg/L",
+        "< 500 ng/mL"
+      ],
+      "answer": 0,
+      "explain": "< 0,05 ng/mL, c'est-à-dire < 0,05 µg/L (les deux unités sont équivalentes). < 5 mg/L, c'est la CRP ; < 500 ng/mL, les D-dimères.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-04",
+      "cat": "bio",
+      "level": 2,
+      "type": "match",
+      "prompt": "Associe chaque marqueur à sa valeur normale.",
+      "variants": [
+        "Relie chaque dosage à sa norme.",
+        "CRP, PCT, D-dimères, TP : quelle norme pour chacun ?",
+        "Forme les paires marqueur / valeur normale."
+      ],
+      "left": "Marqueur",
+      "right": "Normale",
+      "pairs": [
+        [
+          "CRP",
+          "< 5 mg/L"
+        ],
+        [
+          "PCT",
+          "< 0,05 ng/mL"
+        ],
+        [
+          "D-dimères",
+          "< 500 ng/mL"
+        ],
+        [
+          "TP",
+          "> 70 %"
+        ]
+      ],
+      "explain": "CRP < 5 mg/L, PCT < 0,05 ng/mL, D-dimères < 500 ng/mL, TP > 70 %.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-bio-05",
+      "cat": "bio",
+      "level": 2,
+      "type": "match",
+      "prompt": "Bilan de Mme B. : associe chaque résultat anormal au terme médical.",
+      "variants": [
+        "Mme B. : quel terme pour chaque anomalie ?",
+        "Analyse le bilan de Mme B. : relie chaque résultat à son terme médical.",
+        "Résultats de Mme B. : forme les paires résultat / terme."
+      ],
+      "left": "Résultat",
+      "right": "Terme",
+      "pairs": [
+        [
+          "Hémoglobine 10 g/dL",
+          "Anémie"
+        ],
+        [
+          "Leucocytes 20 000/mm³",
+          "Hyperleucocytose"
+        ],
+        [
+          "Plaquettes 148 000/mm³",
+          "Thrombopénie"
+        ],
+        [
+          "Potassium 5,2 mmol/L",
+          "Hyperkaliémie"
+        ],
+        [
+          "Sodium 134 mmol/L",
+          "Hyponatrémie"
+        ]
+      ],
+      "explain": "Hb 10 g/dL (normes 11-15) : anémie. Leucocytes 20 000 : hyperleucocytose. Plaquettes 148 000 : thrombopénie. K 5,2 : hyperkaliémie. Na 134 : hyponatrémie.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-06",
+      "cat": "bio",
+      "level": 1,
+      "type": "text",
+      "prompt": "Leucocytes à 20 000/mm³ (norme 4 000 à 11 000) : quel terme médical ?",
+      "variants": [
+        "Globules blancs au-dessus de 11 000/mm³ : comment l'appelle-t-on ?",
+        "Trop de leucocytes dans le sang : quel terme ?",
+        "Nomme l'anomalie : leucocytes à 20 000/mm³."
+      ],
+      "answers": [
+        "hyperleucocytose",
+        "leucocytose"
+      ],
+      "explain": "Hyperleucocytose : on la retrouve dans les infections bactériennes et les inflammations.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-07",
+      "cat": "bio",
+      "level": 1,
+      "type": "text",
+      "prompt": "Plaquettes à 148 000/mm³ (norme 150 000 à 400 000) : quel terme médical ?",
+      "variants": [
+        "Plaquettes sous 150 000/mm³ : comment l'appelle-t-on ?",
+        "Trop peu de plaquettes : quel terme ?",
+        "Nomme l'anomalie : plaquettes à 148 000/mm³."
+      ],
+      "answers": [
+        "thrombopénie",
+        "thrombocytopénie"
+      ],
+      "explain": "Thrombopénie. Le risque de saignement devient important sous 50 000/mm³.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-08",
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Mme B. : CRP 9 mg/L, PCT 0,25 µg/L, leucocytes 20 000/mm³. Que retiens-tu ?",
+      "variants": [
+        "Bilan de Mme B. : CRP 9, PCT 0,25 µg/L, GB 20 000. Lesquelles sont justes ?",
+        "Analyse ces marqueurs : CRP 9 mg/L, PCT 0,25 µg/L, leucocytes 20 000/mm³.",
+        "CRP 9 mg/L, PCT 0,25 µg/L, leucocytes 20 000/mm³ : quelles conclusions ?"
+      ],
+      "options": [
+        "Un syndrome inflammatoire (CRP élevée)",
+        "Une PCT élevée, en faveur d'une infection bactérienne",
+        "Une hyperleucocytose",
+        "Un bilan normal"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "CRP > 5 : inflammation aiguë. PCT > 0,05 µg/L : en faveur d'une infection bactérienne (sepsis). Leucocytes > 11 000 : hyperleucocytose.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-09",
+      "cat": "bio",
+      "level": 2,
+      "type": "cite",
+      "prompt": "Cite 3 examens biologiques marqueurs de l'infection.",
+      "variants": [
+        "Quels dosages sanguins marquent une infection ? Cites-en 3.",
+        "Marqueurs biologiques de l'infection : donne-en 3.",
+        "Bilan infectieux : cite 3 marqueurs."
+      ],
+      "need": 3,
+      "answers": [
+        [
+          "CRP",
+          "protéine C réactive"
+        ],
+        [
+          "PCT",
+          "procalcitonine"
+        ],
+        [
+          "leucocytes",
+          "NFS",
+          "globules blancs",
+          "GB",
+          "hyperleucocytose"
+        ],
+        [
+          "VS",
+          "vitesse de sédimentation"
+        ]
+      ],
+      "explain": "CRP, procalcitonine (PCT), leucocytes (NFS), et la vitesse de sédimentation (VS).",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-10",
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Bilan biologique infectieux prélevé sur prescription à la pose de la VVP : que contient-il ?",
+      "variants": [
+        "Bilan infectieux sanguin : quels examens ?",
+        "Patiente avec une plaie infectée : quel bilan infectieux prélèves-tu ?",
+        "Quels dosages composent le bilan biologique infectieux ?"
+      ],
+      "options": [
+        "CRP",
+        "NFS",
+        "PCT",
+        "VS",
+        "Troponine"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "CRP, NFS, PCT, VS. On contrôle aussi la glycémie et la fonction rénale (urée, créatinine).",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-11",
+      "cat": "bio",
+      "level": 1,
+      "type": "match",
+      "prompt": "Associe chaque cellule du sang à son rôle.",
+      "variants": [
+        "Globules rouges, blancs, plaquettes : qui fait quoi ?",
+        "Relie chaque cellule sanguine à sa fonction.",
+        "Forme les paires cellule / rôle."
+      ],
+      "left": "Cellule",
+      "right": "Rôle",
+      "pairs": [
+        [
+          "Globules rouges (hématies)",
+          "Transporter l'oxygène"
+        ],
+        [
+          "Globules blancs (leucocytes)",
+          "Défendre contre les infections"
+        ],
+        [
+          "Plaquettes (thrombocytes)",
+          "Coagulation, formation du caillot"
+        ]
+      ],
+      "explain": "L'hémoglobine des globules rouges sert au diagnostic de l'anémie ; les plaquettes participent à la formation du caillot.",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-12",
+      "cat": "bio",
+      "level": 3,
+      "type": "match",
+      "prompt": "Formule leucocytaire : associe chaque augmentation à ce qu'elle évoque.",
+      "variants": [
+        "Relie chaque hausse de globules blancs à sa cause typique.",
+        "Lymphocytes, neutrophiles, éosinophiles, monocytes : que suggère chaque augmentation ?",
+        "Formule sanguine : quelle hausse pour quelle orientation ?"
+      ],
+      "left": "Augmentation",
+      "right": "Évoque",
+      "pairs": [
+        [
+          "Lymphocytes (lymphocytose)",
+          "Infection virale"
+        ],
+        [
+          "Neutrophiles (polynucléose)",
+          "Infection bactérienne, inflammation aiguë"
+        ],
+        [
+          "Éosinophiles (éosinophilie)",
+          "Parasitose ou allergie"
+        ],
+        [
+          "Monocytes (monocytose)",
+          "Inflammation chronique, guérison d'une infection"
+        ]
+      ],
+      "explain": "Lymphocytes : virus. Neutrophiles : bactéries, inflammation aiguë. Éosinophiles : parasites, allergies. Monocytes : inflammation chronique, guérison d'une infection.",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-13",
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Lymphopénie (lymphocytes bas) : quelle cause est citée dans ton cours ?",
+      "variants": [
+        "Quelle situation fait baisser les lymphocytes ?",
+        "Lymphocytes effondrés : à quoi penser ?",
+        "Cause de lymphopénie ?"
+      ],
+      "options": [
+        "Le sida",
+        "Une infection virale aiguë banale",
+        "La grossesse",
+        "Le tabagisme"
+      ],
+      "answer": 0,
+      "explain": "Le sida (le VIH détruit les lymphocytes T CD4), une chimiothérapie, un traitement anti-rejet après greffe.",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-14",
+      "cat": "bio",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Quelles situations peuvent augmenter les polynucléaires neutrophiles ?",
+      "variants": [
+        "Polynucléose neutrophile : quelles causes ?",
+        "Neutrophiles élevés : à quoi penser ?",
+        "Qu'est-ce qui fait monter les neutrophiles ?"
+      ],
+      "options": [
+        "Infection bactérienne",
+        "Inflammation aiguë",
+        "Tabagisme",
+        "Stress",
+        "Grossesse",
+        "Chimiothérapie"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explain": "Infection bactérienne, inflammation aiguë, mais aussi tabac, stress, grossesse, certains médicaments (corticoïdes). La chimiothérapie, elle, les fait chuter (neutropénie).",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-15",
+      "cat": "bio",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Après une chimiothérapie, on redoute une neutropénie.",
+      "variants": [
+        "La chimiothérapie expose à une baisse des neutrophiles.",
+        "Neutropénie après chimiothérapie : c'est un risque connu.",
+        "Une chimiothérapie peut faire chuter les polynucléaires neutrophiles."
+      ],
+      "answer": true,
+      "explain": "Vrai. Le patient devient très sensible aux infections : en aplasie, il relève de l'isolement protecteur.",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-16",
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Plaquettes à 50 000/mm³ : que crains-tu ?",
+      "variants": [
+        "Thrombopénie à 50 000/mm³ : quel risque ?",
+        "Plaquettes effondrées à 50 000 : que surveilles-tu ?",
+        "Quel est le danger d'une thrombopénie à 50 000/mm³ ?"
+      ],
+      "options": [
+        "Un saignement",
+        "Une thrombose",
+        "Une infection virale",
+        "Rien, c'est une valeur normale"
+      ],
+      "answer": 0,
+      "explain": "Un saignement (hémorragie) : les plaquettes servent à former le caillot. On surveille les points de ponction, les gencives, les urines, un purpura.",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-17",
+      "cat": "bio",
+      "level": 3,
+      "type": "sort",
+      "prompt": "TP ou TCA : range chaque facteur de coagulation selon le test qui l'explore.",
+      "variants": [
+        "Quels facteurs explore le TP, lesquels le TCA ? Classe-les.",
+        "Facteurs de coagulation : TP ou TCA ?",
+        "Range ces facteurs dans le bon test de coagulation."
+      ],
+      "groups": [
+        {
+          "name": "TP",
+          "items": [
+            "Facteur II",
+            "Facteur V",
+            "Facteur VII",
+            "Facteur X"
+          ]
+        },
+        {
+          "name": "TCA",
+          "items": [
+            "Facteur VIII",
+            "Facteur IX",
+            "Facteur XI",
+            "Facteur XII"
+          ]
+        }
+      ],
+      "explain": "TP : facteurs II, V, VII, X (voie extrinsèque et voie commune). TCA : facteurs VIII, IX, XI, XII (voie intrinsèque). Les facteurs II, V et X modifient aussi le TCA.",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-18",
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Pourquoi dose-t-on la troponine deux fois (à l'arrivée puis quelques heures après) ?",
+      "variants": [
+        "Troponine : pourquoi un seul dosage ne suffit-il pas ?",
+        "Intérêt du deuxième dosage de troponine ?",
+        "Pourquoi répéter le dosage de la troponine ?"
+      ],
+      "options": [
+        "Pour suivre sa cinétique : une hausse confirme la souffrance du muscle cardiaque",
+        "Parce que le premier tube est toujours hémolysé",
+        "Pour doser la CRP en même temps",
+        "Pour vérifier la glycémie"
+      ],
+      "answer": 0,
+      "explain": "On regarde sa cinétique : une troponine qui monte confirme la souffrance du muscle cardiaque.",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-19",
+      "cat": "bio",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Une activité sportive intense peut augmenter les CPK.",
+      "variants": [
+        "Les CPK montent après un gros effort musculaire.",
+        "Après une séance de sport intense, les CPK peuvent être élevées.",
+        "L'activité musculaire fait augmenter les CPK."
+      ],
+      "answer": true,
+      "explain": "Vrai. Les CPK sont des enzymes musculaires : à interpréter en tenant compte d'un effort récent.",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-20",
+      "cat": "bio",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Troponine ultrasensible normale sur ta fiche : < 16 chez la femme, < 34 chez l'homme. Dans quelle unité ?",
+      "variants": [
+        "Troponine : 16 pour la femme, 34 pour l'homme… en quelle unité ?",
+        "Normes de troponine ultrasensible (16 et 34) : quelle unité ?",
+        "Quelle est l'unité de la troponine ultrasensible ?"
+      ],
+      "options": [
+        "ng/L",
+        "mg/mL",
+        "g/L",
+        "mmol/L"
+      ],
+      "answer": 0,
+      "explain": "En ng/L (nanogrammes par litre). Ta fiche indique mg/mL : c'est une erreur d'unité, des millions de fois trop grand.",
+      "src": "bilan"
+    },
+    {
+      "id": "25-bio-21",
+      "cat": "bio",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Gaz du sang artériel : à quoi sert-il ?",
+      "variants": [
+        "Quel est l'intérêt d'un gaz du sang artériel ?",
+        "Pourquoi prélever un gaz du sang ?",
+        "Gazométrie artérielle : que permet-elle d'évaluer ?"
+      ],
+      "options": [
+        "Évaluer l'état respiratoire : équilibre acido-basique, PaO~2~ et PaCO~2~",
+        "Mesurer la glycémie",
+        "Identifier un germe",
+        "Doser la CRP"
+      ],
+      "answer": 0,
+      "explain": "Il renseigne sur l'état respiratoire : équilibre acido-basique (pH, bicarbonates), pression artérielle en oxygène (PaO~2~) et en gaz carbonique (PaCO~2~).",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-22",
+      "cat": "bio",
+      "level": 1,
+      "type": "choice",
+      "prompt": "À quoi servent les hémocultures ?",
+      "variants": [
+        "Quel est le but des hémocultures ?",
+        "Hémocultures : pourquoi les prélever ?",
+        "Que cherche-t-on avec des hémocultures ?"
+      ],
+      "options": [
+        "Identifier le germe dans le sang puis faire un antibiogramme pour adapter l'antibiotique",
+        "Mesurer la vitesse de sédimentation",
+        "Contrôler la glycémie",
+        "Doser l'antibiotique dans le sang"
+      ],
+      "answer": 0,
+      "explain": "La mise en culture du sang identifie le germe, puis l'antibiogramme permet d'adapter l'antibiothérapie.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-23",
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quand prélever des hémocultures ?",
+      "variants": [
+        "Dans quelles situations prélèves-tu des hémocultures (sur prescription) ?",
+        "Hémocultures : quelles indications ?",
+        "Quels signes doivent faire prélever des hémocultures ?"
+      ],
+      "options": [
+        "Fièvre ≥ 38,5 °C",
+        "Hypothermie",
+        "Frissons ou sueurs",
+        "Choc inexpliqué",
+        "De préférence après le début des antibiotiques"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Fièvre ≥ 38,5 °C ou hypothermie (≤ 36,5 °C dans ton cours), frissons, sueurs, choc inexpliqué. De préférence avant de débuter l'antibiotique.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-24",
+      "cat": "bio",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Hémocultures : quel schéma de prélèvement donne ton cours ?",
+      "variants": [
+        "Combien de paires d'hémocultures, et à quel intervalle, selon ton cours ?",
+        "Hémocultures dans ton cours : combien et quand ?",
+        "Selon le cours, comment répartir les hémocultures ?"
+      ],
+      "options": [
+        "3 paires à 1 h d'intervalle",
+        "1 seul flacon",
+        "10 paires en 10 minutes",
+        "1 paire par jour pendant 3 jours"
+      ],
+      "answer": 0,
+      "explain": "3 paires à 1 h d'intervalle. Les recommandations récentes (REMIC 2018) préfèrent souvent un prélèvement unique de 4 à 6 flacons, sauf suspicion d'endocardite : suis le protocole du service.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-25",
+      "cat": "bio",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce qu'un antibiogramme ?",
+      "variants": [
+        "Antibiogramme : à quoi sert-il ?",
+        "Définis l'antibiogramme.",
+        "Que montre un antibiogramme ?"
+      ],
+      "options": [
+        "Un test qui montre à quels antibiotiques le germe est sensible ou résistant",
+        "Un dosage de l'antibiotique dans le sang",
+        "Une radio des poumons",
+        "Une prise de sang pour la CRP"
+      ],
+      "answer": 0,
+      "explain": "Il teste le germe isolé face à plusieurs antibiotiques : on adapte ensuite l'antibiothérapie.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-bio-26",
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "ECBU : que comprend-il ?",
+      "variants": [
+        "Examen cytobactériologique des urines : qu'analyse-t-il ?",
+        "Que permet l'ECBU ?",
+        "ECBU : lesquelles sont justes ?"
+      ],
+      "options": [
+        "Une cytologie (étude des cellules des urines)",
+        "Une bactériologie (recherche de bactéries)",
+        "Un antibiogramme si un germe est trouvé",
+        "Une glycémie"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Cytologie (cellules des urines) et bactériologie (recherche de bactéries), puis mise en culture et antibiogramme si un germe est trouvé.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-bio-27",
+      "cat": "bio",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Bandelette urinaire : quels éléments évoquent une infection urinaire ?",
+      "variants": [
+        "BU : quels résultats font penser à une infection urinaire ?",
+        "Infection urinaire : que recherches-tu sur la bandelette ?",
+        "Sur une bandelette urinaire, quels paramètres orientent vers une infection ?"
+      ],
+      "options": [
+        "Nitrites",
+        "Leucocytes",
+        "Glucose",
+        "Corps cétoniques"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "explain": "Nitrites et leucocytes. La bandelette se fait sans prescription (rôle propre) ; si elle est positive, un ECBU est prescrit.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-meningite-01",
+      "cat": "meningite",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce qu'une méningite ?",
+      "variants": [
+        "Méningite : quelle définition ?",
+        "Définis la méningite.",
+        "La méningite, c'est…"
+      ],
+      "options": [
+        "Une inflammation des méninges, les enveloppes de l'encéphale et de la moelle épinière",
+        "Une infection du cerveau lui-même uniquement",
+        "Une inflammation des articulations",
+        "Un AVC hémorragique"
+      ],
+      "answer": 0,
+      "explain": "Une inflammation des méninges, les enveloppes qui recouvrent l'encéphale et la moelle épinière, le plus souvent d'origine infectieuse.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-meningite-02",
+      "cat": "meningite",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Les méningites bactériennes sont les plus rares, mais leur pronostic est redoutable.",
+      "variants": [
+        "Méningite bactérienne : plus rare que la virale, mais bien plus grave.",
+        "La plupart des méningites sont virales ; les bactériennes sont rares mais graves.",
+        "Les méningites bactériennes sont rares et de pronostic sévère."
+      ],
+      "answer": true,
+      "explain": "Vrai. Les méningites virales sont les plus fréquentes et souvent bénignes ; la bactérienne est une urgence.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-meningite-03",
+      "cat": "meningite",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels signes évoquent une méningite ?",
+      "variants": [
+        "Méningite : quels signes cliniques ?",
+        "Repère les signes d'une méningite.",
+        "Syndrome méningé : lesquels en font partie ?"
+      ],
+      "options": [
+        "Fièvre",
+        "Céphalées intenses",
+        "Photophobie",
+        "Vomissements",
+        "Raideur de la nuque",
+        "Toux grasse"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explain": "Fièvre, céphalées intenses, photophobie, vomissements (et constipation), raideur de nuque avec douleur du rachis.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-meningite-04",
+      "cat": "meningite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quelle position adopte souvent le patient atteint de méningite ?",
+      "variants": [
+        "Méningite : comment le patient se couche-t-il ?",
+        "Posture méningée : laquelle ?",
+        "Patient méningé : quelle position typique ?"
+      ],
+      "options": [
+        "En chien de fusil",
+        "Assis penché en avant",
+        "Jambes surélevées",
+        "À plat ventre, bras en croix"
+      ],
+      "answer": 0,
+      "explain": "En chien de fusil, dos à la lumière : cette position soulage la tension des méninges.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-meningite-05",
+      "cat": "meningite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Méningite : quelle complication impose l'antibiotique sans aucun délai ?",
+      "variants": [
+        "Quel signe, chez un patient méningé, fait injecter l'antibiotique immédiatement ?",
+        "Méningite : devant quel signe n'attend-on rien pour l'antibiotique ?",
+        "Quelle complication de la méningite est une urgence absolue ?"
+      ],
+      "options": [
+        "Un purpura",
+        "Une constipation",
+        "Des céphalées",
+        "Une photophobie"
+      ],
+      "answer": 0,
+      "explain": "Le purpura (purpura fulminans) : antibiotique immédiatement (céphalosporine de 3e génération), avant même la ponction lombaire.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-meningite-06",
+      "cat": "meningite",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quel examen confirme une méningite ?",
+      "variants": [
+        "Méningite : quel examen pose le diagnostic ?",
+        "Pour confirmer une méningite, quel examen ?",
+        "Quel prélèvement analyse le liquide céphalo-rachidien ?"
+      ],
+      "options": [
+        "La ponction lombaire",
+        "L'ECG",
+        "La radio du thorax",
+        "La bandelette urinaire"
+      ],
+      "answer": 0,
+      "explain": "La ponction lombaire : on analyse le liquide céphalo-rachidien (LCR).",
+      "src": "revisions"
+    },
+    {
+      "id": "25-meningite-07",
+      "cat": "meningite",
+      "level": 3,
+      "type": "choice",
+      "prompt": "LCR normal : lesquelles sont justes ?",
+      "variants": [
+        "Liquide céphalo-rachidien normal : quelles valeurs ?",
+        "Repère les caractéristiques d'un LCR normal.",
+        "LCR : qu'est-ce qui est normal ?"
+      ],
+      "options": [
+        "Aspect clair (eau de roche)",
+        "Protéines 0,20 à 0,40 g/L",
+        "Moins de 5 cellules/mm³",
+        "Glycorachie environ 2/3 de la glycémie",
+        "Aspect trouble"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Clair (eau de roche), protéines 0,20 à 0,40 g/L, moins de 5 cellules/mm³, moins de 5 globules rouges/mm³, glycorachie environ 2/3 de la glycémie.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-meningite-08",
+      "cat": "meningite",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Glycorachie (glucose du LCR) normale : environ…",
+      "variants": [
+        "Quelle glycorachie est normale ?",
+        "Glucose dans le LCR : quelle proportion de la glycémie ?",
+        "Glycorachie normale par rapport à la glycémie ?"
+      ],
+      "options": [
+        "2/3 de la glycémie",
+        "Le double de la glycémie",
+        "Zéro",
+        "Dix fois la glycémie"
+      ],
+      "answer": 0,
+      "explain": "Environ 2/3 de la glycémie. Une glycorachie basse oriente vers une méningite bactérienne : les bactéries consomment le glucose.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-meningite-09",
+      "cat": "meningite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Méningite bactérienne : quel traitement curatif ?",
+      "variants": [
+        "Comment traite-t-on une méningite bactérienne ?",
+        "Méningite bactérienne : quel traitement ?",
+        "Traitement curatif de la méningite bactérienne ?"
+      ],
+      "options": [
+        "Antibiotique (céphalosporine, ± amoxicilline) avec une corticothérapie",
+        "Antiviral seul",
+        "Paracétamol seul",
+        "Anticoagulant"
+      ],
+      "answer": 0,
+      "explain": "Antibiotique (céphalosporine de 3e génération, avec amoxicilline si l'on suspecte une listériose) et corticothérapie (dexaméthasone, avant ou avec la première dose).",
+      "src": "revisions"
+    },
+    {
+      "id": "25-meningite-10",
+      "cat": "meningite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Méningite bactérienne : délai maximal pour débuter l'antibiotique, selon ton cours ?",
+      "variants": [
+        "Au plus tard quand faut-il débuter l'antibiotique d'une méningite bactérienne ?",
+        "Méningite bactérienne : l'antibiotique doit commencer dans quel délai ?",
+        "Délai maximal avant l'antibiothérapie d'une méningite ?"
+      ],
+      "options": [
+        "3 heures (idéalement dans l'heure)",
+        "24 heures",
+        "48 heures",
+        "Après le résultat de l'antibiogramme"
+      ],
+      "answer": 0,
+      "explain": "Au plus tard 3 heures, idéalement dans l'heure. Sans aucun délai devant un purpura.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-meningite-11",
+      "cat": "meningite",
+      "level": 2,
+      "type": "cite",
+      "prompt": "Cite les 3 vaccins qui préviennent des méningites bactériennes.",
+      "variants": [
+        "Prévention des méningites : quels vaccins ?",
+        "Contre quels germes vaccine-t-on pour prévenir les méningites ?",
+        "Méningite : cite les 3 vaccinations préventives."
+      ],
+      "answers": [
+        [
+          "Haemophilus influenzae b",
+          "haemophilus",
+          "Haemophilus influenzae",
+          "Hib",
+          "haemophilus influenzae de type b"
+        ],
+        [
+          "pneumocoque",
+          "pneumocoques",
+          "pneumococcus"
+        ],
+        [
+          "méningocoque",
+          "méningocoques",
+          "meningococcus"
+        ]
+      ],
+      "explain": "Haemophilus influenzae de type b, pneumocoque, méningocoque.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-tvp-01",
+      "cat": "tvp",
+      "level": 2,
+      "type": "cite",
+      "prompt": "Cite les 3 éléments de la triade de Virchow.",
+      "variants": [
+        "Triade de Virchow : quels sont ses 3 éléments ?",
+        "Qu'est-ce qui favorise une thrombose ? Cite la triade de Virchow.",
+        "Les 3 mécanismes de la triade de Virchow ?"
+      ],
+      "answers": [
+        [
+          "stase veineuse",
+          "stase",
+          "stase sanguine"
+        ],
+        [
+          "altération de l'endothélium",
+          "altération endothéliale",
+          "lésion endothéliale",
+          "endothélium",
+          "lésion de la paroi",
+          "altération de la paroi",
+          "paroi"
+        ],
+        [
+          "hypercoagulabilité",
+          "hypercoagulation"
+        ]
+      ],
+      "explain": "Stase veineuse, altération de l'endothélium (paroi du vaisseau), hypercoagulabilité.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-tvp-02",
+      "cat": "tvp",
+      "level": 1,
+      "type": "choice",
+      "prompt": "La triade de Virchow décrit…",
+      "variants": [
+        "Qu'est-ce que la triade de Virchow ?",
+        "À quoi correspond la triade de Virchow ?",
+        "Triade de Virchow : de quoi parle-t-elle ?"
+      ],
+      "options": [
+        "Les 3 mécanismes qui favorisent une thrombose",
+        "Les 3 signes d'une méningite",
+        "Les 3 stades du sepsis",
+        "Les 3 précautions complémentaires"
+      ],
+      "answer": 0,
+      "explain": "Les 3 mécanismes qui favorisent la thrombose veineuse : stase, altération de l'endothélium, hypercoagulabilité.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-tvp-03",
+      "cat": "tvp",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels signes évoquent une thrombose veineuse profonde du mollet ?",
+      "variants": [
+        "TVP : quels signes cliniques ?",
+        "Repère les signes d'une phlébite du mollet.",
+        "Thrombose veineuse profonde : quels signes recherches-tu ?"
+      ],
+      "options": [
+        "Mollet rouge, chaud et œdématié",
+        "Douleur à la dorsiflexion du pied (signe de Homans)",
+        "Diminution du ballottement du mollet",
+        "Dissociation pouls-température",
+        "Mollet froid et pâle, sans pouls"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Un membre froid, pâle, sans pouls fait au contraire penser à une ischémie artérielle aiguë.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-tvp-04",
+      "cat": "tvp",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qu'est-ce que le signe de Homans ?",
+      "variants": [
+        "Signe de Homans : de quoi s'agit-il ?",
+        "Comment rechercher le signe de Homans ?",
+        "Le signe de Homans positif, c'est…"
+      ],
+      "options": [
+        "Une douleur du mollet à la dorsiflexion du pied",
+        "Une douleur en fosse iliaque droite",
+        "Une raideur de la nuque",
+        "Une douleur à l'épaule après une cœlioscopie"
+      ],
+      "answer": 0,
+      "explain": "Une douleur du mollet quand on fléchit le pied vers le haut (dorsiflexion) : il évoque une TVP.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-tvp-05",
+      "cat": "tvp",
+      "level": 3,
+      "type": "choice",
+      "prompt": "TVP : qu'est-ce que la dissociation pouls-température ?",
+      "variants": [
+        "Dissociation pouls-température dans une phlébite : de quoi s'agit-il ?",
+        "Phlébite : que signifie « dissociation pouls-température » ?",
+        "Que veut dire dissociation pouls-température ?"
+      ],
+      "options": [
+        "Un pouls plus rapide que ne le voudrait la température",
+        "Une forte fièvre avec un pouls lent",
+        "Une absence de pouls au pied",
+        "Une température normale et un pouls normal"
+      ],
+      "answer": 0,
+      "explain": "Le pouls s'accélère plus que ne le voudrait la petite fièvre (pouls « grimpant ») : signe classique de TVP.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-tvp-06",
+      "cat": "tvp",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels examens pour confirmer une thrombose veineuse profonde ?",
+      "variants": [
+        "TVP : quels examens paracliniques ?",
+        "Suspicion de phlébite : quels examens ?",
+        "Comment confirmer une TVP ?"
+      ],
+      "options": [
+        "Dosage des D-dimères",
+        "Écho-doppler veineux",
+        "Ponction lombaire",
+        "Hémocultures"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "explain": "Le dosage des D-dimères (normaux < 500 ng/mL, ils rendent la TVP peu probable) et l'écho-doppler veineux, qui la confirme.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-tvp-07",
+      "cat": "tvp",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quelle est la complication redoutée d'une thrombose veineuse profonde ?",
+      "variants": [
+        "TVP : quelle complication craint-on ?",
+        "Phlébite : quel est le risque principal ?",
+        "Pourquoi une TVP est-elle dangereuse ?"
+      ],
+      "options": [
+        "L'embolie pulmonaire",
+        "La méningite",
+        "L'appendicite",
+        "L'iléus paralytique"
+      ],
+      "answer": 0,
+      "explain": "L'embolie pulmonaire : le caillot se détache et migre jusqu'aux artères pulmonaires.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-tvp-08",
+      "cat": "tvp",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "On peut masser un mollet douloureux suspect de phlébite pour soulager le patient.",
+      "variants": [
+        "Masser le mollet soulage une phlébite.",
+        "Un massage du mollet est conseillé en cas de suspicion de TVP.",
+        "Phlébite suspectée : je masse le mollet pour détendre le muscle."
+      ],
+      "answer": false,
+      "explain": "Faux, jamais : le massage peut détacher le caillot et provoquer une embolie pulmonaire.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-tvp-09",
+      "cat": "tvp",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Prévention de la TVP après une chirurgie : que mets-tu en place ?",
+      "variants": [
+        "Comment prévenir une phlébite chez un opéré ?",
+        "Patient opéré : quelles mesures contre la TVP ?",
+        "Prévention de la thrombose veineuse post-opératoire : lesquelles sont justes ?"
+      ],
+      "options": [
+        "Lever précoce sur prescription",
+        "Bas de contention",
+        "Mobilisation au lit (flexion-extension des pieds)",
+        "HBPM préventive sur prescription",
+        "Massage des mollets"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Lever précoce sur prescription, bas de contention, mobilisation au lit, HBPM préventive sur prescription. Jamais de massage.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-tvp-10",
+      "cat": "tvp",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Pourquoi les bas de contention préviennent-ils la thrombose veineuse ?",
+      "variants": [
+        "Bas de contention : comment préviennent-ils la TVP ?",
+        "Quel est le rôle des bas de contention ?",
+        "Contention veineuse : quel intérêt contre la phlébite ?"
+      ],
+      "options": [
+        "Ils facilitent le retour veineux et limitent la stase",
+        "Ils fluidifient le sang",
+        "Ils réchauffent les jambes",
+        "Ils empêchent l'infection de la plaie"
+      ],
+      "answer": 0,
+      "explain": "Ils facilitent le retour veineux et limitent la stase, l'un des 3 éléments de la triade de Virchow.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-tvp-11",
+      "cat": "tvp",
+      "level": 3,
+      "type": "choice",
+      "prompt": "TVP confirmée, anticoagulant débuté : que dire du lever ?",
+      "variants": [
+        "Phlébite traitée par anticoagulant : le patient peut-il se lever ?",
+        "Le patient a une TVP sous anticoagulant. Lever ou alitement ?",
+        "TVP sous traitement anticoagulant : quelle conduite pour le lever ?"
+      ],
+      "options": [
+        "Lever sur prescription médicale, une fois l'anticoagulant débuté, avec une contention",
+        "Alitement strict de 15 jours pour tout le monde",
+        "Lever avec massage du mollet",
+        "Marche rapide avant même la première dose d'anticoagulant"
+      ],
+      "answer": 0,
+      "explain": "Ta fiche dit « ne pas mobiliser » : c'était la règle d'avant. Aujourd'hui, le lever est autorisé, sur prescription, dès que l'anticoagulant est débuté, avec une contention. Le massage reste interdit.",
+      "src": "complement"
+    },
+    {
+      "id": "25-appendicite-01",
+      "cat": "appendicite",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce que l'appendicite ?",
+      "variants": [
+        "Appendicite : quelle définition ?",
+        "Définis l'appendicite.",
+        "L'appendicite, c'est…"
+      ],
+      "options": [
+        "Une inflammation de l'appendice iléo-cæcal, le plus souvent par infection",
+        "Une inflammation de la vésicule biliaire",
+        "Une occlusion du côlon gauche",
+        "Une infection des méninges"
+      ],
+      "answer": 0,
+      "explain": "Une inflammation brutale de l'appendice iléo-cæcal (excroissance du cæcum), le plus souvent par infection.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-appendicite-02",
+      "cat": "appendicite",
+      "level": 1,
+      "type": "hotspot",
+      "prompt": "Clique là où siège typiquement la douleur de l'appendicite (patient vu de face).",
+      "variants": [
+        "Où se situe la douleur typique de l'appendicite ? Clique sur la région.",
+        "Appendicite : montre la région douloureuse sur l'abdomen (patient vu de face).",
+        "Patient vu de face : clique sur la zone de la douleur appendiculaire."
+      ],
+      "image": "assets/schemas/abdomen.svg",
+      "alt": "Abdomen vu de face, découpé en 9 régions, sans légende",
+      "zones": [
+        {
+          "id": "hd",
+          "label": "l'hypochondre droit",
+          "shape": "rect",
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 43.5
+        },
+        {
+          "id": "epi",
+          "label": "l'épigastre",
+          "shape": "rect",
+          "x": 35,
+          "y": 0,
+          "w": 30,
+          "h": 43.5
+        },
+        {
+          "id": "hg",
+          "label": "l'hypochondre gauche",
+          "shape": "rect",
+          "x": 65,
+          "y": 0,
+          "w": 35,
+          "h": 43.5
+        },
+        {
+          "id": "fd",
+          "label": "le flanc droit",
+          "shape": "rect",
+          "x": 0,
+          "y": 43.5,
+          "w": 35,
+          "h": 30.4
+        },
+        {
+          "id": "omb",
+          "label": "la région ombilicale",
+          "shape": "rect",
+          "x": 35,
+          "y": 43.5,
+          "w": 30,
+          "h": 30.4
+        },
+        {
+          "id": "fg",
+          "label": "le flanc gauche",
+          "shape": "rect",
+          "x": 65,
+          "y": 43.5,
+          "w": 35,
+          "h": 30.4
+        },
+        {
+          "id": "fid",
+          "label": "la fosse iliaque droite",
+          "shape": "rect",
+          "x": 0,
+          "y": 73.9,
+          "w": 35,
+          "h": 26.1
+        },
+        {
+          "id": "hypo",
+          "label": "l'hypogastre",
+          "shape": "rect",
+          "x": 35,
+          "y": 73.9,
+          "w": 30,
+          "h": 26.1
+        },
+        {
+          "id": "fig",
+          "label": "la fosse iliaque gauche",
+          "shape": "rect",
+          "x": 65,
+          "y": 73.9,
+          "w": 35,
+          "h": 26.1
+        }
+      ],
+      "answer": "fid",
+      "explain": "La fosse iliaque droite. Le patient est vu de face : sa droite est à ta gauche. La douleur est majorée à la palpation, avec une défense.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-appendicite-03",
+      "cat": "appendicite",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quels signes évoquent une appendicite ?",
+      "variants": [
+        "Appendicite : quels signes cliniques ?",
+        "Repère les signes d'une appendicite.",
+        "Quels symptômes font penser à une appendicite ?"
+      ],
+      "options": [
+        "Douleur en fosse iliaque droite majorée à la palpation, avec défense",
+        "Nausées et vomissements",
+        "État subfébrile (fébricule)",
+        "Diarrhée ou constipation",
+        "Raideur de la nuque"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Aussi : anorexie, asthénie, tachycardie. La raideur de nuque oriente vers une méningite.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-appendicite-04",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quelles sont les complications de l'appendicite ?",
+      "variants": [
+        "Appendicite non traitée : quelles complications ?",
+        "Complications de l'appendicite : lesquelles ?",
+        "Qu'est-ce que l'appendicite peut entraîner ?"
+      ],
+      "options": [
+        "Perforation de l'appendice",
+        "Abcès appendiculaire",
+        "Péritonite aiguë",
+        "Pneumothorax"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Perforation, abcès appendiculaire, péritonite aiguë, qui peut évoluer vers une septicémie et un choc septique.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-appendicite-05",
+      "cat": "appendicite",
+      "level": 1,
+      "type": "text",
+      "prompt": "Appendicite : quelle infection de la cavité abdominale redoute-t-on ?",
+      "variants": [
+        "Quelle est la complication principale de l'appendicite ?",
+        "L'appendice perfore : quelle infection redoute-t-on ?",
+        "Infection du péritoine après une appendicite : comment l'appelle-t-on ?"
+      ],
+      "answers": [
+        "péritonite",
+        "péritonite aiguë"
+      ],
+      "explain": "La péritonite : infection du péritoine, qui peut mener au choc septique.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-appendicite-06",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Appendicite : quel est le mécanisme ?",
+      "variants": [
+        "Comment se constitue une appendicite ?",
+        "Physiopathologie de l'appendicite : que se passe-t-il ?",
+        "Pourquoi l'appendice s'enflamme-t-il ?"
+      ],
+      "options": [
+        "L'obstruction de la lumière de l'appendice provoque une infection et une inflammation",
+        "Un caillot dans l'artère mésentérique",
+        "Un reflux acide de l'estomac",
+        "Une hernie de la paroi"
+      ],
+      "answer": 0,
+      "explain": "La lumière de l'appendice est bouchée (stercolithe = petit bouchon de matières fécales, corps étranger, plus rarement parasites comme les oxyures ou tumeur) : les germes prolifèrent, d'où infection et inflammation.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-appendicite-07",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Appendicite : quels examens orientent le diagnostic ?",
+      "variants": [
+        "Quels examens pour une suspicion d'appendicite ?",
+        "Diagnostic de l'appendicite : sur quoi s'appuie-t-on ?",
+        "Appendicite suspectée : quels examens ?"
+      ],
+      "options": [
+        "Palpation de la fosse iliaque droite",
+        "Bilan sanguin : hyperleucocytose et CRP élevée",
+        "Scanner abdominal",
+        "Ponction lombaire"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Palpation de la fosse iliaque droite, bilan sanguin (hyperleucocytose, CRP élevée), scanner abdominal.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-appendicite-08",
+      "cat": "appendicite",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Quel est le traitement de l'appendicite aiguë ?",
+      "variants": [
+        "Comment traite-t-on une appendicite ?",
+        "Appendicite aiguë : quel traitement ?",
+        "Traitement de référence de l'appendicite ?"
+      ],
+      "options": [
+        "Appendicectomie en urgence (parfois antibiotiques seuls)",
+        "Repos et paracétamol",
+        "Lavement",
+        "Anticoagulants"
+      ],
+      "answer": 0,
+      "explain": "Urgence chirurgicale : appendicectomie, souvent sous cœlioscopie. Une antibiothérapie seule est parfois proposée.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-appendicite-09",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Bilan pré-opératoire d'une appendicectomie : que prélèves-tu ?",
+      "variants": [
+        "Quel bilan sanguin avant une appendicectomie ?",
+        "Appendicectomie : quel bilan pré-opératoire ?",
+        "Avant l'opération de l'appendicite, quels examens sanguins ?"
+      ],
+      "options": [
+        "NFS-plaquettes",
+        "TP / TCA",
+        "Ionogramme sanguin",
+        "Hémocultures systématiques"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "NFS-plaquettes, TP/TCA (coagulation), ionogramme (ton cours précise qu'il n'est plus obligatoire). Groupe et RAI seulement si l'opération risque de saigner.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-appendicite-10",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "Le groupe sanguin et les RAI ne sont prélevés avant l'opération que si elle risque de saigner.",
+      "variants": [
+        "Groupe et RAI pré-opératoires : seulement pour une chirurgie hémorragique.",
+        "Avant une intervention qui saigne peu, groupe et RAI ne sont pas indispensables.",
+        "On ne demande groupe sanguin et RAI que si l'opération risque de saigner."
+      ],
+      "answer": true,
+      "explain": "Vrai, selon ton cours. Les RAI (recherche d'agglutinines irrégulières) préparent une éventuelle transfusion.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-appendicite-11",
+      "cat": "appendicite",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce qu'une cœlioscopie ?",
+      "variants": [
+        "Cœlioscopie : de quoi s'agit-il ?",
+        "Définis la cœlioscopie (laparoscopie).",
+        "La cœlioscopie, c'est…"
+      ],
+      "options": [
+        "Une chirurgie mini-invasive : du CO~2~ gonfle l'abdomen, caméra et instruments passent par 3 ou 4 petites incisions",
+        "Une grande ouverture de l'abdomen",
+        "Une endoscopie par la bouche",
+        "Une radio de l'abdomen"
+      ],
+      "answer": 0,
+      "explain": "Chirurgie mini-invasive : du CO~2~ gonfle l'abdomen, une caméra et des instruments fins passent par 3 ou 4 incisions de 5 à 10 mm.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-appendicite-12",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels sont les avantages de la cœlioscopie ?",
+      "variants": [
+        "Cœlioscopie : quels bénéfices pour le patient ?",
+        "Pourquoi préférer la cœlioscopie ?",
+        "Avantages de la cœlioscopie : lesquels ?"
+      ],
+      "options": [
+        "Moins de douleur",
+        "Moins de risque infectieux",
+        "Récupération plus rapide",
+        "Moins d'éventrations",
+        "Pas d'anesthésie générale"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Chirurgie moins lourde, moins de douleur et de risque infectieux, moins d'éventrations, récupération rapide, cicatrices discrètes. Elle se fait sous anesthésie générale.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-appendicite-13",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Après une appendicectomie sous cœlioscopie, quelles douleurs sont attendues ?",
+      "variants": [
+        "Cœlioscopie pour appendicite : quelles douleurs post-opératoires sont habituelles ?",
+        "Quelles douleurs expliques-tu au patient opéré d'une appendicite sous cœlioscopie ?",
+        "Après la cœlioscopie, quelles douleurs sont normales ?"
+      ],
+      "options": [
+        "Douleur sous la scapula (CO~2~ qui irrite le nerf phrénique)",
+        "Douleur abdominale de l'iléus paralytique (intestins mobilisés)",
+        "Douleur du mollet à la dorsiflexion du pied",
+        "Céphalées avec raideur de nuque"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "explain": "Douleur sous la scapula (le CO~2~ irrite le diaphragme et le nerf phrénique) et douleur de l'iléus paralytique (intestins mobilisés) jusqu'à la reprise des gaz. Une douleur du mollet ou une raideur de nuque sont à signaler.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-appendicite-14",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qu'est-ce que l'iléus paralytique après une chirurgie abdominale ?",
+      "variants": [
+        "Iléus paralytique post-opératoire : de quoi s'agit-il ?",
+        "Après une chirurgie de l'abdomen, qu'appelle-t-on iléus paralytique ?",
+        "Définis l'iléus paralytique post-opératoire."
+      ],
+      "options": [
+        "Un arrêt temporaire du péristaltisme après manipulation des intestins",
+        "Une occlusion par bride",
+        "Une hémorragie digestive",
+        "Une infection de la paroi"
+      ],
+      "answer": 0,
+      "explain": "Un arrêt temporaire du péristaltisme intestinal quand les intestins ont été manipulés. On surveille et trace la reprise des gaz et des matières.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-appendicite-15",
+      "cat": "appendicite",
+      "level": 3,
+      "type": "match",
+      "prompt": "Complications après une appendicectomie : associe chaque délai à ses complications.",
+      "variants": [
+        "Appendicectomie : quelle complication à quel moment ?",
+        "Relie chaque période post-opératoire à ses complications.",
+        "J1, J2 à J5, après J5 : quelles complications ?"
+      ],
+      "left": "Délai",
+      "right": "Complications",
+      "pairs": [
+        [
+          "J1",
+          "Choc septique, hémorragie"
+        ],
+        [
+          "J2 à J5",
+          "Lâchage du moignon, abcès de paroi ou du Douglas"
+        ],
+        [
+          "Après J5",
+          "Occlusion sur bride"
+        ]
+      ],
+      "explain": "J1 : choc septique, hémorragie. J2 à J5 : lâchage du moignon, abcès de paroi ou du Douglas. Après J5 : occlusion sur bride.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-appendicite-16",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "cite",
+      "prompt": "Cite 5 éléments de la surveillance post-opératoire.",
+      "variants": [
+        "Surveillance post-opératoire : que surveilles-tu ? Cites-en 5.",
+        "Patient opéré : donne 5 éléments à surveiller.",
+        "Après l'opération, quelles surveillances ? Cites-en 5."
+      ],
+      "need": 5,
+      "answers": [
+        [
+          "conscience",
+          "état de conscience",
+          "vigilance"
+        ],
+        [
+          "hémodynamique",
+          "pression artérielle",
+          "PA",
+          "tension",
+          "pouls",
+          "fréquence cardiaque",
+          "constantes"
+        ],
+        [
+          "température",
+          "T°",
+          "fièvre"
+        ],
+        [
+          "douleur",
+          "EVA",
+          "EN"
+        ],
+        [
+          "diurèse",
+          "urines"
+        ],
+        [
+          "reprise du transit",
+          "transit",
+          "gaz",
+          "reprise des gaz",
+          "matières",
+          "selles"
+        ],
+        [
+          "VVP",
+          "perfusion",
+          "voie veineuse"
+        ],
+        [
+          "pansement",
+          "cicatrice",
+          "plaie"
+        ],
+        [
+          "drainage",
+          "drain",
+          "Redon",
+          "système de drainage"
+        ],
+        [
+          "état général"
+        ],
+        [
+          "saturation",
+          "SpO2",
+          "fréquence respiratoire",
+          "respiration"
+        ]
+      ],
+      "explain": "Conscience, hémodynamique (PA, pouls), température, douleur, diurèse, reprise des gaz et des matières, VVP, pansement, drainage (quantité et aspect), état général.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-appendicite-17",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "cite",
+      "prompt": "TILT : cite les 4 éléments qui décrivent une douleur.",
+      "variants": [
+        "Évaluation de la douleur avec TILT : que signifient les lettres ?",
+        "Que veut dire TILT pour évaluer la douleur ?",
+        "Douleur : cite les 4 éléments de TILT."
+      ],
+      "answers": [
+        [
+          "type"
+        ],
+        [
+          "intensité"
+        ],
+        [
+          "localisation",
+          "lieu",
+          "siège"
+        ],
+        [
+          "temps",
+          "durée",
+          "évolution"
+        ]
+      ],
+      "explain": "Type, Intensité, Localisation, Temps (durée, évolution).",
+      "src": "revisions"
+    },
+    {
+      "id": "25-appendicite-18",
+      "cat": "appendicite",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Conseils de sortie après une appendicectomie : lesquels sont justes ?",
+      "variants": [
+        "Retour à domicile après une appendicectomie : quels conseils ?",
+        "Rôle infirmier à la sortie d'une appendicectomie : que conseilles-tu ?",
+        "Appendicectomie : quelles consignes pour les semaines suivantes ?"
+      ],
+      "options": [
+        "Reprendre une activité physique au bout de 2 semaines environ",
+        "Éviter de porter des charges lourdes",
+        "Pas de sport violent dans un premier temps",
+        "Reprendre la musculation intensive dès J2"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "Reprise d'une activité physique au bout de 2 semaines environ, pas de charges lourdes ni de sport violent, alimentation saine et hydratation.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-plaie-01",
+      "cat": "plaie",
+      "level": 2,
+      "type": "order",
+      "prompt": "Nettoyage d'une plaie opératoire : remets les 4 temps dans l'ordre.",
+      "variants": [
+        "Antisepsie d'une plaie en 4 temps : quel ordre ?",
+        "Ordonne les étapes du nettoyage de la plaie opératoire.",
+        "Bétadine moussante, rinçage, séchage, Bétadine dermique : dans quel ordre ?"
+      ],
+      "items": [
+        "Détersion à la Bétadine moussante (scrub, 30 s)",
+        "Rinçage au sérum physiologique",
+        "Séchage par tamponnement",
+        "Antisepsie à la Bétadine dermique (jaune)"
+      ],
+      "explain": "Détersion (scrub, 30 secondes), rinçage, séchage par tamponnement, antisepsie. Ces 4 temps éliminent les germes et préviennent la surinfection.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-plaie-02",
+      "cat": "plaie",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Pourquoi nettoie-t-on la plaie opératoire en 4 temps ?",
+      "variants": [
+        "Quel est l'intérêt du nettoyage de la plaie en 4 temps ?",
+        "Détersion, rinçage, séchage, antisepsie : dans quel but ?",
+        "Nettoyage de la plaie opératoire : pourquoi ?"
+      ],
+      "options": [
+        "Éliminer les germes de la plaie et éviter les surinfections",
+        "Faire cicatriser la plaie en un jour",
+        "Remplacer l'antibiothérapie",
+        "Retirer les fils"
+      ],
+      "answer": 0,
+      "explain": "Pour éliminer les germes présents sur la plaie et éviter les surinfections et complications.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-plaie-03",
+      "cat": "plaie",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Prélèvement bactériologique d'une plaie : quelle technique privilégier ?",
+      "variants": [
+        "Comment prélever une plaie pour la bactériologie ?",
+        "Plaie qui suinte : comment fais-tu le prélèvement bactériologique ?",
+        "Prélèvement de plaie : quelle méthode en priorité ?"
+      ],
+      "options": [
+        "Aspirer les sérosités à l'aiguille souple et les mettre dans un pot ou tube stérile",
+        "Frotter un écouvillon sur la peau saine autour de la plaie",
+        "Désinfecter la plaie à la Bétadine juste avant de prélever",
+        "Prélever dans le pansement que l'on vient de retirer"
+      ],
+      "answer": 0,
+      "explain": "On aspire les sérosités à l'aiguille ou au cathéter souple, puis on les met dans un pot ou un tube stérile. On identifie bien le site prélevé. Pas d'antiseptique juste avant : il fausserait la culture.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-plaie-04",
+      "cat": "plaie",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Prélèvement de plaie : l'aspiration des sérosités est impossible. Que fais-tu ?",
+      "variants": [
+        "Pas de sérosités à aspirer : comment prélever la plaie ?",
+        "Si l'aspiration n'est pas réalisable, quel prélèvement fais-tu ?",
+        "Plaie sans liquide aspirable : quel prélèvement bactériologique ?"
+      ],
+      "options": [
+        "Un écouvillon sec et un écouvillon avec gélose",
+        "Rien, on annule le prélèvement",
+        "Un ECBU à la place",
+        "Des hémocultures à la place"
+      ],
+      "answer": 0,
+      "explain": "Un écouvillon sec et un écouvillon avec milieu de transport (gélose), en identifiant le site prélevé.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-plaie-05",
+      "cat": "plaie",
+      "level": 2,
+      "type": "truefalse",
+      "prompt": "On réalise le prélèvement bactériologique de la plaie avant de faire le pansement.",
+      "variants": [
+        "Le prélèvement bactériologique précède le pansement.",
+        "Je prélève la plaie d'abord, puis je refais le pansement.",
+        "Ordre du soin : prélèvement bactériologique, puis pansement."
+      ],
+      "answer": true,
+      "explain": "Vrai. L'antiseptique du pansement détruirait les germes à identifier et fausserait la culture.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-plaie-06",
+      "cat": "plaie",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Patiente diabétique, plaie opératoire infectée : quelle prise en charge ?",
+      "variants": [
+        "Plaie infectée chez une diabétique : que fais-tu ?",
+        "Prise en charge d'une infection du site opératoire chez une patiente diabétique : lesquelles sont justes ?",
+        "Infection de la cicatrice, patiente diabétique : quels soins ?"
+      ],
+      "options": [
+        "Prendre les constantes hémodynamiques",
+        "Évaluer la douleur",
+        "Faire une glycémie capillaire",
+        "Prélever le bilan infectieux sur prescription",
+        "Faire le pansement antiseptique, puis le prélèvement"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explain": "Constantes, douleur (TILT), glycémie capillaire, VVP avec bilan infectieux (CRP, NFS, PCT, VS), glycémie et bilan rénal, rééquilibrage du diabète sur prescription, prélèvement bactériologique puis pansement. Sans oublier confort, hygiène et relation.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-plaie-07",
+      "cat": "plaie",
+      "level": 3,
+      "type": "cite",
+      "prompt": "Traçabilité d'un pansement : cite 5 éléments à noter.",
+      "variants": [
+        "Après un pansement, que notes-tu dans le dossier ? Cite 5 éléments.",
+        "Pansement : quels éléments tracer ? Cites-en 5.",
+        "Traçabilité de la réfection d'un pansement : donne 5 éléments."
+      ],
+      "need": 5,
+      "answers": [
+        [
+          "date",
+          "heure",
+          "date et heure"
+        ],
+        [
+          "localisation",
+          "siège"
+        ],
+        [
+          "type de plaie",
+          "sutures",
+          "fils",
+          "agrafes",
+          "type"
+        ],
+        [
+          "taille",
+          "forme",
+          "dimensions",
+          "taille et forme"
+        ],
+        [
+          "aspect",
+          "aspect de la plaie",
+          "écoulement"
+        ],
+        [
+          "douleur"
+        ],
+        [
+          "protocole",
+          "matériel",
+          "produits",
+          "protocole et matériel"
+        ],
+        [
+          "identification du soignant",
+          "soignant",
+          "nom",
+          "signature",
+          "identité du soignant"
+        ]
+      ],
+      "explain": "Date et heure, localisation, type de plaie et sutures, taille et forme, aspect, douleur (avant, pendant, après), protocole et matériel, identification du soignant.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-plaie-08",
+      "cat": "plaie",
+      "level": 1,
+      "type": "choice",
+      "prompt": "Qu'est-ce qu'un drain de Redon ?",
+      "variants": [
+        "Drain de Redon : de quoi s'agit-il ?",
+        "À quoi sert un drain de Redon ?",
+        "Définis le drain de Redon."
+      ],
+      "options": [
+        "Un drain aspiratif posé en chirurgie pour évacuer le sang et la lymphe",
+        "Une sonde urinaire",
+        "Un cathéter veineux central",
+        "Un drain passif qui évacue la bile"
+      ],
+      "answer": 0,
+      "explain": "Un drain aspiratif (actif, sous vide), posé au bloc pour évacuer le sang et la lymphe après l'opération. On surveille la quantité et l'aspect du liquide, et le maintien du vide.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-plaie-09",
+      "cat": "plaie",
+      "level": 2,
+      "type": "sort",
+      "prompt": "Complication locale ou générale d'une opération ? Range-les.",
+      "variants": [
+        "Classe ces complications post-opératoires : locales ou générales ?",
+        "Opération de la cheville : complications locales ou générales ?",
+        "Range chaque complication selon qu'elle est locale ou générale."
+      ],
+      "groups": [
+        {
+          "name": "Locale",
+          "items": [
+            "Ostéite",
+            "Syndrome des loges",
+            "Nécrose de la plaie",
+            "Retard de cicatrisation",
+            "Pseudarthrose"
+          ]
+        },
+        {
+          "name": "Générale",
+          "items": [
+            "Septicémie",
+            "Choc septique",
+            "Embolie pulmonaire"
+          ]
+        }
+      ],
+      "explain": "Locales : ostéite, syndrome des loges, nécrose de la plaie, retard de cicatrisation, pseudarthrose. Générales : septicémie, choc septique, embolie pulmonaire.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-plaie-10",
+      "cat": "plaie",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Qu'est-ce qu'une ostéite ?",
+      "variants": [
+        "Ostéite : de quoi s'agit-il ?",
+        "Définis l'ostéite.",
+        "Complication d'une fracture opérée : l'ostéite, c'est…"
+      ],
+      "options": [
+        "Une infection de l'os",
+        "Une inflammation d'une veine",
+        "Une fracture qui ne consolide pas",
+        "Une infection limitée à la peau"
+      ],
+      "answer": 0,
+      "explain": "Une infection de l'os, complication redoutée d'une fracture ouverte ou d'un matériel d'ostéosynthèse.",
+      "src": "complement"
+    },
+    {
+      "id": "25-plaie-11",
+      "cat": "plaie",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Qu'est-ce que la pseudarthrose ?",
+      "variants": [
+        "Pseudarthrose : de quoi s'agit-il ?",
+        "Définis la pseudarthrose.",
+        "Complication d'une fracture : la pseudarthrose, c'est…"
+      ],
+      "options": [
+        "L'absence de consolidation d'une fracture",
+        "Une infection de l'articulation",
+        "Une prothèse articulaire",
+        "Une entorse grave"
+      ],
+      "answer": 0,
+      "explain": "L'absence de consolidation d'une fracture : l'os ne se ressoude pas et reste mobile à l'endroit du trait.",
+      "src": "complement"
+    },
+    {
+      "id": "25-plaie-12",
+      "cat": "plaie",
+      "level": 3,
+      "type": "choice",
+      "prompt": "Qu'est-ce que le syndrome des loges ?",
+      "variants": [
+        "Syndrome des loges : de quoi s'agit-il ?",
+        "Définis le syndrome des loges.",
+        "Complication d'une fracture de jambe : le syndrome des loges, c'est…"
+      ],
+      "options": [
+        "Une hausse de pression dans une loge musculaire qui comprime vaisseaux et nerfs",
+        "Une infection de l'os",
+        "Un caillot dans une veine profonde",
+        "Une raideur articulaire bénigne"
+      ],
+      "answer": 0,
+      "explain": "La pression monte dans une loge musculaire fermée (œdème, saignement, plâtre serré) et écrase vaisseaux et nerfs : douleur intense, tension du membre. Urgence chirurgicale (aponévrotomie).",
+      "src": "complement"
+    },
+    {
+      "id": "25-plaie-13",
+      "cat": "plaie",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Les immunoglobulines antitétaniques apportent une immunité…",
+      "variants": [
+        "Quel type d'immunité donnent les immunoglobulines antitétaniques ?",
+        "Immunoglobulines antitétaniques : immunité active ou passive ?",
+        "Plaie souillée, immunoglobulines antitétaniques : quelle protection ?"
+      ],
+      "options": [
+        "Passive : immédiate mais transitoire",
+        "Active : durable mais lente",
+        "Active et immédiate",
+        "Définitive"
+      ],
+      "answer": 0,
+      "explain": "Passive : on apporte directement des anticorps. Protection immédiate mais transitoire. Le vaccin, lui, donne une immunité active et durable.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-plaie-14",
+      "cat": "plaie",
+      "level": 1,
+      "type": "truefalse",
+      "prompt": "L'immunité passive consiste à administrer des anticorps à une personne.",
+      "variants": [
+        "Donner des anticorps tout faits, c'est de l'immunité passive.",
+        "Immunité passive = injection d'anticorps.",
+        "Avec l'immunité passive, la personne reçoit des anticorps qu'elle n'a pas fabriqués."
+      ],
+      "answer": true,
+      "explain": "Vrai. L'immunité active, elle, stimule le système immunitaire (vaccin) pour qu'il fabrique ses propres anticorps.",
+      "src": "revisions"
+    },
+    {
+      "id": "25-plaie-15",
+      "cat": "plaie",
+      "level": 2,
+      "type": "sort",
+      "prompt": "Immunité active ou passive ? Range-les.",
+      "variants": [
+        "Classe ces protections : immunité active ou passive ?",
+        "Vaccin ou anticorps : active ou passive ?",
+        "Range chaque protection selon le type d'immunité."
+      ],
+      "groups": [
+        {
+          "name": "Active",
+          "items": [
+            "Vaccin antitétanique",
+            "Vaccin contre le pneumocoque",
+            "Vaccin contre le méningocoque"
+          ]
+        },
+        {
+          "name": "Passive",
+          "items": [
+            "Immunoglobulines antitétaniques",
+            "Anticorps de la mère transmis au bébé",
+            "Immunoglobulines anti-hépatite B"
+          ]
+        }
+      ],
+      "explain": "Active : un vaccin fait fabriquer ses propres anticorps (durable). Passive : on reçoit des anticorps tout faits (immédiat, transitoire).",
+      "src": "revisions"
+    },
+    {
+      "id": "25-plaie-16",
+      "cat": "plaie",
+      "level": 1,
+      "type": "choice",
+      "prompt": "La malléole interne appartient au…",
+      "variants": [
+        "De quel os la malléole interne fait-elle partie ?",
+        "Malléole interne : quel os ?",
+        "Quel os forme la malléole interne de la cheville ?"
+      ],
+      "options": [
+        "Tibia",
+        "Péroné (fibula)",
+        "Fémur",
+        "Calcanéum"
+      ],
+      "answer": 0,
+      "explain": "Au tibia. La malléole externe appartient au péroné (fibula).",
+      "src": "fiche"
+    },
+    {
+      "id": "25-plaie-17",
+      "cat": "plaie",
+      "level": 2,
+      "type": "match",
+      "prompt": "Jambe et pied : associe chaque os à sa description.",
+      "variants": [
+        "Os de la jambe et du pied : relie chacun à sa description.",
+        "Tibia, péroné, rotule, calcanéum, astragale : qui est qui ?",
+        "Forme les paires os / description."
+      ],
+      "left": "Os",
+      "right": "Description",
+      "pairs": [
+        [
+          "Tibia",
+          "Os principal de la jambe, porte la malléole interne"
+        ],
+        [
+          "Péroné (fibula)",
+          "Os fin de la jambe, porte la malléole externe"
+        ],
+        [
+          "Rotule (patella)",
+          "Os en avant du genou"
+        ],
+        [
+          "Calcanéum",
+          "Os du talon"
+        ],
+        [
+          "Astragale (talus)",
+          "Os du pied qui s'articule avec le tibia et le péroné"
+        ]
+      ],
+      "explain": "Tibia (malléole interne) et péroné (malléole externe) s'articulent avec l'astragale pour former la cheville ; le calcanéum forme le talon.",
+      "src": "fiche"
+    },
+    {
+      "id": "25-plaie-18",
+      "cat": "plaie",
+      "level": 2,
+      "type": "choice",
+      "prompt": "Quels os forment l'articulation de la cheville ?",
+      "variants": [
+        "Cheville : quels os s'articulent ?",
+        "Articulation de la cheville : quels os la composent ?",
+        "Quels os retrouve-t-on dans l'articulation de la cheville ?"
+      ],
+      "options": [
+        "Tibia, péroné (fibula) et astragale (talus)",
+        "Fémur, tibia et rotule",
+        "Calcanéum et métatarse",
+        "Tibia et fémur"
+      ],
+      "answer": 0,
+      "explain": "Le tibia et le péroné (fibula), avec leurs malléoles, s'emboîtent sur l'astragale (talus).",
+      "src": "fiche"
     }
   ]
 }
